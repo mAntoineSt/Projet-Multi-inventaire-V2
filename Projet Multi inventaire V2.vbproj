@@ -120,6 +120,13 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accueil et Options\Forms\Options.Designer.vb">
+      <DependentUpon>Options.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Accueil et Options\Forms\Options.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes\ClassBD.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +138,7 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -144,6 +152,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Accueil et Options\Forms\Options.resx">
+      <DependentUpon>Options.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
@@ -169,10 +180,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Accueil et Options\Controles utilisateurs\" />
-    <Folder Include="Accueil et Options\Forms\" />
     <Folder Include="Administration\Controles utilisateurs\" />
     <Folder Include="Administration\Forms\" />
-    <Folder Include="Classes\" />
     <Folder Include="Connexion\Controles utilisateurs\" />
     <Folder Include="Connexion\Forms\" />
     <Folder Include="Materiel\Controles utilisateurs\" />

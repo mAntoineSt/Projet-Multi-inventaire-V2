@@ -144,6 +144,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -163,6 +166,22 @@
     </None>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Accueil et Options\Controles utilisateurs\" />
+    <Folder Include="Accueil et Options\Forms\" />
+    <Folder Include="Administration\Controles utilisateurs\" />
+    <Folder Include="Administration\Forms\" />
+    <Folder Include="Classes\" />
+    <Folder Include="Connexion\Controles utilisateurs\" />
+    <Folder Include="Connexion\Forms\" />
+    <Folder Include="Materiel\Controles utilisateurs\" />
+    <Folder Include="Materiel\Forms\" />
+    <Folder Include="Prêts\Controles utilisateurs\" />
+    <Folder Include="Prêts\Forms\" />
+    <Folder Include="Ressources\" />
+    <Folder Include="Retours\Controles utilisateurs\" />
+    <Folder Include="Retours\Forms\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

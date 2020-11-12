@@ -104,10 +104,13 @@ Partial Class Gestion_Admins
         '
         'dgvListeAdministrateurs
         '
-        Me.dgvListeAdministrateurs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvListeAdministrateurs.Location = New System.Drawing.Point(75, 124)
+        Me.dgvListeAdministrateurs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvListeAdministrateurs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.dgvListeAdministrateurs.Location = New System.Drawing.Point(22, 124)
         Me.dgvListeAdministrateurs.Name = "dgvListeAdministrateurs"
-        Me.dgvListeAdministrateurs.Size = New System.Drawing.Size(601, 323)
+        Me.dgvListeAdministrateurs.ReadOnly = True
+        Me.dgvListeAdministrateurs.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.dgvListeAdministrateurs.Size = New System.Drawing.Size(755, 323)
         Me.dgvListeAdministrateurs.TabIndex = 7
         '
         'Gestion_Admins

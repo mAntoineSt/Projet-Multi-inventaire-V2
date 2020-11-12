@@ -28,9 +28,9 @@ Partial Class Gestion_Preteurs
         Me.bAjoutAdmin = New System.Windows.Forms.Button()
         Me.pTitre = New System.Windows.Forms.Panel()
         Me.lTitre = New System.Windows.Forms.Label()
-        Me.dgvListeAdministrateurs = New System.Windows.Forms.DataGridView()
+        Me.dgvListePreteurs = New System.Windows.Forms.DataGridView()
         Me.pTitre.SuspendLayout()
-        CType(Me.dgvListeAdministrateurs, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvListePreteurs, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'bDroitsAdmins
@@ -102,13 +102,17 @@ Partial Class Gestion_Preteurs
         Me.lTitre.TabIndex = 0
         Me.lTitre.Text = "Gestion des prêteurs"
         '
-        'dgvListeAdministrateurs
+        'dgvListePreteurs
         '
-        Me.dgvListeAdministrateurs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvListeAdministrateurs.Location = New System.Drawing.Point(75, 124)
-        Me.dgvListeAdministrateurs.Name = "dgvListeAdministrateurs"
-        Me.dgvListeAdministrateurs.Size = New System.Drawing.Size(601, 323)
-        Me.dgvListeAdministrateurs.TabIndex = 13
+        Me.dgvListePreteurs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvListePreteurs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvListePreteurs.Location = New System.Drawing.Point(22, 124)
+        Me.dgvListePreteurs.Name = "dgvListePreteurs"
+        Me.dgvListePreteurs.ReadOnly = True
+        Me.dgvListePreteurs.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.dgvListePreteurs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvListePreteurs.Size = New System.Drawing.Size(755, 323)
+        Me.dgvListePreteurs.TabIndex = 13
         '
         'Gestion_Preteurs
         '
@@ -119,12 +123,12 @@ Partial Class Gestion_Preteurs
         Me.Controls.Add(Me.bModifAdmin)
         Me.Controls.Add(Me.bAjoutAdmin)
         Me.Controls.Add(Me.pTitre)
-        Me.Controls.Add(Me.dgvListeAdministrateurs)
+        Me.Controls.Add(Me.dgvListePreteurs)
         Me.Name = "Gestion_Preteurs"
         Me.Size = New System.Drawing.Size(1013, 473)
         Me.pTitre.ResumeLayout(False)
         Me.pTitre.PerformLayout()
-        CType(Me.dgvListeAdministrateurs, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvListePreteurs, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -135,5 +139,5 @@ Partial Class Gestion_Preteurs
     Friend WithEvents bAjoutAdmin As Button
     Friend WithEvents pTitre As Panel
     Friend WithEvents lTitre As Label
-    Friend WithEvents dgvListeAdministrateurs As DataGridView
+    Friend WithEvents dgvListePreteurs As DataGridView
 End Class

@@ -1,4 +1,7 @@
-﻿Public Class Ajout_Modif_Admin
+﻿'Importation nécessaire
+Imports MySql.Data.MySqlClient
+
+Public Class Ajout_Modif_Admin
     'Variables nécessaires
     Dim styleVisuel As Integer = 0
     Dim langue As Integer = 0
@@ -14,6 +17,9 @@
         pressetPosteTelephonique,
         pressetCellulaire,
         pressetCourriel As String
+    Dim con As MySqlConnection = New MySqlConnection("Server=localhost;Database=projet_multi;Uid=root;Pwd='';Port=3308;")
+    Dim reader As MySqlDataReader
+    Dim commande As New MySqlCommand
 
 
     'PARTIE FORM------------------------------------------------------------------------------------------
@@ -226,10 +232,117 @@
         Me.Close()
     End Sub
 
-    Private Sub bConfirmer_Click(sender As Object, e As EventArgs) Handles bConfirmer.Click
+    'PARTIE DES BOUTONS------------------------------------------------------------------------------------------
 
+    'Sert à confirmer le tout
+    Private Sub bConfirmer_Click(sender As Object, e As EventArgs) Handles bConfirmer.Click
+        Dim testInt As Integer
+
+        'Vérifications
+
+        'Vérifie si tous les champs obligatoires ont été remplies
+        If tbMatricule.ForeColor = Color.LightGray OrElse tbMdp.ForeColor = Color.LightGray OrElse tbConfirmationMdp.ForeColor = Color.LightGray OrElse tbNom.ForeColor = Color.LightGray OrElse tbPrenom.ForeColor = Color.LightGray OrElse tbDepartementService.ForeColor = Color.LightGray Then
+            MessageBox.Show("Vous n'avez pas remplie tous les champs obligatoires", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+
+        'Vérifie si le matricule est au bon format
+
+        If Not tbMatricule.Text.Length = 7 OrElse Not Integer.TryParse(tbMatricule.Text, testInt) Then
+            MessageBox.Show("Vous n'avez pas entré le bon format de matricule (nombre de 7 chiffres)", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+
+        'Vérifie si le mot de passe et le mot de passe de confirmation sont les mêmes
+        If Not tbMdp.Text = tbConfirmationMdp.Text Then
+            MessageBox.Show("Vous avez écrit 2 mots de passe différents.", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+
+        'Vérifie s'il y a un chiffre dans le nom
+        For index As Integer = 0 To (tbNom.Text.Length - 1)
+            If Integer.TryParse(tbNom.Text.Substring(index, 1), testInt) Then
+                MessageBox.Show("Vous ne pouvz pas mettre de numéros dans un nom.", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
+            End If
+        Next
+
+        'Vérifie s'il y a un chiffre dans le prénom
+        For index As Integer = 0 To (tbPrenom.Text.Length - 1)
+            If Integer.TryParse(tbPrenom.Text.Substring(index, 1), testInt) Then
+                MessageBox.Show("Vous ne pouvz pas mettre de numéros dans un prénom.", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
+            End If
+        Next
+
+        'Vérifie si le numéro de bureau est entièrement numérique
+        If Not tbNumeroBureau.ForeColor = Color.LightGray AndAlso Not Integer.TryParse(tbNumeroBureau.Text, testInt) Then
+            MessageBox.Show("Vous ne devez entrer que des numéros pour le numéro de bureau", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+
+        'Vérifie si le numéro de téléphone de bureau est correct
+        If Not tbTelephoneBureau.ForeColor = Color.LightGray Then
+            Select Case tbTelephoneBureau.Text.Length
+                Case 14
+                    If Not tbTelephoneBureau.Text.Substring(0, 1) = "(" OrElse Not Integer.TryParse(tbTelephoneBureau.Text.Substring(1, 3), testInt) OrElse Not tbTelephoneBureau.Text.Substring(4, 2) = ")-" OrElse Not Integer.TryParse(tbTelephoneBureau.Text.Substring(6, 3), testInt) OrElse Not tbTelephoneBureau.Text.Substring(9, 1) = "-" OrElse Not Integer.TryParse(tbTelephoneBureau.Text.Substring(10, 4), testInt) Then
+                        MessageBox.Show("Vous n'avez pas entré le bon format de téléphone de bureau", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Return
+                    End If
+                Case 12
+                    If Not Integer.TryParse(tbTelephoneBureau.Text.Substring(0, 3), testInt) OrElse Not tbTelephoneBureau.Text.Substring(3, 1) = "-" OrElse Not Integer.TryParse(tbTelephoneBureau.Text.Substring(4, 3), testInt) OrElse Not tbTelephoneBureau.Text.Substring(7, 1) = "-" OrElse Integer.TryParse(tbTelephoneBureau.Text.Substring(8, 4), testInt) Then
+                        MessageBox.Show("Vous n'avez pas entré le bon format de téléphone de bureau", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Return
+                    End If
+                Case 10
+                    If Not Integer.TryParse(tbTelephoneBureau.Text.Substring(0, 10), testInt) Then
+                        MessageBox.Show("Vous n'avez pas entré le bon format de téléphone de bureau", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Return
+                    End If
+                Case Else
+                    MessageBox.Show("Vous n'avez pas entré le bon format de téléphone de bureau", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Return
+            End Select
+        End If
+
+        'Vérifie si le poste téléphonique est entièrement numérique (NE FONCTIONNE PAS)
+        If tbPosteTelephonique.ForeColor = Color.LightGray AndAlso Not Integer.TryParse(tbPosteTelephonique.Text, testInt) Then
+            MessageBox.Show("Vous ne devez entrer que des numéros pour le poste téléphonique", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+
+        'Vérifie si le numéro de cellulaire est au bon format
+        If tbCellulaire.ForeColor = Color.LightGray Then
+            Select Case tbCellulaire.Text.Length
+                Case 14
+                    If Not tbCellulaire.Text.Substring(0, 1) = "(" OrElse Not Integer.TryParse(tbCellulaire.Text.Substring(1, 3), testInt) OrElse Not tbCellulaire.Text.Substring(4, 2) = ")-" OrElse Not Integer.TryParse(tbCellulaire.Text.Substring(6, 3), testInt) OrElse Not tbCellulaire.Text.Substring(9, 1) = "-" OrElse Not Integer.TryParse(tbCellulaire.Text.Substring(10, 4), testInt) Then
+                        MessageBox.Show("Vous n'avez pas entré le bon format de cellulaire", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Return
+                    End If
+                Case 12
+                    If Not Integer.TryParse(tbCellulaire.Text.Substring(0, 3), testInt) OrElse Not tbCellulaire.Text.Substring(3, 1) = "-" OrElse Not Integer.TryParse(tbCellulaire.Text.Substring(4, 3), testInt) OrElse Not tbCellulaire.Text.Substring(7, 1) = "-" OrElse Integer.TryParse(tbCellulaire.Text.Substring(8, 4), testInt) Then
+                        MessageBox.Show("Vous n'avez pas entré le bon format de cellulaire", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Return
+                    End If
+                Case 10
+                    If Not Integer.TryParse(tbCellulaire.Text.Substring(0, 10), testInt) Then
+                        MessageBox.Show("Vous n'avez pas entré le bon format de cellulaire", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Return
+                    End If
+                Case Else
+                    MessageBox.Show("Vous n'avez pas entré le bon format de cellulaire", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Return
+            End Select
+        End If
+
+        'Vérifie si le courriel est au bon format
+
+
+        'Quand toutes les vérifications sont faites, faire l'action demandé par l'utilisateur (selon le titre affiché)
+        envoieInfos()
     End Sub
 
+    'PARTIE DES PANELS-------------------------------------------------------------------------------------------
     Private Sub pHaut_MouseDown(sender As Object, e As MouseEventArgs) Handles pHaut.MouseDown, lTitre.MouseDown, lQuitter.MouseDown
         If e.Button = MouseButtons.Left Then
             emplacement = e.Location
@@ -240,5 +353,47 @@
         If e.Button = MouseButtons.Left Then
             Me.Location += e.Location - emplacement
         End If
+    End Sub
+
+    'LES FONCTIONS----------------------------------------------------------------------------------------------
+    Private Sub envoieInfos()
+        Select Case lTitre.Text
+            Case "Ajout Administrateur"
+                Try
+                    'Vérifie si le matricule existe déjà dans la BD
+                    Dim verifSiExiste As String = ""
+                    commande.Connection = con
+                    commande.CommandText = "Select * from individus where id_individu='" & tbMatricule.Text & "';"
+                    con.Open()
+                    reader = commande.ExecuteReader
+                    While (reader.Read)
+                        verifSiExiste = reader(1)
+                    End While
+
+                    con.Close()
+                    reader.Close()
+
+                    If Not String.IsNullOrWhiteSpace(verifSiExiste) Then
+                        MessageBox.Show("Ce matricule est déjà dans la base de donnée", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Return
+                    End If
+
+                    commande.CommandText = "insert into individus values('" & tbMatricule.Text & "','" & tbNom.Text & "', '" & tbPrenom.Text & "','','info','admin','8195422222','test2','1234');"
+                    con.Open()
+                    commande.ExecuteNonQuery()
+                    con.Close()
+
+                    MessageBox.Show("Ajout de l'administrateur effectué")
+                Catch ex As Exception
+                    MessageBox.Show(ex.Message)
+                    con.Close()
+                    reader.Close()
+                    Return
+                End Try
+            Case "Ajout Emprunteur"
+
+            Case "Ajout Prêteurs"
+
+        End Select
     End Sub
 End Class

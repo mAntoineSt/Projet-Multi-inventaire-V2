@@ -28,9 +28,9 @@ Partial Class Gestion_Emprunteurs
         Me.bAjoutAdmin = New System.Windows.Forms.Button()
         Me.pTitre = New System.Windows.Forms.Panel()
         Me.lTitre = New System.Windows.Forms.Label()
-        Me.dgvListeAdministrateurs = New System.Windows.Forms.DataGridView()
+        Me.dgvListeEmprunteurs = New System.Windows.Forms.DataGridView()
         Me.pTitre.SuspendLayout()
-        CType(Me.dgvListeAdministrateurs, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvListeEmprunteurs, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'bDroitsAdmins
@@ -102,13 +102,17 @@ Partial Class Gestion_Emprunteurs
         Me.lTitre.TabIndex = 0
         Me.lTitre.Text = "Gestion des emprunteurs"
         '
-        'dgvListeAdministrateurs
+        'dgvListeEmprunteurs
         '
-        Me.dgvListeAdministrateurs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvListeAdministrateurs.Location = New System.Drawing.Point(75, 124)
-        Me.dgvListeAdministrateurs.Name = "dgvListeAdministrateurs"
-        Me.dgvListeAdministrateurs.Size = New System.Drawing.Size(601, 323)
-        Me.dgvListeAdministrateurs.TabIndex = 13
+        Me.dgvListeEmprunteurs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvListeEmprunteurs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvListeEmprunteurs.Location = New System.Drawing.Point(22, 124)
+        Me.dgvListeEmprunteurs.Name = "dgvListeEmprunteurs"
+        Me.dgvListeEmprunteurs.ReadOnly = True
+        Me.dgvListeEmprunteurs.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.dgvListeEmprunteurs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvListeEmprunteurs.Size = New System.Drawing.Size(755, 323)
+        Me.dgvListeEmprunteurs.TabIndex = 13
         '
         'Gestion_Emprunteurs
         '
@@ -119,12 +123,12 @@ Partial Class Gestion_Emprunteurs
         Me.Controls.Add(Me.bModifAdmin)
         Me.Controls.Add(Me.bAjoutAdmin)
         Me.Controls.Add(Me.pTitre)
-        Me.Controls.Add(Me.dgvListeAdministrateurs)
+        Me.Controls.Add(Me.dgvListeEmprunteurs)
         Me.Name = "Gestion_Emprunteurs"
         Me.Size = New System.Drawing.Size(1013, 473)
         Me.pTitre.ResumeLayout(False)
         Me.pTitre.PerformLayout()
-        CType(Me.dgvListeAdministrateurs, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvListeEmprunteurs, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -135,5 +139,5 @@ Partial Class Gestion_Emprunteurs
     Friend WithEvents bAjoutAdmin As Button
     Friend WithEvents pTitre As Panel
     Friend WithEvents lTitre As Label
-    Friend WithEvents dgvListeAdministrateurs As DataGridView
+    Friend WithEvents dgvListeEmprunteurs As DataGridView
 End Class

@@ -354,14 +354,17 @@
             Return
         End If
         ucGestionAdmin.BringToFront()
+        ucGestionAdmin.refreshDataGridView()
     End Sub
 
     Private Sub lGestionEmpreuteurs_Click(sender As Object, e As EventArgs) Handles lGestionEmprunteurs.Click
         ucGestionEmprunteurs.BringToFront()
+        ucGestionEmprunteurs.refreshDataGridView()
     End Sub
 
     Private Sub lGestionPreteurs_Click(sender As Object, e As EventArgs) Handles lGestionPreteurs.Click
         ucGestionPreteur.BringToFront()
+        ucGestionPreteur.refreshDataGridView()
     End Sub
 
     Private Sub lStatistiques_Click(sender As Object, e As EventArgs) Handles lStatistiques.Click

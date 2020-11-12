@@ -130,6 +130,7 @@ Public Class Connexion
                     MessageBox.Show("The user you entered does not exist.", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
                 con.Close()
+                reader.Close()
                 refreshTextBoxes()
                 Return
             End If
@@ -142,6 +143,7 @@ Public Class Connexion
                     MessageBox.Show("The password you entered is not correct", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
                 con.Close()
+                reader.Close()
                 refreshTextBoxes()
                 Return
             End If
@@ -155,6 +157,7 @@ Public Class Connexion
         Catch ex As Exception
             MessageBox.Show(ex.Message)
             con.Close()
+            reader.Close()
             refreshTextBoxes()
             Return
         End Try

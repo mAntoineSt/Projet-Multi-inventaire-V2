@@ -120,6 +120,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accueil et Options\Forms\Accueil.Designer.vb">
+      <DependentUpon>Accueil.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Accueil et Options\Forms\Accueil.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Accueil et Options\Forms\Options.Designer.vb">
       <DependentUpon>Options.vb</DependentUpon>
     </Compile>
@@ -209,8 +215,59 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Prêts\Controlesutilisateurs\PretAjout.Designer.vb">
+      <DependentUpon>PretAjout.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Prêts\Controlesutilisateurs\PretAjout.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Prêts\Controlesutilisateurs\PretModification.Designer.vb">
+      <DependentUpon>PretModification.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Prêts\Controlesutilisateurs\PretModification.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Prêts\Controlesutilisateurs\PretSupression.Designer.vb">
+      <DependentUpon>PretSupression.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Prêts\Controlesutilisateurs\PretSupression.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Prêts\Forms\Prets.Designer.vb">
+      <DependentUpon>Prets.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Prêts\Forms\Prets.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Retours\Controles utilisateurs\RetourAjout.Designer.vb">
+      <DependentUpon>RetourAjout.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Retours\Controles utilisateurs\RetourAjout.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Retours\Controles utilisateurs\RetourModification.Designer.vb">
+      <DependentUpon>RetourModification.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Retours\Controles utilisateurs\RetourModification.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Retours\Controles utilisateurs\RetourSupression.Designer.vb">
+      <DependentUpon>RetourSupression.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Retours\Controles utilisateurs\RetourSupression.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Retours\Forms\Retours.Designer.vb">
+      <DependentUpon>Retours.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Retours\Forms\Retours.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Accueil et Options\Forms\Accueil.resx">
+      <DependentUpon>Accueil.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Accueil et Options\Forms\Options.resx">
       <DependentUpon>Options.vb</DependentUpon>
     </EmbeddedResource>
@@ -270,11 +327,7 @@
   <ItemGroup>
     <Folder Include="Accueil et Options\Controles utilisateurs\" />
     <Folder Include="Connexion\Controles utilisateurs\" />
-    <Folder Include="Prêts\Controles utilisateurs\" />
-    <Folder Include="Prêts\Forms\" />
     <Folder Include="Ressources\" />
-    <Folder Include="Retours\Controles utilisateurs\" />
-    <Folder Include="Retours\Forms\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -175,6 +175,24 @@
     <Compile Include="Connexion\Forms\Connexion.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Materiel\Controles utilisateurs\EnregistrementMateriel.Designer.vb">
+      <DependentUpon>EnregistrementMateriel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Materiel\Controles utilisateurs\EnregistrementMateriel.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Materiel\Controles utilisateurs\FicheMateriel.Designer.vb">
+      <DependentUpon>FicheMateriel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Materiel\Controles utilisateurs\FicheMateriel.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Materiel\Forms\GestionMateriel.Designer.vb">
+      <DependentUpon>GestionMateriel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Materiel\Forms\GestionMateriel.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -220,6 +238,15 @@
     <EmbeddedResource Include="Connexion\Forms\Connexion.resx">
       <DependentUpon>Connexion.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Materiel\Controles utilisateurs\EnregistrementMateriel.resx">
+      <DependentUpon>EnregistrementMateriel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Materiel\Controles utilisateurs\FicheMateriel.resx">
+      <DependentUpon>FicheMateriel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Materiel\Forms\GestionMateriel.resx">
+      <DependentUpon>GestionMateriel.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -243,8 +270,6 @@
   <ItemGroup>
     <Folder Include="Accueil et Options\Controles utilisateurs\" />
     <Folder Include="Connexion\Controles utilisateurs\" />
-    <Folder Include="Materiel\Controles utilisateurs\" />
-    <Folder Include="Materiel\Forms\" />
     <Folder Include="Prêts\Controles utilisateurs\" />
     <Folder Include="Prêts\Forms\" />
     <Folder Include="Ressources\" />

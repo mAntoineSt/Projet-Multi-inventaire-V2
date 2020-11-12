@@ -1,17 +1,17 @@
 ﻿Public Class Accueil
     Private Sub FaireUnEmpruntToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FaireUnEmpruntToolStripMenuItem.Click
-        Dim emprunt As New PretAjout()
-        emprunt.Show()
+        'Dim emprunt As New PretAjout()
+        'emprunt.Show()
     End Sub
 
     Private Sub buttonFaireEmprunt_Click(sender As Object, e As EventArgs) Handles buttonFaireEmprunt.Click
-        Dim emprunt As New PretAjout()
-        emprunt.Show()
+        'Dim emprunt As New PretAjout()
+        'emprunt.Show()
     End Sub
 
     Private Sub HistoriqueDesEmpruntsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HistoriqueDesEmpruntsToolStripMenuItem.Click
-        Dim hist As New Prets()
-        hist.Show()
+        'Dim hist As New Prets()
+        'hist.Show()
     End Sub
 
     Private Sub QuitterToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuitterToolStripMenuItem.Click
@@ -45,5 +45,11 @@
     Private Sub buttonHistRetours_Click(sender As Object, e As EventArgs) Handles buttonHistRetours.Click
         Dim hist As New Retours()
         hist.ShowDialog()
+    End Sub
+
+
+    'FONCTIONS-------------------------------------------------------------------------------------------------------
+    Public Sub role(role As String)
+        MessageBox.Show("Un " & role & " vient de se connecter")
     End Sub
 End Class

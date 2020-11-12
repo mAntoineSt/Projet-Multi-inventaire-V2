@@ -9,7 +9,7 @@
 
     Private Sub PretAjout_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim search = RechercheTB.Text
-        EquipmentDGV.DataSource = New dbmultiEntities().equipements.Where(Function(equip) equip.etat.Equals("ok")).Where(Function(equip) equip.nom.Contains(search))
+        'EquipmentDGV.DataSource = New dbmultiEntities().equipements.Where(Function(equip) equip.etat.Equals("ok")).Where(Function(equip) equip.nom.Contains(search))
     End Sub
 
     Private Sub SauvegarderBtn_Click(sender As Object, e As EventArgs) Handles SauvegarderBtn.Click
@@ -28,15 +28,15 @@
         Dim dEmprunt = dateEmprunt.Value
         Dim dRetour = dateRetour.Value
 
-        Dim pret = New pret()
-        pret.date_emprunt = Date.Now
-        pret.date_retour = dRetour
-        pret.id_equipement = eId
-        pret.id_emprunteur = 0
-        pret.id_preteur = 0
+        'Dim pret = New pret()
+        'pret.date_emprunt = Date.Now
+        'pret.date_retour = dRetour
+        'pret.id_equipement = eId
+        'pret.id_emprunteur = 0
+        'pret.id_preteur = 0
 
 
-        Dim prets = New dbmultiEntities().prets
-        prets.Add(pret)
+        'Dim prets = New dbmultiEntities().prets
+        'Prets.Add(pret)
     End Sub
 End Class

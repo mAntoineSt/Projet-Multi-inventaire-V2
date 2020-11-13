@@ -200,6 +200,7 @@ Partial Class Ajout_Modif_Admin
         Me.tbMatricule.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbMatricule.ForeColor = System.Drawing.Color.LightGray
         Me.tbMatricule.Location = New System.Drawing.Point(21, 55)
+        Me.tbMatricule.MaxLength = 7
         Me.tbMatricule.Name = "tbMatricule"
         Me.tbMatricule.Size = New System.Drawing.Size(291, 26)
         Me.tbMatricule.TabIndex = 25

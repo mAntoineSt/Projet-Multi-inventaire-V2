@@ -306,13 +306,13 @@ Public Class Ajout_Modif_Admin
         End If
 
         'Vérifie si le poste téléphonique est entièrement numérique (NE FONCTIONNE PAS)
-        If tbPosteTelephonique.ForeColor = Color.LightGray AndAlso Not Integer.TryParse(tbPosteTelephonique.Text, testInt) Then
+        If Not tbPosteTelephonique.ForeColor = Color.LightGray AndAlso Not Integer.TryParse(tbPosteTelephonique.Text, testInt) Then
             MessageBox.Show("Vous ne devez entrer que des numéros pour le poste téléphonique", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
         End If
 
         'Vérifie si le numéro de cellulaire est au bon format
-        If tbCellulaire.ForeColor = Color.LightGray Then
+        If Not tbCellulaire.ForeColor = Color.LightGray Then
             Select Case tbCellulaire.Text.Length
                 Case 14
                     If Not tbCellulaire.Text.Substring(0, 1) = "(" OrElse Not Integer.TryParse(tbCellulaire.Text.Substring(1, 3), testInt) OrElse Not tbCellulaire.Text.Substring(4, 2) = ")-" OrElse Not Integer.TryParse(tbCellulaire.Text.Substring(6, 3), testInt) OrElse Not tbCellulaire.Text.Substring(9, 1) = "-" OrElse Not Integer.TryParse(tbCellulaire.Text.Substring(10, 4), testInt) Then

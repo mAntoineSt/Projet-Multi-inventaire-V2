@@ -181,10 +181,28 @@
     <Compile Include="Connexion\Forms\Connexion.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Materiel\Controles utilisateurs\ConditionsEmprunt.Designer.vb">
+      <DependentUpon>ConditionsEmprunt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Materiel\Controles utilisateurs\ConditionsEmprunt.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Materiel\Controles utilisateurs\EnregistrementMateriel.Designer.vb">
       <DependentUpon>EnregistrementMateriel.vb</DependentUpon>
     </Compile>
     <Compile Include="Materiel\Controles utilisateurs\EnregistrementMateriel.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Materiel\Controles utilisateurs\EntretienReparation.Designer.vb">
+      <DependentUpon>EntretienReparation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Materiel\Controles utilisateurs\EntretienReparation.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Materiel\Controles utilisateurs\EtatMateriel.Designer.vb">
+      <DependentUpon>EtatMateriel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Materiel\Controles utilisateurs\EtatMateriel.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Materiel\Controles utilisateurs\FicheMateriel.Designer.vb">
@@ -295,8 +313,17 @@
     <EmbeddedResource Include="Connexion\Forms\Connexion.resx">
       <DependentUpon>Connexion.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Materiel\Controles utilisateurs\ConditionsEmprunt.resx">
+      <DependentUpon>ConditionsEmprunt.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Materiel\Controles utilisateurs\EnregistrementMateriel.resx">
       <DependentUpon>EnregistrementMateriel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Materiel\Controles utilisateurs\EntretienReparation.resx">
+      <DependentUpon>EntretienReparation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Materiel\Controles utilisateurs\EtatMateriel.resx">
+      <DependentUpon>EtatMateriel.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Materiel\Controles utilisateurs\FicheMateriel.resx">
       <DependentUpon>FicheMateriel.vb</DependentUpon>

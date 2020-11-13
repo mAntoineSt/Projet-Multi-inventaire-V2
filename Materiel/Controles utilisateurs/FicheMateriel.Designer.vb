@@ -22,6 +22,7 @@ Partial Class FicheMateriel
     'Ne la modifiez pas à l'aide de l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FicheMateriel))
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label25 = New System.Windows.Forms.Label()
@@ -44,25 +45,25 @@ Partial Class FicheMateriel
         Me.txtAnnee = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.Panel2.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(58, 61)
+        Me.DataGridView1.Location = New System.Drawing.Point(14, 33)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(284, 478)
+        Me.DataGridView1.Size = New System.Drawing.Size(295, 514)
         Me.DataGridView1.TabIndex = 4
         '
         'TableLayoutPanel2
@@ -84,7 +85,7 @@ Partial Class FicheMateriel
         Me.TableLayoutPanel2.Controls.Add(Me.Label22, 0, 5)
         Me.TableLayoutPanel2.Controls.Add(Me.Label24, 0, 6)
         Me.TableLayoutPanel2.Controls.Add(Me.txtNoSerie, 1, 0)
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(156, 289)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 277)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 7
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5!))
@@ -94,7 +95,7 @@ Partial Class FicheMateriel
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(325, 168)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(325, 234)
         Me.TableLayoutPanel2.TabIndex = 2
         '
         'Label25
@@ -102,7 +103,7 @@ Partial Class FicheMateriel
         Me.Label25.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label25.AutoSize = True
         Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label25.Location = New System.Drawing.Point(28, 76)
+        Me.Label25.Location = New System.Drawing.Point(28, 107)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(103, 16)
         Me.Label25.TabIndex = 6
@@ -113,7 +114,7 @@ Partial Class FicheMateriel
         Me.txtAntivol.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.txtAntivol.AutoSize = True
         Me.txtAntivol.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAntivol.Location = New System.Drawing.Point(253, 148)
+        Me.txtAntivol.Location = New System.Drawing.Point(253, 208)
         Me.txtAntivol.Name = "txtAntivol"
         Me.txtAntivol.Size = New System.Drawing.Size(69, 16)
         Me.txtAntivol.TabIndex = 9
@@ -124,7 +125,7 @@ Partial Class FicheMateriel
         Me.txtValResd.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.txtValResd.AutoSize = True
         Me.txtValResd.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtValResd.Location = New System.Drawing.Point(276, 100)
+        Me.txtValResd.Location = New System.Drawing.Point(276, 140)
         Me.txtValResd.Name = "txtValResd"
         Me.txtValResd.Size = New System.Drawing.Size(46, 16)
         Me.txtValResd.TabIndex = 10
@@ -135,7 +136,7 @@ Partial Class FicheMateriel
         Me.txtCoutAcquis.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.txtCoutAcquis.AutoSize = True
         Me.txtCoutAcquis.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCoutAcquis.Location = New System.Drawing.Point(269, 76)
+        Me.txtCoutAcquis.Location = New System.Drawing.Point(269, 107)
         Me.txtCoutAcquis.Name = "txtCoutAcquis"
         Me.txtCoutAcquis.Size = New System.Drawing.Size(53, 16)
         Me.txtCoutAcquis.TabIndex = 11
@@ -146,7 +147,7 @@ Partial Class FicheMateriel
         Me.txtFournisseur.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.txtFournisseur.AutoSize = True
         Me.txtFournisseur.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtFournisseur.Location = New System.Drawing.Point(247, 52)
+        Me.txtFournisseur.Location = New System.Drawing.Point(247, 74)
         Me.txtFournisseur.Name = "txtFournisseur"
         Me.txtFournisseur.Size = New System.Drawing.Size(75, 16)
         Me.txtFournisseur.TabIndex = 14
@@ -157,7 +158,7 @@ Partial Class FicheMateriel
         Me.txtCategorie.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.txtCategorie.AutoSize = True
         Me.txtCategorie.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCategorie.Location = New System.Drawing.Point(230, 124)
+        Me.txtCategorie.Location = New System.Drawing.Point(230, 173)
         Me.txtCategorie.Name = "txtCategorie"
         Me.txtCategorie.Size = New System.Drawing.Size(92, 16)
         Me.txtCategorie.TabIndex = 5
@@ -168,7 +169,7 @@ Partial Class FicheMateriel
         Me.Label23.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label23.AutoSize = True
         Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label23.Location = New System.Drawing.Point(53, 52)
+        Me.Label23.Location = New System.Drawing.Point(53, 74)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(78, 16)
         Me.Label23.TabIndex = 4
@@ -179,7 +180,7 @@ Partial Class FicheMateriel
         Me.txtFabricant.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.txtFabricant.AutoSize = True
         Me.txtFabricant.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtFabricant.Location = New System.Drawing.Point(263, 28)
+        Me.txtFabricant.Location = New System.Drawing.Point(263, 41)
         Me.txtFabricant.Name = "txtFabricant"
         Me.txtFabricant.Size = New System.Drawing.Size(59, 16)
         Me.txtFabricant.TabIndex = 12
@@ -190,7 +191,7 @@ Partial Class FicheMateriel
         Me.Label21.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label21.AutoSize = True
         Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label21.Location = New System.Drawing.Point(67, 28)
+        Me.Label21.Location = New System.Drawing.Point(67, 41)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(64, 16)
         Me.Label21.TabIndex = 2
@@ -201,7 +202,7 @@ Partial Class FicheMateriel
         Me.Label19.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label19.AutoSize = True
         Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(70, 4)
+        Me.Label19.Location = New System.Drawing.Point(70, 8)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(61, 16)
         Me.Label19.TabIndex = 0
@@ -212,7 +213,7 @@ Partial Class FicheMateriel
         Me.Label20.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label20.AutoSize = True
         Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label20.Location = New System.Drawing.Point(16, 100)
+        Me.Label20.Location = New System.Drawing.Point(16, 140)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(115, 16)
         Me.Label20.TabIndex = 1
@@ -223,7 +224,7 @@ Partial Class FicheMateriel
         Me.Label22.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label22.AutoSize = True
         Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label22.Location = New System.Drawing.Point(64, 124)
+        Me.Label22.Location = New System.Drawing.Point(64, 173)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(67, 16)
         Me.Label22.TabIndex = 3
@@ -234,7 +235,7 @@ Partial Class FicheMateriel
         Me.Label24.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label24.AutoSize = True
         Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label24.Location = New System.Drawing.Point(62, 148)
+        Me.Label24.Location = New System.Drawing.Point(62, 208)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(69, 16)
         Me.Label24.TabIndex = 5
@@ -245,7 +246,7 @@ Partial Class FicheMateriel
         Me.txtNoSerie.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.txtNoSerie.AutoSize = True
         Me.txtNoSerie.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNoSerie.Location = New System.Drawing.Point(230, 4)
+        Me.txtNoSerie.Location = New System.Drawing.Point(230, 8)
         Me.txtNoSerie.Name = "txtNoSerie"
         Me.txtNoSerie.Size = New System.Drawing.Size(92, 16)
         Me.txtNoSerie.TabIndex = 3
@@ -255,10 +256,10 @@ Partial Class FicheMateriel
         '
         Me.txtDescription.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.txtDescription.AutoSize = True
-        Me.txtDescription.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDescription.Location = New System.Drawing.Point(220, 9)
+        Me.txtDescription.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDescription.Location = New System.Drawing.Point(272, 9)
         Me.txtDescription.Name = "txtDescription"
-        Me.txtDescription.Size = New System.Drawing.Size(50, 16)
+        Me.txtDescription.Size = New System.Drawing.Size(56, 20)
         Me.txtDescription.TabIndex = 2
         Me.txtDescription.Text = "Clavier"
         '
@@ -266,10 +267,10 @@ Partial Class FicheMateriel
         '
         Me.txtMarque.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.txtMarque.AutoSize = True
-        Me.txtMarque.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtMarque.Location = New System.Drawing.Point(211, 43)
+        Me.txtMarque.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtMarque.Location = New System.Drawing.Point(258, 48)
         Me.txtMarque.Name = "txtMarque"
-        Me.txtMarque.Size = New System.Drawing.Size(59, 16)
+        Me.txtMarque.Size = New System.Drawing.Size(70, 20)
         Me.txtMarque.TabIndex = 13
         Me.txtMarque.Text = "Logitech"
         '
@@ -277,10 +278,10 @@ Partial Class FicheMateriel
         '
         Me.txtModele.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.txtModele.AutoSize = True
-        Me.txtModele.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtModele.Location = New System.Drawing.Point(136, 77)
+        Me.txtModele.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtModele.Location = New System.Drawing.Point(164, 87)
         Me.txtModele.Name = "txtModele"
-        Me.txtModele.Size = New System.Drawing.Size(134, 16)
+        Me.txtModele.Size = New System.Drawing.Size(164, 20)
         Me.txtModele.TabIndex = 4
         Me.txtModele.Text = "G910 Orion Spectrum"
         '
@@ -288,10 +289,10 @@ Partial Class FicheMateriel
         '
         Me.txtAnnee.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.txtAnnee.AutoSize = True
-        Me.txtAnnee.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAnnee.Location = New System.Drawing.Point(234, 111)
+        Me.txtAnnee.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAnnee.Location = New System.Drawing.Point(283, 126)
         Me.txtAnnee.Name = "txtAnnee"
-        Me.txtAnnee.Size = New System.Drawing.Size(36, 16)
+        Me.txtAnnee.Size = New System.Drawing.Size(45, 20)
         Me.txtAnnee.TabIndex = 6
         Me.txtAnnee.Text = "2019"
         '
@@ -299,10 +300,10 @@ Partial Class FicheMateriel
         '
         Me.Label15.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label15.AutoSize = True
-        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(17, 9)
+        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Location = New System.Drawing.Point(24, 9)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(76, 16)
+        Me.Label15.Size = New System.Drawing.Size(89, 20)
         Me.Label15.TabIndex = 14
         Me.Label15.Text = "Description"
         '
@@ -312,25 +313,16 @@ Partial Class FicheMateriel
         Me.Panel2.Controls.Add(Me.Label1)
         Me.Panel2.Controls.Add(Me.TableLayoutPanel1)
         Me.Panel2.Controls.Add(Me.TableLayoutPanel2)
-        Me.Panel2.Location = New System.Drawing.Point(348, 61)
+        Me.Panel2.Location = New System.Drawing.Point(315, 33)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(494, 478)
+        Me.Panel2.Size = New System.Drawing.Size(565, 514)
         Me.Panel2.TabIndex = 5
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Location = New System.Drawing.Point(18, 22)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(166, 195)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 1
-        Me.PictureBox1.TabStop = False
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(198, 33)
+        Me.Label1.Location = New System.Drawing.Point(259, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(110, 31)
         Me.Label1.TabIndex = 0
@@ -349,24 +341,24 @@ Partial Class FicheMateriel
         Me.TableLayoutPanel1.Controls.Add(Me.txtModele, 1, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.txtAnnee, 1, 3)
         Me.TableLayoutPanel1.Controls.Add(Me.Label15, 0, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(208, 81)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(231, 52)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 4
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(273, 136)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(331, 156)
         Me.TableLayoutPanel1.TabIndex = 15
         '
         'Label18
         '
         Me.Label18.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label18.AutoSize = True
-        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(46, 111)
+        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.Location = New System.Drawing.Point(57, 126)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(47, 16)
+        Me.Label18.Size = New System.Drawing.Size(56, 20)
         Me.Label18.TabIndex = 17
         Me.Label18.Text = "Année"
         '
@@ -374,10 +366,10 @@ Partial Class FicheMateriel
         '
         Me.Label17.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label17.AutoSize = True
-        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(39, 77)
+        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.Location = New System.Drawing.Point(52, 87)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(54, 16)
+        Me.Label17.Size = New System.Drawing.Size(61, 20)
         Me.Label17.TabIndex = 16
         Me.Label17.Text = "Modèle"
         '
@@ -385,12 +377,22 @@ Partial Class FicheMateriel
         '
         Me.Label16.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label16.AutoSize = True
-        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(39, 43)
+        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Location = New System.Drawing.Point(50, 48)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(54, 16)
+        Me.Label16.Size = New System.Drawing.Size(63, 20)
         Me.Label16.TabIndex = 15
         Me.Label16.Text = "Marque"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(2, 0)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(223, 208)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 16
+        Me.PictureBox1.TabStop = False
         '
         'FicheMateriel
         '
@@ -405,9 +407,9 @@ Partial Class FicheMateriel
         Me.TableLayoutPanel2.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -434,10 +436,10 @@ Partial Class FicheMateriel
     Friend WithEvents txtAnnee As Label
     Friend WithEvents Label15 As Label
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label1 As Label
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents Label18 As Label
     Friend WithEvents Label17 As Label
     Friend WithEvents Label16 As Label
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

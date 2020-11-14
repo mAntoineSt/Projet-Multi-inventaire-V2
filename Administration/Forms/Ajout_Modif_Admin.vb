@@ -38,47 +38,6 @@ Public Class Ajout_Modif_Admin
             bConfirmer.ForeColor = Color.White
             bConfirmer.BackColor = ColorTranslator.FromHtml("#747d8c")
         End If
-
-        'Change la langue selon celle choisie
-        If langue = 0 Then
-            bConfirmer.Text = "CONFIRMER"
-            pressetMatricule = "Utilisateur"
-            pressetMdp = "Mot de passe"
-            pressetConfirmationMdp = "Confirmation du mot de passe"
-            pressetNom = "Nom"
-            pressetPrenom = "Prénom"
-            pressetDepServProg = "Département/Service/Programme"
-            pressetNumBureau = "Numéro de bureau (optionnel)"
-            pressetTelephoneBureau = "Téléphone de bureau (optionnel)"
-            pressetPosteTelephonique = "Poste téléphonique (Optionnel)"
-            pressetCellulaire = "Cellulaire (Optionnel)"
-            pressetCourriel = "Courriel (Optionnel)"
-        Else
-            bConfirmer.Text = "CONFIRM"
-            pressetMatricule = "User"
-            pressetMdp = "Password"
-            pressetConfirmationMdp = "Password confirmation"
-            pressetNom = "Last name"
-            pressetPrenom = "First name"
-            pressetDepServProg = "Department/Service/Program"
-            pressetNumBureau = "Office number (Optional)"
-            pressetTelephoneBureau = "Office phone (Optional)"
-            pressetPosteTelephonique = "Telephone set (Optional)"
-            pressetCellulaire = "Cellular (Optional)"
-            pressetCourriel = "Email (Optional)"
-        End If
-
-        tbMatricule.Text = pressetMatricule
-        tbMdp.Text = pressetMdp
-        tbConfirmationMdp.Text = pressetConfirmationMdp
-        tbNom.Text = pressetNom
-        tbPrenom.Text = pressetPrenom
-        tbDepartementService.Text = pressetDepServProg
-        tbNumeroBureau.Text = pressetNumBureau
-        tbTelephoneBureau.Text = pressetTelephoneBureau
-        tbPosteTelephonique.Text = pressetPosteTelephonique
-        tbCellulaire.Text = pressetCellulaire
-        tbCourriel.Text = pressetCourriel
     End Sub
 
     'PARTIE DES TEXTBOXS----------------------------------------------------------------------------------
@@ -295,7 +254,7 @@ Public Class Ajout_Modif_Admin
                         Return
                     End If
                 Case 10
-                    If Not Integer.TryParse(tbTelephoneBureau.Text.Substring(0, 10), testInt) Then
+                    If Not Integer.TryParse(tbTelephoneBureau.Text.Substring(0, 4), testInt) AndAlso Not Integer.TryParse(tbTelephoneBureau.Text.Substring(4), testInt) Then
                         MessageBox.Show("Vous n'avez pas entré le bon format de téléphone de bureau", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Return
                     End If
@@ -325,7 +284,7 @@ Public Class Ajout_Modif_Admin
                         Return
                     End If
                 Case 10
-                    If Not Integer.TryParse(tbCellulaire.Text.Substring(0, 10), testInt) Then
+                    If Not Integer.TryParse(tbCellulaire.Text.Substring(0, 4), testInt) AndAlso Not Integer.TryParse(tbCellulaire.Text.Substring(4), testInt) Then
                         MessageBox.Show("Vous n'avez pas entré le bon format de cellulaire", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Return
                     End If
@@ -359,41 +318,151 @@ Public Class Ajout_Modif_Admin
     Private Sub envoieInfos()
         Select Case lTitre.Text
             Case "Ajout Administrateur"
-                Try
-                    'Vérifie si le matricule existe déjà dans la BD
-                    Dim verifSiExiste As String = ""
-                    commande.Connection = con
-                    commande.CommandText = "Select * from individus where id_individu='" & tbMatricule.Text & "';"
-                    con.Open()
-                    reader = commande.ExecuteReader
-                    While (reader.Read)
-                        verifSiExiste = reader(1)
-                    End While
+                insertTables("admin")
+                MessageBox.Show("Ajout de l'administrateur effectué", "commande effectuée", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-                    con.Close()
-                    reader.Close()
+            Case "Modification Admin"
+                updateTables()
+                MessageBox.Show("Modification de l'administrateur effectué", "commande effectuée", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-                    If Not String.IsNullOrWhiteSpace(verifSiExiste) Then
-                        MessageBox.Show("Ce matricule est déjà dans la base de donnée", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                        Return
-                    End If
-
-                    commande.CommandText = "insert into individus values('" & tbMatricule.Text & "','" & tbNom.Text & "', '" & tbPrenom.Text & "','','info','admin','8195422222','test2','1234');"
-                    con.Open()
-                    commande.ExecuteNonQuery()
-                    con.Close()
-
-                    MessageBox.Show("Ajout de l'administrateur effectué")
-                Catch ex As Exception
-                    MessageBox.Show(ex.Message)
-                    con.Close()
-                    reader.Close()
-                    Return
-                End Try
             Case "Ajout Emprunteur"
+                insertTables("emprunteur")
+                MessageBox.Show("Ajout de l'emprunteur effectué", "commande effectuée", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-            Case "Ajout Prêteurs"
+            Case "Modification Emprunteur"
+                updateTables()
+                MessageBox.Show("Modification de l'emprunteur effectué", "commande effectuée", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+            Case "Ajout Prêteur"
+                insertTables("preteur")
+                MessageBox.Show("Ajout du prêteur effectué", "commande effectuée", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+            Case "Modification Preteur"
+                updateTables()
+                MessageBox.Show("Modification du prêteur effectué", "commande effectuée", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
         End Select
+        Me.Close()
+    End Sub
+
+    Public Sub refreshAll()
+        'Change la langue selon celle choisie
+        If langue = 0 Then
+            bConfirmer.Text = "CONFIRMER"
+            pressetMatricule = "Utilisateur"
+            pressetMdp = "Mot de passe"
+            pressetConfirmationMdp = "Confirmation du mot de passe"
+            pressetNom = "Nom"
+            pressetPrenom = "Prénom"
+            pressetDepServProg = "Département/Service/Programme"
+            pressetNumBureau = "Numéro de bureau (optionnel)"
+            pressetTelephoneBureau = "Téléphone de bureau (optionnel)"
+            pressetPosteTelephonique = "Poste téléphonique (Optionnel)"
+            pressetCellulaire = "Cellulaire (Optionnel)"
+            pressetCourriel = "Courriel (Optionnel)"
+        Else
+            bConfirmer.Text = "CONFIRM"
+            pressetMatricule = "User"
+            pressetMdp = "Password"
+            pressetConfirmationMdp = "Password confirmation"
+            pressetNom = "Last name"
+            pressetPrenom = "First name"
+            pressetDepServProg = "Department/Service/Program"
+            pressetNumBureau = "Office number (Optional)"
+            pressetTelephoneBureau = "Office phone (Optional)"
+            pressetPosteTelephonique = "Telephone set (Optional)"
+            pressetCellulaire = "Cellular (Optional)"
+            pressetCourriel = "Email (Optional)"
+        End If
+
+        tbMatricule.Text = pressetMatricule
+        tbMatricule.ForeColor = Color.LightGray
+        tbMdp.Text = pressetMdp
+        tbMdp.ForeColor = Color.LightGray
+        tbMdp.UseSystemPasswordChar = False
+        tbConfirmationMdp.Text = pressetConfirmationMdp
+        tbConfirmationMdp.ForeColor = Color.LightGray
+        tbConfirmationMdp.UseSystemPasswordChar = False
+        tbNom.Text = pressetNom
+        tbNom.ForeColor = Color.LightGray
+        tbPrenom.Text = pressetPrenom
+        tbPrenom.ForeColor = Color.LightGray
+        tbDepartementService.Text = pressetDepServProg
+        tbDepartementService.ForeColor = Color.LightGray
+        tbNumeroBureau.Text = pressetNumBureau
+        tbNumeroBureau.ForeColor = Color.LightGray
+        tbTelephoneBureau.Text = pressetTelephoneBureau
+        tbTelephoneBureau.ForeColor = Color.LightGray
+        tbPosteTelephonique.Text = pressetPosteTelephonique
+        tbPosteTelephonique.ForeColor = Color.LightGray
+        tbCellulaire.Text = pressetCellulaire
+        tbCellulaire.ForeColor = Color.LightGray
+        tbCourriel.Text = pressetCourriel
+        tbCourriel.ForeColor = Color.LightGray
+    End Sub
+
+    Private Sub insertTables(statut As String)
+        Try
+            'Vérifie si le matricule existe déjà dans la BD
+            Dim verifSiExiste As String = ""
+            commande.Connection = con
+            commande.CommandText = "Select * from individus where id_individu='" & tbMatricule.Text & "';"
+            con.Open()
+            reader = commande.ExecuteReader
+            While (reader.Read)
+                verifSiExiste = reader(1)
+            End While
+
+            con.Close()
+            reader.Close()
+
+            If Not String.IsNullOrWhiteSpace(verifSiExiste) Then
+                MessageBox.Show("Ce matricule est déjà dans la base de donnée", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
+            End If
+
+            commande.CommandText = "insert into individus values('" & tbMatricule.Text & "','" & tbNom.Text & "', '" & tbPrenom.Text & "','','" & tbDepartementService.Text & "','" & statut & "','8195422222','test2','1234');"
+            con.Open()
+            commande.ExecuteNonQuery()
+            con.Close()
+
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+            con.Close()
+            reader.Close()
+            Return
+        End Try
+    End Sub
+
+    Private Sub updateTables()
+        Try
+            commande.Connection = con
+            commande.CommandText = "update individus set nom='" & tbNom.Text & "' where id_individu='" & tbMatricule.Text & "';"
+            con.Open()
+            commande.ExecuteNonQuery()
+            con.Close()
+            commande.CommandText = "update individus set prenom='" & tbPrenom.Text & "' where id_individu='" & tbMatricule.Text & "';"
+            con.Open()
+            commande.ExecuteNonQuery()
+            con.Close()
+            commande.CommandText = "update individus set departement='" & tbDepartementService.Text & "' where id_individu='" & tbMatricule.Text & "';"
+            con.Open()
+            commande.ExecuteNonQuery()
+            con.Close()
+            commande.CommandText = "update individus set telephone='" & tbCellulaire.Text & "' where id_individu='" & tbMatricule.Text & "';"
+            con.Open()
+            commande.ExecuteNonQuery()
+            con.Close()
+            commande.CommandText = "update individus set courriel='" & tbCourriel.Text & "' where id_individu='" & tbMatricule.Text & "';"
+            con.Open()
+            commande.ExecuteNonQuery()
+            con.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+            con.Close()
+            Return
+        End Try
+        tbMatricule.Enabled = True
     End Sub
 End Class

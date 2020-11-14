@@ -372,7 +372,9 @@
             MessageBox.Show("Vous n'avez pas accès à cette partie administrative.", "AVERTISSEMENT", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
         End If
+        ucStatistiques.refreshInfos()
         ucStatistiques.BringToFront()
+
     End Sub
 
     Private Sub pHaut_MouseDown(sender As Object, e As MouseEventArgs) Handles pHaut.MouseDown, lTitreHaut.MouseDown, lQuitter.MouseDown

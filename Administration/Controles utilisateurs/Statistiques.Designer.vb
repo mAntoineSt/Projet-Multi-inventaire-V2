@@ -328,7 +328,6 @@ Partial Class Statistiques
         'cbPreteursChoixAnnee
         '
         Me.cbPreteursChoixAnnee.FormattingEnabled = True
-        Me.cbPreteursChoixAnnee.Items.AddRange(New Object() {"Aucunes"})
         Me.cbPreteursChoixAnnee.Location = New System.Drawing.Point(581, 20)
         Me.cbPreteursChoixAnnee.Name = "cbPreteursChoixAnnee"
         Me.cbPreteursChoixAnnee.Size = New System.Drawing.Size(110, 21)
@@ -337,7 +336,6 @@ Partial Class Statistiques
         'cbPreteursChoixMois
         '
         Me.cbPreteursChoixMois.FormattingEnabled = True
-        Me.cbPreteursChoixMois.Items.AddRange(New Object() {"Aucunes"})
         Me.cbPreteursChoixMois.Location = New System.Drawing.Point(406, 20)
         Me.cbPreteursChoixMois.Name = "cbPreteursChoixMois"
         Me.cbPreteursChoixMois.Size = New System.Drawing.Size(110, 21)
@@ -548,7 +546,6 @@ Partial Class Statistiques
         'cbEmprunteurChoixAnnee
         '
         Me.cbEmprunteurChoixAnnee.FormattingEnabled = True
-        Me.cbEmprunteurChoixAnnee.Items.AddRange(New Object() {"Aucunes"})
         Me.cbEmprunteurChoixAnnee.Location = New System.Drawing.Point(581, 20)
         Me.cbEmprunteurChoixAnnee.Name = "cbEmprunteurChoixAnnee"
         Me.cbEmprunteurChoixAnnee.Size = New System.Drawing.Size(110, 21)
@@ -557,7 +554,6 @@ Partial Class Statistiques
         'cbEmprunteurChoixMois
         '
         Me.cbEmprunteurChoixMois.FormattingEnabled = True
-        Me.cbEmprunteurChoixMois.Items.AddRange(New Object() {"Aucunes"})
         Me.cbEmprunteurChoixMois.Location = New System.Drawing.Point(406, 20)
         Me.cbEmprunteurChoixMois.Name = "cbEmprunteurChoixMois"
         Me.cbEmprunteurChoixMois.Size = New System.Drawing.Size(110, 21)
@@ -892,7 +888,6 @@ Partial Class Statistiques
         'cbGlobaleChoixAnnee
         '
         Me.cbGlobaleChoixAnnee.FormattingEnabled = True
-        Me.cbGlobaleChoixAnnee.Items.AddRange(New Object() {"Aucunes"})
         Me.cbGlobaleChoixAnnee.Location = New System.Drawing.Point(581, 20)
         Me.cbGlobaleChoixAnnee.Name = "cbGlobaleChoixAnnee"
         Me.cbGlobaleChoixAnnee.Size = New System.Drawing.Size(110, 21)
@@ -901,7 +896,6 @@ Partial Class Statistiques
         'cbGlobaleChoixMois
         '
         Me.cbGlobaleChoixMois.FormattingEnabled = True
-        Me.cbGlobaleChoixMois.Items.AddRange(New Object() {"Aucunes"})
         Me.cbGlobaleChoixMois.Location = New System.Drawing.Point(406, 20)
         Me.cbGlobaleChoixMois.Name = "cbGlobaleChoixMois"
         Me.cbGlobaleChoixMois.Size = New System.Drawing.Size(110, 21)
@@ -1053,7 +1047,6 @@ Partial Class Statistiques
         'cbAdminsChoixAnnee
         '
         Me.cbAdminsChoixAnnee.FormattingEnabled = True
-        Me.cbAdminsChoixAnnee.Items.AddRange(New Object() {"Aucunes"})
         Me.cbAdminsChoixAnnee.Location = New System.Drawing.Point(581, 20)
         Me.cbAdminsChoixAnnee.Name = "cbAdminsChoixAnnee"
         Me.cbAdminsChoixAnnee.Size = New System.Drawing.Size(110, 21)
@@ -1062,7 +1055,6 @@ Partial Class Statistiques
         'cbAdminsChoixMois
         '
         Me.cbAdminsChoixMois.FormattingEnabled = True
-        Me.cbAdminsChoixMois.Items.AddRange(New Object() {"Aucunes"})
         Me.cbAdminsChoixMois.Location = New System.Drawing.Point(406, 20)
         Me.cbAdminsChoixMois.Name = "cbAdminsChoixMois"
         Me.cbAdminsChoixMois.Size = New System.Drawing.Size(110, 21)

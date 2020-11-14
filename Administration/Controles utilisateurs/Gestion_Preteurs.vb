@@ -107,4 +107,8 @@ Public Class Gestion_Preteurs
             Return
         End If
     End Sub
+
+    Private Sub Gestion_Preteurs_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

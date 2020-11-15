@@ -373,6 +373,7 @@
             Return
         End If
         ucStatistiques.refreshInfos()
+        ucStatistiques.refreshComboboxes()
         ucStatistiques.BringToFront()
 
     End Sub

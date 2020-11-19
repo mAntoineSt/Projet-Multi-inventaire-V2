@@ -50,35 +50,35 @@ Public Class Statistiques
 
     'PARTIE BOUTONS archivage externe
 
-    'PARTIE XLSX (EXCEL)
-    Private Sub bPreteursXLSX_Click(sender As Object, e As EventArgs) Handles bPreteursXLSX.Click
-        archivageXLSX(1)
+    'PARTIE CSV (EXCEL)
+    Private Sub bPreteursCSV_Click(sender As Object, e As EventArgs) Handles bPreteursXLSX.Click
+        archivageCSV(1)
     End Sub
 
-    Private Sub bEmprunteursXLSX_Click(sender As Object, e As EventArgs) Handles bEmprunteursXLSX.Click
-        archivageXLSX(2)
+    Private Sub bEmprunteursCSV_Click(sender As Object, e As EventArgs) Handles bEmprunteursXLSX.Click
+        archivageCSV(2)
     End Sub
 
-    Private Sub bAdminsXLSX_Click(sender As Object, e As EventArgs) Handles bAdminsXLSX.Click
-        archivageXLSX(3)
+    Private Sub bAdminsCSV_Click(sender As Object, e As EventArgs) Handles bAdminsXLSX.Click
+        archivageCSV(3)
     End Sub
 
-    Private Sub bGlobaleXLSX_Click(sender As Object, e As EventArgs) Handles bGlobaleXLSX.Click
-        archivageXLSX(4)
+    Private Sub bGlobaleCSV_Click(sender As Object, e As EventArgs) Handles bGlobaleXLSX.Click
+        archivageCSV(4)
     End Sub
 
-    Private Sub archivageXLSX(type As Integer)
+    Private Sub archivageCSV(type As Integer)
         Dim sfd As New SaveFileDialog
 
-        sfd.Filter = "Excel Files|*.xlsx"
-        sfd.DefaultExt = "xlsx"
+        sfd.Filter = "CSV|*.csv"
+        sfd.DefaultExt = "csv"
         sfd.ShowDialog()
 
         If String.IsNullOrWhiteSpace(sfd.FileName) Then
             Return
         End If
 
-        Dim sw As New StreamWriter(sfd.FileName)
+        Dim sw As New StreamWriter(sfd.FileName & ".csv")
 
 
 
@@ -87,12 +87,12 @@ Public Class Statistiques
                 'Partie Prêteurs
                 sw.WriteLine("Résumé des statistiques des prêteurs")
                 sw.WriteLine("")
-                sw.WriteLine("Nombre de prêteurs;", lPreteursNbrPreteurs)
-                sw.WriteLine("Nombre de prêteurs actifs;", lPreteursNbrPreteursActifs)
-                sw.WriteLine("Nombre de prêteurs suspendues;", lPreteursNbrPreteursSuspendues)
-                sw.WriteLine("Nombre de prêts autorisés;", lPreteursNbrPretsAutorisees)
-                sw.WriteLine("Nombre de retours autorisés;", lPreteursNbrRetoursAutorisees)
-                sw.WriteLine("Nombre de retours en attente d'autorisations;", lPreteursNbrRetoursAttentesAutorisation)
+                sw.WriteLine("Nombre de prêteurs;" & lPreteursNbrPreteurs.Text)
+                sw.WriteLine("Nombre de prêteurs actifs;" & lPreteursNbrPreteursActifs.Text)
+                sw.WriteLine("Nombre de prêteurs suspendues;" & lPreteursNbrPreteursSuspendues.Text)
+                sw.WriteLine("Nombre de prêts autorisés;" & lPreteursNbrPretsAutorisees.Text)
+                sw.WriteLine("Nombre de retours autorisés;" & lPreteursNbrRetoursAutorisees.Text)
+                sw.WriteLine("Nombre de retours en attente d'autorisations;" & lPreteursNbrRetoursAttentesAutorisation.Text)
 
             Case 2
                 'Partie Emprunteurs

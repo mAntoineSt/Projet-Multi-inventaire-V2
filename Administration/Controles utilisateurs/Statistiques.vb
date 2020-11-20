@@ -51,23 +51,23 @@ Public Class Statistiques
     'PARTIE BOUTONS archivage externe
 
     'PARTIE CSV (EXCEL)
-    Private Sub bPreteursCSV_Click(sender As Object, e As EventArgs) Handles bPreteursXLSX.Click
+    Private Sub bPreteursCSV_Click(sender As Object, e As EventArgs) Handles bPreteursCSV.Click
         archivageCSV(1)
     End Sub
 
-    Private Sub bEmprunteursCSV_Click(sender As Object, e As EventArgs) Handles bEmprunteursXLSX.Click
+    Private Sub bEmprunteursCSV_Click(sender As Object, e As EventArgs) Handles bEmprunteursCSV.Click
         archivageCSV(2)
     End Sub
 
-    Private Sub bAdminsCSV_Click(sender As Object, e As EventArgs) Handles bAdminsXLSX.Click
+    Private Sub bAdminsCSV_Click(sender As Object, e As EventArgs) Handles bAdminsCSV.Click
         archivageCSV(3)
     End Sub
 
-    Private Sub bGlobaleCSV_Click(sender As Object, e As EventArgs) Handles bGlobaleXLSX.Click
+    Private Sub bGlobaleCSV_Click(sender As Object, e As EventArgs) Handles bGlobaleCSV.Click
         archivageCSV(4)
     End Sub
 
-    Private Sub archivageCSV(type As Integer)
+    Private Sub archivageCSV(typeInfo As Integer)
         Dim sfd As New SaveFileDialog
 
         sfd.Filter = "CSV|*.csv"
@@ -78,11 +78,9 @@ Public Class Statistiques
             Return
         End If
 
-        Dim sw As New StreamWriter(sfd.FileName & ".csv")
+        Dim sw As New StreamWriter(sfd.FileName)
 
-
-
-        Select Case type
+        Select Case typeInfo
             Case 1
                 'Partie Prêteurs
                 sw.WriteLine("Résumé des statistiques des prêteurs")
@@ -96,50 +94,126 @@ Public Class Statistiques
 
             Case 2
                 'Partie Emprunteurs
+                sw.WriteLine("Résumé des statistiques des emprunteurs")
+                sw.WriteLine("")
+                sw.WriteLine("Nombre d'emprunteurs : " & lEmprunteursNbrEmprunteurs.Text)
+                sw.WriteLine("Nombre d'emprunteurs actifs : " & lEmprunteursNbrEmpruntsActifs.Text)
+                sw.WriteLine("Nombre d'emprunteurs suspendues : " & lEmprunteurNbrEmprunteursSuspendues.Text)
+                sw.WriteLine("Nombre de prêts effectuées : " & lEmprunteurNbrPretsEffectuees.Text)
+                sw.WriteLine("Nombre de prêts actifs : " & lEmprunteursNbrPretsActifs.Text)
+                sw.WriteLine("Nombre de retours effectuées : " & lEmprunteursNbrRetoursEffectuees.Text)
+                sw.WriteLine("Nombre de retours en attente : " & lEmprunteursNbrRetoursAttentes.Text)
 
             Case 3
                 'Partie Admins
+                sw.WriteLine("Résumé des statistiques des administrateurs")
+                sw.WriteLine("")
+                sw.WriteLine("Nombre d'admins :" & lAdminsNombreAdmins.Text)
+                sw.WriteLine("Nombre d'admins actifs :" & lAdminsNbrAdminsActifs.Text)
+                sw.WriteLine("Nombre d'admins suspendues :" & lAdminsNbrAdminsSuspendues.Text)
 
             Case 4
                 'Partie Globale
+                sw.WriteLine("Résumé des statistiques de la globalité du logiciel")
+                sw.WriteLine("")
+                sw.WriteLine("Nombre d'ouvertures de l'application :" & lNbrOuverturesApplis.Text)
+                sw.WriteLine("Nombre de prêts enregistré :" & lNbrPrets.Text)
+                sw.WriteLine("Nombre de retours effectuées :" & lNbrRetours.Text)
+                sw.WriteLine("Nombre de personnes inscrites dans la base de données :" & lNbrPersonneBD.Text)
+                sw.WriteLine("Nombre d'emprunteurs inscrit :" & lNbrEmprunteurs.Text)
+                sw.WriteLine("Nombre de prêteurs inscrit :" & lNbrPreteurs.Text)
+                sw.WriteLine("Nombre d'administrateurs inscrit :" & lNbrAdministratifs.Text)
+                sw.WriteLine("Nombre d'équipements inscrit :" & lNbrEquipements.Text)
+                sw.WriteLine("Nombre de conditions inscrites :" & lNbrConditions.Text)
+                sw.WriteLine("Nombre de responsabilités inscrites :" & lNbrResponsabilites.Text)
+                sw.WriteLine("Nombre de frais de retards accumulées :" & lNbrFraisRetards.Text)
 
         End Select
-
+        MessageBox.Show("Le fichier a été enregistré !", "Enregistrement effectué", MessageBoxButtons.OK, MessageBoxIcon.Information)
         sw.Close()
     End Sub
 
     'PARTIE DOCS (Word)
-    Private Sub bPreteursDOCS_Click(sender As Object, e As EventArgs) Handles bPreteursDOCS.Click
-        archivageDOCS(1)
+    Private Sub bPreteursDOC_Click(sender As Object, e As EventArgs) Handles bPreteursDOC.Click
+        archivageDOC(1)
     End Sub
 
-    Private Sub bEmprunteursDOCS_Click(sender As Object, e As EventArgs) Handles bEmprunteursDOCS.Click
-        archivageDOCS(2)
+    Private Sub bEmprunteursDOC_Click(sender As Object, e As EventArgs) Handles bEmprunteursDOC.Click
+        archivageDOC(2)
     End Sub
 
-    Private Sub bAdminsDOCS_Click(sender As Object, e As EventArgs) Handles bAdminsDOCS.Click
-        archivageDOCS(3)
+    Private Sub bAdminsDOC_Click(sender As Object, e As EventArgs) Handles bAdminsDOC.Click
+        archivageDOC(3)
     End Sub
 
-    Private Sub bGlobaleDOCS_Click(sender As Object, e As EventArgs) Handles bGlobaleDOCS.Click
-        archivageDOCS(4)
+    Private Sub bGlobaleDOC_Click(sender As Object, e As EventArgs) Handles bGlobaleDOC.Click
+        archivageDOC(4)
     End Sub
 
-    Private Sub archivageDOCS(type As Integer)
-        Select Case type
+    Private Sub archivageDOC(typeInfo As Integer)
+        Dim sfd As New SaveFileDialog
+
+        sfd.Filter = "DOC|*.doc"
+        sfd.DefaultExt = "doc"
+        sfd.ShowDialog()
+
+        If String.IsNullOrWhiteSpace(sfd.FileName) Then
+            Return
+        End If
+
+        Dim sw As New StreamWriter(sfd.FileName)
+
+        Select Case typeInfo
             Case 1
                 'Partie Prêteurs
+                sw.WriteLine("Résumé des statistiques des prêteurs")
+                sw.WriteLine("")
+                sw.WriteLine("Nombre de prêteurs;" & lPreteursNbrPreteurs.Text)
+                sw.WriteLine("Nombre de prêteurs actifs;" & lPreteursNbrPreteursActifs.Text)
+                sw.WriteLine("Nombre de prêteurs suspendues;" & lPreteursNbrPreteursSuspendues.Text)
+                sw.WriteLine("Nombre de prêts autorisés;" & lPreteursNbrPretsAutorisees.Text)
+                sw.WriteLine("Nombre de retours autorisés;" & lPreteursNbrRetoursAutorisees.Text)
+                sw.WriteLine("Nombre de retours en attente d'autorisations;" & lPreteursNbrRetoursAttentesAutorisation.Text)
 
             Case 2
                 'Partie Emprunteurs
+                sw.WriteLine("Résumé des statistiques des emprunteurs")
+                sw.WriteLine("")
+                sw.WriteLine("Nombre d'emprunteurs : " & lEmprunteursNbrEmprunteurs.Text)
+                sw.WriteLine("Nombre d'emprunteurs actifs : " & lEmprunteursNbrEmpruntsActifs.Text)
+                sw.WriteLine("Nombre d'emprunteurs suspendues : " & lEmprunteurNbrEmprunteursSuspendues.Text)
+                sw.WriteLine("Nombre de prêts effectuées : " & lEmprunteurNbrPretsEffectuees.Text)
+                sw.WriteLine("Nombre de prêts actifs : " & lEmprunteursNbrPretsActifs.Text)
+                sw.WriteLine("Nombre de retours effectuées : " & lEmprunteursNbrRetoursEffectuees.Text)
+                sw.WriteLine("Nombre de retours en attente : " & lEmprunteursNbrRetoursAttentes.Text)
 
             Case 3
                 'Partie Admins
+                sw.WriteLine("Résumé des statistiques des administrateurs")
+                sw.WriteLine("")
+                sw.WriteLine("Nombre d'admins :" & lAdminsNombreAdmins.Text)
+                sw.WriteLine("Nombre d'admins actifs :" & lAdminsNbrAdminsActifs.Text)
+                sw.WriteLine("Nombre d'admins suspendues :" & lAdminsNbrAdminsSuspendues.Text)
 
             Case 4
                 'Partie Globale
+                sw.WriteLine("Résumé des statistiques de la globalité du logiciel")
+                sw.WriteLine("")
+                sw.WriteLine("Nombre d'ouvertures de l'application :" & lNbrOuverturesApplis.Text)
+                sw.WriteLine("Nombre de prêts enregistré :" & lNbrPrets.Text)
+                sw.WriteLine("Nombre de retours effectuées :" & lNbrRetours.Text)
+                sw.WriteLine("Nombre de personnes inscrites dans la base de données :" & lNbrPersonneBD.Text)
+                sw.WriteLine("Nombre d'emprunteurs inscrit :" & lNbrEmprunteurs.Text)
+                sw.WriteLine("Nombre de prêteurs inscrit :" & lNbrPreteurs.Text)
+                sw.WriteLine("Nombre d'administrateurs inscrit :" & lNbrAdministratifs.Text)
+                sw.WriteLine("Nombre d'équipements inscrit :" & lNbrEquipements.Text)
+                sw.WriteLine("Nombre de conditions inscrites :" & lNbrConditions.Text)
+                sw.WriteLine("Nombre de responsabilités inscrites :" & lNbrResponsabilites.Text)
+                sw.WriteLine("Nombre de frais de retards accumulées :" & lNbrFraisRetards.Text)
 
         End Select
+        MessageBox.Show("Le fichier a été enregistré !", "Enregistrement effectué", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        sw.Close()
     End Sub
 
     'PARTIE PDF
@@ -159,21 +233,70 @@ Public Class Statistiques
         archivagePDF(4)
     End Sub
 
-    Private Sub archivagePDF(type As Integer)
-        Select Case type
+    Private Sub archivagePDF(typeInfo As Integer)
+        Dim sfd As New SaveFileDialog
+
+        sfd.Filter = "PDF|*.pdf"
+        sfd.DefaultExt = "pdf"
+        sfd.ShowDialog()
+
+        If String.IsNullOrWhiteSpace(sfd.FileName) Then
+            Return
+        End If
+
+        Dim sw As New StreamWriter(sfd.FileName)
+
+        Select Case typeInfo
             Case 1
                 'Partie Prêteurs
+                sw.WriteLine("Résumé des statistiques des prêteurs")
+                sw.WriteLine("")
+                sw.WriteLine("Nombre de prêteurs;" & lPreteursNbrPreteurs.Text)
+                sw.WriteLine("Nombre de prêteurs actifs;" & lPreteursNbrPreteursActifs.Text)
+                sw.WriteLine("Nombre de prêteurs suspendues;" & lPreteursNbrPreteursSuspendues.Text)
+                sw.WriteLine("Nombre de prêts autorisés;" & lPreteursNbrPretsAutorisees.Text)
+                sw.WriteLine("Nombre de retours autorisés;" & lPreteursNbrRetoursAutorisees.Text)
+                sw.WriteLine("Nombre de retours en attente d'autorisations;" & lPreteursNbrRetoursAttentesAutorisation.Text)
 
             Case 2
                 'Partie Emprunteurs
+                sw.WriteLine("Résumé des statistiques des emprunteurs")
+                sw.WriteLine("")
+                sw.WriteLine("Nombre d'emprunteurs : " & lEmprunteursNbrEmprunteurs.Text)
+                sw.WriteLine("Nombre d'emprunteurs actifs : " & lEmprunteursNbrEmpruntsActifs.Text)
+                sw.WriteLine("Nombre d'emprunteurs suspendues : " & lEmprunteurNbrEmprunteursSuspendues.Text)
+                sw.WriteLine("Nombre de prêts effectuées : " & lEmprunteurNbrPretsEffectuees.Text)
+                sw.WriteLine("Nombre de prêts actifs : " & lEmprunteursNbrPretsActifs.Text)
+                sw.WriteLine("Nombre de retours effectuées : " & lEmprunteursNbrRetoursEffectuees.Text)
+                sw.WriteLine("Nombre de retours en attente : " & lEmprunteursNbrRetoursAttentes.Text)
 
             Case 3
                 'Partie Admins
+                sw.WriteLine("Résumé des statistiques des administrateurs")
+                sw.WriteLine("")
+                sw.WriteLine("Nombre d'admins :" & lAdminsNombreAdmins.Text)
+                sw.WriteLine("Nombre d'admins actifs :" & lAdminsNbrAdminsActifs.Text)
+                sw.WriteLine("Nombre d'admins suspendues :" & lAdminsNbrAdminsSuspendues.Text)
 
             Case 4
                 'Partie Globale
+                sw.WriteLine("Résumé des statistiques de la globalité du logiciel")
+                sw.WriteLine("")
+                sw.WriteLine("Nombre d'ouvertures de l'application :" & lNbrOuverturesApplis.Text)
+                sw.WriteLine("Nombre de prêts enregistré :" & lNbrPrets.Text)
+                sw.WriteLine("Nombre de retours effectuées :" & lNbrRetours.Text)
+                sw.WriteLine("Nombre de personnes inscrites dans la base de données :" & lNbrPersonneBD.Text)
+                sw.WriteLine("Nombre d'emprunteurs inscrit :" & lNbrEmprunteurs.Text)
+                sw.WriteLine("Nombre de prêteurs inscrit :" & lNbrPreteurs.Text)
+                sw.WriteLine("Nombre d'administrateurs inscrit :" & lNbrAdministratifs.Text)
+                sw.WriteLine("Nombre d'équipements inscrit :" & lNbrEquipements.Text)
+                sw.WriteLine("Nombre de conditions inscrites :" & lNbrConditions.Text)
+                sw.WriteLine("Nombre de responsabilités inscrites :" & lNbrResponsabilites.Text)
+                sw.WriteLine("Nombre de frais de retards accumulées :" & lNbrFraisRetards.Text)
 
         End Select
+        MessageBox.Show("Le fichier a été enregistré !", "Enregistrement effectué", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        sw.Close()
     End Sub
 
     Public Sub refreshComboboxes()
@@ -706,7 +829,7 @@ Public Class Statistiques
                     con.Open()
                     reader = commande.ExecuteReader
                     reader.Read()
-                    Label12.Text = reader(0)
+                    lEmprunteurNbrEmprunteursSuspendues.Text = reader(0)
                     reader.Close()
                     con.Close()
 
@@ -763,7 +886,7 @@ Public Class Statistiques
                     con.Open()
                     reader = commande.ExecuteReader
                     reader.Read()
-                    Label12.Text = reader(0)
+                    lEmprunteurNbrEmprunteursSuspendues.Text = reader(0)
                     reader.Close()
                     con.Close()
 
@@ -819,7 +942,7 @@ Public Class Statistiques
                     con.Open()
                     reader = commande.ExecuteReader
                     reader.Read()
-                    Label12.Text = reader(0)
+                    lEmprunteurNbrEmprunteursSuspendues.Text = reader(0)
                     reader.Close()
                     con.Close()
 
@@ -875,7 +998,7 @@ Public Class Statistiques
                     con.Open()
                     reader = commande.ExecuteReader
                     reader.Read()
-                    Label12.Text = reader(0)
+                    lEmprunteurNbrEmprunteursSuspendues.Text = reader(0)
                     reader.Close()
                     con.Close()
 

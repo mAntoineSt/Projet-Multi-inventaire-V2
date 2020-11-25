@@ -22,10 +22,10 @@ Partial Class Gestion_Preteurs
     'Ne la modifiez pas à l'aide de l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.bDroitsAdmins = New System.Windows.Forms.Button()
-        Me.bSuppressionAdmin = New System.Windows.Forms.Button()
-        Me.bModifAdmin = New System.Windows.Forms.Button()
-        Me.bAjoutAdmin = New System.Windows.Forms.Button()
+        Me.bDroitsPreteur = New System.Windows.Forms.Button()
+        Me.bSuppressionPreteur = New System.Windows.Forms.Button()
+        Me.bModifPreteur = New System.Windows.Forms.Button()
+        Me.bAjoutPreteur = New System.Windows.Forms.Button()
         Me.pTitre = New System.Windows.Forms.Panel()
         Me.lTitre = New System.Windows.Forms.Label()
         Me.dgvListePreteurs = New System.Windows.Forms.DataGridView()
@@ -33,53 +33,53 @@ Partial Class Gestion_Preteurs
         CType(Me.dgvListePreteurs, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'bDroitsAdmins
+        'bDroitsPreteur
         '
-        Me.bDroitsAdmins.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.bDroitsAdmins.ForeColor = System.Drawing.Color.White
-        Me.bDroitsAdmins.Location = New System.Drawing.Point(795, 367)
-        Me.bDroitsAdmins.Name = "bDroitsAdmins"
-        Me.bDroitsAdmins.Size = New System.Drawing.Size(142, 56)
-        Me.bDroitsAdmins.TabIndex = 18
-        Me.bDroitsAdmins.TabStop = False
-        Me.bDroitsAdmins.Text = "Enlever/Remettre les droits d'un administrateur"
-        Me.bDroitsAdmins.UseVisualStyleBackColor = True
+        Me.bDroitsPreteur.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.bDroitsPreteur.ForeColor = System.Drawing.Color.White
+        Me.bDroitsPreteur.Location = New System.Drawing.Point(795, 367)
+        Me.bDroitsPreteur.Name = "bDroitsPreteur"
+        Me.bDroitsPreteur.Size = New System.Drawing.Size(142, 56)
+        Me.bDroitsPreteur.TabIndex = 18
+        Me.bDroitsPreteur.TabStop = False
+        Me.bDroitsPreteur.Text = "Enlever/Remettre les droits d'un administrateur"
+        Me.bDroitsPreteur.UseVisualStyleBackColor = True
         '
-        'bSuppressionAdmin
+        'bSuppressionPreteur
         '
-        Me.bSuppressionAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.bSuppressionAdmin.ForeColor = System.Drawing.Color.White
-        Me.bSuppressionAdmin.Location = New System.Drawing.Point(795, 293)
-        Me.bSuppressionAdmin.Name = "bSuppressionAdmin"
-        Me.bSuppressionAdmin.Size = New System.Drawing.Size(142, 56)
-        Me.bSuppressionAdmin.TabIndex = 17
-        Me.bSuppressionAdmin.TabStop = False
-        Me.bSuppressionAdmin.Text = "Supprimer un administrateur"
-        Me.bSuppressionAdmin.UseVisualStyleBackColor = True
+        Me.bSuppressionPreteur.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.bSuppressionPreteur.ForeColor = System.Drawing.Color.White
+        Me.bSuppressionPreteur.Location = New System.Drawing.Point(795, 293)
+        Me.bSuppressionPreteur.Name = "bSuppressionPreteur"
+        Me.bSuppressionPreteur.Size = New System.Drawing.Size(142, 56)
+        Me.bSuppressionPreteur.TabIndex = 17
+        Me.bSuppressionPreteur.TabStop = False
+        Me.bSuppressionPreteur.Text = "Supprimer un administrateur"
+        Me.bSuppressionPreteur.UseVisualStyleBackColor = True
         '
-        'bModifAdmin
+        'bModifPreteur
         '
-        Me.bModifAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.bModifAdmin.ForeColor = System.Drawing.Color.White
-        Me.bModifAdmin.Location = New System.Drawing.Point(795, 221)
-        Me.bModifAdmin.Name = "bModifAdmin"
-        Me.bModifAdmin.Size = New System.Drawing.Size(142, 56)
-        Me.bModifAdmin.TabIndex = 16
-        Me.bModifAdmin.TabStop = False
-        Me.bModifAdmin.Text = "Modifier un administrateur"
-        Me.bModifAdmin.UseVisualStyleBackColor = True
+        Me.bModifPreteur.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.bModifPreteur.ForeColor = System.Drawing.Color.White
+        Me.bModifPreteur.Location = New System.Drawing.Point(795, 221)
+        Me.bModifPreteur.Name = "bModifPreteur"
+        Me.bModifPreteur.Size = New System.Drawing.Size(142, 56)
+        Me.bModifPreteur.TabIndex = 16
+        Me.bModifPreteur.TabStop = False
+        Me.bModifPreteur.Text = "Modifier un administrateur"
+        Me.bModifPreteur.UseVisualStyleBackColor = True
         '
-        'bAjoutAdmin
+        'bAjoutPreteur
         '
-        Me.bAjoutAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.bAjoutAdmin.ForeColor = System.Drawing.Color.White
-        Me.bAjoutAdmin.Location = New System.Drawing.Point(795, 148)
-        Me.bAjoutAdmin.Name = "bAjoutAdmin"
-        Me.bAjoutAdmin.Size = New System.Drawing.Size(142, 56)
-        Me.bAjoutAdmin.TabIndex = 15
-        Me.bAjoutAdmin.TabStop = False
-        Me.bAjoutAdmin.Text = "Ajouter un nouvel administrateur"
-        Me.bAjoutAdmin.UseVisualStyleBackColor = True
+        Me.bAjoutPreteur.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.bAjoutPreteur.ForeColor = System.Drawing.Color.White
+        Me.bAjoutPreteur.Location = New System.Drawing.Point(795, 148)
+        Me.bAjoutPreteur.Name = "bAjoutPreteur"
+        Me.bAjoutPreteur.Size = New System.Drawing.Size(142, 56)
+        Me.bAjoutPreteur.TabIndex = 15
+        Me.bAjoutPreteur.TabStop = False
+        Me.bAjoutPreteur.Text = "Ajouter un nouvel administrateur"
+        Me.bAjoutPreteur.UseVisualStyleBackColor = True
         '
         'pTitre
         '
@@ -107,6 +107,7 @@ Partial Class Gestion_Preteurs
         Me.dgvListePreteurs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvListePreteurs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvListePreteurs.Location = New System.Drawing.Point(22, 124)
+        Me.dgvListePreteurs.MultiSelect = False
         Me.dgvListePreteurs.Name = "dgvListePreteurs"
         Me.dgvListePreteurs.ReadOnly = True
         Me.dgvListePreteurs.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
@@ -118,10 +119,10 @@ Partial Class Gestion_Preteurs
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Controls.Add(Me.bDroitsAdmins)
-        Me.Controls.Add(Me.bSuppressionAdmin)
-        Me.Controls.Add(Me.bModifAdmin)
-        Me.Controls.Add(Me.bAjoutAdmin)
+        Me.Controls.Add(Me.bDroitsPreteur)
+        Me.Controls.Add(Me.bSuppressionPreteur)
+        Me.Controls.Add(Me.bModifPreteur)
+        Me.Controls.Add(Me.bAjoutPreteur)
         Me.Controls.Add(Me.pTitre)
         Me.Controls.Add(Me.dgvListePreteurs)
         Me.Name = "Gestion_Preteurs"
@@ -133,10 +134,10 @@ Partial Class Gestion_Preteurs
 
     End Sub
 
-    Friend WithEvents bDroitsAdmins As Button
-    Friend WithEvents bSuppressionAdmin As Button
-    Friend WithEvents bModifAdmin As Button
-    Friend WithEvents bAjoutAdmin As Button
+    Friend WithEvents bDroitsPreteur As Button
+    Friend WithEvents bSuppressionPreteur As Button
+    Friend WithEvents bModifPreteur As Button
+    Friend WithEvents bAjoutPreteur As Button
     Friend WithEvents pTitre As Panel
     Friend WithEvents lTitre As Label
     Friend WithEvents dgvListePreteurs As DataGridView

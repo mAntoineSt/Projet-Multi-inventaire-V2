@@ -37,8 +37,8 @@ Partial Class Statistiques
         Me.lPreteursTitreNbrPreteursActifs = New System.Windows.Forms.Label()
         Me.lPreteursTitreNbrPreteurs = New System.Windows.Forms.Label()
         Me.bPreteursPDF = New System.Windows.Forms.Button()
-        Me.bPreteursDOCS = New System.Windows.Forms.Button()
-        Me.bPreteursXLSX = New System.Windows.Forms.Button()
+        Me.bPreteursDOC = New System.Windows.Forms.Button()
+        Me.bPreteursCSV = New System.Windows.Forms.Button()
         Me.lPreteursTitre = New System.Windows.Forms.Label()
         Me.cbPreteursChoixAnnee = New System.Windows.Forms.ComboBox()
         Me.cbPreteursChoixMois = New System.Windows.Forms.ComboBox()
@@ -52,7 +52,7 @@ Partial Class Statistiques
         Me.lEmprunteursNbrEmprunteurs = New System.Windows.Forms.Label()
         Me.lEmprunteursTitreNbrRetoursAttentes = New System.Windows.Forms.Label()
         Me.lEmprunteurTitreEmprunteursSuspendues = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
+        Me.lEmprunteurNbrEmprunteursSuspendues = New System.Windows.Forms.Label()
         Me.lEmprunteursTitreNbrRetoursEffectuees = New System.Windows.Forms.Label()
         Me.pCategories = New System.Windows.Forms.Panel()
         Me.gbPartieEmprunteurs = New System.Windows.Forms.GroupBox()
@@ -65,14 +65,14 @@ Partial Class Statistiques
         Me.lEmprunteurTitreChoixAnnee = New System.Windows.Forms.Label()
         Me.lEmprunteurTitreChoixMois = New System.Windows.Forms.Label()
         Me.bEmprunteursPDF = New System.Windows.Forms.Button()
-        Me.bEmprunteursDOCS = New System.Windows.Forms.Button()
-        Me.bEmprunteursXLSX = New System.Windows.Forms.Button()
+        Me.bEmprunteursDOC = New System.Windows.Forms.Button()
+        Me.bEmprunteursCSV = New System.Windows.Forms.Button()
         Me.gbGlobale = New System.Windows.Forms.GroupBox()
         Me.lNbrFraisRetards = New System.Windows.Forms.Label()
         Me.lTitreNbrFraisRetards = New System.Windows.Forms.Label()
         Me.bGlobalePDF = New System.Windows.Forms.Button()
-        Me.bGlobaleDOCS = New System.Windows.Forms.Button()
-        Me.bGlobaleXLSX = New System.Windows.Forms.Button()
+        Me.bGlobaleDOC = New System.Windows.Forms.Button()
+        Me.bGlobaleCSV = New System.Windows.Forms.Button()
         Me.lNbrResponsabilites = New System.Windows.Forms.Label()
         Me.lNbrConditions = New System.Windows.Forms.Label()
         Me.lNbrEquipements = New System.Windows.Forms.Label()
@@ -106,8 +106,8 @@ Partial Class Statistiques
         Me.lAdminsTitreNbrAdminsActifs = New System.Windows.Forms.Label()
         Me.lAdminsTitreNombreAdmins = New System.Windows.Forms.Label()
         Me.bAdminsPDF = New System.Windows.Forms.Button()
-        Me.bAdminsDOCS = New System.Windows.Forms.Button()
-        Me.bAdminsXLSX = New System.Windows.Forms.Button()
+        Me.bAdminsDOC = New System.Windows.Forms.Button()
+        Me.bAdminsCSV = New System.Windows.Forms.Button()
         Me.lTitreAdministrateur = New System.Windows.Forms.Label()
         Me.cbAdminsChoixAnnee = New System.Windows.Forms.ComboBox()
         Me.cbAdminsChoixMois = New System.Windows.Forms.ComboBox()
@@ -149,8 +149,8 @@ Partial Class Statistiques
         Me.gbPartiePreteurs.Controls.Add(Me.lPreteursTitreNbrPreteursActifs)
         Me.gbPartiePreteurs.Controls.Add(Me.lPreteursTitreNbrPreteurs)
         Me.gbPartiePreteurs.Controls.Add(Me.bPreteursPDF)
-        Me.gbPartiePreteurs.Controls.Add(Me.bPreteursDOCS)
-        Me.gbPartiePreteurs.Controls.Add(Me.bPreteursXLSX)
+        Me.gbPartiePreteurs.Controls.Add(Me.bPreteursDOC)
+        Me.gbPartiePreteurs.Controls.Add(Me.bPreteursCSV)
         Me.gbPartiePreteurs.Controls.Add(Me.lPreteursTitre)
         Me.gbPartiePreteurs.Controls.Add(Me.cbPreteursChoixAnnee)
         Me.gbPartiePreteurs.Controls.Add(Me.cbPreteursChoixMois)
@@ -295,25 +295,25 @@ Partial Class Statistiques
         Me.bPreteursPDF.Text = "Exporter en .PDF"
         Me.bPreteursPDF.UseVisualStyleBackColor = True
         '
-        'bPreteursDOCS
+        'bPreteursDOC
         '
-        Me.bPreteursDOCS.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.bPreteursDOCS.Location = New System.Drawing.Point(508, 184)
-        Me.bPreteursDOCS.Name = "bPreteursDOCS"
-        Me.bPreteursDOCS.Size = New System.Drawing.Size(164, 71)
-        Me.bPreteursDOCS.TabIndex = 23
-        Me.bPreteursDOCS.Text = "Exporter en .DOCS"
-        Me.bPreteursDOCS.UseVisualStyleBackColor = True
+        Me.bPreteursDOC.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.bPreteursDOC.Location = New System.Drawing.Point(508, 184)
+        Me.bPreteursDOC.Name = "bPreteursDOC"
+        Me.bPreteursDOC.Size = New System.Drawing.Size(164, 71)
+        Me.bPreteursDOC.TabIndex = 23
+        Me.bPreteursDOC.Text = "Exporter en .DOC"
+        Me.bPreteursDOC.UseVisualStyleBackColor = True
         '
-        'bPreteursXLSX
+        'bPreteursCSV
         '
-        Me.bPreteursXLSX.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.bPreteursXLSX.Location = New System.Drawing.Point(508, 93)
-        Me.bPreteursXLSX.Name = "bPreteursXLSX"
-        Me.bPreteursXLSX.Size = New System.Drawing.Size(164, 71)
-        Me.bPreteursXLSX.TabIndex = 24
-        Me.bPreteursXLSX.Text = "Exporter en .XLSX"
-        Me.bPreteursXLSX.UseVisualStyleBackColor = True
+        Me.bPreteursCSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.bPreteursCSV.Location = New System.Drawing.Point(508, 93)
+        Me.bPreteursCSV.Name = "bPreteursCSV"
+        Me.bPreteursCSV.Size = New System.Drawing.Size(164, 71)
+        Me.bPreteursCSV.TabIndex = 24
+        Me.bPreteursCSV.Text = "Exporter en .CSV"
+        Me.bPreteursCSV.UseVisualStyleBackColor = True
         '
         'lPreteursTitre
         '
@@ -328,7 +328,6 @@ Partial Class Statistiques
         'cbPreteursChoixAnnee
         '
         Me.cbPreteursChoixAnnee.FormattingEnabled = True
-        Me.cbPreteursChoixAnnee.Items.AddRange(New Object() {"Aucunes"})
         Me.cbPreteursChoixAnnee.Location = New System.Drawing.Point(581, 20)
         Me.cbPreteursChoixAnnee.Name = "cbPreteursChoixAnnee"
         Me.cbPreteursChoixAnnee.Size = New System.Drawing.Size(110, 21)
@@ -337,7 +336,6 @@ Partial Class Statistiques
         'cbPreteursChoixMois
         '
         Me.cbPreteursChoixMois.FormattingEnabled = True
-        Me.cbPreteursChoixMois.Items.AddRange(New Object() {"Aucunes"})
         Me.cbPreteursChoixMois.Location = New System.Drawing.Point(406, 20)
         Me.cbPreteursChoixMois.Name = "cbPreteursChoixMois"
         Me.cbPreteursChoixMois.Size = New System.Drawing.Size(110, 21)
@@ -441,15 +439,15 @@ Partial Class Statistiques
         Me.lEmprunteurTitreEmprunteursSuspendues.TabIndex = 22
         Me.lEmprunteurTitreEmprunteursSuspendues.Text = "Nombre d'emprunteurs suspendues : "
         '
-        'Label12
+        'lEmprunteurNbrEmprunteursSuspendues
         '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!)
-        Me.Label12.Location = New System.Drawing.Point(343, 168)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(20, 22)
-        Me.Label12.TabIndex = 26
-        Me.Label12.Text = "0"
+        Me.lEmprunteurNbrEmprunteursSuspendues.AutoSize = True
+        Me.lEmprunteurNbrEmprunteursSuspendues.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!)
+        Me.lEmprunteurNbrEmprunteursSuspendues.Location = New System.Drawing.Point(343, 168)
+        Me.lEmprunteurNbrEmprunteursSuspendues.Name = "lEmprunteurNbrEmprunteursSuspendues"
+        Me.lEmprunteurNbrEmprunteursSuspendues.Size = New System.Drawing.Size(20, 22)
+        Me.lEmprunteurNbrEmprunteursSuspendues.TabIndex = 26
+        Me.lEmprunteurNbrEmprunteursSuspendues.Text = "0"
         '
         'lEmprunteursTitreNbrRetoursEffectuees
         '
@@ -478,7 +476,7 @@ Partial Class Statistiques
         Me.gbPartieEmprunteurs.Controls.Add(Me.lEmprunteursNbrRetoursEffectuees)
         Me.gbPartieEmprunteurs.Controls.Add(Me.lEmprunteursNbrPretsActifs)
         Me.gbPartieEmprunteurs.Controls.Add(Me.lEmprunteurNbrPretsEffectuees)
-        Me.gbPartieEmprunteurs.Controls.Add(Me.Label12)
+        Me.gbPartieEmprunteurs.Controls.Add(Me.lEmprunteurNbrEmprunteursSuspendues)
         Me.gbPartieEmprunteurs.Controls.Add(Me.lEmprunteursNbrEmpruntsActifs)
         Me.gbPartieEmprunteurs.Controls.Add(Me.lEmprunteursNbrEmprunteurs)
         Me.gbPartieEmprunteurs.Controls.Add(Me.lEmprunteursTitreNbrRetoursAttentes)
@@ -494,10 +492,10 @@ Partial Class Statistiques
         Me.gbPartieEmprunteurs.Controls.Add(Me.lEmprunteurTitreChoixAnnee)
         Me.gbPartieEmprunteurs.Controls.Add(Me.lEmprunteurTitreChoixMois)
         Me.gbPartieEmprunteurs.Controls.Add(Me.bEmprunteursPDF)
-        Me.gbPartieEmprunteurs.Controls.Add(Me.bEmprunteursDOCS)
-        Me.gbPartieEmprunteurs.Controls.Add(Me.bEmprunteursXLSX)
+        Me.gbPartieEmprunteurs.Controls.Add(Me.bEmprunteursDOC)
+        Me.gbPartieEmprunteurs.Controls.Add(Me.bEmprunteursCSV)
         Me.gbPartieEmprunteurs.ForeColor = System.Drawing.Color.White
-        Me.gbPartieEmprunteurs.Location = New System.Drawing.Point(12, 13)
+        Me.gbPartieEmprunteurs.Location = New System.Drawing.Point(12, 10)
         Me.gbPartieEmprunteurs.Name = "gbPartieEmprunteurs"
         Me.gbPartieEmprunteurs.Size = New System.Drawing.Size(697, 396)
         Me.gbPartieEmprunteurs.TabIndex = 5
@@ -548,7 +546,6 @@ Partial Class Statistiques
         'cbEmprunteurChoixAnnee
         '
         Me.cbEmprunteurChoixAnnee.FormattingEnabled = True
-        Me.cbEmprunteurChoixAnnee.Items.AddRange(New Object() {"Aucunes"})
         Me.cbEmprunteurChoixAnnee.Location = New System.Drawing.Point(581, 20)
         Me.cbEmprunteurChoixAnnee.Name = "cbEmprunteurChoixAnnee"
         Me.cbEmprunteurChoixAnnee.Size = New System.Drawing.Size(110, 21)
@@ -557,7 +554,6 @@ Partial Class Statistiques
         'cbEmprunteurChoixMois
         '
         Me.cbEmprunteurChoixMois.FormattingEnabled = True
-        Me.cbEmprunteurChoixMois.Items.AddRange(New Object() {"Aucunes"})
         Me.cbEmprunteurChoixMois.Location = New System.Drawing.Point(406, 20)
         Me.cbEmprunteurChoixMois.Name = "cbEmprunteurChoixMois"
         Me.cbEmprunteurChoixMois.Size = New System.Drawing.Size(110, 21)
@@ -591,33 +587,33 @@ Partial Class Statistiques
         Me.bEmprunteursPDF.Text = "Exporter en .PDF"
         Me.bEmprunteursPDF.UseVisualStyleBackColor = True
         '
-        'bEmprunteursDOCS
+        'bEmprunteursDOC
         '
-        Me.bEmprunteursDOCS.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.bEmprunteursDOCS.Location = New System.Drawing.Point(508, 184)
-        Me.bEmprunteursDOCS.Name = "bEmprunteursDOCS"
-        Me.bEmprunteursDOCS.Size = New System.Drawing.Size(164, 71)
-        Me.bEmprunteursDOCS.TabIndex = 10
-        Me.bEmprunteursDOCS.Text = "Exporter en .DOCS"
-        Me.bEmprunteursDOCS.UseVisualStyleBackColor = True
+        Me.bEmprunteursDOC.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.bEmprunteursDOC.Location = New System.Drawing.Point(508, 184)
+        Me.bEmprunteursDOC.Name = "bEmprunteursDOC"
+        Me.bEmprunteursDOC.Size = New System.Drawing.Size(164, 71)
+        Me.bEmprunteursDOC.TabIndex = 10
+        Me.bEmprunteursDOC.Text = "Exporter en .DOC"
+        Me.bEmprunteursDOC.UseVisualStyleBackColor = True
         '
-        'bEmprunteursXLSX
+        'bEmprunteursCSV
         '
-        Me.bEmprunteursXLSX.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.bEmprunteursXLSX.Location = New System.Drawing.Point(508, 93)
-        Me.bEmprunteursXLSX.Name = "bEmprunteursXLSX"
-        Me.bEmprunteursXLSX.Size = New System.Drawing.Size(164, 71)
-        Me.bEmprunteursXLSX.TabIndex = 11
-        Me.bEmprunteursXLSX.Text = "Exporter en .XLSX"
-        Me.bEmprunteursXLSX.UseVisualStyleBackColor = True
+        Me.bEmprunteursCSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.bEmprunteursCSV.Location = New System.Drawing.Point(508, 93)
+        Me.bEmprunteursCSV.Name = "bEmprunteursCSV"
+        Me.bEmprunteursCSV.Size = New System.Drawing.Size(164, 71)
+        Me.bEmprunteursCSV.TabIndex = 11
+        Me.bEmprunteursCSV.Text = "Exporter en .CSV"
+        Me.bEmprunteursCSV.UseVisualStyleBackColor = True
         '
         'gbGlobale
         '
         Me.gbGlobale.Controls.Add(Me.lNbrFraisRetards)
         Me.gbGlobale.Controls.Add(Me.lTitreNbrFraisRetards)
         Me.gbGlobale.Controls.Add(Me.bGlobalePDF)
-        Me.gbGlobale.Controls.Add(Me.bGlobaleDOCS)
-        Me.gbGlobale.Controls.Add(Me.bGlobaleXLSX)
+        Me.gbGlobale.Controls.Add(Me.bGlobaleDOC)
+        Me.gbGlobale.Controls.Add(Me.bGlobaleCSV)
         Me.gbGlobale.Controls.Add(Me.lNbrResponsabilites)
         Me.gbGlobale.Controls.Add(Me.lNbrConditions)
         Me.gbGlobale.Controls.Add(Me.lNbrEquipements)
@@ -644,7 +640,7 @@ Partial Class Statistiques
         Me.gbGlobale.Controls.Add(Me.lGlobaleChoixAnnee)
         Me.gbGlobale.Controls.Add(Me.lGlobaleChoixMois)
         Me.gbGlobale.ForeColor = System.Drawing.Color.White
-        Me.gbGlobale.Location = New System.Drawing.Point(12, 13)
+        Me.gbGlobale.Location = New System.Drawing.Point(12, 10)
         Me.gbGlobale.Name = "gbGlobale"
         Me.gbGlobale.Size = New System.Drawing.Size(697, 396)
         Me.gbGlobale.TabIndex = 4
@@ -679,25 +675,25 @@ Partial Class Statistiques
         Me.bGlobalePDF.Text = "Exporter en .PDF"
         Me.bGlobalePDF.UseVisualStyleBackColor = True
         '
-        'bGlobaleDOCS
+        'bGlobaleDOC
         '
-        Me.bGlobaleDOCS.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.bGlobaleDOCS.Location = New System.Drawing.Point(508, 184)
-        Me.bGlobaleDOCS.Name = "bGlobaleDOCS"
-        Me.bGlobaleDOCS.Size = New System.Drawing.Size(164, 71)
-        Me.bGlobaleDOCS.TabIndex = 7
-        Me.bGlobaleDOCS.Text = "Exporter en .DOCS"
-        Me.bGlobaleDOCS.UseVisualStyleBackColor = True
+        Me.bGlobaleDOC.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.bGlobaleDOC.Location = New System.Drawing.Point(508, 184)
+        Me.bGlobaleDOC.Name = "bGlobaleDOC"
+        Me.bGlobaleDOC.Size = New System.Drawing.Size(164, 71)
+        Me.bGlobaleDOC.TabIndex = 7
+        Me.bGlobaleDOC.Text = "Exporter en .DOC"
+        Me.bGlobaleDOC.UseVisualStyleBackColor = True
         '
-        'bGlobaleXLSX
+        'bGlobaleCSV
         '
-        Me.bGlobaleXLSX.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.bGlobaleXLSX.Location = New System.Drawing.Point(508, 93)
-        Me.bGlobaleXLSX.Name = "bGlobaleXLSX"
-        Me.bGlobaleXLSX.Size = New System.Drawing.Size(164, 71)
-        Me.bGlobaleXLSX.TabIndex = 8
-        Me.bGlobaleXLSX.Text = "Exporter en .XLSX"
-        Me.bGlobaleXLSX.UseVisualStyleBackColor = True
+        Me.bGlobaleCSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.bGlobaleCSV.Location = New System.Drawing.Point(508, 93)
+        Me.bGlobaleCSV.Name = "bGlobaleCSV"
+        Me.bGlobaleCSV.Size = New System.Drawing.Size(164, 71)
+        Me.bGlobaleCSV.TabIndex = 8
+        Me.bGlobaleCSV.Text = "Exporter en .CSV"
+        Me.bGlobaleCSV.UseVisualStyleBackColor = True
         '
         'lNbrResponsabilites
         '
@@ -892,7 +888,6 @@ Partial Class Statistiques
         'cbGlobaleChoixAnnee
         '
         Me.cbGlobaleChoixAnnee.FormattingEnabled = True
-        Me.cbGlobaleChoixAnnee.Items.AddRange(New Object() {"Aucunes"})
         Me.cbGlobaleChoixAnnee.Location = New System.Drawing.Point(581, 20)
         Me.cbGlobaleChoixAnnee.Name = "cbGlobaleChoixAnnee"
         Me.cbGlobaleChoixAnnee.Size = New System.Drawing.Size(110, 21)
@@ -901,7 +896,6 @@ Partial Class Statistiques
         'cbGlobaleChoixMois
         '
         Me.cbGlobaleChoixMois.FormattingEnabled = True
-        Me.cbGlobaleChoixMois.Items.AddRange(New Object() {"Aucunes"})
         Me.cbGlobaleChoixMois.Location = New System.Drawing.Point(406, 20)
         Me.cbGlobaleChoixMois.Name = "cbGlobaleChoixMois"
         Me.cbGlobaleChoixMois.Size = New System.Drawing.Size(110, 21)
@@ -934,8 +928,8 @@ Partial Class Statistiques
         Me.gbPartieAdministrateur.Controls.Add(Me.lAdminsTitreNbrAdminsActifs)
         Me.gbPartieAdministrateur.Controls.Add(Me.lAdminsTitreNombreAdmins)
         Me.gbPartieAdministrateur.Controls.Add(Me.bAdminsPDF)
-        Me.gbPartieAdministrateur.Controls.Add(Me.bAdminsDOCS)
-        Me.gbPartieAdministrateur.Controls.Add(Me.bAdminsXLSX)
+        Me.gbPartieAdministrateur.Controls.Add(Me.bAdminsDOC)
+        Me.gbPartieAdministrateur.Controls.Add(Me.bAdminsCSV)
         Me.gbPartieAdministrateur.Controls.Add(Me.lTitreAdministrateur)
         Me.gbPartieAdministrateur.Controls.Add(Me.cbAdminsChoixAnnee)
         Me.gbPartieAdministrateur.Controls.Add(Me.cbAdminsChoixMois)
@@ -1020,25 +1014,25 @@ Partial Class Statistiques
         Me.bAdminsPDF.Text = "Exporter en .PDF"
         Me.bAdminsPDF.UseVisualStyleBackColor = True
         '
-        'bAdminsDOCS
+        'bAdminsDOC
         '
-        Me.bAdminsDOCS.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.bAdminsDOCS.Location = New System.Drawing.Point(508, 184)
-        Me.bAdminsDOCS.Name = "bAdminsDOCS"
-        Me.bAdminsDOCS.Size = New System.Drawing.Size(164, 71)
-        Me.bAdminsDOCS.TabIndex = 31
-        Me.bAdminsDOCS.Text = "Exporter en .DOCS"
-        Me.bAdminsDOCS.UseVisualStyleBackColor = True
+        Me.bAdminsDOC.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.bAdminsDOC.Location = New System.Drawing.Point(508, 184)
+        Me.bAdminsDOC.Name = "bAdminsDOC"
+        Me.bAdminsDOC.Size = New System.Drawing.Size(164, 71)
+        Me.bAdminsDOC.TabIndex = 31
+        Me.bAdminsDOC.Text = "Exporter en .DOC"
+        Me.bAdminsDOC.UseVisualStyleBackColor = True
         '
-        'bAdminsXLSX
+        'bAdminsCSV
         '
-        Me.bAdminsXLSX.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.bAdminsXLSX.Location = New System.Drawing.Point(508, 93)
-        Me.bAdminsXLSX.Name = "bAdminsXLSX"
-        Me.bAdminsXLSX.Size = New System.Drawing.Size(164, 71)
-        Me.bAdminsXLSX.TabIndex = 32
-        Me.bAdminsXLSX.Text = "Exporter en .XLSX"
-        Me.bAdminsXLSX.UseVisualStyleBackColor = True
+        Me.bAdminsCSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.bAdminsCSV.Location = New System.Drawing.Point(508, 93)
+        Me.bAdminsCSV.Name = "bAdminsCSV"
+        Me.bAdminsCSV.Size = New System.Drawing.Size(164, 71)
+        Me.bAdminsCSV.TabIndex = 32
+        Me.bAdminsCSV.Text = "Exporter en .CSV"
+        Me.bAdminsCSV.UseVisualStyleBackColor = True
         '
         'lTitreAdministrateur
         '
@@ -1053,7 +1047,6 @@ Partial Class Statistiques
         'cbAdminsChoixAnnee
         '
         Me.cbAdminsChoixAnnee.FormattingEnabled = True
-        Me.cbAdminsChoixAnnee.Items.AddRange(New Object() {"Aucunes"})
         Me.cbAdminsChoixAnnee.Location = New System.Drawing.Point(581, 20)
         Me.cbAdminsChoixAnnee.Name = "cbAdminsChoixAnnee"
         Me.cbAdminsChoixAnnee.Size = New System.Drawing.Size(110, 21)
@@ -1062,7 +1055,6 @@ Partial Class Statistiques
         'cbAdminsChoixMois
         '
         Me.cbAdminsChoixMois.FormattingEnabled = True
-        Me.cbAdminsChoixMois.Items.AddRange(New Object() {"Aucunes"})
         Me.cbAdminsChoixMois.Location = New System.Drawing.Point(406, 20)
         Me.cbAdminsChoixMois.Name = "cbAdminsChoixMois"
         Me.cbAdminsChoixMois.Size = New System.Drawing.Size(110, 21)
@@ -1170,8 +1162,8 @@ Partial Class Statistiques
     Friend WithEvents lPreteursTitreNbrPreteursActifs As Label
     Friend WithEvents lPreteursTitreNbrPreteurs As Label
     Friend WithEvents bPreteursPDF As Button
-    Friend WithEvents bPreteursDOCS As Button
-    Friend WithEvents bPreteursXLSX As Button
+    Friend WithEvents bPreteursDOC As Button
+    Friend WithEvents bPreteursCSV As Button
     Friend WithEvents lPreteursTitre As Label
     Friend WithEvents cbPreteursChoixAnnee As ComboBox
     Friend WithEvents cbPreteursChoixMois As ComboBox
@@ -1185,7 +1177,7 @@ Partial Class Statistiques
     Friend WithEvents lEmprunteursNbrEmprunteurs As Label
     Friend WithEvents lEmprunteursTitreNbrRetoursAttentes As Label
     Friend WithEvents lEmprunteurTitreEmprunteursSuspendues As Label
-    Friend WithEvents Label12 As Label
+    Friend WithEvents lEmprunteurNbrEmprunteursSuspendues As Label
     Friend WithEvents lEmprunteursTitreNbrRetoursEffectuees As Label
     Friend WithEvents pCategories As Panel
     Friend WithEvents gbPartieEmprunteurs As GroupBox
@@ -1198,14 +1190,14 @@ Partial Class Statistiques
     Friend WithEvents lEmprunteurTitreChoixAnnee As Label
     Friend WithEvents lEmprunteurTitreChoixMois As Label
     Friend WithEvents bEmprunteursPDF As Button
-    Friend WithEvents bEmprunteursDOCS As Button
-    Friend WithEvents bEmprunteursXLSX As Button
+    Friend WithEvents bEmprunteursDOC As Button
+    Friend WithEvents bEmprunteursCSV As Button
     Friend WithEvents gbGlobale As GroupBox
     Friend WithEvents lNbrFraisRetards As Label
     Friend WithEvents lTitreNbrFraisRetards As Label
     Friend WithEvents bGlobalePDF As Button
-    Friend WithEvents bGlobaleDOCS As Button
-    Friend WithEvents bGlobaleXLSX As Button
+    Friend WithEvents bGlobaleDOC As Button
+    Friend WithEvents bGlobaleCSV As Button
     Friend WithEvents lNbrResponsabilites As Label
     Friend WithEvents lNbrConditions As Label
     Friend WithEvents lNbrEquipements As Label
@@ -1239,8 +1231,8 @@ Partial Class Statistiques
     Friend WithEvents lAdminsTitreNbrAdminsActifs As Label
     Friend WithEvents lAdminsTitreNombreAdmins As Label
     Friend WithEvents bAdminsPDF As Button
-    Friend WithEvents bAdminsDOCS As Button
-    Friend WithEvents bAdminsXLSX As Button
+    Friend WithEvents bAdminsDOC As Button
+    Friend WithEvents bAdminsCSV As Button
     Friend WithEvents lTitreAdministrateur As Label
     Friend WithEvents cbAdminsChoixAnnee As ComboBox
     Friend WithEvents cbAdminsChoixMois As ComboBox

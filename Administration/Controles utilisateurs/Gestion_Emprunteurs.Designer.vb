@@ -22,10 +22,10 @@ Partial Class Gestion_Emprunteurs
     'Ne la modifiez pas à l'aide de l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.bDroitsAdmins = New System.Windows.Forms.Button()
-        Me.bSuppressionAdmin = New System.Windows.Forms.Button()
-        Me.bModifAdmin = New System.Windows.Forms.Button()
-        Me.bAjoutAdmin = New System.Windows.Forms.Button()
+        Me.bDroitsEmprunteurs = New System.Windows.Forms.Button()
+        Me.bSuppressionEmprunteurs = New System.Windows.Forms.Button()
+        Me.bModifEmprunteurs = New System.Windows.Forms.Button()
+        Me.bAjoutEmprunteurs = New System.Windows.Forms.Button()
         Me.pTitre = New System.Windows.Forms.Panel()
         Me.lTitre = New System.Windows.Forms.Label()
         Me.dgvListeEmprunteurs = New System.Windows.Forms.DataGridView()
@@ -33,53 +33,53 @@ Partial Class Gestion_Emprunteurs
         CType(Me.dgvListeEmprunteurs, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'bDroitsAdmins
+        'bDroitsEmprunteurs
         '
-        Me.bDroitsAdmins.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.bDroitsAdmins.ForeColor = System.Drawing.Color.White
-        Me.bDroitsAdmins.Location = New System.Drawing.Point(795, 367)
-        Me.bDroitsAdmins.Name = "bDroitsAdmins"
-        Me.bDroitsAdmins.Size = New System.Drawing.Size(142, 56)
-        Me.bDroitsAdmins.TabIndex = 18
-        Me.bDroitsAdmins.TabStop = False
-        Me.bDroitsAdmins.Text = "Enlever/Remettre les droits d'un administrateur"
-        Me.bDroitsAdmins.UseVisualStyleBackColor = True
+        Me.bDroitsEmprunteurs.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.bDroitsEmprunteurs.ForeColor = System.Drawing.Color.White
+        Me.bDroitsEmprunteurs.Location = New System.Drawing.Point(795, 367)
+        Me.bDroitsEmprunteurs.Name = "bDroitsEmprunteurs"
+        Me.bDroitsEmprunteurs.Size = New System.Drawing.Size(142, 56)
+        Me.bDroitsEmprunteurs.TabIndex = 18
+        Me.bDroitsEmprunteurs.TabStop = False
+        Me.bDroitsEmprunteurs.Text = "Enlever/Remettre les droits d'un administrateur"
+        Me.bDroitsEmprunteurs.UseVisualStyleBackColor = True
         '
-        'bSuppressionAdmin
+        'bSuppressionEmprunteurs
         '
-        Me.bSuppressionAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.bSuppressionAdmin.ForeColor = System.Drawing.Color.White
-        Me.bSuppressionAdmin.Location = New System.Drawing.Point(795, 293)
-        Me.bSuppressionAdmin.Name = "bSuppressionAdmin"
-        Me.bSuppressionAdmin.Size = New System.Drawing.Size(142, 56)
-        Me.bSuppressionAdmin.TabIndex = 17
-        Me.bSuppressionAdmin.TabStop = False
-        Me.bSuppressionAdmin.Text = "Supprimer un administrateur"
-        Me.bSuppressionAdmin.UseVisualStyleBackColor = True
+        Me.bSuppressionEmprunteurs.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.bSuppressionEmprunteurs.ForeColor = System.Drawing.Color.White
+        Me.bSuppressionEmprunteurs.Location = New System.Drawing.Point(795, 293)
+        Me.bSuppressionEmprunteurs.Name = "bSuppressionEmprunteurs"
+        Me.bSuppressionEmprunteurs.Size = New System.Drawing.Size(142, 56)
+        Me.bSuppressionEmprunteurs.TabIndex = 17
+        Me.bSuppressionEmprunteurs.TabStop = False
+        Me.bSuppressionEmprunteurs.Text = "Supprimer un administrateur"
+        Me.bSuppressionEmprunteurs.UseVisualStyleBackColor = True
         '
-        'bModifAdmin
+        'bModifEmprunteurs
         '
-        Me.bModifAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.bModifAdmin.ForeColor = System.Drawing.Color.White
-        Me.bModifAdmin.Location = New System.Drawing.Point(795, 221)
-        Me.bModifAdmin.Name = "bModifAdmin"
-        Me.bModifAdmin.Size = New System.Drawing.Size(142, 56)
-        Me.bModifAdmin.TabIndex = 16
-        Me.bModifAdmin.TabStop = False
-        Me.bModifAdmin.Text = "Modifier un administrateur"
-        Me.bModifAdmin.UseVisualStyleBackColor = True
+        Me.bModifEmprunteurs.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.bModifEmprunteurs.ForeColor = System.Drawing.Color.White
+        Me.bModifEmprunteurs.Location = New System.Drawing.Point(795, 221)
+        Me.bModifEmprunteurs.Name = "bModifEmprunteurs"
+        Me.bModifEmprunteurs.Size = New System.Drawing.Size(142, 56)
+        Me.bModifEmprunteurs.TabIndex = 16
+        Me.bModifEmprunteurs.TabStop = False
+        Me.bModifEmprunteurs.Text = "Modifier un administrateur"
+        Me.bModifEmprunteurs.UseVisualStyleBackColor = True
         '
-        'bAjoutAdmin
+        'bAjoutEmprunteurs
         '
-        Me.bAjoutAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.bAjoutAdmin.ForeColor = System.Drawing.Color.White
-        Me.bAjoutAdmin.Location = New System.Drawing.Point(795, 148)
-        Me.bAjoutAdmin.Name = "bAjoutAdmin"
-        Me.bAjoutAdmin.Size = New System.Drawing.Size(142, 56)
-        Me.bAjoutAdmin.TabIndex = 15
-        Me.bAjoutAdmin.TabStop = False
-        Me.bAjoutAdmin.Text = "Ajouter un nouvel administrateur"
-        Me.bAjoutAdmin.UseVisualStyleBackColor = True
+        Me.bAjoutEmprunteurs.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.bAjoutEmprunteurs.ForeColor = System.Drawing.Color.White
+        Me.bAjoutEmprunteurs.Location = New System.Drawing.Point(795, 148)
+        Me.bAjoutEmprunteurs.Name = "bAjoutEmprunteurs"
+        Me.bAjoutEmprunteurs.Size = New System.Drawing.Size(142, 56)
+        Me.bAjoutEmprunteurs.TabIndex = 15
+        Me.bAjoutEmprunteurs.TabStop = False
+        Me.bAjoutEmprunteurs.Text = "Ajouter un nouvel administrateur"
+        Me.bAjoutEmprunteurs.UseVisualStyleBackColor = True
         '
         'pTitre
         '
@@ -107,6 +107,7 @@ Partial Class Gestion_Emprunteurs
         Me.dgvListeEmprunteurs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvListeEmprunteurs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvListeEmprunteurs.Location = New System.Drawing.Point(22, 124)
+        Me.dgvListeEmprunteurs.MultiSelect = False
         Me.dgvListeEmprunteurs.Name = "dgvListeEmprunteurs"
         Me.dgvListeEmprunteurs.ReadOnly = True
         Me.dgvListeEmprunteurs.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
@@ -118,10 +119,10 @@ Partial Class Gestion_Emprunteurs
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Controls.Add(Me.bDroitsAdmins)
-        Me.Controls.Add(Me.bSuppressionAdmin)
-        Me.Controls.Add(Me.bModifAdmin)
-        Me.Controls.Add(Me.bAjoutAdmin)
+        Me.Controls.Add(Me.bDroitsEmprunteurs)
+        Me.Controls.Add(Me.bSuppressionEmprunteurs)
+        Me.Controls.Add(Me.bModifEmprunteurs)
+        Me.Controls.Add(Me.bAjoutEmprunteurs)
         Me.Controls.Add(Me.pTitre)
         Me.Controls.Add(Me.dgvListeEmprunteurs)
         Me.Name = "Gestion_Emprunteurs"
@@ -133,10 +134,10 @@ Partial Class Gestion_Emprunteurs
 
     End Sub
 
-    Friend WithEvents bDroitsAdmins As Button
-    Friend WithEvents bSuppressionAdmin As Button
-    Friend WithEvents bModifAdmin As Button
-    Friend WithEvents bAjoutAdmin As Button
+    Friend WithEvents bDroitsEmprunteurs As Button
+    Friend WithEvents bSuppressionEmprunteurs As Button
+    Friend WithEvents bModifEmprunteurs As Button
+    Friend WithEvents bAjoutEmprunteurs As Button
     Friend WithEvents pTitre As Panel
     Friend WithEvents lTitre As Label
     Friend WithEvents dgvListeEmprunteurs As DataGridView

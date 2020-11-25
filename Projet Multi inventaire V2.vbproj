@@ -347,6 +347,9 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Prêts\Forms\Prets.resx">
+      <DependentUpon>Prets.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Retours\Controles utilisateurs\RetourAjout.resx">
       <DependentUpon>RetourAjout.vb</DependentUpon>
     </EmbeddedResource>

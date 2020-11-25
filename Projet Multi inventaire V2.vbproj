@@ -175,6 +175,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Classes\ClassBD.vb" />
+    <Compile Include="Classes\ConnectBD.vb" />
     <Compile Include="Connexion\Forms\Connexion.Designer.vb">
       <DependentUpon>Connexion.vb</DependentUpon>
     </Compile>
@@ -210,6 +211,12 @@
     </Compile>
     <Compile Include="Materiel\Controles utilisateurs\FicheMateriel.vb">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Materiel\Forms\CreationModifCondition.Designer.vb">
+      <DependentUpon>CreationModifCondition.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Materiel\Forms\CreationModifCondition.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Materiel\Forms\GestionMateriel.Designer.vb">
       <DependentUpon>GestionMateriel.vb</DependentUpon>
@@ -327,6 +334,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Materiel\Controles utilisateurs\FicheMateriel.resx">
       <DependentUpon>FicheMateriel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Materiel\Forms\CreationModifCondition.resx">
+      <DependentUpon>CreationModifCondition.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Materiel\Forms\GestionMateriel.resx">
       <DependentUpon>GestionMateriel.vb</DependentUpon>

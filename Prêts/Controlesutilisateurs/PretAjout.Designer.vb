@@ -46,7 +46,7 @@ Partial Class PretAjout
         Me.equipDescTb = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.equipNomTb = New System.Windows.Forms.TextBox()
-        Me.CustomInstaller1 = New MySql.Data.MySqlClient.CustomInstaller()
+        'Me.CustomInstaller1 = New MySql.Data.MySqlClient.CustomInstaller()
         Me.SauvegarderBtn = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.Label11 = New System.Windows.Forms.Label()

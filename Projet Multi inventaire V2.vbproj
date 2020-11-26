@@ -353,6 +353,9 @@
     <EmbeddedResource Include="Retours\Controles utilisateurs\RetourAjout.resx">
       <DependentUpon>RetourAjout.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Retours\Forms\Retours.resx">
+      <DependentUpon>Retours.vb</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="My Project\Application.myapp">

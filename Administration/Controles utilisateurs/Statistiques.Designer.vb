@@ -118,6 +118,8 @@ Partial Class Statistiques
         Me.bPartieGlobale = New System.Windows.Forms.Button()
         Me.tpMessagesLabels = New System.Windows.Forms.ToolTip(Me.components)
         Me.tpMessagesBoutons = New System.Windows.Forms.ToolTip(Me.components)
+        Me.bSupprimerDonneesPeriode = New System.Windows.Forms.Button()
+        Me.bExporterTout = New System.Windows.Forms.Button()
         Me.gbPartiePreteurs.SuspendLayout()
         Me.pCategories.SuspendLayout()
         Me.gbPartieEmprunteurs.SuspendLayout()
@@ -161,7 +163,7 @@ Partial Class Statistiques
         Me.gbPartiePreteurs.ForeColor = System.Drawing.Color.White
         Me.gbPartiePreteurs.Location = New System.Drawing.Point(12, 10)
         Me.gbPartiePreteurs.Name = "gbPartiePreteurs"
-        Me.gbPartiePreteurs.Size = New System.Drawing.Size(697, 396)
+        Me.gbPartiePreteurs.Size = New System.Drawing.Size(697, 381)
         Me.gbPartiePreteurs.TabIndex = 5
         Me.gbPartiePreteurs.TabStop = False
         Me.gbPartiePreteurs.Text = "Partie prêteurs"
@@ -472,7 +474,7 @@ Partial Class Statistiques
         Me.pCategories.Controls.Add(Me.gbPartieAdministrateur)
         Me.pCategories.Location = New System.Drawing.Point(268, 23)
         Me.pCategories.Name = "pCategories"
-        Me.pCategories.Size = New System.Drawing.Size(715, 427)
+        Me.pCategories.Size = New System.Drawing.Size(715, 401)
         Me.pCategories.TabIndex = 11
         '
         'gbPartieEmprunteurs
@@ -500,7 +502,7 @@ Partial Class Statistiques
         Me.gbPartieEmprunteurs.ForeColor = System.Drawing.Color.White
         Me.gbPartieEmprunteurs.Location = New System.Drawing.Point(12, 10)
         Me.gbPartieEmprunteurs.Name = "gbPartieEmprunteurs"
-        Me.gbPartieEmprunteurs.Size = New System.Drawing.Size(697, 396)
+        Me.gbPartieEmprunteurs.Size = New System.Drawing.Size(697, 381)
         Me.gbPartieEmprunteurs.TabIndex = 5
         Me.gbPartieEmprunteurs.TabStop = False
         Me.gbPartieEmprunteurs.Text = "Partie emprunteurs"
@@ -651,7 +653,7 @@ Partial Class Statistiques
         Me.gbGlobale.ForeColor = System.Drawing.Color.White
         Me.gbGlobale.Location = New System.Drawing.Point(12, 10)
         Me.gbGlobale.Name = "gbGlobale"
-        Me.gbGlobale.Size = New System.Drawing.Size(697, 396)
+        Me.gbGlobale.Size = New System.Drawing.Size(697, 381)
         Me.gbGlobale.TabIndex = 4
         Me.gbGlobale.TabStop = False
         Me.gbGlobale.Text = "Partie globale"
@@ -975,7 +977,7 @@ Partial Class Statistiques
         Me.gbPartieAdministrateur.ForeColor = System.Drawing.Color.White
         Me.gbPartieAdministrateur.Location = New System.Drawing.Point(12, 10)
         Me.gbPartieAdministrateur.Name = "gbPartieAdministrateur"
-        Me.gbPartieAdministrateur.Size = New System.Drawing.Size(697, 396)
+        Me.gbPartieAdministrateur.Size = New System.Drawing.Size(697, 381)
         Me.gbPartieAdministrateur.TabIndex = 5
         Me.gbPartieAdministrateur.TabStop = False
         Me.gbPartieAdministrateur.Text = "Partie administrateurs"
@@ -1186,10 +1188,32 @@ Partial Class Statistiques
         '
         Me.tpMessagesBoutons.ToolTipTitle = "Voici ce que le bouton fait :"
         '
+        'bSupprimerDonneesPeriode
+        '
+        Me.bSupprimerDonneesPeriode.Font = New System.Drawing.Font("Arial Rounded MT Bold", 8.25!)
+        Me.bSupprimerDonneesPeriode.Location = New System.Drawing.Point(644, 428)
+        Me.bSupprimerDonneesPeriode.Name = "bSupprimerDonneesPeriode"
+        Me.bSupprimerDonneesPeriode.Size = New System.Drawing.Size(167, 39)
+        Me.bSupprimerDonneesPeriode.TabIndex = 12
+        Me.bSupprimerDonneesPeriode.Text = "Supprimer toutes les données d'une période"
+        Me.bSupprimerDonneesPeriode.UseVisualStyleBackColor = True
+        '
+        'bExporterTout
+        '
+        Me.bExporterTout.Font = New System.Drawing.Font("Arial Rounded MT Bold", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bExporterTout.Location = New System.Drawing.Point(817, 428)
+        Me.bExporterTout.Name = "bExporterTout"
+        Me.bExporterTout.Size = New System.Drawing.Size(167, 39)
+        Me.bExporterTout.TabIndex = 13
+        Me.bExporterTout.Text = "Exporter tous les types de données"
+        Me.bExporterTout.UseVisualStyleBackColor = True
+        '
         'Statistiques
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.bExporterTout)
+        Me.Controls.Add(Me.bSupprimerDonneesPeriode)
         Me.Controls.Add(Me.pCategories)
         Me.Controls.Add(Me.bAdministrateurs)
         Me.Controls.Add(Me.bPreteurs)
@@ -1305,4 +1329,6 @@ Partial Class Statistiques
     Friend WithEvents bPartieGlobale As Button
     Friend WithEvents tpMessagesLabels As ToolTip
     Friend WithEvents tpMessagesBoutons As ToolTip
+    Friend WithEvents bSupprimerDonneesPeriode As Button
+    Friend WithEvents bExporterTout As Button
 End Class

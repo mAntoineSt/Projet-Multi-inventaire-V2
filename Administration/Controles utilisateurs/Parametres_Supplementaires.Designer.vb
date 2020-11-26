@@ -72,7 +72,7 @@ Partial Class Parametres_Supplementaires
         Me.lMessage.Name = "lMessage"
         Me.lMessage.Size = New System.Drawing.Size(284, 32)
         Me.lMessage.TabIndex = 10
-        Me.lMessage.Text = "(Si vous ne voulez pas mettre de limites, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "mettez 'X')"
+        Me.lMessage.Text = "(Si vous ne voulez pas mettre de limites, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "mettez 0)"
         '
         'lNbrEquipementsMaxPret
         '

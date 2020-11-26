@@ -455,4 +455,8 @@
                                                              variables_application.getFrais_Retards_Administrateurs, variables_application.getNbr_prets_max_Administrateurs, variables_application.getDelais_entre_prets_Administrateurs, variables_application.getDelais_minimum_retour_Administrateurs, variables_application.getNbr_Max_Equipements_Prets_Administrateurs,
                                                              variables_application.getLangue, variables_application.getVisuel, variables_application.getStatut)
     End Sub
+
+    Public Sub exportationTousStatistiques(typeExportation As Integer)
+        ucStatistiques.exportationTous(typeExportation)
+    End Sub
 End Class

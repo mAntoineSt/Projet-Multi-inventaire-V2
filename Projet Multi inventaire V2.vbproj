@@ -156,6 +156,18 @@
     <Compile Include="Administration\Controles utilisateurs\Gestion_Preteurs.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Administration\Controles utilisateurs\Journal_Activites.Designer.vb">
+      <DependentUpon>Journal_Activites.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Controles utilisateurs\Journal_Activites.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Administration\Controles utilisateurs\Parametres_Supplementaires.Designer.vb">
+      <DependentUpon>Parametres_Supplementaires.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Controles utilisateurs\Parametres_Supplementaires.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Administration\Controles utilisateurs\Statistiques.Designer.vb">
       <DependentUpon>Statistiques.vb</DependentUpon>
     </Compile>
@@ -176,6 +188,7 @@
     </Compile>
     <Compile Include="Classes\ClassBD.vb" />
     <Compile Include="Classes\ConnectBD.vb" />
+    <Compile Include="Classes\Variables_Application.vb" />
     <Compile Include="Connexion\Forms\Connexion.Designer.vb">
       <DependentUpon>Connexion.vb</DependentUpon>
     </Compile>
@@ -307,6 +320,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administration\Controles utilisateurs\Gestion_Preteurs.resx">
       <DependentUpon>Gestion_Preteurs.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administration\Controles utilisateurs\Journal_Activites.resx">
+      <DependentUpon>Journal_Activites.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administration\Controles utilisateurs\Parametres_Supplementaires.resx">
+      <DependentUpon>Parametres_Supplementaires.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administration\Controles utilisateurs\Statistiques.resx">
       <DependentUpon>Statistiques.vb</DependentUpon>

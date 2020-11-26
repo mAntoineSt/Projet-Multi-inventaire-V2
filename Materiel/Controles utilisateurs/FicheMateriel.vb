@@ -17,18 +17,18 @@ Public Class FicheMateriel
 
     Public Sub RemplirDatagridview_EnrMateriel()
 
-        [dsEquipement].Tables.Clear()
-        Dim reqAjoutMateriel As String
-        reqAjoutMateriel = "SELECT id_equipement as idEq, marque as Marque, modele as Modele, fabricant as Fabricant FROM equipements"
-        daEquipement = New MySqlDataAdapter(reqAjoutMateriel, bd.ConnectionString)
-        daEquipement.Fill(dsEquipement, "equipements")
-        dgvFicheMat.DataSource = dsEquipement.Tables("equipements")
+        '[dsEquipement].Tables.Clear()
+        'Dim reqAjoutMateriel As String
+        'reqAjoutMateriel = "SELECT id_equipement as idEq, marque as Marque, modele as Modele, fabricant as Fabricant FROM equipements"
+        'daEquipement = New MySqlDataAdapter(reqAjoutMateriel, bd.ConnectionString)
+        'daEquipement.Fill(dsEquipement, "equipements")
+        'dgvFicheMat.DataSource = dsEquipement.Tables("equipements")
 
 
-        Dim columnHeaderStyle As New DataGridViewCellStyle
-        columnHeaderStyle.Font = New Font("Verdana", 10, FontStyle.Bold)
-        dgvFicheMat.ColumnHeadersDefaultCellStyle = columnHeaderStyle
-        dgvFicheMat.Columns(0).Visible = False
+        'Dim columnHeaderStyle As New DataGridViewCellStyle
+        'ColumnHeaderStyle.Font = New Font("Verdana", 10, FontStyle.Bold)
+        'dgvFicheMat.ColumnHeadersDefaultCellStyle = columnHeaderStyle
+        'dgvFicheMat.Columns(0).Visible = False
 
     End Sub
 

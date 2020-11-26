@@ -22,6 +22,7 @@ Partial Class Administration
     'Ne la modifiez pas à l'aide de l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.pHaut = New System.Windows.Forms.Panel()
         Me.lQuitter = New System.Windows.Forms.Label()
         Me.lTitreHaut = New System.Windows.Forms.Label()
@@ -32,6 +33,7 @@ Partial Class Administration
         Me.lGestionAdmins = New System.Windows.Forms.Label()
         Me.lAccueilAdministratif = New System.Windows.Forms.Label()
         Me.pBas = New System.Windows.Forms.Panel()
+        Me.tpMessageBoutons = New System.Windows.Forms.ToolTip(Me.components)
         Me.pHaut.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -85,6 +87,7 @@ Partial Class Administration
         Me.lStatistiques.Size = New System.Drawing.Size(111, 26)
         Me.lStatistiques.TabIndex = 16
         Me.lStatistiques.Text = "Statistiques"
+        Me.tpMessageBoutons.SetToolTip(Me.lStatistiques, "Fait revenir au menu des statistiques")
         '
         'lGestionPreteurs
         '
@@ -98,6 +101,7 @@ Partial Class Administration
         Me.lGestionPreteurs.Size = New System.Drawing.Size(184, 26)
         Me.lGestionPreteurs.TabIndex = 15
         Me.lGestionPreteurs.Text = "Gestion des prêteurs"
+        Me.tpMessageBoutons.SetToolTip(Me.lGestionPreteurs, "Fait revenir au menu de la gestion des prêteurs")
         '
         'lGestionEmprunteurs
         '
@@ -111,6 +115,7 @@ Partial Class Administration
         Me.lGestionEmprunteurs.Size = New System.Drawing.Size(218, 26)
         Me.lGestionEmprunteurs.TabIndex = 14
         Me.lGestionEmprunteurs.Text = "Gestion des emprunteurs"
+        Me.tpMessageBoutons.SetToolTip(Me.lGestionEmprunteurs, "Fait revenir au menu de la gestion des emprunteurs")
         '
         'lGestionAdmins
         '
@@ -124,6 +129,7 @@ Partial Class Administration
         Me.lGestionAdmins.Size = New System.Drawing.Size(241, 26)
         Me.lGestionAdmins.TabIndex = 13
         Me.lGestionAdmins.Text = "Gestion des administrateurs"
+        Me.tpMessageBoutons.SetToolTip(Me.lGestionAdmins, "Fait revenir au menu de la gestion des administrateurs")
         '
         'lAccueilAdministratif
         '
@@ -137,6 +143,7 @@ Partial Class Administration
         Me.lAccueilAdministratif.Size = New System.Drawing.Size(179, 26)
         Me.lAccueilAdministratif.TabIndex = 12
         Me.lAccueilAdministratif.Text = "Accueil administratif"
+        Me.tpMessageBoutons.SetToolTip(Me.lAccueilAdministratif, "Fait revenir au menu principal administratif")
         '
         'pBas
         '
@@ -179,4 +186,5 @@ Partial Class Administration
     Friend WithEvents lGestionAdmins As Label
     Friend WithEvents lAccueilAdministratif As Label
     Friend WithEvents pBas As Panel
+    Friend WithEvents tpMessageBoutons As ToolTip
 End Class

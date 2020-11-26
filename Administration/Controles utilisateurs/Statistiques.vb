@@ -102,7 +102,6 @@ Public Class Statistiques
                 sw.WriteLine("Nombre de prêts effectuées : " & lEmprunteurNbrPretsEffectuees.Text)
                 sw.WriteLine("Nombre de prêts actifs : " & lEmprunteursNbrPretsActifs.Text)
                 sw.WriteLine("Nombre de retours effectuées : " & lEmprunteursNbrRetoursEffectuees.Text)
-                sw.WriteLine("Nombre de retours en attente : " & lEmprunteursNbrRetoursAttentes.Text)
 
             Case 3
                 'Partie Admins
@@ -185,7 +184,6 @@ Public Class Statistiques
                 sw.WriteLine("Nombre de prêts effectuées : " & lEmprunteurNbrPretsEffectuees.Text)
                 sw.WriteLine("Nombre de prêts actifs : " & lEmprunteursNbrPretsActifs.Text)
                 sw.WriteLine("Nombre de retours effectuées : " & lEmprunteursNbrRetoursEffectuees.Text)
-                sw.WriteLine("Nombre de retours en attente : " & lEmprunteursNbrRetoursAttentes.Text)
 
             Case 3
                 'Partie Admins
@@ -268,7 +266,6 @@ Public Class Statistiques
                 sw.WriteLine("Nombre de prêts effectuées : " & lEmprunteurNbrPretsEffectuees.Text)
                 sw.WriteLine("Nombre de prêts actifs : " & lEmprunteursNbrPretsActifs.Text)
                 sw.WriteLine("Nombre de retours effectuées : " & lEmprunteursNbrRetoursEffectuees.Text)
-                sw.WriteLine("Nombre de retours en attente : " & lEmprunteursNbrRetoursAttentes.Text)
 
             Case 3
                 'Partie Admins
@@ -861,7 +858,6 @@ Public Class Statistiques
                     con.Open()
                     reader = commande.ExecuteReader
                     reader.Read()
-                    lEmprunteursNbrRetoursAttentes.Text = reader(0)
                     reader.Close()
                     con.Close()
 
@@ -918,7 +914,6 @@ Public Class Statistiques
                     con.Open()
                     reader = commande.ExecuteReader
                     reader.Read()
-                    lEmprunteursNbrRetoursAttentes.Text = reader(0)
                     reader.Close()
                     con.Close()
                 ElseIf cbEmprunteurChoixAnnee.SelectedIndex = -1 AndAlso Not cbEmprunteurChoixMois.SelectedIndex = -1 Then
@@ -974,7 +969,6 @@ Public Class Statistiques
                     con.Open()
                     reader = commande.ExecuteReader
                     reader.Read()
-                    lEmprunteursNbrRetoursAttentes.Text = reader(0)
                     reader.Close()
                     con.Close()
                 Else
@@ -1030,7 +1024,6 @@ Public Class Statistiques
                     con.Open()
                     reader = commande.ExecuteReader
                     reader.Read()
-                    lEmprunteursNbrRetoursAttentes.Text = reader(0)
                     reader.Close()
                     con.Close()
                 End If

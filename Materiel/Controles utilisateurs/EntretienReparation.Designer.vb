@@ -99,7 +99,7 @@ Partial Class EntretienReparation
         Me.TabControl1.Location = New System.Drawing.Point(14, 33)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(295, 514)
+        Me.TabControl1.Size = New System.Drawing.Size(369, 514)
         Me.TabControl1.TabIndex = 10
         '
         'TabPage1
@@ -108,7 +108,7 @@ Partial Class EntretienReparation
         Me.TabPage1.Location = New System.Drawing.Point(4, 32)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(287, 478)
+        Me.TabPage1.Size = New System.Drawing.Size(361, 478)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Liste du Matériel"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -120,7 +120,7 @@ Partial Class EntretienReparation
         Me.dgvEntRep_ListeMat.Location = New System.Drawing.Point(3, 3)
         Me.dgvEntRep_ListeMat.Name = "dgvEntRep_ListeMat"
         Me.dgvEntRep_ListeMat.RowHeadersWidth = 10
-        Me.dgvEntRep_ListeMat.Size = New System.Drawing.Size(281, 472)
+        Me.dgvEntRep_ListeMat.Size = New System.Drawing.Size(355, 472)
         Me.dgvEntRep_ListeMat.TabIndex = 6
         '
         'TabPage2
@@ -201,7 +201,7 @@ Partial Class EntretienReparation
         Me.ComboBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"Emprunteur", "Date Emprunt", "Date Retour"})
-        Me.ComboBox1.Location = New System.Drawing.Point(122, 7)
+        Me.ComboBox1.Location = New System.Drawing.Point(122, 10)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(150, 28)
         Me.ComboBox1.TabIndex = 1
@@ -260,27 +260,28 @@ Partial Class EntretienReparation
         'TableLayoutPanel3
         '
         Me.TableLayoutPanel3.ColumnCount = 5
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.25253!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.12121!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.25253!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.12121!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.25253!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.77532!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.837016!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.77532!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.837016!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.77532!))
         Me.TableLayoutPanel3.Controls.Add(Me.btnEntRep_Modif, 0, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.btnEntRep_Ajout, 2, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.btnEntRep_Annuler, 4, 0)
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(315, 448)
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(400, 487)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 1
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(567, 99)
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(480, 60)
         Me.TableLayoutPanel3.TabIndex = 7
         '
         'btnEntRep_Modif
         '
         Me.btnEntRep_Modif.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnEntRep_Modif.Location = New System.Drawing.Point(3, 23)
+        Me.btnEntRep_Modif.Location = New System.Drawing.Point(20, 10)
+        Me.btnEntRep_Modif.Margin = New System.Windows.Forms.Padding(20, 10, 0, 10)
         Me.btnEntRep_Modif.Name = "btnEntRep_Modif"
-        Me.btnEntRep_Modif.Size = New System.Drawing.Size(137, 52)
+        Me.btnEntRep_Modif.Size = New System.Drawing.Size(118, 40)
         Me.btnEntRep_Modif.TabIndex = 0
         Me.btnEntRep_Modif.Text = "Modifier"
         Me.btnEntRep_Modif.UseVisualStyleBackColor = True
@@ -288,9 +289,10 @@ Partial Class EntretienReparation
         'btnEntRep_Ajout
         '
         Me.btnEntRep_Ajout.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnEntRep_Ajout.Location = New System.Drawing.Point(214, 23)
+        Me.btnEntRep_Ajout.Location = New System.Drawing.Point(180, 10)
+        Me.btnEntRep_Ajout.Margin = New System.Windows.Forms.Padding(10)
         Me.btnEntRep_Ajout.Name = "btnEntRep_Ajout"
-        Me.btnEntRep_Ajout.Size = New System.Drawing.Size(137, 52)
+        Me.btnEntRep_Ajout.Size = New System.Drawing.Size(118, 40)
         Me.btnEntRep_Ajout.TabIndex = 1
         Me.btnEntRep_Ajout.Text = "Ajouter"
         Me.btnEntRep_Ajout.UseVisualStyleBackColor = True
@@ -298,9 +300,10 @@ Partial Class EntretienReparation
         'btnEntRep_Annuler
         '
         Me.btnEntRep_Annuler.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnEntRep_Annuler.Location = New System.Drawing.Point(425, 23)
+        Me.btnEntRep_Annuler.Location = New System.Drawing.Point(340, 10)
+        Me.btnEntRep_Annuler.Margin = New System.Windows.Forms.Padding(0, 10, 20, 10)
         Me.btnEntRep_Annuler.Name = "btnEntRep_Annuler"
-        Me.btnEntRep_Annuler.Size = New System.Drawing.Size(139, 52)
+        Me.btnEntRep_Annuler.Size = New System.Drawing.Size(120, 40)
         Me.btnEntRep_Annuler.TabIndex = 2
         Me.btnEntRep_Annuler.Text = "Annuler"
         Me.btnEntRep_Annuler.UseVisualStyleBackColor = True
@@ -308,16 +311,16 @@ Partial Class EntretienReparation
         'Panel2
         '
         Me.Panel2.Controls.Add(Me.TableLayoutPanel1)
-        Me.Panel2.Location = New System.Drawing.Point(315, 33)
+        Me.Panel2.Location = New System.Drawing.Point(400, 33)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(567, 409)
+        Me.Panel2.Size = New System.Drawing.Size(482, 448)
         Me.Panel2.TabIndex = 6
         '
         'TableLayoutPanel1
         '
         Me.TableLayoutPanel1.ColumnCount = 2
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.60996!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.39005!))
         Me.TableLayoutPanel1.Controls.Add(Me.Label1, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Label2, 0, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.Label3, 0, 2)
@@ -336,15 +339,14 @@ Partial Class EntretienReparation
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 7
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.26531!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.26531!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.26531!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.26531!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.26531!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.26531!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.40816!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(567, 409)
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.82275!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.82275!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.82275!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.82275!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.82275!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.82275!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.0635!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(482, 392)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'Label1
@@ -352,108 +354,117 @@ Partial Class EntretienReparation
         Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(3, 17)
+        Me.Label1.Location = New System.Drawing.Point(3, 11)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(277, 20)
+        Me.Label1.Size = New System.Drawing.Size(156, 20)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Matériel"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label2
         '
         Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(3, 71)
+        Me.Label2.Location = New System.Drawing.Point(3, 53)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(277, 20)
+        Me.Label2.Size = New System.Drawing.Size(156, 20)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Date"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label3
         '
         Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(3, 125)
+        Me.Label3.Location = New System.Drawing.Point(3, 95)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(277, 20)
+        Me.Label3.Size = New System.Drawing.Size(156, 20)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Élément"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label4
         '
         Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(3, 179)
+        Me.Label4.Location = New System.Drawing.Point(3, 137)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(277, 20)
+        Me.Label4.Size = New System.Drawing.Size(156, 20)
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "Montant"
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label5
         '
         Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(3, 233)
+        Me.Label5.Location = New System.Drawing.Point(3, 179)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(277, 20)
+        Me.Label5.Size = New System.Drawing.Size(156, 20)
         Me.Label5.TabIndex = 4
         Me.Label5.Text = "Statut"
+        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label6
         '
         Me.Label6.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(3, 287)
+        Me.Label6.Location = New System.Drawing.Point(3, 221)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(277, 20)
+        Me.Label6.Size = New System.Drawing.Size(156, 20)
         Me.Label6.TabIndex = 5
         Me.Label6.Text = "Emprunt (optionnel)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label7
         '
-        Me.Label7.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label7.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(3, 356)
+        Me.Label7.Location = New System.Drawing.Point(3, 267)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(3, 15, 3, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(277, 20)
+        Me.Label7.Size = New System.Drawing.Size(156, 20)
         Me.Label7.TabIndex = 6
         Me.Label7.Text = "Notes"
+        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtEntRep_Materiel
         '
         Me.txtEntRep_Materiel.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtEntRep_Materiel.Location = New System.Drawing.Point(286, 14)
+        Me.txtEntRep_Materiel.Location = New System.Drawing.Point(165, 8)
         Me.txtEntRep_Materiel.Name = "txtEntRep_Materiel"
-        Me.txtEntRep_Materiel.Size = New System.Drawing.Size(278, 26)
+        Me.txtEntRep_Materiel.Size = New System.Drawing.Size(314, 26)
         Me.txtEntRep_Materiel.TabIndex = 7
         '
         'dtpEntRep_Date
         '
         Me.dtpEntRep_Date.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dtpEntRep_Date.Location = New System.Drawing.Point(286, 68)
+        Me.dtpEntRep_Date.Location = New System.Drawing.Point(165, 50)
         Me.dtpEntRep_Date.Name = "dtpEntRep_Date"
-        Me.dtpEntRep_Date.Size = New System.Drawing.Size(278, 26)
+        Me.dtpEntRep_Date.Size = New System.Drawing.Size(314, 26)
         Me.dtpEntRep_Date.TabIndex = 8
         '
         'txtEntRep_Element
         '
         Me.txtEntRep_Element.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtEntRep_Element.Location = New System.Drawing.Point(286, 122)
+        Me.txtEntRep_Element.Location = New System.Drawing.Point(165, 92)
         Me.txtEntRep_Element.Name = "txtEntRep_Element"
-        Me.txtEntRep_Element.Size = New System.Drawing.Size(278, 26)
+        Me.txtEntRep_Element.Size = New System.Drawing.Size(314, 26)
         Me.txtEntRep_Element.TabIndex = 9
         '
         'txtEntRep_Montant
         '
         Me.txtEntRep_Montant.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtEntRep_Montant.Location = New System.Drawing.Point(286, 176)
+        Me.txtEntRep_Montant.Location = New System.Drawing.Point(165, 134)
         Me.txtEntRep_Montant.Name = "txtEntRep_Montant"
-        Me.txtEntRep_Montant.Size = New System.Drawing.Size(278, 26)
+        Me.txtEntRep_Montant.Size = New System.Drawing.Size(314, 26)
         Me.txtEntRep_Montant.TabIndex = 10
         '
         'TableLayoutPanel2
@@ -464,20 +475,21 @@ Partial Class EntretienReparation
         Me.TableLayoutPanel2.Controls.Add(Me.rbtEntRep_Statut_Rep, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.rbtEntRep_Statut_Ent, 1, 0)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(286, 219)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(165, 171)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(278, 48)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(314, 36)
         Me.TableLayoutPanel2.TabIndex = 11
         '
         'rbtEntRep_Statut_Rep
         '
         Me.rbtEntRep_Statut_Rep.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.rbtEntRep_Statut_Rep.AutoSize = True
-        Me.rbtEntRep_Statut_Rep.Location = New System.Drawing.Point(3, 12)
+        Me.rbtEntRep_Statut_Rep.Location = New System.Drawing.Point(15, 6)
+        Me.rbtEntRep_Statut_Rep.Margin = New System.Windows.Forms.Padding(15, 3, 3, 3)
         Me.rbtEntRep_Statut_Rep.Name = "rbtEntRep_Statut_Rep"
-        Me.rbtEntRep_Statut_Rep.Size = New System.Drawing.Size(133, 24)
+        Me.rbtEntRep_Statut_Rep.Size = New System.Drawing.Size(139, 24)
         Me.rbtEntRep_Statut_Rep.TabIndex = 0
         Me.rbtEntRep_Statut_Rep.TabStop = True
         Me.rbtEntRep_Statut_Rep.Text = "Réparation"
@@ -487,9 +499,10 @@ Partial Class EntretienReparation
         '
         Me.rbtEntRep_Statut_Ent.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.rbtEntRep_Statut_Ent.AutoSize = True
-        Me.rbtEntRep_Statut_Ent.Location = New System.Drawing.Point(142, 12)
+        Me.rbtEntRep_Statut_Ent.Location = New System.Drawing.Point(172, 6)
+        Me.rbtEntRep_Statut_Ent.Margin = New System.Windows.Forms.Padding(15, 3, 3, 3)
         Me.rbtEntRep_Statut_Ent.Name = "rbtEntRep_Statut_Ent"
-        Me.rbtEntRep_Statut_Ent.Size = New System.Drawing.Size(133, 24)
+        Me.rbtEntRep_Statut_Ent.Size = New System.Drawing.Size(139, 24)
         Me.rbtEntRep_Statut_Ent.TabIndex = 1
         Me.rbtEntRep_Statut_Ent.TabStop = True
         Me.rbtEntRep_Statut_Ent.Text = "Entretien"
@@ -498,17 +511,17 @@ Partial Class EntretienReparation
         'txtEntRep_Emprunt
         '
         Me.txtEntRep_Emprunt.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtEntRep_Emprunt.Location = New System.Drawing.Point(286, 284)
+        Me.txtEntRep_Emprunt.Location = New System.Drawing.Point(165, 218)
         Me.txtEntRep_Emprunt.Name = "txtEntRep_Emprunt"
-        Me.txtEntRep_Emprunt.Size = New System.Drawing.Size(278, 26)
+        Me.txtEntRep_Emprunt.Size = New System.Drawing.Size(314, 26)
         Me.txtEntRep_Emprunt.TabIndex = 12
         '
         'rtxEntRep_Note
         '
         Me.rtxEntRep_Note.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.rtxEntRep_Note.Location = New System.Drawing.Point(286, 327)
+        Me.rtxEntRep_Note.Location = New System.Drawing.Point(165, 255)
         Me.rtxEntRep_Note.Name = "rtxEntRep_Note"
-        Me.rtxEntRep_Note.Size = New System.Drawing.Size(278, 79)
+        Me.rtxEntRep_Note.Size = New System.Drawing.Size(314, 134)
         Me.rtxEntRep_Note.TabIndex = 13
         Me.rtxEntRep_Note.Text = ""
         '

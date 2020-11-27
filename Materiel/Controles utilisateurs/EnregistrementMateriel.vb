@@ -1,5 +1,6 @@
 ﻿Imports System.Data
 Imports System.Data.SqlClient
+Imports System.IO
 Imports MySql.Data.MySqlClient
 Imports MySql.Data.Types
 
@@ -14,8 +15,13 @@ Public Class EnregistrementMateriel
     Dim connectionBD As New MySqlConnection(bd.ConnectionString)
     Public row As DataRow
 
+    Dim imageMat As Image
+    Dim urlImage As String
+    Dim urlDestination As String
+
     Public Sub EnregistrerMateriel()
 
+        TelechargerPhoto()
         Dim cmdInsertMateriel As New MySqlCommand(strRequete, connectionBD)
         Dim reqAjoutMateriel As String
         Dim dateJour As Date
@@ -34,7 +40,8 @@ Public Class EnregistrementMateriel
                                                         `cout_achat`,
                                                         `valeur_residuelle`,
                                                         `no_antivol`,
-                                                        `info_complement`)
+                                                        `info_complement`,
+                                                        `url_photo`)
                                                 VALUES (@marque,
                                                         @modele,
                                                         @noSerie,
@@ -47,7 +54,9 @@ Public Class EnregistrementMateriel
                                                         @cout_achat,
                                                         @valeur_residuelle,
                                                         @no_antivol,
-                                                        @info_complement);"
+                                                        @info_complement,
+                                                        @url_photo);"
+
 
 
         cmdInsertMateriel.Parameters.Add("@marque", MySqlDbType.String).Value = txtEnrMat_Marque.Text
@@ -59,10 +68,11 @@ Public Class EnregistrementMateriel
         cmdInsertMateriel.Parameters.Add("@date_enregistrement", MySqlDbType.Date).Value = dateJour
         cmdInsertMateriel.Parameters.Add("@fournisseur", MySqlDbType.String).Value = txtEnrMat_Fournisseur.Text
         cmdInsertMateriel.Parameters.Add("@date_acquisition", MySqlDbType.Date).Value = dtpEnrMat_DateAcquis.Value
-        cmdInsertMateriel.Parameters.Add("@cout_achat", MySqlDbType.String).Value = txtEnrMat_CoutAchat.Text
-        cmdInsertMateriel.Parameters.Add("@valeur_residuelle", MySqlDbType.String).Value = txtEnrMat_Valeur.Text
+        cmdInsertMateriel.Parameters.Add("@cout_achat", MySqlDbType.String).Value = Replace(txtEnrMat_CoutAchat.Text, ",", ".")
+        cmdInsertMateriel.Parameters.Add("@valeur_residuelle", MySqlDbType.String).Value = Replace(txtEnrMat_Valeur.Text, ",", ".")
         cmdInsertMateriel.Parameters.Add("@no_antivol", MySqlDbType.String).Value = txtEnrMat_NoAntivol.Text
         cmdInsertMateriel.Parameters.Add("@info_complement", MySqlDbType.String).Value = rtxEnrMat_Notes.Text
+        cmdInsertMateriel.Parameters.Add("@url_photo", MySqlDbType.String).Value = urlDestination
 
 
         cmdInsertMateriel.CommandText = reqAjoutMateriel
@@ -76,10 +86,13 @@ Public Class EnregistrementMateriel
 
     Public Sub ModifMateriel()
 
+        TelechargerPhoto()
         Dim cmdModifMateriel As New MySqlCommand(strRequete, connectionBD)
         Dim reqModifMateriel As String
         Dim dateJour As Date
         dateJour = Date.Today
+
+
 
         reqModifMateriel = "UPDATE `equipements`
                             SET  `marque` = '@marque', 
@@ -106,8 +119,8 @@ Public Class EnregistrementMateriel
         cmdModifMateriel.Parameters.Add("@date_enregistrement", MySqlDbType.Date).Value = dateJour
         cmdModifMateriel.Parameters.Add("@fournisseur", MySqlDbType.String).Value = txtEnrMat_Fournisseur.Text
         cmdModifMateriel.Parameters.Add("@date_acquisition", MySqlDbType.Date).Value = dtpEnrMat_DateAcquis.Value
-        cmdModifMateriel.Parameters.Add("@cout_achat", MySqlDbType.String).Value = txtEnrMat_CoutAchat.Text
-        cmdModifMateriel.Parameters.Add("@valeur_residuelle", MySqlDbType.String).Value = txtEnrMat_Valeur.Text
+        cmdModifMateriel.Parameters.Add("@cout_achat", MySqlDbType.String).Value = Replace(txtEnrMat_CoutAchat.Text, ",", ".")
+        cmdModifMateriel.Parameters.Add("@valeur_residuelle", MySqlDbType.String).Value = Replace(txtEnrMat_Valeur.Text, ",", ".")
         cmdModifMateriel.Parameters.Add("@no_antivol", MySqlDbType.String).Value = txtEnrMat_NoAntivol.Text
         cmdModifMateriel.Parameters.Add("@info_complement", MySqlDbType.String).Value = rtxEnrMat_Notes.Text
 
@@ -168,15 +181,45 @@ Public Class EnregistrementMateriel
     End Sub
 
     Public Sub ObtenirIdEquipement()
-        idEquipement = dgvEnrMat.Rows(dgvEnrMat.CurrentCell.RowIndex).Cells(0).Value
+
+        If IsDBNull(dgvEnrMat.Rows(dgvEnrMat.CurrentCell.RowIndex).Cells(0).Value) = False Then
+            idEquipement = dgvEnrMat.Rows(dgvEnrMat.CurrentCell.RowIndex).Cells(0).Value
+        Else
+            idEquipement = 0
+        End If
         RemplirChampFormulaire()
     End Sub
 
 
+    Public Sub ChoisirPhoto()
+        Dim dialogueFichier As New OpenFileDialog
 
-    Sub MiseAJourEquipement()
-        bd.miseAjourDS(dsEquipement, daEquipement, "SELECT * FROM `equipements`", "equipements")
-        bd.miseAjourBD(dsEquipement, daEquipement, "equipements")
+        With dialogueFichier
+            .Filter = "PNG Files (*.png)|*.png|JPEG Files (*.jpg *.jpeg)|*.jpg|GIF Files (*.gif)|*.gif|BMP Files (*.bmp)|*.bmp|WMF Files (*.wmf)|*.wmf|SVG Files (*.svg)|*.svg"
+            .Title = "Choisissez une photo du matériel"
+        End With
+        Try
+            If dialogueFichier.ShowDialog = Windows.Forms.DialogResult.OK Then
+                imageMat = Image.FromFile(dialogueFichier.FileName)
+                urlImage = dialogueFichier.FileName
+
+            End If
+        Catch ex As Exception
+        End Try
+        lblEnrMat_UrlPhoto.Text = urlImage
+    End Sub
+
+
+
+
+
+    Public Sub TelechargerPhoto()
+        Dim nomImage As String
+        Dim fichier As String = "C:\UwAmp\www\SERVEUR_YANICK\Dossier Images"
+
+        nomImage = Mid(urlImage, InStrRev(urlImage, "\", Len(urlImage)) + 1)
+        urlDestination = System.IO.Path.Combine(fichier, nomImage)
+        imageMat.Save(urlDestination)
     End Sub
 
 
@@ -184,54 +227,48 @@ Public Class EnregistrementMateriel
         txtEnrMat_Marque.Text = ""
         txtEnrMat_Modele.Text = ""
         txtEnrMat_NoSerie.Text = ""
-
         txtEnrMat_Fabricant.Text = ""
         cboEnrMat_Categorie.Text = ""
         txtEnrMat_Fournisseur.Text = ""
         txtEnrMat_CoutAchat.Text = ""
-
         txtEnrMat_Valeur.Text = ""
         txtEnrMat_NoAntivol.Text = ""
         rtxEnrMat_Notes.Text = ""
-
         dtpEnrMat_DateFabrict.Value = Date.Today
         dtpEnrMat_DateAcquis.Value = Date.Today
+        lblEnrMat_UrlPhoto.Text = ""
     End Sub
 
     Public Sub InactiverChamps()
         txtEnrMat_Marque.Enabled = False
         txtEnrMat_Modele.Enabled = False
         txtEnrMat_NoSerie.Enabled = False
-
         txtEnrMat_Fabricant.Enabled = False
         cboEnrMat_Categorie.Enabled = False
         txtEnrMat_Fournisseur.Enabled = False
         txtEnrMat_CoutAchat.Enabled = False
-
         txtEnrMat_Valeur.Enabled = False
         txtEnrMat_NoAntivol.Enabled = False
         rtxEnrMat_Notes.Enabled = False
-
         dtpEnrMat_DateFabrict.Enabled = False
         dtpEnrMat_DateAcquis.Enabled = False
+        btnEnrMat_Photo.Enabled = False
     End Sub
 
     Public Sub ActiverChamps()
         txtEnrMat_Marque.Enabled = True
         txtEnrMat_Modele.Enabled = True
         txtEnrMat_NoSerie.Enabled = True
-
         txtEnrMat_Fabricant.Enabled = True
         cboEnrMat_Categorie.Enabled = True
         txtEnrMat_Fournisseur.Enabled = True
         txtEnrMat_CoutAchat.Enabled = True
-
         txtEnrMat_Valeur.Enabled = True
         txtEnrMat_NoAntivol.Enabled = True
         rtxEnrMat_Notes.Enabled = True
-
         dtpEnrMat_DateFabrict.Enabled = True
         dtpEnrMat_DateAcquis.Enabled = True
+        btnEnrMat_Photo.Enabled = True
     End Sub
 
 
@@ -250,7 +287,7 @@ Public Class EnregistrementMateriel
             btnEnrMat_Ajout.Text = "Enregistrer"
             btnEnrMat_Modif.Enabled = False
         ElseIf btnEnrMat_Ajout.Enabled = True And String.Compare(btnEnrMat_Ajout.Text, "Enregistrer") = 0 Then
-            'EnregistrerMateriel()
+            EnregistrerMateriel()
             InactiverChamps()
             btnEnrMat_Ajout.Text = "Ajouter"
             btnEnrMat_Modif.Enabled = True
@@ -264,7 +301,7 @@ Public Class EnregistrementMateriel
             btnEnrMat_Modif.Text = "Enregistrer"
             btnEnrMat_Ajout.Enabled = False
         ElseIf btnEnrMat_Modif.Enabled = True And String.Compare(btnEnrMat_Modif.Text, "Enregistrer") = 0 Then
-            'EnregistrerMateriel()
+            ModifMateriel()
             InactiverChamps()
             btnEnrMat_Modif.Text = "Modifier"
             btnEnrMat_Ajout.Enabled = True
@@ -279,4 +316,10 @@ Public Class EnregistrementMateriel
     Private Sub dgvEnrMat_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvEnrMat.CellClick
         ObtenirIdEquipement()
     End Sub
+
+    Private Sub BtnEnrMat_Photo_Click(sender As Object, e As EventArgs) Handles btnEnrMat_Photo.Click
+        ChoisirPhoto()
+    End Sub
+
+
 End Class

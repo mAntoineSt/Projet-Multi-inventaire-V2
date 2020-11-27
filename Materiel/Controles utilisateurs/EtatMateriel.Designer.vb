@@ -70,6 +70,8 @@ Partial Class EtatMateriel
         Me.txtEtatMat_Cablage = New System.Windows.Forms.TextBox()
         Me.txtEtatMat_Logiciel = New System.Windows.Forms.TextBox()
         Me.txtEtatMat_Eau = New System.Windows.Forms.TextBox()
+        Me.TableLayoutPanel8 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TableLayoutPanel9 = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -87,6 +89,8 @@ Partial Class EtatMateriel
         Me.TableLayoutPanel2.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
+        Me.TableLayoutPanel8.SuspendLayout()
+        Me.TableLayoutPanel9.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -110,7 +114,7 @@ Partial Class EtatMateriel
         Me.TabControl1.Location = New System.Drawing.Point(14, 33)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(295, 514)
+        Me.TabControl1.Size = New System.Drawing.Size(369, 514)
         Me.TabControl1.TabIndex = 9
         '
         'TabPage1
@@ -119,7 +123,7 @@ Partial Class EtatMateriel
         Me.TabPage1.Location = New System.Drawing.Point(4, 32)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(287, 478)
+        Me.TabPage1.Size = New System.Drawing.Size(361, 478)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Liste du Matériel"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -131,7 +135,7 @@ Partial Class EtatMateriel
         Me.dgvEtatMat_ListeMat.Location = New System.Drawing.Point(3, 3)
         Me.dgvEtatMat_ListeMat.Name = "dgvEtatMat_ListeMat"
         Me.dgvEtatMat_ListeMat.RowHeadersWidth = 10
-        Me.dgvEtatMat_ListeMat.Size = New System.Drawing.Size(281, 472)
+        Me.dgvEtatMat_ListeMat.Size = New System.Drawing.Size(355, 472)
         Me.dgvEtatMat_ListeMat.TabIndex = 6
         '
         'TabPage2
@@ -212,7 +216,7 @@ Partial Class EtatMateriel
         Me.ComboBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"Emprunteur", "Date Emprunt", "Date Retour"})
-        Me.ComboBox1.Location = New System.Drawing.Point(122, 7)
+        Me.ComboBox1.Location = New System.Drawing.Point(122, 10)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(150, 28)
         Me.ComboBox1.TabIndex = 1
@@ -271,28 +275,29 @@ Partial Class EtatMateriel
         'TableLayoutPanel4
         '
         Me.TableLayoutPanel4.ColumnCount = 5
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.25253!))
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.12121!))
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.25253!))
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.12121!))
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.25253!))
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.77532!))
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.837016!))
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.77532!))
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.837016!))
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.77532!))
         Me.TableLayoutPanel4.Controls.Add(Me.btnEtatMat_Modif, 0, 0)
         Me.TableLayoutPanel4.Controls.Add(Me.btnEtatMat_Ajout, 2, 0)
         Me.TableLayoutPanel4.Controls.Add(Me.btnEtatMat_Annuler, 4, 0)
-        Me.TableLayoutPanel4.Location = New System.Drawing.Point(315, 448)
+        Me.TableLayoutPanel4.Location = New System.Drawing.Point(400, 487)
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
         Me.TableLayoutPanel4.RowCount = 1
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(567, 99)
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(480, 60)
         Me.TableLayoutPanel4.TabIndex = 8
         '
         'btnEtatMat_Modif
         '
         Me.btnEtatMat_Modif.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnEtatMat_Modif.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEtatMat_Modif.Location = New System.Drawing.Point(3, 23)
+        Me.btnEtatMat_Modif.Location = New System.Drawing.Point(20, 10)
+        Me.btnEtatMat_Modif.Margin = New System.Windows.Forms.Padding(20, 10, 0, 10)
         Me.btnEtatMat_Modif.Name = "btnEtatMat_Modif"
-        Me.btnEtatMat_Modif.Size = New System.Drawing.Size(137, 52)
+        Me.btnEtatMat_Modif.Size = New System.Drawing.Size(118, 40)
         Me.btnEtatMat_Modif.TabIndex = 0
         Me.btnEtatMat_Modif.Text = "Modifier"
         Me.btnEtatMat_Modif.UseVisualStyleBackColor = True
@@ -301,9 +306,10 @@ Partial Class EtatMateriel
         '
         Me.btnEtatMat_Ajout.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnEtatMat_Ajout.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEtatMat_Ajout.Location = New System.Drawing.Point(214, 23)
+        Me.btnEtatMat_Ajout.Location = New System.Drawing.Point(180, 10)
+        Me.btnEtatMat_Ajout.Margin = New System.Windows.Forms.Padding(10)
         Me.btnEtatMat_Ajout.Name = "btnEtatMat_Ajout"
-        Me.btnEtatMat_Ajout.Size = New System.Drawing.Size(137, 52)
+        Me.btnEtatMat_Ajout.Size = New System.Drawing.Size(118, 40)
         Me.btnEtatMat_Ajout.TabIndex = 1
         Me.btnEtatMat_Ajout.Text = "Ajouter"
         Me.btnEtatMat_Ajout.UseVisualStyleBackColor = True
@@ -312,21 +318,20 @@ Partial Class EtatMateriel
         '
         Me.btnEtatMat_Annuler.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnEtatMat_Annuler.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEtatMat_Annuler.Location = New System.Drawing.Point(425, 23)
+        Me.btnEtatMat_Annuler.Location = New System.Drawing.Point(340, 10)
+        Me.btnEtatMat_Annuler.Margin = New System.Windows.Forms.Padding(0, 10, 20, 10)
         Me.btnEtatMat_Annuler.Name = "btnEtatMat_Annuler"
-        Me.btnEtatMat_Annuler.Size = New System.Drawing.Size(139, 52)
+        Me.btnEtatMat_Annuler.Size = New System.Drawing.Size(120, 40)
         Me.btnEtatMat_Annuler.TabIndex = 2
         Me.btnEtatMat_Annuler.Text = "Annuler"
         Me.btnEtatMat_Annuler.UseVisualStyleBackColor = True
         '
         'Panel2
         '
-        Me.Panel2.Controls.Add(Me.TableLayoutPanel2)
-        Me.Panel2.Controls.Add(Me.TableLayoutPanel1)
-        Me.Panel2.Controls.Add(Me.TableLayoutPanel3)
-        Me.Panel2.Location = New System.Drawing.Point(315, 33)
+        Me.Panel2.Controls.Add(Me.TableLayoutPanel8)
+        Me.Panel2.Location = New System.Drawing.Point(400, 33)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(575, 409)
+        Me.Panel2.Size = New System.Drawing.Size(482, 448)
         Me.Panel2.TabIndex = 7
         '
         'TableLayoutPanel2
@@ -335,32 +340,33 @@ Partial Class EtatMateriel
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.Label4, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.rtxEtatMat_Notes, 0, 1)
+        Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 163)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(241, 3)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 2
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.69547!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.30453!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(305, 243)
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.44828!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.55173!))
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(232, 290)
         Me.TableLayoutPanel2.TabIndex = 5
         '
         'Label4
         '
-        Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
+        Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(127, 0)
+        Me.Label4.Location = New System.Drawing.Point(3, 1)
         Me.Label4.Name = "Label4"
         Me.Label4.Padding = New System.Windows.Forms.Padding(0, 15, 0, 0)
-        Me.Label4.Size = New System.Drawing.Size(51, 42)
+        Me.Label4.Size = New System.Drawing.Size(226, 35)
         Me.Label4.TabIndex = 0
         Me.Label4.Text = "Notes"
         '
         'rtxEtatMat_Notes
         '
         Me.rtxEtatMat_Notes.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.rtxEtatMat_Notes.Location = New System.Drawing.Point(3, 45)
+        Me.rtxEtatMat_Notes.Location = New System.Drawing.Point(3, 41)
         Me.rtxEtatMat_Notes.Name = "rtxEtatMat_Notes"
-        Me.rtxEtatMat_Notes.Size = New System.Drawing.Size(299, 195)
+        Me.rtxEtatMat_Notes.Size = New System.Drawing.Size(226, 246)
         Me.rtxEtatMat_Notes.TabIndex = 1
         Me.rtxEtatMat_Notes.Text = ""
         '
@@ -375,13 +381,14 @@ Partial Class EtatMateriel
         Me.TableLayoutPanel1.Controls.Add(Me.txtEtatMat_Materiel, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.txtEtatMat_Emprunt, 1, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.dtpEtatMat_Date, 1, 1)
+        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(3, 3)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 3
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(305, 154)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(476, 140)
         Me.TableLayoutPanel1.TabIndex = 4
         '
         'Label1
@@ -389,9 +396,9 @@ Partial Class EtatMateriel
         Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(3, 15)
+        Me.Label1.Location = New System.Drawing.Point(3, 13)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(127, 20)
+        Me.Label1.Size = New System.Drawing.Size(201, 20)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Matériel"
         '
@@ -400,9 +407,9 @@ Partial Class EtatMateriel
         Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(3, 66)
+        Me.Label2.Location = New System.Drawing.Point(3, 59)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(127, 20)
+        Me.Label2.Size = New System.Drawing.Size(201, 20)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Date"
         '
@@ -411,9 +418,9 @@ Partial Class EtatMateriel
         Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(3, 108)
+        Me.Label3.Location = New System.Drawing.Point(3, 106)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(127, 40)
+        Me.Label3.Size = New System.Drawing.Size(201, 20)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Emprunt (optionnel)"
         '
@@ -421,34 +428,34 @@ Partial Class EtatMateriel
         '
         Me.txtEtatMat_Materiel.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtEtatMat_Materiel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEtatMat_Materiel.Location = New System.Drawing.Point(136, 12)
+        Me.txtEtatMat_Materiel.Location = New System.Drawing.Point(210, 10)
         Me.txtEtatMat_Materiel.Name = "txtEtatMat_Materiel"
-        Me.txtEtatMat_Materiel.Size = New System.Drawing.Size(166, 26)
+        Me.txtEtatMat_Materiel.Size = New System.Drawing.Size(263, 26)
         Me.txtEtatMat_Materiel.TabIndex = 3
         '
         'txtEtatMat_Emprunt
         '
         Me.txtEtatMat_Emprunt.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtEtatMat_Emprunt.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEtatMat_Emprunt.Location = New System.Drawing.Point(136, 115)
+        Me.txtEtatMat_Emprunt.Location = New System.Drawing.Point(210, 103)
         Me.txtEtatMat_Emprunt.Name = "txtEtatMat_Emprunt"
-        Me.txtEtatMat_Emprunt.Size = New System.Drawing.Size(166, 26)
+        Me.txtEtatMat_Emprunt.Size = New System.Drawing.Size(263, 26)
         Me.txtEtatMat_Emprunt.TabIndex = 4
         '
         'dtpEtatMat_Date
         '
         Me.dtpEtatMat_Date.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dtpEtatMat_Date.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpEtatMat_Date.Location = New System.Drawing.Point(136, 63)
+        Me.dtpEtatMat_Date.Location = New System.Drawing.Point(210, 56)
         Me.dtpEtatMat_Date.Name = "dtpEtatMat_Date"
-        Me.dtpEtatMat_Date.Size = New System.Drawing.Size(166, 26)
+        Me.dtpEtatMat_Date.Size = New System.Drawing.Size(263, 26)
         Me.dtpEtatMat_Date.TabIndex = 5
         '
         'TableLayoutPanel3
         '
         Me.TableLayoutPanel3.ColumnCount = 2
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.76563!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.23438!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.55172!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.44828!))
         Me.TableLayoutPanel3.Controls.Add(Me.Label24, 1, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.Label17, 0, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.Label18, 0, 1)
@@ -465,7 +472,8 @@ Partial Class EtatMateriel
         Me.TableLayoutPanel3.Controls.Add(Me.txtEtatMat_Cablage, 1, 5)
         Me.TableLayoutPanel3.Controls.Add(Me.txtEtatMat_Logiciel, 1, 6)
         Me.TableLayoutPanel3.Controls.Add(Me.txtEtatMat_Eau, 1, 7)
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(311, 0)
+        Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 3)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 8
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
@@ -476,17 +484,17 @@ Partial Class EtatMateriel
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(256, 409)
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(232, 290)
         Me.TableLayoutPanel3.TabIndex = 3
         '
         'Label24
         '
         Me.Label24.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label24.AutoSize = True
-        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label24.Location = New System.Drawing.Point(157, 17)
+        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label24.Location = New System.Drawing.Point(117, 8)
         Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(93, 17)
+        Me.Label24.Size = New System.Drawing.Size(105, 20)
         Me.Label24.TabIndex = 7
         Me.Label24.Text = "Coût estimé"
         '
@@ -494,10 +502,10 @@ Partial Class EtatMateriel
         '
         Me.Label17.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label17.AutoSize = True
-        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(57, 17)
+        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.Location = New System.Drawing.Point(31, 8)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(38, 17)
+        Me.Label17.Size = New System.Drawing.Size(45, 20)
         Me.Label17.TabIndex = 0
         Me.Label17.Text = "Item"
         '
@@ -506,85 +514,92 @@ Partial Class EtatMateriel
         Me.Label18.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(3, 66)
+        Me.Label18.Location = New System.Drawing.Point(3, 44)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(146, 20)
+        Me.Label18.Size = New System.Drawing.Size(101, 20)
         Me.Label18.TabIndex = 12
         Me.Label18.Text = "État général"
+        Me.Label18.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label25
         '
         Me.Label25.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label25.AutoSize = True
         Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label25.Location = New System.Drawing.Point(3, 117)
+        Me.Label25.Location = New System.Drawing.Point(3, 80)
         Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(146, 20)
+        Me.Label25.Size = New System.Drawing.Size(101, 20)
         Me.Label25.TabIndex = 14
         Me.Label25.Text = "Boîtier"
+        Me.Label25.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label26
         '
         Me.Label26.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label26.AutoSize = True
         Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label26.Location = New System.Drawing.Point(3, 168)
+        Me.Label26.Location = New System.Drawing.Point(3, 116)
         Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(146, 20)
+        Me.Label26.Size = New System.Drawing.Size(101, 20)
         Me.Label26.TabIndex = 15
         Me.Label26.Text = "Électronique"
+        Me.Label26.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label19
         '
         Me.Label19.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label19.AutoSize = True
         Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(3, 219)
+        Me.Label19.Location = New System.Drawing.Point(3, 152)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(146, 20)
+        Me.Label19.Size = New System.Drawing.Size(101, 20)
         Me.Label19.TabIndex = 13
         Me.Label19.Text = "Moteur"
+        Me.Label19.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label37
         '
         Me.Label37.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label37.AutoSize = True
         Me.Label37.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label37.Location = New System.Drawing.Point(3, 270)
+        Me.Label37.Location = New System.Drawing.Point(3, 180)
         Me.Label37.Name = "Label37"
-        Me.Label37.Size = New System.Drawing.Size(146, 20)
+        Me.Label37.Size = New System.Drawing.Size(101, 36)
         Me.Label37.TabIndex = 19
         Me.Label37.Text = "Câblage Électrique"
+        Me.Label37.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label28
         '
         Me.Label28.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label28.AutoSize = True
         Me.Label28.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label28.Location = New System.Drawing.Point(3, 321)
+        Me.Label28.Location = New System.Drawing.Point(3, 224)
         Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(146, 20)
+        Me.Label28.Size = New System.Drawing.Size(101, 20)
         Me.Label28.TabIndex = 16
         Me.Label28.Text = "Logiciel"
+        Me.Label28.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label34
         '
         Me.Label34.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label34.AutoSize = True
         Me.Label34.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label34.Location = New System.Drawing.Point(3, 373)
+        Me.Label34.Location = New System.Drawing.Point(3, 261)
         Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(146, 20)
+        Me.Label34.Size = New System.Drawing.Size(101, 20)
         Me.Label34.TabIndex = 17
         Me.Label34.Text = "Eau"
+        Me.Label34.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtEtatMat_EtatGen
         '
         Me.txtEtatMat_EtatGen.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtEtatMat_EtatGen.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEtatMat_EtatGen.Location = New System.Drawing.Point(155, 63)
+        Me.txtEtatMat_EtatGen.Location = New System.Drawing.Point(110, 41)
         Me.txtEtatMat_EtatGen.Name = "txtEtatMat_EtatGen"
-        Me.txtEtatMat_EtatGen.Size = New System.Drawing.Size(98, 26)
+        Me.txtEtatMat_EtatGen.Size = New System.Drawing.Size(119, 26)
         Me.txtEtatMat_EtatGen.TabIndex = 36
         Me.txtEtatMat_EtatGen.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -592,9 +607,9 @@ Partial Class EtatMateriel
         '
         Me.txtEtatMat_Boitier.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtEtatMat_Boitier.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEtatMat_Boitier.Location = New System.Drawing.Point(155, 114)
+        Me.txtEtatMat_Boitier.Location = New System.Drawing.Point(110, 77)
         Me.txtEtatMat_Boitier.Name = "txtEtatMat_Boitier"
-        Me.txtEtatMat_Boitier.Size = New System.Drawing.Size(98, 26)
+        Me.txtEtatMat_Boitier.Size = New System.Drawing.Size(119, 26)
         Me.txtEtatMat_Boitier.TabIndex = 38
         Me.txtEtatMat_Boitier.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -602,9 +617,9 @@ Partial Class EtatMateriel
         '
         Me.txtEtatMat_Electro.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtEtatMat_Electro.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEtatMat_Electro.Location = New System.Drawing.Point(155, 165)
+        Me.txtEtatMat_Electro.Location = New System.Drawing.Point(110, 113)
         Me.txtEtatMat_Electro.Name = "txtEtatMat_Electro"
-        Me.txtEtatMat_Electro.Size = New System.Drawing.Size(98, 26)
+        Me.txtEtatMat_Electro.Size = New System.Drawing.Size(119, 26)
         Me.txtEtatMat_Electro.TabIndex = 39
         Me.txtEtatMat_Electro.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -612,9 +627,9 @@ Partial Class EtatMateriel
         '
         Me.txtEtatMat_Moteur.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtEtatMat_Moteur.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEtatMat_Moteur.Location = New System.Drawing.Point(155, 216)
+        Me.txtEtatMat_Moteur.Location = New System.Drawing.Point(110, 149)
         Me.txtEtatMat_Moteur.Name = "txtEtatMat_Moteur"
-        Me.txtEtatMat_Moteur.Size = New System.Drawing.Size(98, 26)
+        Me.txtEtatMat_Moteur.Size = New System.Drawing.Size(119, 26)
         Me.txtEtatMat_Moteur.TabIndex = 40
         Me.txtEtatMat_Moteur.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -622,9 +637,9 @@ Partial Class EtatMateriel
         '
         Me.txtEtatMat_Cablage.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtEtatMat_Cablage.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEtatMat_Cablage.Location = New System.Drawing.Point(155, 267)
+        Me.txtEtatMat_Cablage.Location = New System.Drawing.Point(110, 185)
         Me.txtEtatMat_Cablage.Name = "txtEtatMat_Cablage"
-        Me.txtEtatMat_Cablage.Size = New System.Drawing.Size(98, 26)
+        Me.txtEtatMat_Cablage.Size = New System.Drawing.Size(119, 26)
         Me.txtEtatMat_Cablage.TabIndex = 41
         Me.txtEtatMat_Cablage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -632,9 +647,9 @@ Partial Class EtatMateriel
         '
         Me.txtEtatMat_Logiciel.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtEtatMat_Logiciel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEtatMat_Logiciel.Location = New System.Drawing.Point(155, 318)
+        Me.txtEtatMat_Logiciel.Location = New System.Drawing.Point(110, 221)
         Me.txtEtatMat_Logiciel.Name = "txtEtatMat_Logiciel"
-        Me.txtEtatMat_Logiciel.Size = New System.Drawing.Size(98, 26)
+        Me.txtEtatMat_Logiciel.Size = New System.Drawing.Size(119, 26)
         Me.txtEtatMat_Logiciel.TabIndex = 42
         Me.txtEtatMat_Logiciel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -642,11 +657,41 @@ Partial Class EtatMateriel
         '
         Me.txtEtatMat_Eau.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtEtatMat_Eau.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEtatMat_Eau.Location = New System.Drawing.Point(155, 370)
+        Me.txtEtatMat_Eau.Location = New System.Drawing.Point(110, 258)
         Me.txtEtatMat_Eau.Name = "txtEtatMat_Eau"
-        Me.txtEtatMat_Eau.Size = New System.Drawing.Size(98, 26)
+        Me.txtEtatMat_Eau.Size = New System.Drawing.Size(119, 26)
         Me.txtEtatMat_Eau.TabIndex = 43
         Me.txtEtatMat_Eau.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'TableLayoutPanel8
+        '
+        Me.TableLayoutPanel8.ColumnCount = 1
+        Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.11203!))
+        Me.TableLayoutPanel8.Controls.Add(Me.TableLayoutPanel1, 0, 0)
+        Me.TableLayoutPanel8.Controls.Add(Me.TableLayoutPanel9, 0, 1)
+        Me.TableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel8.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel8.Name = "TableLayoutPanel8"
+        Me.TableLayoutPanel8.RowCount = 2
+        Me.TableLayoutPanel8.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel8.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 302.0!))
+        Me.TableLayoutPanel8.Size = New System.Drawing.Size(482, 448)
+        Me.TableLayoutPanel8.TabIndex = 6
+        '
+        'TableLayoutPanel9
+        '
+        Me.TableLayoutPanel9.ColumnCount = 2
+        Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel9.Controls.Add(Me.TableLayoutPanel3, 0, 0)
+        Me.TableLayoutPanel9.Controls.Add(Me.TableLayoutPanel2, 1, 0)
+        Me.TableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.TableLayoutPanel9.Location = New System.Drawing.Point(3, 149)
+        Me.TableLayoutPanel9.Name = "TableLayoutPanel9"
+        Me.TableLayoutPanel9.RowCount = 1
+        Me.TableLayoutPanel9.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel9.Size = New System.Drawing.Size(476, 296)
+        Me.TableLayoutPanel9.TabIndex = 5
         '
         'EtatMateriel
         '
@@ -677,6 +722,8 @@ Partial Class EtatMateriel
         Me.TableLayoutPanel1.PerformLayout()
         Me.TableLayoutPanel3.ResumeLayout(False)
         Me.TableLayoutPanel3.PerformLayout()
+        Me.TableLayoutPanel8.ResumeLayout(False)
+        Me.TableLayoutPanel9.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -729,4 +776,6 @@ Partial Class EtatMateriel
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Button1 As Button
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents TableLayoutPanel8 As TableLayoutPanel
+    Friend WithEvents TableLayoutPanel9 As TableLayoutPanel
 End Class

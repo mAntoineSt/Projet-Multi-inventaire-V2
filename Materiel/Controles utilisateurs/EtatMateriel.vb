@@ -250,12 +250,20 @@ Public Class EtatMateriel
 
 
     Public Sub ObtenirIdEquipement()
-        idEquipement = dgvEtatMat_ListeMat.Rows(dgvEtatMat_ListeMat.CurrentCell.RowIndex).Cells(0).Value
+        If IsDBNull(dgvEtatMat_ListeMat.Rows(dgvEtatMat_ListeMat.CurrentCell.RowIndex).Cells(0).Value) = False Then
+            idEquipement = CInt(dgvEtatMat_ListeMat.Rows(dgvEtatMat_ListeMat.CurrentCell.RowIndex).Cells(0).Value)
+        Else
+            idEquipement = 0
+        End If
         RemplirChampFormulaire()
     End Sub
 
     Public Sub ObtenirDateEtatMat()
-        dateEtatMat = Convert.ToDateTime(dgvEtatMat_ListeEval.Rows(dgvEtatMat_ListeEval.CurrentCell.RowIndex).Cells(2).Value)
+        If IsDBNull(dgvEtatMat_ListeEval.Rows(dgvEtatMat_ListeEval.CurrentCell.RowIndex).Cells(2).Value) = False Then
+            idEquipement = Convert.ToDateTime(dgvEtatMat_ListeEval.Rows(dgvEtatMat_ListeEval.CurrentCell.RowIndex).Cells(2).Value)
+        Else
+            idEquipement = 0
+        End If
         RemplirChampFormulaireHisto()
     End Sub
 

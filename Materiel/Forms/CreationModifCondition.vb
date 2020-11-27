@@ -60,6 +60,29 @@ Public Class CreationModifCondition
 
     End Sub
 
+
+    Public Sub RemplirLsvCondition()
+
+        Dim reqLsbCondition As String = "Select * FROM `conditions`;"
+        Dim cmd As New MySqlCommand(reqLsbCondition, connectionBD)
+        Dim daCondEmprunt As MySqlDataAdapter = New MySqlDataAdapter(cmd)
+        Dim dt As New DataTable("conditions")
+        daCondEmprunt.Fill(dt)
+
+
+        Dim newrow As DataRow
+        For Each newrow In dt.Rows
+            lsvCond_ListeCond.Items.Add(newrow.Item(0).ToString)
+            lsvCond_ListeCond.Items(lsvCond_ListeCond.Items.Count - 1).SubItems.Add(newrow.Item(1).ToString)
+            lsvCond_ListeCond.Items(lsvCond_ListeCond.Items.Count - 1).SubItems.Add(newrow.Item(2).ToString)
+        Next
+
+    End Sub
+
+
+
+
+
     Public Sub ViderChamps()
         txtCond_Description.Text = ""
         rtxCond_Notes.Text = ""
@@ -75,9 +98,16 @@ Public Class CreationModifCondition
         rtxCond_Notes.Enabled = True
     End Sub
 
+    Public Sub ObtenirIdCondition()
+        idCondition = CInt(lsvCond_ListeCond.Items(lsvCond_ListeCond.FocusedItem.Index).SubItems(0).Text)
+        txtCond_Description.Text = lsvCond_ListeCond.Items(lsvCond_ListeCond.FocusedItem.Index).SubItems(1).Text
+    End Sub
+
 
     Private Sub CreationModifCondition_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        lsvCond_ListeCond.Items.Clear()
         InactiverChamps()
+        RemplirLsvCondition()
     End Sub
 
     Private Sub BtnCond_Annuler_Click(sender As Object, e As EventArgs) Handles btnCond_Annuler.Click
@@ -91,6 +121,7 @@ Public Class CreationModifCondition
 
     Private Sub BtnCond_Ajout_Click(sender As Object, e As EventArgs) Handles btnCond_Ajout.Click
         If btnCond_Ajout.Enabled = True And String.Compare(btnCond_Ajout.Text, "Ajouter") = 0 Then
+            ViderChamps()
             ActiverChamps()
             btnCond_Ajout.Text = "Enregistrer"
             btnCond_Modif.Enabled = False
@@ -108,7 +139,7 @@ Public Class CreationModifCondition
             btnCond_Modif.Text = "Enregistrer"
             btnCond_Ajout.Enabled = False
         ElseIf btnCond_Modif.Enabled = True And String.Compare(btnCond_Modif.Text, "Enregistrer") = 0 Then
-            'EnregistrerMateriel()
+            ModifCond()
             InactiverChamps()
             btnCond_Modif.Text = "Modifier"
             btnCond_Ajout.Enabled = True
@@ -119,4 +150,10 @@ Public Class CreationModifCondition
             Me.Close()
         End If
     End Sub
+
+    Private Sub lsvCond_ListeCond_Click(sender As Object, e As EventArgs) Handles lsvCond_ListeCond.Click
+        ObtenirIdCondition()
+    End Sub
+
+
 End Class

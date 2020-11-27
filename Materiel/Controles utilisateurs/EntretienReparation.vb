@@ -223,12 +223,22 @@ Public Class EntretienReparation
 
 
     Public Sub ObtenirIdEquipement()
-        idEquipement = dgvEntRep_ListeMat.Rows(dgvEntRep_ListeMat.CurrentCell.RowIndex).Cells(0).Value
+        If IsDBNull(dgvEntRep_ListeMat.Rows(dgvEntRep_ListeMat.CurrentCell.RowIndex).Cells(0).Value) = False Then
+            idEquipement = dgvEntRep_ListeMat.Rows(dgvEntRep_ListeMat.CurrentCell.RowIndex).Cells(0).Value
+        Else
+            idEquipement = 0
+        End If
+
         RemplirChampFormulaire()
     End Sub
 
     Public Sub ObtenirDateEntRep()
-        dateEntRep = Convert.ToDateTime(dgvEntRep_ListeRepEnt.Rows(dgvEntRep_ListeRepEnt.CurrentCell.RowIndex).Cells(2).Value)
+        If IsDBNull(dgvEntRep_ListeRepEnt.Rows(dgvEntRep_ListeRepEnt.CurrentCell.RowIndex).Cells(2).Value) = False Then
+            idEquipement = Convert.ToDateTime(dgvEntRep_ListeRepEnt.Rows(dgvEntRep_ListeRepEnt.CurrentCell.RowIndex).Cells(2).Value)
+        Else
+            idEquipement = 0
+        End If
+
         RemplirChampFormulaireHisto()
     End Sub
 

@@ -10,6 +10,10 @@ Public Class FicheMateriel
     Private bd As ConnectBd = New ConnectBd
     Dim dsEquipement As New DataSet
     Dim daEquipement As New MySqlDataAdapter
+    Dim dsCondEmprunt As New DataSet
+    Dim daCondEmprunt As New MySqlDataAdapter
+    Dim dsEntRep As New DataSet
+    Dim daEntRep As New MySqlDataAdapter
     Dim idEquipement As Integer
     Dim connectionBD As New MySqlConnection(bd.ConnectionString)
     Public row As DataRow
@@ -34,7 +38,11 @@ Public Class FicheMateriel
 
 
     Public Sub ObtenirIdEquipement()
-        idEquipement = dgvFicheMat.Rows(dgvFicheMat.CurrentCell.RowIndex).Cells(0).Value
+        If IsDBNull(dgvFicheMat.Rows(dgvFicheMat.CurrentCell.RowIndex).Cells(0).Value) = False Then
+            idEquipement = dgvFicheMat.Rows(dgvFicheMat.CurrentCell.RowIndex).Cells(0).Value
+        Else
+            idEquipement = 0
+        End If
         RemplirChampFormulaire()
     End Sub
 
@@ -76,9 +84,52 @@ Public Class FicheMateriel
         connectionBD.Close()
     End Sub
 
+    Public Sub RemplirDatagridview_ConditionMateriel()
+
+        [dsCondEmprunt].Tables.Clear()
+        Dim reqConditionMat As String
+        reqConditionMat = " SELECT distinct description as Conditions_du_Pret
+                                    FROM conditions c
+                                    INNER JOIN conditions_equipements ce
+                                    ON c.id_condition = ce.id_condition
+                                    WHERE c.id_condition IN (SELECT ce.id_condition
+                                                             FROM conditions_equipements ce
+                                                             WHERE ce.id_equipement = " & idEquipement & ");"
+
+
+        daCondEmprunt = New MySqlDataAdapter(reqConditionMat, bd.ConnectionString)
+        daCondEmprunt.Fill(dsCondEmprunt, "conditions_equipements")
+        dgvFicheMat_CondEmp.DataSource = dsCondEmprunt.Tables("conditions_equipements")
+
+
+        Dim columnHeaderStyle As New DataGridViewCellStyle
+        columnHeaderStyle.Font = New Font("Verdana", 10, FontStyle.Bold)
+        dgvFicheMat_CondEmp.ColumnHeadersDefaultCellStyle = columnHeaderStyle
+        dgvFicheMat_CondEmp.Columns(0).Width = 800
+
+    End Sub
+
+    Public Sub RemplirDatagridview_HistoriqueEntRep()
+
+        [dsEntRep].Tables.Clear()
+        Dim reqHistoriqueEntRep As String
+        reqHistoriqueEntRep = "SELECT er1.`date` as Date, statut as Type, element as Element, montant as Montant
+                                FROM `entretien_reparation` er1
+                                WHERE er1.materiel =  " & idEquipement & " ;"
 
 
 
+        daEntRep = New MySqlDataAdapter(reqHistoriqueEntRep, bd.ConnectionString)
+        daEntRep.Fill(dsEntRep, "entretien_reparation")
+        dgvFiche_Entretien.DataSource = dsEntRep.Tables("entretien_reparation")
+
+
+        Dim columnHeaderStyle As New DataGridViewCellStyle
+        columnHeaderStyle.Font = New Font("Verdana", 10, FontStyle.Bold)
+        dgvFiche_Entretien.ColumnHeadersDefaultCellStyle = columnHeaderStyle
+
+
+    End Sub
 
     Private Sub FicheMateriel_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         RemplirDatagridview_EnrMateriel()
@@ -86,6 +137,8 @@ Public Class FicheMateriel
 
     Private Sub dgvFicheMat_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvFicheMat.CellClick
         ObtenirIdEquipement()
+        RemplirDatagridview_ConditionMateriel()
+        RemplirDatagridview_HistoriqueEntRep()
     End Sub
 
     Private Sub TabControl2_DrawItem(sender As Object, e As DrawItemEventArgs) Handles TabControl2.DrawItem

@@ -164,7 +164,12 @@ Public Class ConditionsEmprunt
     End Sub
 
     Public Sub ObtenirIdEquipement()
-        idEquipement = CInt(dgvCondEmp_ListeMat.Rows(dgvCondEmp_ListeMat.CurrentCell.RowIndex).Cells(0).Value)
+        If IsDBNull(dgvCondEmp_ListeMat.Rows(dgvCondEmp_ListeMat.CurrentCell.RowIndex).Cells(0).Value) = False Then
+            idEquipement = CInt(dgvCondEmp_ListeMat.Rows(dgvCondEmp_ListeMat.CurrentCell.RowIndex).Cells(0).Value)
+        Else
+            idEquipement = 0
+        End If
+
         RemplirChampFormulaire()
         RemplirDatagridview_ConditionMateriel()
     End Sub
@@ -178,11 +183,17 @@ Public Class ConditionsEmprunt
     Public Sub InactiverChamps()
         txtCondEmp_Materiel.Enabled = False
         txtCondEmp_Condition.Enabled = False
+        lsvCondEmp_RechCond.Enabled = False
+        txtCondEmp_RechCond.Enabled = False
+        btnCondEmp_RechCond.Enabled = False
     End Sub
 
     Public Sub ActiverChamps()
         txtCondEmp_Materiel.Enabled = True
         txtCondEmp_Condition.Enabled = True
+        lsvCondEmp_RechCond.Enabled = True
+        txtCondEmp_RechCond.Enabled = True
+        btnCondEmp_RechCond.Enabled = True
     End Sub
 
 
@@ -249,9 +260,19 @@ Public Class ConditionsEmprunt
     End Sub
 
     Private Sub BtnCondEmp_RechCond_Click(sender As Object, e As EventArgs) Handles btnCondEmp_RechCond.Click
-        lsvCondEmp_RechCond.Items.Clear()
-        RechercheCondition()
+        If btnCondEmp_RechCond.Enabled = True And String.Compare(btnCondEmp_RechCond.Text, "Recherche") = 0 Then
+            lsvCondEmp_RechCond.Items.Clear()
+            RechercheCondition()
+            btnCondEmp_RechCond.Text = "Renouveler"
+        ElseIf btnCondEmp_RechCond.Enabled = True And String.Compare(btnCondEmp_RechCond.Text, "Renouveler") = 0 Then
+            lsvCondEmp_RechCond.Items.Clear()
+            RemplirLsvCondition()
+            txtCondEmp_RechCond.Text = ""
+            btnCondEmp_RechCond.Text = "Recherche"
+        End If
     End Sub
+
+
 
 
 

@@ -23,7 +23,11 @@ Public Class FicheMateriel
 
         [dsEquipement].Tables.Clear()
         Dim reqAjoutMateriel As String
-        reqAjoutMateriel = "SELECT id_equipement as idEq, marque as Marque, modele as Modele, fabricant as Fabricant FROM equipements"
+        reqAjoutMateriel = "SELECT id_equipement as idEq,
+                                    marque as Marque,
+                                    modele as Modele,
+                                    fabricant as Fabricant
+                                    FROM equipements;"
         daEquipement = New MySqlDataAdapter(reqAjoutMateriel, bd.ConnectionString)
         daEquipement.Fill(dsEquipement, "equipements")
         dgvFicheMat.DataSource = dsEquipement.Tables("equipements")
@@ -33,7 +37,9 @@ Public Class FicheMateriel
         columnHeaderStyle.Font = New Font("Verdana", 10, FontStyle.Bold)
         dgvFicheMat.ColumnHeadersDefaultCellStyle = columnHeaderStyle
         dgvFicheMat.Columns(0).Visible = False
-
+        dgvFicheMat.Columns(1).Width = 120
+        dgvFicheMat.Columns(2).Width = 120
+        dgvFicheMat.Columns(3).Width = 120
     End Sub
 
 

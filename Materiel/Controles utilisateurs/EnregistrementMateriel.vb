@@ -68,8 +68,8 @@ Public Class EnregistrementMateriel
         cmdInsertMateriel.Parameters.Add("@date_enregistrement", MySqlDbType.Date).Value = dateJour
         cmdInsertMateriel.Parameters.Add("@fournisseur", MySqlDbType.String).Value = txtEnrMat_Fournisseur.Text
         cmdInsertMateriel.Parameters.Add("@date_acquisition", MySqlDbType.Date).Value = dtpEnrMat_DateAcquis.Value
-        cmdInsertMateriel.Parameters.Add("@cout_achat", MySqlDbType.String).Value = Replace(txtEnrMat_CoutAchat.Text, ",", ".")
-        cmdInsertMateriel.Parameters.Add("@valeur_residuelle", MySqlDbType.String).Value = Replace(txtEnrMat_Valeur.Text, ",", ".")
+        cmdInsertMateriel.Parameters.Add("@cout_achat", MySqlDbType.String).Value = Replace(txtEnrMat_CoutAchat.Text, ",", ".") 'C'est valide comme façon de faire 
+        cmdInsertMateriel.Parameters.Add("@valeur_residuelle", MySqlDbType.String).Value = Replace(txtEnrMat_Valeur.Text, ",", ".") 'Plante pas.!!!!
         cmdInsertMateriel.Parameters.Add("@no_antivol", MySqlDbType.String).Value = txtEnrMat_NoAntivol.Text
         cmdInsertMateriel.Parameters.Add("@info_complement", MySqlDbType.String).Value = rtxEnrMat_Notes.Text
         cmdInsertMateriel.Parameters.Add("@url_photo", MySqlDbType.String).Value = urlDestination
@@ -77,10 +77,6 @@ Public Class EnregistrementMateriel
 
         cmdInsertMateriel.CommandText = reqAjoutMateriel
         bd.Prepare_InsDelUpd(reqAjoutMateriel, cmdInsertMateriel, connectionBD)
-
-
-        ViderChamps()
-
     End Sub
 
 
@@ -95,19 +91,19 @@ Public Class EnregistrementMateriel
 
 
         reqModifMateriel = "UPDATE `equipements`
-                            SET  `marque` = '@marque', 
-                                 `modele` = '@modele', 
-                                 `noSerie` = '@noSerie',
-                                 `fabricant` = '@fabricant'
-                                 `categorie` = '@categorie', 
-                                 `date_fabrication` = '@date_fabrication', 
-                                 `date_enregistrement` = '@date_enregistrement',
-                                 `fournisseur` = '@fournisseur'
-                                 `date_acquisition` = '@date_acquisition', 
-                                 `cout_achat` = '@cout_achat', 
-                                 `valeur_residuelle` = '@valeur_residuelle',
-                                 `no_antivol` = '@no_antivol',
-                                 `info_complement` = '@info_complement'                    
+                            SET  `marque` = @marque, 
+                                 `modele` = @modele, 
+                                 `noSerie` = @noSerie,
+                                 `fabricant` = @fabricant,
+                                 `categorie` = @categorie, 
+                                 `date_fabrication` = @date_fabrication, 
+                                 `date_enregistrement` = @date_enregistrement,
+                                 `fournisseur` = @fournisseur,
+                                 `date_acquisition` = @date_acquisition, 
+                                 `cout_achat` = @cout_achat, 
+                                 `valeur_residuelle` = @valeur_residuelle,
+                                 `no_antivol` = @no_antivol,
+                                 `info_complement` = @info_complement                    
                            WHERE `id_equipement` = " & idEquipement & ";"
 
         cmdModifMateriel.Parameters.Add("@marque", MySqlDbType.String).Value = txtEnrMat_Marque.Text
@@ -124,10 +120,8 @@ Public Class EnregistrementMateriel
         cmdModifMateriel.Parameters.Add("@no_antivol", MySqlDbType.String).Value = txtEnrMat_NoAntivol.Text
         cmdModifMateriel.Parameters.Add("@info_complement", MySqlDbType.String).Value = rtxEnrMat_Notes.Text
 
-
         cmdModifMateriel.CommandText = reqModifMateriel
         bd.Prepare_InsDelUpd(reqModifMateriel, cmdModifMateriel, connectionBD)
-
     End Sub
 
 
@@ -136,7 +130,12 @@ Public Class EnregistrementMateriel
 
         [dsEquipement].Tables.Clear()
         Dim reqAjoutMateriel As String
-        reqAjoutMateriel = "SELECT id_equipement as idEq, marque as Marque, modele as Modele, fabricant as Fabricant FROM equipements"
+        reqAjoutMateriel = "SELECT id_equipement as idEq,
+                                   marque as Marque,
+                                   modele as Modele,
+                                  fabricant as Fabricant
+                            FROM equipements;"
+
         daEquipement = New MySqlDataAdapter(reqAjoutMateriel, bd.ConnectionString)
         daEquipement.Fill(dsEquipement, "equipements")
         dgvEnrMat.DataSource = dsEquipement.Tables("equipements")
@@ -146,13 +145,16 @@ Public Class EnregistrementMateriel
         columnHeaderStyle.Font = New Font("Verdana", 10, FontStyle.Bold)
         dgvEnrMat.ColumnHeadersDefaultCellStyle = columnHeaderStyle
         dgvEnrMat.Columns(0).Visible = False
-
+        dgvEnrMat.Columns(1).Width = 120
+        dgvEnrMat.Columns(2).Width = 120
+        dgvEnrMat.Columns(3).Width = 120
     End Sub
 
 
     Public Sub RemplirChampFormulaire()
         Dim readerMateriel As MySqlDataReader
-        Dim reqRemplirMateriel As String = "SELECT * FROM `equipements` WHERE `id_equipement` = '" & idEquipement & "';"
+        Dim reqRemplirMateriel As String = "SELECT * FROM `equipements`
+                                            WHERE `id_equipement` = '" & idEquipement & "';"
 
 
         connectionBD.Open()
@@ -161,8 +163,6 @@ Public Class EnregistrementMateriel
         If readerMateriel.HasRows Then
             readerMateriel.Read()
 
-
-            'txtEnrMat_Identifiant.Text = readerMateriel("nom_artiste")
             txtEnrMat_Marque.Text = readerMateriel("marque")
             txtEnrMat_Modele.Text = readerMateriel("modele")
             txtEnrMat_NoSerie.Text = readerMateriel("noSerie")
@@ -214,12 +214,15 @@ Public Class EnregistrementMateriel
 
 
     Public Sub TelechargerPhoto()
-        Dim nomImage As String
+        Dim nomImage As String = ""
         Dim fichier As String = "C:\UwAmp\www\SERVEUR_YANICK\Dossier Images"
 
-        nomImage = Mid(urlImage, InStrRev(urlImage, "\", Len(urlImage)) + 1)
-        urlDestination = System.IO.Path.Combine(fichier, nomImage)
-        imageMat.Save(urlDestination)
+        If IsNothing(nomImage) = False Then
+            nomImage = Mid(urlImage, InStrRev(urlImage, "\", Len(urlImage)) + 1)
+            urlDestination = System.IO.Path.Combine(fichier, nomImage)
+            imageMat.Save(urlDestination)
+        End If
+
     End Sub
 
 
@@ -272,6 +275,20 @@ Public Class EnregistrementMateriel
     End Sub
 
 
+    Public Sub MessageBox_Enregistrer(e As EventArgs)
+        Dim resultat = MessageBox.Show("Voulez-vous inscrire ce nouveau matériel?", "Prêt Équipement", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
+        If (resultat = DialogResult.Yes) Then
+            EnregistrerMateriel()
+        End If
+    End Sub
+
+    Public Sub MessageBox_Modifier(e As EventArgs)
+        Dim resultat = MessageBox.Show("Voulez-vous vraiment modifier ce matériel?", "Prêt Équipement", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
+        If (resultat = DialogResult.Yes) Then
+            ModifMateriel()
+        End If
+    End Sub
+
     Private Sub BtnEnrMat_Annuler_Click(sender As Object, e As EventArgs) Handles btnEnrMat_Annuler.Click
         ViderChamps()
         InactiverChamps()
@@ -284,11 +301,13 @@ Public Class EnregistrementMateriel
     Private Sub BtnEnrMat_Ajout_Click(sender As Object, e As EventArgs) Handles btnEnrMat_Ajout.Click
         If btnEnrMat_Ajout.Enabled = True And String.Compare(btnEnrMat_Ajout.Text, "Ajouter") = 0 Then
             ActiverChamps()
+            ViderChamps()
             btnEnrMat_Ajout.Text = "Enregistrer"
             btnEnrMat_Modif.Enabled = False
         ElseIf btnEnrMat_Ajout.Enabled = True And String.Compare(btnEnrMat_Ajout.Text, "Enregistrer") = 0 Then
-            EnregistrerMateriel()
+            MessageBox_Enregistrer(e)
             InactiverChamps()
+            ViderChamps()
             btnEnrMat_Ajout.Text = "Ajouter"
             btnEnrMat_Modif.Enabled = True
         End If
@@ -301,8 +320,9 @@ Public Class EnregistrementMateriel
             btnEnrMat_Modif.Text = "Enregistrer"
             btnEnrMat_Ajout.Enabled = False
         ElseIf btnEnrMat_Modif.Enabled = True And String.Compare(btnEnrMat_Modif.Text, "Enregistrer") = 0 Then
-            ModifMateriel()
+            MessageBox_Modifier(e)
             InactiverChamps()
+            ViderChamps()
             btnEnrMat_Modif.Text = "Modifier"
             btnEnrMat_Ajout.Enabled = True
         End If

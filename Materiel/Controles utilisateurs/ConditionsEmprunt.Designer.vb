@@ -46,7 +46,7 @@ Partial Class ConditionsEmprunt
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.dgvCondEmp_ListeCond = New System.Windows.Forms.DataGridView()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
-        Me.btnCondEmp_Modif = New System.Windows.Forms.Button()
+        Me.btnCondEmp_Retrait = New System.Windows.Forms.Button()
         Me.btnCondEmp_Ajout = New System.Windows.Forms.Button()
         Me.btnCondEmp_Annuler = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
@@ -198,7 +198,7 @@ Partial Class ConditionsEmprunt
         Me.TableLayoutPanel3.ColumnCount = 3
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.88044!))
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.11957!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 103.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 104.0!))
         Me.TableLayoutPanel3.Controls.Add(Me.Label1, 0, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.txtCondEmp_RechCond, 1, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.btnCondEmp_RechCond, 2, 0)
@@ -228,16 +228,16 @@ Partial Class ConditionsEmprunt
         Me.txtCondEmp_RechCond.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCondEmp_RechCond.Location = New System.Drawing.Point(123, 15)
         Me.txtCondEmp_RechCond.Name = "txtCondEmp_RechCond"
-        Me.txtCondEmp_RechCond.Size = New System.Drawing.Size(240, 26)
+        Me.txtCondEmp_RechCond.Size = New System.Drawing.Size(239, 26)
         Me.txtCondEmp_RechCond.TabIndex = 1
         '
         'btnCondEmp_RechCond
         '
         Me.btnCondEmp_RechCond.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnCondEmp_RechCond.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCondEmp_RechCond.Location = New System.Drawing.Point(369, 9)
+        Me.btnCondEmp_RechCond.Location = New System.Drawing.Point(368, 9)
         Me.btnCondEmp_RechCond.Name = "btnCondEmp_RechCond"
-        Me.btnCondEmp_RechCond.Size = New System.Drawing.Size(98, 38)
+        Me.btnCondEmp_RechCond.Size = New System.Drawing.Size(99, 38)
         Me.btnCondEmp_RechCond.TabIndex = 2
         Me.btnCondEmp_RechCond.Text = "Recherche"
         Me.btnCondEmp_RechCond.UseVisualStyleBackColor = True
@@ -331,7 +331,7 @@ Partial Class ConditionsEmprunt
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.44641!))
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.830388!))
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.44641!))
-        Me.TableLayoutPanel4.Controls.Add(Me.btnCondEmp_Modif, 0, 0)
+        Me.TableLayoutPanel4.Controls.Add(Me.btnCondEmp_Retrait, 0, 0)
         Me.TableLayoutPanel4.Controls.Add(Me.btnCondEmp_Ajout, 2, 0)
         Me.TableLayoutPanel4.Controls.Add(Me.btnCondEmp_Annuler, 4, 0)
         Me.TableLayoutPanel4.Location = New System.Drawing.Point(400, 487)
@@ -341,17 +341,17 @@ Partial Class ConditionsEmprunt
         Me.TableLayoutPanel4.Size = New System.Drawing.Size(480, 60)
         Me.TableLayoutPanel4.TabIndex = 9
         '
-        'btnCondEmp_Modif
+        'btnCondEmp_Retrait
         '
-        Me.btnCondEmp_Modif.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnCondEmp_Modif.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCondEmp_Modif.Location = New System.Drawing.Point(20, 10)
-        Me.btnCondEmp_Modif.Margin = New System.Windows.Forms.Padding(20, 10, 0, 10)
-        Me.btnCondEmp_Modif.Name = "btnCondEmp_Modif"
-        Me.btnCondEmp_Modif.Size = New System.Drawing.Size(121, 40)
-        Me.btnCondEmp_Modif.TabIndex = 0
-        Me.btnCondEmp_Modif.Text = "Modifier"
-        Me.btnCondEmp_Modif.UseVisualStyleBackColor = True
+        Me.btnCondEmp_Retrait.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnCondEmp_Retrait.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCondEmp_Retrait.Location = New System.Drawing.Point(20, 10)
+        Me.btnCondEmp_Retrait.Margin = New System.Windows.Forms.Padding(20, 10, 0, 10)
+        Me.btnCondEmp_Retrait.Name = "btnCondEmp_Retrait"
+        Me.btnCondEmp_Retrait.Size = New System.Drawing.Size(121, 40)
+        Me.btnCondEmp_Retrait.TabIndex = 0
+        Me.btnCondEmp_Retrait.Text = "Retirer"
+        Me.btnCondEmp_Retrait.UseVisualStyleBackColor = True
         '
         'btnCondEmp_Ajout
         '
@@ -404,7 +404,7 @@ Partial Class ConditionsEmprunt
 
     Friend WithEvents Panel1 As Panel
     Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
-    Friend WithEvents btnCondEmp_Modif As Button
+    Friend WithEvents btnCondEmp_Retrait As Button
     Friend WithEvents btnCondEmp_Ajout As Button
     Friend WithEvents btnCondEmp_Annuler As Button
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel

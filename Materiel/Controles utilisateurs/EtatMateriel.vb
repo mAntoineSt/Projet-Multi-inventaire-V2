@@ -24,10 +24,13 @@ Public Class EtatMateriel
 
 
     Public Sub EnrEtatMateriel()
-
-
         Dim cmdInsertEtatMateriel As New MySqlCommand(strRequete, connectionBD)
         Dim reqEtatMateriel As String
+
+        If txtEtatMat_Emprunt.Text = "" Then
+            txtEtatMat_Emprunt.Text = "0"
+        End If
+
 
         reqEtatMateriel = "INSERT INTO `etat_materiel`( `id_materiel`,
                                                         `date_inspection`,
@@ -53,16 +56,16 @@ Public Class EtatMateriel
                                                         @note);"
 
 
-        cmdInsertEtatMateriel.Parameters.Add("@id_materiel", MySqlDbType.Int24).Value = txtEtatMat_Materiel.Text
+        cmdInsertEtatMateriel.Parameters.Add("@id_materiel", MySqlDbType.Int24).Value = idEquipement
         cmdInsertEtatMateriel.Parameters.Add("@date_inspection", MySqlDbType.Date).Value = dtpEtatMat_Date.Value
         cmdInsertEtatMateriel.Parameters.Add("@id_emprunt", MySqlDbType.Int24).Value = txtEtatMat_Emprunt.Text
-        cmdInsertEtatMateriel.Parameters.Add("@itemCout_EtatGeneral", MySqlDbType.NewDecimal).Value = txtEtatMat_EtatGen.Text
-        cmdInsertEtatMateriel.Parameters.Add("@itemCout_Boitier", MySqlDbType.NewDecimal).Value = txtEtatMat_Boitier.Text
-        cmdInsertEtatMateriel.Parameters.Add("@itemCout_Electronique", MySqlDbType.NewDecimal).Value = txtEtatMat_Electro.Text
-        cmdInsertEtatMateriel.Parameters.Add("@itemCout_Moteur", MySqlDbType.NewDecimal).Value = txtEtatMat_Moteur.Text
-        cmdInsertEtatMateriel.Parameters.Add("@itemCout_Cablage", MySqlDbType.NewDecimal).Value = txtEtatMat_Cablage.Text
-        cmdInsertEtatMateriel.Parameters.Add("@itemCout_Logiciel", MySqlDbType.NewDecimal).Value = txtEtatMat_Logiciel.Text
-        cmdInsertEtatMateriel.Parameters.Add("@itemCout_Eau", MySqlDbType.NewDecimal).Value = txtEtatMat_Eau.Text
+        cmdInsertEtatMateriel.Parameters.Add("@itemCout_EtatGeneral", MySqlDbType.String).Value = Replace(txtEtatMat_EtatGen.Text, ",", ".")
+        cmdInsertEtatMateriel.Parameters.Add("@itemCout_Boitier", MySqlDbType.String).Value = Replace(txtEtatMat_Boitier.Text, ",", ".")
+        cmdInsertEtatMateriel.Parameters.Add("@itemCout_Electronique", MySqlDbType.String).Value = Replace(txtEtatMat_Electro.Text, ",", ".")
+        cmdInsertEtatMateriel.Parameters.Add("@itemCout_Moteur", MySqlDbType.String).Value = Replace(txtEtatMat_Moteur.Text, ",", ".")
+        cmdInsertEtatMateriel.Parameters.Add("@itemCout_Cablage", MySqlDbType.String).Value = Replace(txtEtatMat_Cablage.Text, ",", ".")
+        cmdInsertEtatMateriel.Parameters.Add("@itemCout_Logiciel", MySqlDbType.String).Value = Replace(txtEtatMat_Logiciel.Text, ",", ".")
+        cmdInsertEtatMateriel.Parameters.Add("@itemCout_Eau", MySqlDbType.String).Value = Replace(txtEtatMat_Eau.Text, ",", ".")
         cmdInsertEtatMateriel.Parameters.Add("@note", MySqlDbType.String).Value = rtxEtatMat_Notes.Text
 
 
@@ -73,15 +76,11 @@ Public Class EtatMateriel
 
 
     Public Sub ModifEtatMateriel()
-
         Dim cmdModifEtatMateriel As New MySqlCommand(strRequete, connectionBD)
         Dim reqModifEtatMateriel As String
-        Dim dateJour As Date
-        dateJour = Date.Today
 
         reqModifEtatMateriel = "UPDATE `etat_materiel`          
-                               SET  `id_materiel` =  @id_materiel,
-                                     `date_inspection` =  @date_inspection,
+                               SET   `date_inspection` =  @date_inspection,
                                      `id_emprunt` = @id_emprunt,
                                      `itemCout_EtatGeneral` =  @itemCout_EtatGeneral,
                                      `itemCout_Boitier` = @itemCout_Boitier,
@@ -91,19 +90,19 @@ Public Class EtatMateriel
                                      `itemCout_Logiciel` =  @itemCout_Logiciel,
                                      `itemCout_Eau` = @itemCout_Eau,
                                      `note` =  @note
-                           WHERE `id_equipement` = " & idEquipement & ";"
+                           WHERE `id_materiel` = " & idEquipement & ";"
 
-        cmdModifEtatMateriel.Parameters.Add("@id_materiel", MySqlDbType.Int24).Value = txtEtatMat_Materiel.Text
         cmdModifEtatMateriel.Parameters.Add("@date_inspection", MySqlDbType.Date).Value = dtpEtatMat_Date.Value
         cmdModifEtatMateriel.Parameters.Add("@id_emprunt", MySqlDbType.Int24).Value = txtEtatMat_Emprunt.Text
-        cmdModifEtatMateriel.Parameters.Add("@itemCout_EtatGeneral", MySqlDbType.NewDecimal).Value = txtEtatMat_EtatGen.Text
-        cmdModifEtatMateriel.Parameters.Add("@itemCout_Boitier", MySqlDbType.NewDecimal).Value = txtEtatMat_Boitier.Text
-        cmdModifEtatMateriel.Parameters.Add("@itemCout_Electronique", MySqlDbType.NewDecimal).Value = txtEtatMat_Electro.Text
-        cmdModifEtatMateriel.Parameters.Add("@itemCout_Moteur", MySqlDbType.NewDecimal).Value = txtEtatMat_Moteur.Text
-        cmdModifEtatMateriel.Parameters.Add("@itemCout_Cablage", MySqlDbType.NewDecimal).Value = txtEtatMat_Cablage.Text
-        cmdModifEtatMateriel.Parameters.Add("@itemCout_Logiciel", MySqlDbType.NewDecimal).Value = txtEtatMat_Logiciel.Text
-        cmdModifEtatMateriel.Parameters.Add("@itemCout_Eau", MySqlDbType.NewDecimal).Value = txtEtatMat_Eau.Text
+        cmdModifEtatMateriel.Parameters.Add("@itemCout_EtatGeneral", MySqlDbType.String).Value = Replace(txtEtatMat_EtatGen.Text, ",", ".")
+        cmdModifEtatMateriel.Parameters.Add("@itemCout_Boitier", MySqlDbType.String).Value = Replace(txtEtatMat_Boitier.Text, ",", ".")
+        cmdModifEtatMateriel.Parameters.Add("@itemCout_Electronique", MySqlDbType.String).Value = Replace(txtEtatMat_Electro.Text, ",", ".")
+        cmdModifEtatMateriel.Parameters.Add("@itemCout_Moteur", MySqlDbType.String).Value = Replace(txtEtatMat_Moteur.Text, ",", ".")
+        cmdModifEtatMateriel.Parameters.Add("@itemCout_Cablage", MySqlDbType.String).Value = Replace(txtEtatMat_Cablage.Text, ",", ".")
+        cmdModifEtatMateriel.Parameters.Add("@itemCout_Logiciel", MySqlDbType.String).Value = Replace(txtEtatMat_Logiciel.Text, ",", ".")
+        cmdModifEtatMateriel.Parameters.Add("@itemCout_Eau", MySqlDbType.String).Value = Replace(txtEtatMat_Eau.Text, ",", ".")
         cmdModifEtatMateriel.Parameters.Add("@note", MySqlDbType.String).Value = rtxEtatMat_Notes.Text
+
 
         cmdModifEtatMateriel.CommandText = reqModifEtatMateriel
         bd.Prepare_InsDelUpd(reqModifEtatMateriel, cmdModifEtatMateriel, connectionBD)
@@ -114,7 +113,12 @@ Public Class EtatMateriel
 
         [dsEquipement].Tables.Clear()
         Dim reqAjoutMateriel As String
-        reqAjoutMateriel = "SELECT id_equipement as idEq, marque as Marque, modele as Modele, fabricant as Fabricant FROM equipements"
+        reqAjoutMateriel = "SELECT id_equipement as idEq,
+                                    marque as Marque,
+                                    modele as Modele,
+                                    fabricant as Fabricant
+                            FROM equipements"
+
         daEquipement = New MySqlDataAdapter(reqAjoutMateriel, bd.ConnectionString)
         daEquipement.Fill(dsEquipement, "equipements")
         dgvEtatMat_ListeMat.DataSource = dsEquipement.Tables("equipements")
@@ -124,16 +128,29 @@ Public Class EtatMateriel
         columnHeaderStyle.Font = New Font("Verdana", 10, FontStyle.Bold)
         dgvEtatMat_ListeMat.ColumnHeadersDefaultCellStyle = columnHeaderStyle
         dgvEtatMat_ListeMat.Columns(0).Visible = False
-
+        dgvEtatMat_ListeMat.Columns(1).Width = 120
+        dgvEtatMat_ListeMat.Columns(2).Width = 120
+        dgvEtatMat_ListeMat.Columns(3).Width = 120
     End Sub
 
     Public Sub RemplirDatagridview_HistoriqueEtatMat()
 
         [dsEtatMateriel].Tables.Clear()
         Dim reqHistoriqueEtatMat As String
-        reqHistoriqueEtatMat = "SELECT `id_inspection` as idInspection, `id_materiel` as Materiel, `date_inspection` as Date 
-                                  FROM `etat_materiel`
-                                  WHERE id_materiel =  " & idEquipement & " ;"
+        'reqHistoriqueEtatMat = "SELECT `id_inspection` as idInspection,
+        '                                `id_materiel` as Materiel,
+        '                                `date_inspection` as Date 
+        '                          FROM `etat_materiel`
+        '                          WHERE id_materiel =  " & idEquipement & " ;"
+
+        reqHistoriqueEtatMat = "SELECT et1.`id_inspection` as idInspection,( SELECT distinct concat(marque, ' ', modele)
+    											   FROM `equipements` eq
+                                                   INNER JOIN `etat_materiel` et2
+                                                   ON eq.id_equipement = et2.id_materiel
+                                                   WHERE et2.id_materiel = et1.id_materiel) as Materiel,
+                                        et1.`date_inspection` as Date 
+                                  FROM `etat_materiel` et1
+                                  WHERE et1.id_materiel =" & idEquipement & " ;"
 
         daEtatMateriel = New MySqlDataAdapter(reqHistoriqueEtatMat, bd.ConnectionString)
         daEtatMateriel.Fill(dsEtatMateriel, "etat_materiel")
@@ -144,13 +161,17 @@ Public Class EtatMateriel
         columnHeaderStyle.Font = New Font("Verdana", 10, FontStyle.Bold)
         dgvEtatMat_ListeEval.ColumnHeadersDefaultCellStyle = columnHeaderStyle
         dgvEtatMat_ListeEval.Columns(0).Visible = False
-
+        dgvEtatMat_ListeEval.Columns(1).Width = 240
+        dgvEtatMat_ListeEval.Columns(2).Width = 240
     End Sub
 
 
     Public Sub RemplirChampFormulaire()
+        ViderChamps()
         Dim readerMateriel As MySqlDataReader
-        Dim reqRemplirMateriel As String = "SELECT concat(marque, ' ', modele) as marqueModele FROM `equipements`  WHERE `id_equipement` = '" & idEquipement & "';"
+        Dim reqRemplirMateriel As String = "SELECT concat(marque, ' ', modele) as marqueModele 
+                                            FROM `equipements`  
+                                            WHERE `id_equipement` = '" & idEquipement & "';"
 
 
         connectionBD.Open()
@@ -166,7 +187,7 @@ Public Class EtatMateriel
 
     Public Sub RemplirChampFormulaireHisto()
         Dim readerMateriel As MySqlDataReader
-        Dim reqRemplirMateriel As String = "SELECT  id_materiel,
+        Dim reqRemplirMateriel As String = "SELECT concat(marque, ' ', modele) as marqueModele ,
                                                     date_inspection,
                                                     id_emprunt,
                                                     itemCout_EtatGeneral,
@@ -175,9 +196,11 @@ Public Class EtatMateriel
                                                     itemCout_Moteur,
                                                     itemCout_Cablage,
                                                     itemCout_Logiciel,
-                                                    itemCout_Eau,
+                                                     itemCout_Eau,
                                                     note
-                                                FROM `etat_materiel`  
+                                                    FROM `etat_materiel` em
+                                                    INNER JOIN `equipements` e
+                                                    ON e.id_equipement = em.id_materiel
                                                 WHERE `id_materiel` = '" & idEquipement & "'
                                                 AND `date_inspection` = '" & dateEtatMat & "';"
 
@@ -187,12 +210,12 @@ Public Class EtatMateriel
         If readerMateriel.HasRows Then
             readerMateriel.Read()
 
-
-            txtEtatMat_Materiel.Text = readerMateriel("id_materiel")
+            'BUG--> iF DBNull, ca plante, il faut s'assurer que les readers ne sont pas null;
+            txtEtatMat_Materiel.Text = readerMateriel("marqueModele")
             dtpEtatMat_Date.Value = Convert.ToDateTime(readerMateriel("date_inspection"))
             txtEtatMat_Emprunt.Text = readerMateriel("id_emprunt")
             txtEtatMat_EtatGen.Text = readerMateriel("itemCout_EtatGeneral")
-            txtEtatMat_Boitier.Text = readerMateriel("itemCout_Boitier")
+            txtEtatMat_Boitier.Text = readerMateriel("itemCout_Boitier") 'BUG-->: 'La conversion du type 'DBNull' en type 'String' n'est pas valide.'
             txtEtatMat_Electro.Text = readerMateriel("itemCout_Electronique")
             txtEtatMat_Moteur.Text = readerMateriel("itemCout_Moteur")
             txtEtatMat_Cablage.Text = readerMateriel("itemCout_Cablage")
@@ -247,7 +270,19 @@ Public Class EtatMateriel
     End Sub
 
 
+    Public Sub MessageBox_Enregistrer(e As EventArgs)
+        Dim resultat = MessageBox.Show("Voulez-vous ajouter cette vérification?", "Prêt Équipement", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
+        If (resultat = DialogResult.Yes) Then
+            EnrEtatMateriel()
+        End If
+    End Sub
 
+    Public Sub MessageBox_Modifier(e As EventArgs)
+        Dim resultat = MessageBox.Show("Voulez-vous vraiment modifier cette vérification?", "Prêt Équipement", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
+        If (resultat = DialogResult.Yes) Then
+            ModifEtatMateriel()
+        End If
+    End Sub
 
     Public Sub ObtenirIdEquipement()
         If IsDBNull(dgvEtatMat_ListeMat.Rows(dgvEtatMat_ListeMat.CurrentCell.RowIndex).Cells(0).Value) = False Then
@@ -260,9 +295,7 @@ Public Class EtatMateriel
 
     Public Sub ObtenirDateEtatMat()
         If IsDBNull(dgvEtatMat_ListeEval.Rows(dgvEtatMat_ListeEval.CurrentCell.RowIndex).Cells(2).Value) = False Then
-            idEquipement = Convert.ToDateTime(dgvEtatMat_ListeEval.Rows(dgvEtatMat_ListeEval.CurrentCell.RowIndex).Cells(2).Value)
-        Else
-            idEquipement = 0
+            dateEtatMat = Convert.ToDateTime(dgvEtatMat_ListeEval.Rows(dgvEtatMat_ListeEval.CurrentCell.RowIndex).Cells(2).Value)
         End If
         RemplirChampFormulaireHisto()
     End Sub
@@ -288,8 +321,9 @@ Public Class EtatMateriel
             btnEtatMat_Ajout.Text = "Enregistrer"
             btnEtatMat_Modif.Enabled = False
         ElseIf btnEtatMat_Ajout.Enabled = True And String.Compare(btnEtatMat_Ajout.Text, "Enregistrer") = 0 Then
-            'EnrEtatMateriel()
+            MessageBox_Enregistrer(e)
             InactiverChamps()
+            ViderChamps()
             btnEtatMat_Ajout.Text = "Ajouter"
             btnEtatMat_Modif.Enabled = True
         End If
@@ -301,8 +335,9 @@ Public Class EtatMateriel
             btnEtatMat_Modif.Text = "Enregistrer"
             btnEtatMat_Ajout.Enabled = False
         ElseIf btnEtatMat_Modif.Enabled = True And String.Compare(btnEtatMat_Modif.Text, "Enregistrer") = 0 Then
-            'EnregistrerMateriel()
+            MessageBox_Modifier(e)
             InactiverChamps()
+            ViderChamps()
             btnEtatMat_Modif.Text = "Modifier"
             btnEtatMat_Ajout.Enabled = True
         End If

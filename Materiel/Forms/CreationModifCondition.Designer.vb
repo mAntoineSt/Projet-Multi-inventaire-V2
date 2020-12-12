@@ -31,26 +31,26 @@ Partial Class CreationModifCondition
         Me.condition = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.detail = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
-        Me.rtxCond_Notes = New System.Windows.Forms.RichTextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.txtCond_Description = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.rtxCond_Notes = New System.Windows.Forms.RichTextBox()
+        Me.cbxCond_Desactiver = New System.Windows.Forms.CheckBox()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
-        Me.btnCond_Annuler = New System.Windows.Forms.Button()
-        Me.btnCond_Ajout = New System.Windows.Forms.Button()
         Me.btnCond_Modif = New System.Windows.Forms.Button()
+        Me.btnCond_Ajout = New System.Windows.Forms.Button()
+        Me.btnCond_Annuler = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
-        Me.TableLayoutPanel3.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
+        Me.TableLayoutPanel3.SuspendLayout()
         Me.TableLayoutPanel4.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -111,7 +111,7 @@ Partial Class CreationModifCondition
         Me.lsvCond_ListeCond.HideSelection = False
         Me.lsvCond_ListeCond.Location = New System.Drawing.Point(3, 3)
         Me.lsvCond_ListeCond.Name = "lsvCond_ListeCond"
-        Me.lsvCond_ListeCond.Size = New System.Drawing.Size(395, 429)
+        Me.lsvCond_ListeCond.Size = New System.Drawing.Size(411, 429)
         Me.lsvCond_ListeCond.TabIndex = 0
         Me.lsvCond_ListeCond.UseCompatibleStateImageBehavior = False
         Me.lsvCond_ListeCond.View = System.Windows.Forms.View.Details
@@ -148,43 +148,6 @@ Partial Class CreationModifCondition
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(411, 313)
         Me.TableLayoutPanel1.TabIndex = 0
         '
-        'TableLayoutPanel3
-        '
-        Me.TableLayoutPanel3.ColumnCount = 1
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel3.Controls.Add(Me.Label3, 0, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.rtxCond_Notes, 0, 1)
-        Me.TableLayoutPanel3.Controls.Add(Me.CheckBox1, 0, 2)
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 62)
-        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
-        Me.TableLayoutPanel3.RowCount = 3
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.18681!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.81319!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(405, 251)
-        Me.TableLayoutPanel3.TabIndex = 2
-        '
-        'rtxCond_Notes
-        '
-        Me.rtxCond_Notes.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.rtxCond_Notes.Location = New System.Drawing.Point(3, 29)
-        Me.rtxCond_Notes.Name = "rtxCond_Notes"
-        Me.rtxCond_Notes.Size = New System.Drawing.Size(399, 165)
-        Me.rtxCond_Notes.TabIndex = 1
-        Me.rtxCond_Notes.Text = ""
-        '
-        'Label3
-        '
-        Me.Label3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(3, 6)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(399, 20)
-        Me.Label3.TabIndex = 0
-        Me.Label3.Text = "Notes"
-        '
         'TableLayoutPanel2
         '
         Me.TableLayoutPanel2.ColumnCount = 2
@@ -220,6 +183,55 @@ Partial Class CreationModifCondition
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "Nom de la condition"
         '
+        'TableLayoutPanel3
+        '
+        Me.TableLayoutPanel3.ColumnCount = 1
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel3.Controls.Add(Me.Label3, 0, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.rtxCond_Notes, 0, 1)
+        Me.TableLayoutPanel3.Controls.Add(Me.cbxCond_Desactiver, 0, 2)
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 62)
+        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
+        Me.TableLayoutPanel3.RowCount = 3
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.18681!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.81319!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53.0!))
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(405, 251)
+        Me.TableLayoutPanel3.TabIndex = 2
+        '
+        'Label3
+        '
+        Me.Label3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(3, 6)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(399, 20)
+        Me.Label3.TabIndex = 0
+        Me.Label3.Text = "Notes"
+        '
+        'rtxCond_Notes
+        '
+        Me.rtxCond_Notes.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.rtxCond_Notes.Location = New System.Drawing.Point(3, 29)
+        Me.rtxCond_Notes.Name = "rtxCond_Notes"
+        Me.rtxCond_Notes.Size = New System.Drawing.Size(399, 165)
+        Me.rtxCond_Notes.TabIndex = 1
+        Me.rtxCond_Notes.Text = ""
+        '
+        'cbxCond_Desactiver
+        '
+        Me.cbxCond_Desactiver.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cbxCond_Desactiver.AutoSize = True
+        Me.cbxCond_Desactiver.Location = New System.Drawing.Point(20, 212)
+        Me.cbxCond_Desactiver.Margin = New System.Windows.Forms.Padding(20, 3, 3, 3)
+        Me.cbxCond_Desactiver.Name = "cbxCond_Desactiver"
+        Me.cbxCond_Desactiver.Size = New System.Drawing.Size(382, 24)
+        Me.cbxCond_Desactiver.TabIndex = 2
+        Me.cbxCond_Desactiver.Text = "Désactiver cette Condition"
+        Me.cbxCond_Desactiver.UseVisualStyleBackColor = True
+        '
         'TableLayoutPanel4
         '
         Me.TableLayoutPanel4.ColumnCount = 5
@@ -239,17 +251,17 @@ Partial Class CreationModifCondition
         Me.TableLayoutPanel4.Size = New System.Drawing.Size(411, 44)
         Me.TableLayoutPanel4.TabIndex = 9
         '
-        'btnCond_Annuler
+        'btnCond_Modif
         '
-        Me.btnCond_Annuler.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnCond_Annuler.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCond_Annuler.Location = New System.Drawing.Point(292, 5)
-        Me.btnCond_Annuler.Margin = New System.Windows.Forms.Padding(0, 5, 10, 5)
-        Me.btnCond_Annuler.Name = "btnCond_Annuler"
-        Me.btnCond_Annuler.Size = New System.Drawing.Size(109, 34)
-        Me.btnCond_Annuler.TabIndex = 2
-        Me.btnCond_Annuler.Text = "Annuler"
-        Me.btnCond_Annuler.UseVisualStyleBackColor = True
+        Me.btnCond_Modif.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnCond_Modif.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCond_Modif.Location = New System.Drawing.Point(10, 5)
+        Me.btnCond_Modif.Margin = New System.Windows.Forms.Padding(10, 5, 0, 5)
+        Me.btnCond_Modif.Name = "btnCond_Modif"
+        Me.btnCond_Modif.Size = New System.Drawing.Size(108, 34)
+        Me.btnCond_Modif.TabIndex = 0
+        Me.btnCond_Modif.Text = "Modifier"
+        Me.btnCond_Modif.UseVisualStyleBackColor = True
         '
         'btnCond_Ajout
         '
@@ -263,17 +275,17 @@ Partial Class CreationModifCondition
         Me.btnCond_Ajout.Text = "Ajouter"
         Me.btnCond_Ajout.UseVisualStyleBackColor = True
         '
-        'btnCond_Modif
+        'btnCond_Annuler
         '
-        Me.btnCond_Modif.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnCond_Modif.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCond_Modif.Location = New System.Drawing.Point(10, 5)
-        Me.btnCond_Modif.Margin = New System.Windows.Forms.Padding(10, 5, 0, 5)
-        Me.btnCond_Modif.Name = "btnCond_Modif"
-        Me.btnCond_Modif.Size = New System.Drawing.Size(108, 34)
-        Me.btnCond_Modif.TabIndex = 0
-        Me.btnCond_Modif.Text = "Modifier"
-        Me.btnCond_Modif.UseVisualStyleBackColor = True
+        Me.btnCond_Annuler.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnCond_Annuler.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCond_Annuler.Location = New System.Drawing.Point(292, 5)
+        Me.btnCond_Annuler.Margin = New System.Windows.Forms.Padding(0, 5, 10, 5)
+        Me.btnCond_Annuler.Name = "btnCond_Annuler"
+        Me.btnCond_Annuler.Size = New System.Drawing.Size(109, 34)
+        Me.btnCond_Annuler.TabIndex = 2
+        Me.btnCond_Annuler.Text = "Annuler"
+        Me.btnCond_Annuler.UseVisualStyleBackColor = True
         '
         'Panel1
         '
@@ -303,10 +315,10 @@ Partial Class CreationModifCondition
         'TabPage1
         '
         Me.TabPage1.Controls.Add(Me.lsvCond_ListeCond)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 30)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 32)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(401, 362)
+        Me.TabPage1.Size = New System.Drawing.Size(417, 360)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Liste des Conditions"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -323,18 +335,6 @@ Partial Class CreationModifCondition
         Me.TabPage2.Text = "Ajouter ou Modifier une Condition"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
-        'CheckBox1
-        '
-        Me.CheckBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(20, 212)
-        Me.CheckBox1.Margin = New System.Windows.Forms.Padding(20, 3, 3, 3)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(382, 24)
-        Me.CheckBox1.TabIndex = 2
-        Me.CheckBox1.Text = "Désactiver cette Condition"
-        Me.CheckBox1.UseVisualStyleBackColor = True
-        '
         'CreationModifCondition
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -348,10 +348,10 @@ Partial Class CreationModifCondition
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)
-        Me.TableLayoutPanel3.ResumeLayout(False)
-        Me.TableLayoutPanel3.PerformLayout()
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
+        Me.TableLayoutPanel3.ResumeLayout(False)
+        Me.TableLayoutPanel3.PerformLayout()
         Me.TableLayoutPanel4.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         Me.TabControl1.ResumeLayout(False)
@@ -376,7 +376,7 @@ Partial Class CreationModifCondition
     Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
     Friend WithEvents Label3 As Label
     Friend WithEvents rtxCond_Notes As RichTextBox
-    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents cbxCond_Desactiver As CheckBox
     Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
     Friend WithEvents btnCond_Modif As Button
     Friend WithEvents btnCond_Ajout As Button

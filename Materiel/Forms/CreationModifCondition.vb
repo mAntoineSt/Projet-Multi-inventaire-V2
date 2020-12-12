@@ -2,7 +2,7 @@
 Imports System.Data.SqlClient
 Imports MySql.Data.MySqlClient
 Imports MySql.Data.Types
-
+Imports Projet_Multi_inventaire_V2.Validation_Traitement
 
 Public Class CreationModifCondition
 
@@ -20,40 +20,60 @@ Public Class CreationModifCondition
     Dim positEquipement As Integer
 
     Dim idCondition As String
+    Dim Cond_Description, Cond_Notes As String
 
+    Dim validation As New Validation_Traitement()
 
+    'TODO-->Permettre la suppression définitive d'une condition? 
+    'Nécessite de supprimer les entrées dans la table condition_equipement.
+    'CASCADE.
 
     Public Sub EnrCondition()
         Dim cmdInsertCond As New MySqlCommand(strRequete, connectionBD)
         Dim reqCond As String
+        Dim condActive As Boolean
 
+        If cbxCond_Desactiver.Checked = True Then
+            condActive = False
+        ElseIf cbxCond_Desactiver.Checked = False Then
+            condActive = True
+        End If
 
         reqCond = "INSERT INTO `conditions`(`description`,
-                                            `notes`)
+                                            `notes`,
+                                            `ConditionActive`)
                                     VALUES (@description,
-                                            @notes);"
+                                            @notes,
+                                            @ConditionActive);"
 
-        cmdInsertCond.Parameters.Add("@description", MySqlDbType.String).Value = txtCond_Description.Text
-        cmdInsertCond.Parameters.Add("@notes", MySqlDbType.String).Value = rtxCond_Notes.Text
+        cmdInsertCond.Parameters.Add("@description", MySqlDbType.String).Value = Cond_Description
+        cmdInsertCond.Parameters.Add("@notes", MySqlDbType.String).Value = Cond_Notes
+        cmdInsertCond.Parameters.Add("@ConditionActive", MySqlDbType.Int16).Value = condActive
 
         cmdInsertCond.CommandText = reqCond
         bd.Prepare_InsDelUpd(reqCond, cmdInsertCond, connectionBD)
-        ViderChamps()
     End Sub
 
     Public Sub ModifCond()
         Dim cmdModifCond As New MySqlCommand(strRequete, connectionBD)
         Dim reqModifCond As String
+        Dim condActive As Boolean
 
+        If cbxCond_Desactiver.Checked = True Then
+            condActive = False
+        ElseIf cbxCond_Desactiver.Checked = False Then
+            condActive = True
+        End If
 
         reqModifCond = "UPDATE `conditions`
-                                    SET  `description` = '@description', 
-                                         `notes` = '@notes',            
-                                   WHERE `id_condition` = '@id_condition';"
+                            SET  `description` = @description, 
+                                    `notes` = @notes,
+                                    `ConditionActive` = @ConditionActive
+                            WHERE `id_condition` = " & idCondition & ";"
 
-        cmdModifCond.Parameters.Add("@description", MySqlDbType.String).Value = txtCond_Description.Text
-        cmdModifCond.Parameters.Add("@notes", MySqlDbType.String).Value = rtxCond_Notes.Text
-
+        cmdModifCond.Parameters.Add("@description", MySqlDbType.String).Value = Cond_Description
+        cmdModifCond.Parameters.Add("@notes", MySqlDbType.String).Value = Cond_Notes
+        cmdModifCond.Parameters.Add("@ConditionActive", MySqlDbType.Int16).Value = condActive
 
         cmdModifCond.CommandText = reqModifCond
         bd.Prepare_InsDelUpd(reqModifCond, cmdModifCond, connectionBD)
@@ -62,13 +82,11 @@ Public Class CreationModifCondition
 
 
     Public Sub RemplirLsvCondition()
-
         Dim reqLsbCondition As String = "Select * FROM `conditions`;"
         Dim cmd As New MySqlCommand(reqLsbCondition, connectionBD)
         Dim daCondEmprunt As MySqlDataAdapter = New MySqlDataAdapter(cmd)
         Dim dt As New DataTable("conditions")
         daCondEmprunt.Fill(dt)
-
 
         Dim newrow As DataRow
         For Each newrow In dt.Rows
@@ -76,33 +94,100 @@ Public Class CreationModifCondition
             lsvCond_ListeCond.Items(lsvCond_ListeCond.Items.Count - 1).SubItems.Add(newrow.Item(1).ToString)
             lsvCond_ListeCond.Items(lsvCond_ListeCond.Items.Count - 1).SubItems.Add(newrow.Item(2).ToString)
         Next
-
     End Sub
 
 
+    Public Sub RemplirChampFormulaire()
+        Dim readerCond As MySqlDataReader
+        Dim reqCond As String = "SELECT * FROM `conditions` 
+                                  WHERE `id_condition` = '" & idCondition & "';"
+
+        connectionBD.Open()
+        Dim cmdRempCond As New MySqlCommand(reqCond, connectionBD)
+        readerCond = cmdRempCond.ExecuteReader
+        If readerCond.HasRows Then
+            readerCond.Read()
+            txtCond_Description.Text = readerCond("description")
+            rtxCond_Notes.Text = readerCond("notes")
+            If readerCond("ConditionActive") = True Then
+                cbxCond_Desactiver.Checked = False
+            ElseIf readerCond("ConditionActive") = False Then
+                cbxCond_Desactiver.Checked = True
+            End If
+        End If
+        connectionBD.Close()
+    End Sub
+
+
+    Public Function ValidationEntree() As Boolean
+        Dim valideTotal As Boolean = False
+        Dim valide_1 As Boolean = False
+        Dim valide_2 As Boolean = False
+        If validation.Validation_EntreeUtilisateur(txtCond_Description.Text) = True Then
+            Cond_Description = txtCond_Description.Text
+            valide_1 = True
+        Else
+            txtCond_Description.Text = "Entrée invalide"
+            txtCond_Description.ForeColor = Color.Red
+        End If
+        If validation.Validation_EntreeUtilisateur(rtxCond_Notes.Text) = True Then
+            Cond_Notes = rtxCond_Notes.Text
+            valide_2 = True
+        Else
+            rtxCond_Notes.Text = "Entrée invalide"
+            rtxCond_Notes.ForeColor = Color.Red
+        End If
+
+        If valide_1 = False Or valide_2 = False Then
+            valideTotal = False
+        Else
+            valideTotal = True
+        End If
+
+        Return valideTotal
+    End Function
+
+    Public Sub MessageBox_Enregistrer(e As EventArgs)
+
+        Dim resultat = MessageBox.Show("Voulez-vous ajouter cette condition?", "Prêt Équipement", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
+        If (resultat = DialogResult.Yes) Then
+            If ValidationEntree() = True Then
+                EnrCondition()
+            End If
+        End If
+    End Sub
+
+    Public Sub MessageBox_Modifier(e As EventArgs)
+        Dim resultat = MessageBox.Show("Voulez-vous vraiment modifier cette condition?", "Prêt Équipement", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
+        If (resultat = DialogResult.Yes) Then
+            ModifCond()
+        End If
+    End Sub
 
 
 
     Public Sub ViderChamps()
         txtCond_Description.Text = ""
         rtxCond_Notes.Text = ""
+        cbxCond_Desactiver.Checked = False
     End Sub
 
     Public Sub InactiverChamps()
         txtCond_Description.Enabled = False
         rtxCond_Notes.Enabled = False
+        cbxCond_Desactiver.Enabled = False
     End Sub
 
     Public Sub ActiverChamps()
         txtCond_Description.Enabled = True
         rtxCond_Notes.Enabled = True
+        cbxCond_Desactiver.Enabled = True
     End Sub
 
     Public Sub ObtenirIdCondition()
         idCondition = CInt(lsvCond_ListeCond.Items(lsvCond_ListeCond.FocusedItem.Index).SubItems(0).Text)
-        txtCond_Description.Text = lsvCond_ListeCond.Items(lsvCond_ListeCond.FocusedItem.Index).SubItems(1).Text
+        'txtCond_Description.Text = lsvCond_ListeCond.Items(lsvCond_ListeCond.FocusedItem.Index).SubItems(1).Text
     End Sub
-
 
     Private Sub CreationModifCondition_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         lsvCond_ListeCond.Items.Clear()
@@ -121,13 +206,14 @@ Public Class CreationModifCondition
 
     Private Sub BtnCond_Ajout_Click(sender As Object, e As EventArgs) Handles btnCond_Ajout.Click
         If btnCond_Ajout.Enabled = True And String.Compare(btnCond_Ajout.Text, "Ajouter") = 0 Then
-            ViderChamps()
             ActiverChamps()
+            ViderChamps()
             btnCond_Ajout.Text = "Enregistrer"
             btnCond_Modif.Enabled = False
         ElseIf btnCond_Ajout.Enabled = True And String.Compare(btnCond_Ajout.Text, "Enregistrer") = 0 Then
-            EnrCondition()
+            MessageBox_Enregistrer(e)
             InactiverChamps()
+            ViderChamps()
             btnCond_Ajout.Text = "Ajouter"
             btnCond_Modif.Enabled = True
         End If
@@ -139,12 +225,14 @@ Public Class CreationModifCondition
             btnCond_Modif.Text = "Enregistrer"
             btnCond_Ajout.Enabled = False
         ElseIf btnCond_Modif.Enabled = True And String.Compare(btnCond_Modif.Text, "Enregistrer") = 0 Then
-            ModifCond()
+            MessageBox_Modifier(e)
             InactiverChamps()
+            ViderChamps()
             btnCond_Modif.Text = "Modifier"
             btnCond_Ajout.Enabled = True
         End If
     End Sub
+
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         If Me.Enabled Then
             Me.Close()
@@ -153,7 +241,9 @@ Public Class CreationModifCondition
 
     Private Sub lsvCond_ListeCond_Click(sender As Object, e As EventArgs) Handles lsvCond_ListeCond.Click
         ObtenirIdCondition()
+        RemplirChampFormulaire()
     End Sub
 
 
 End Class
+

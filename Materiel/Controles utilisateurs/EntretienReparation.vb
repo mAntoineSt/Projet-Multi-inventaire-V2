@@ -18,7 +18,7 @@ Public Class EntretienReparation
     Dim connectionBD As New MySqlConnection(bd.ConnectionString)
 
     Dim idEquipement As String
-    Dim dateEntRep As Date
+    Dim dateEntRep As Nullable(Of Date)
     Public row As DataRow
 
 
@@ -123,7 +123,12 @@ Public Class EntretienReparation
 
         [dsEquipement].Tables.Clear()
         Dim reqAjoutMateriel As String
-        reqAjoutMateriel = "SELECT `id_equipement` as idEq, `marque` as Marque, `modele` as Modele, `fabricant` as Fabricant FROM equipements;"
+        reqAjoutMateriel = "SELECT `id_equipement` as idEq,
+                                    `marque` as Marque,
+                                    `modele` as Modele,
+                                    `fabricant` as Fabricant
+                            FROM equipements;"
+
         daEquipement = New MySqlDataAdapter(reqAjoutMateriel, bd.ConnectionString)
         daEquipement.Fill(dsEquipement, "equipements")
         dgvEntRep_ListeMat.DataSource = dsEquipement.Tables("equipements")
@@ -133,7 +138,9 @@ Public Class EntretienReparation
         columnHeaderStyle.Font = New Font("Verdana", 10, FontStyle.Bold)
         dgvEntRep_ListeMat.ColumnHeadersDefaultCellStyle = columnHeaderStyle
         dgvEntRep_ListeMat.Columns(0).Visible = False
-
+        dgvEntRep_ListeMat.Columns(1).Width = 120
+        dgvEntRep_ListeMat.Columns(2).Width = 120
+        dgvEntRep_ListeMat.Columns(3).Width = 120
     End Sub
 
 
@@ -161,7 +168,9 @@ Public Class EntretienReparation
         columnHeaderStyle.Font = New Font("Verdana", 10, FontStyle.Bold)
         dgvEntRep_ListeRepEnt.ColumnHeadersDefaultCellStyle = columnHeaderStyle
         dgvEntRep_ListeRepEnt.Columns(0).Visible = False
-
+        dgvEntRep_ListeRepEnt.Columns(1).Width = 120
+        dgvEntRep_ListeRepEnt.Columns(2).Width = 120
+        dgvEntRep_ListeRepEnt.Columns(3).Width = 120
     End Sub
 
 
@@ -185,15 +194,17 @@ Public Class EntretienReparation
 
     Public Sub RemplirChampFormulaireHisto()
         Dim readerMateriel As MySqlDataReader
-        Dim reqRemplirMateriel As String = "SELECT  materiel,
-                                                    date,
-                                                    element,
-                                                    montant,
-                                                    statut,
-                                                    emprunt,
-                                                    note
-                                                FROM `entretien_reparation`  
-                                                WHERE `materiel` = '" & idEquipement & "'
+        Dim reqRemplirMateriel As String = "SELECT concat(e.marque, ' ', e.modele) as marqueModele,
+                                                        er.date,
+                                                        er.element,
+                                                        er.montant,
+                                                        er.statut,
+                                                        er.emprunt,
+                                                        er.note
+                                                FROM `entretien_reparation` er
+                                                INNER JOIN `equipements` e
+                                                ON er.materiel = e.id_equipement
+                                                WHERE `materiel` ='" & idEquipement & "'
                                                 AND `date` = '" & dateEntRep & "';"
 
         connectionBD.Open()
@@ -203,7 +214,7 @@ Public Class EntretienReparation
             readerMateriel.Read()
 
 
-            txtEntRep_Materiel.Text = readerMateriel("materiel")
+            txtEntRep_Materiel.Text = readerMateriel("marqueModele")
             dtpEntRep_Date.Value = Convert.ToDateTime(readerMateriel("date"))
             txtEntRep_Element.Text = readerMateriel("element")
             txtEntRep_Montant.Text = readerMateriel("montant")
@@ -221,6 +232,20 @@ Public Class EntretienReparation
     End Sub
 
 
+    Public Sub MessageBox_Enregistrer(e As EventArgs)
+        Dim resultat = MessageBox.Show("Voulez-vous ajouter cet entretien/réparation?", "Prêt Équipement", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
+        If (resultat = DialogResult.Yes) Then
+            EnrEntretienReparation()
+        End If
+    End Sub
+
+    Public Sub MessageBox_Modifier(e As EventArgs)
+        Dim resultat = MessageBox.Show("Voulez-vous vraiment modifier cet entretien/réparation?", "Prêt Équipement", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
+        If (resultat = DialogResult.Yes) Then
+            ModifEntRep()
+        End If
+    End Sub
+
 
     Public Sub ObtenirIdEquipement()
         If IsDBNull(dgvEntRep_ListeMat.Rows(dgvEntRep_ListeMat.CurrentCell.RowIndex).Cells(0).Value) = False Then
@@ -234,9 +259,9 @@ Public Class EntretienReparation
 
     Public Sub ObtenirDateEntRep()
         If IsDBNull(dgvEntRep_ListeRepEnt.Rows(dgvEntRep_ListeRepEnt.CurrentCell.RowIndex).Cells(2).Value) = False Then
-            idEquipement = Convert.ToDateTime(dgvEntRep_ListeRepEnt.Rows(dgvEntRep_ListeRepEnt.CurrentCell.RowIndex).Cells(2).Value)
+            dateEntRep = Convert.ToDateTime(dgvEntRep_ListeRepEnt.Rows(dgvEntRep_ListeRepEnt.CurrentCell.RowIndex).Cells(2).Value)
         Else
-            idEquipement = 0
+            dateEntRep = Nothing
         End If
 
         RemplirChampFormulaireHisto()
@@ -289,7 +314,7 @@ Public Class EntretienReparation
             btnEntRep_Modif.Text = "Enregistrer"
             btnEntRep_Ajout.Enabled = False
         ElseIf btnEntRep_Modif.Enabled = True And String.Compare(btnEntRep_Modif.Text, "Enregistrer") = 0 Then
-            'EnregistrerMateriel()
+            MessageBox_Modifier(e)
             InactiverChamps()
             btnEntRep_Modif.Text = "Modifier"
             btnEntRep_Ajout.Enabled = True
@@ -302,7 +327,7 @@ Public Class EntretienReparation
             btnEntRep_Ajout.Text = "Enregistrer"
             btnEntRep_Modif.Enabled = False
         ElseIf btnEntRep_Ajout.Enabled = True And String.Compare(btnEntRep_Ajout.Text, "Enregistrer") = 0 Then
-            EnrEntretienReparation()
+            MessageBox_Enregistrer(e)
             InactiverChamps()
             btnEntRep_Ajout.Text = "Ajouter"
             btnEntRep_Modif.Enabled = True
@@ -327,3 +352,4 @@ Public Class EntretienReparation
         ObtenirDateEntRep()
     End Sub
 End Class
+

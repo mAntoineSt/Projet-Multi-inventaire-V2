@@ -341,7 +341,7 @@ Partial Class CreationModifCondition
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(425, 564)
         Me.Controls.Add(Me.Panel1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow
         Me.Name = "CreationModifCondition"
         Me.Text = "CreationModifCondition"
         Me.Panel2.ResumeLayout(False)

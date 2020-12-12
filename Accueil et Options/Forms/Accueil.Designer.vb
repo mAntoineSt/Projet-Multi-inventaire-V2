@@ -22,230 +22,356 @@ Partial Class Accueil
     'Ne la modifiez pas à l'aide de l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.lDeconnection = New System.Windows.Forms.Label()
+        Me.lNomUtilisateur = New System.Windows.Forms.Label()
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.buttonFaireEmprunt = New System.Windows.Forms.Button()
-        Me.buttonFaireRetour = New System.Windows.Forms.Button()
-        Me.buttonHistEmprunt = New System.Windows.Forms.Button()
-        Me.buttonHistRetours = New System.Windows.Forms.Button()
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.FichierToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.QuitterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EmpruntsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.FaireUnEmpruntToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.HistoriqueDesEmpruntsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.RetoursToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.FaireUnRetourToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.HistoriqueDesRetoursToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DossiersToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ConsulterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EmprunteurToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MenuStrip1.SuspendLayout()
+        Me.lTitreRichTextBox = New System.Windows.Forms.Label()
+        Me.bFaireEmprunt = New System.Windows.Forms.Button()
+        Me.bFaireRetour = New System.Windows.Forms.Button()
+        Me.bHistEmprunt = New System.Windows.Forms.Button()
+        Me.bHistRetours = New System.Windows.Forms.Button()
+        Me.pBas = New System.Windows.Forms.Panel()
+        Me.pHaut = New System.Windows.Forms.Panel()
+        Me.lTitre = New System.Windows.Forms.Label()
+        Me.lQuitter = New System.Windows.Forms.Label()
+        Me.lMsFichier = New System.Windows.Forms.Label()
+        Me.lMsQuitter = New System.Windows.Forms.Label()
+        Me.lMsEmprunts = New System.Windows.Forms.Label()
+        Me.lMsFaireEmprunt = New System.Windows.Forms.Label()
+        Me.lMsHistoriqueEmprunt = New System.Windows.Forms.Label()
+        Me.lMsRetours = New System.Windows.Forms.Label()
+        Me.lMsFaireRetour = New System.Windows.Forms.Label()
+        Me.lMsHistoriqueRetours = New System.Windows.Forms.Label()
+        Me.lMsDossiers = New System.Windows.Forms.Label()
+        Me.lMsConsulter = New System.Windows.Forms.Label()
+        Me.lMsEmprunteur = New System.Windows.Forms.Label()
+        Me.lMsOptions = New System.Windows.Forms.Label()
+        Me.pHaut.SuspendLayout()
         Me.SuspendLayout()
         '
-        'Label1
+        'lDeconnection
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(685, 39)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(83, 13)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Se déconnecter"
+        Me.lDeconnection.AutoSize = True
+        Me.lDeconnection.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lDeconnection.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.0!)
+        Me.lDeconnection.Location = New System.Drawing.Point(671, 116)
+        Me.lDeconnection.Name = "lDeconnection"
+        Me.lDeconnection.Size = New System.Drawing.Size(115, 18)
+        Me.lDeconnection.TabIndex = 0
+        Me.lDeconnection.Text = "Se déconnecter"
         '
-        'Label2
+        'lNomUtilisateur
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(580, 39)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(79, 13)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Nom_utilisateur"
+        Me.lNomUtilisateur.AutoSize = True
+        Me.lNomUtilisateur.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.0!)
+        Me.lNomUtilisateur.Location = New System.Drawing.Point(534, 117)
+        Me.lNomUtilisateur.Name = "lNomUtilisateur"
+        Me.lNomUtilisateur.Size = New System.Drawing.Size(114, 16)
+        Me.lNomUtilisateur.TabIndex = 1
+        Me.lNomUtilisateur.Text = "Nom_utilisateur"
         '
         'RichTextBox1
         '
-        Me.RichTextBox1.Location = New System.Drawing.Point(34, 78)
+        Me.RichTextBox1.Location = New System.Drawing.Point(40, 155)
         Me.RichTextBox1.Name = "RichTextBox1"
         Me.RichTextBox1.Size = New System.Drawing.Size(276, 334)
         Me.RichTextBox1.TabIndex = 2
         Me.RichTextBox1.Text = ""
         '
-        'Label3
+        'lTitreRichTextBox
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(131, 62)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(75, 13)
-        Me.Label3.TabIndex = 3
-        Me.Label3.Text = "Prêts en cours"
+        Me.lTitreRichTextBox.AutoSize = True
+        Me.lTitreRichTextBox.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.0!)
+        Me.lTitreRichTextBox.Location = New System.Drawing.Point(121, 139)
+        Me.lTitreRichTextBox.Name = "lTitreRichTextBox"
+        Me.lTitreRichTextBox.Size = New System.Drawing.Size(106, 16)
+        Me.lTitreRichTextBox.TabIndex = 3
+        Me.lTitreRichTextBox.Text = "Prêts en cours"
         '
-        'buttonFaireEmprunt
+        'bFaireEmprunt
         '
-        Me.buttonFaireEmprunt.Location = New System.Drawing.Point(441, 99)
-        Me.buttonFaireEmprunt.Name = "buttonFaireEmprunt"
-        Me.buttonFaireEmprunt.Size = New System.Drawing.Size(232, 55)
-        Me.buttonFaireEmprunt.TabIndex = 4
-        Me.buttonFaireEmprunt.Text = "Faire un emprunt"
-        Me.buttonFaireEmprunt.UseVisualStyleBackColor = True
+        Me.bFaireEmprunt.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.0!)
+        Me.bFaireEmprunt.Location = New System.Drawing.Point(447, 176)
+        Me.bFaireEmprunt.Name = "bFaireEmprunt"
+        Me.bFaireEmprunt.Size = New System.Drawing.Size(232, 55)
+        Me.bFaireEmprunt.TabIndex = 4
+        Me.bFaireEmprunt.Text = "Faire un emprunt"
+        Me.bFaireEmprunt.UseVisualStyleBackColor = True
         '
-        'buttonFaireRetour
+        'bFaireRetour
         '
-        Me.buttonFaireRetour.Location = New System.Drawing.Point(441, 178)
-        Me.buttonFaireRetour.Name = "buttonFaireRetour"
-        Me.buttonFaireRetour.Size = New System.Drawing.Size(232, 55)
-        Me.buttonFaireRetour.TabIndex = 5
-        Me.buttonFaireRetour.Text = "Faire un retour"
-        Me.buttonFaireRetour.UseVisualStyleBackColor = True
+        Me.bFaireRetour.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.0!)
+        Me.bFaireRetour.Location = New System.Drawing.Point(447, 255)
+        Me.bFaireRetour.Name = "bFaireRetour"
+        Me.bFaireRetour.Size = New System.Drawing.Size(232, 55)
+        Me.bFaireRetour.TabIndex = 5
+        Me.bFaireRetour.Text = "Faire un retour"
+        Me.bFaireRetour.UseVisualStyleBackColor = True
         '
-        'buttonHistEmprunt
+        'bHistEmprunt
         '
-        Me.buttonHistEmprunt.Location = New System.Drawing.Point(441, 258)
-        Me.buttonHistEmprunt.Name = "buttonHistEmprunt"
-        Me.buttonHistEmprunt.Size = New System.Drawing.Size(232, 55)
-        Me.buttonHistEmprunt.TabIndex = 6
-        Me.buttonHistEmprunt.Text = "Historique des emprunts"
-        Me.buttonHistEmprunt.UseVisualStyleBackColor = True
+        Me.bHistEmprunt.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.0!)
+        Me.bHistEmprunt.Location = New System.Drawing.Point(447, 335)
+        Me.bHistEmprunt.Name = "bHistEmprunt"
+        Me.bHistEmprunt.Size = New System.Drawing.Size(232, 55)
+        Me.bHistEmprunt.TabIndex = 6
+        Me.bHistEmprunt.Text = "Historique des emprunts"
+        Me.bHistEmprunt.UseVisualStyleBackColor = True
         '
-        'buttonHistRetours
+        'bHistRetours
         '
-        Me.buttonHistRetours.Location = New System.Drawing.Point(441, 335)
-        Me.buttonHistRetours.Name = "buttonHistRetours"
-        Me.buttonHistRetours.Size = New System.Drawing.Size(232, 55)
-        Me.buttonHistRetours.TabIndex = 7
-        Me.buttonHistRetours.Text = "Historique des retours"
-        Me.buttonHistRetours.UseVisualStyleBackColor = True
+        Me.bHistRetours.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.0!)
+        Me.bHistRetours.Location = New System.Drawing.Point(447, 412)
+        Me.bHistRetours.Name = "bHistRetours"
+        Me.bHistRetours.Size = New System.Drawing.Size(232, 55)
+        Me.bHistRetours.TabIndex = 7
+        Me.bHistRetours.Text = "Historique des retours"
+        Me.bHistRetours.UseVisualStyleBackColor = True
         '
-        'MenuStrip1
+        'pBas
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FichierToolStripMenuItem, Me.EmpruntsToolStripMenuItem, Me.RetoursToolStripMenuItem, Me.DossiersToolStripMenuItem, Me.OptionsToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(800, 24)
-        Me.MenuStrip1.TabIndex = 8
-        Me.MenuStrip1.Text = "MenuStrip1"
+        Me.pBas.Location = New System.Drawing.Point(0, 498)
+        Me.pBas.Name = "pBas"
+        Me.pBas.Size = New System.Drawing.Size(799, 31)
+        Me.pBas.TabIndex = 9
         '
-        'FichierToolStripMenuItem
+        'pHaut
         '
-        Me.FichierToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.QuitterToolStripMenuItem})
-        Me.FichierToolStripMenuItem.Name = "FichierToolStripMenuItem"
-        Me.FichierToolStripMenuItem.Size = New System.Drawing.Size(54, 20)
-        Me.FichierToolStripMenuItem.Text = "Fichier"
+        Me.pHaut.Controls.Add(Me.lTitre)
+        Me.pHaut.Controls.Add(Me.lQuitter)
+        Me.pHaut.Location = New System.Drawing.Point(0, 0)
+        Me.pHaut.Name = "pHaut"
+        Me.pHaut.Size = New System.Drawing.Size(799, 31)
+        Me.pHaut.TabIndex = 10
         '
-        'QuitterToolStripMenuItem
+        'lTitre
         '
-        Me.QuitterToolStripMenuItem.Name = "QuitterToolStripMenuItem"
-        Me.QuitterToolStripMenuItem.Size = New System.Drawing.Size(111, 22)
-        Me.QuitterToolStripMenuItem.Text = "Quitter"
+        Me.lTitre.AutoSize = True
+        Me.lTitre.Font = New System.Drawing.Font("Arial Rounded MT Bold", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lTitre.ForeColor = System.Drawing.Color.White
+        Me.lTitre.Location = New System.Drawing.Point(12, 1)
+        Me.lTitre.Name = "lTitre"
+        Me.lTitre.Size = New System.Drawing.Size(99, 28)
+        Me.lTitre.TabIndex = 11
+        Me.lTitre.Text = "Accueil"
         '
-        'EmpruntsToolStripMenuItem
+        'lQuitter
         '
-        Me.EmpruntsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FaireUnEmpruntToolStripMenuItem, Me.HistoriqueDesEmpruntsToolStripMenuItem})
-        Me.EmpruntsToolStripMenuItem.Name = "EmpruntsToolStripMenuItem"
-        Me.EmpruntsToolStripMenuItem.Size = New System.Drawing.Size(70, 20)
-        Me.EmpruntsToolStripMenuItem.Text = "Emprunts"
+        Me.lQuitter.AutoSize = True
+        Me.lQuitter.Font = New System.Drawing.Font("Arial Rounded MT Bold", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lQuitter.ForeColor = System.Drawing.Color.White
+        Me.lQuitter.Location = New System.Drawing.Point(769, 1)
+        Me.lQuitter.Name = "lQuitter"
+        Me.lQuitter.Size = New System.Drawing.Size(26, 28)
+        Me.lQuitter.TabIndex = 11
+        Me.lQuitter.Text = "X"
         '
-        'FaireUnEmpruntToolStripMenuItem
+        'lMsFichier
         '
-        Me.FaireUnEmpruntToolStripMenuItem.Name = "FaireUnEmpruntToolStripMenuItem"
-        Me.FaireUnEmpruntToolStripMenuItem.Size = New System.Drawing.Size(204, 22)
-        Me.FaireUnEmpruntToolStripMenuItem.Text = "Faire un emprunt"
+        Me.lMsFichier.AutoSize = True
+        Me.lMsFichier.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lMsFichier.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.0!)
+        Me.lMsFichier.Location = New System.Drawing.Point(27, 38)
+        Me.lMsFichier.Name = "lMsFichier"
+        Me.lMsFichier.Size = New System.Drawing.Size(56, 18)
+        Me.lMsFichier.TabIndex = 11
+        Me.lMsFichier.Text = "Fichier"
         '
-        'HistoriqueDesEmpruntsToolStripMenuItem
+        'lMsQuitter
         '
-        Me.HistoriqueDesEmpruntsToolStripMenuItem.Name = "HistoriqueDesEmpruntsToolStripMenuItem"
-        Me.HistoriqueDesEmpruntsToolStripMenuItem.Size = New System.Drawing.Size(204, 22)
-        Me.HistoriqueDesEmpruntsToolStripMenuItem.Text = "Historique des emprunts"
+        Me.lMsQuitter.AutoSize = True
+        Me.lMsQuitter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lMsQuitter.Enabled = False
+        Me.lMsQuitter.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.0!)
+        Me.lMsQuitter.Location = New System.Drawing.Point(27, 62)
+        Me.lMsQuitter.Name = "lMsQuitter"
+        Me.lMsQuitter.Size = New System.Drawing.Size(57, 18)
+        Me.lMsQuitter.TabIndex = 12
+        Me.lMsQuitter.Text = "Quitter"
+        Me.lMsQuitter.Visible = False
         '
-        'RetoursToolStripMenuItem
+        'lMsEmprunts
         '
-        Me.RetoursToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FaireUnRetourToolStripMenuItem, Me.HistoriqueDesRetoursToolStripMenuItem})
-        Me.RetoursToolStripMenuItem.Name = "RetoursToolStripMenuItem"
-        Me.RetoursToolStripMenuItem.Size = New System.Drawing.Size(59, 20)
-        Me.RetoursToolStripMenuItem.Text = "Retours"
+        Me.lMsEmprunts.AutoSize = True
+        Me.lMsEmprunts.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lMsEmprunts.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.0!)
+        Me.lMsEmprunts.Location = New System.Drawing.Point(87, 38)
+        Me.lMsEmprunts.Name = "lMsEmprunts"
+        Me.lMsEmprunts.Size = New System.Drawing.Size(75, 18)
+        Me.lMsEmprunts.TabIndex = 13
+        Me.lMsEmprunts.Text = "Emprunts"
         '
-        'FaireUnRetourToolStripMenuItem
+        'lMsFaireEmprunt
         '
-        Me.FaireUnRetourToolStripMenuItem.Name = "FaireUnRetourToolStripMenuItem"
-        Me.FaireUnRetourToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
-        Me.FaireUnRetourToolStripMenuItem.Text = "Faire un retour"
+        Me.lMsFaireEmprunt.AutoSize = True
+        Me.lMsFaireEmprunt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lMsFaireEmprunt.Enabled = False
+        Me.lMsFaireEmprunt.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.0!)
+        Me.lMsFaireEmprunt.Location = New System.Drawing.Point(87, 62)
+        Me.lMsFaireEmprunt.Name = "lMsFaireEmprunt"
+        Me.lMsFaireEmprunt.Size = New System.Drawing.Size(124, 18)
+        Me.lMsFaireEmprunt.TabIndex = 14
+        Me.lMsFaireEmprunt.Text = "Faire un emprunt"
+        Me.lMsFaireEmprunt.Visible = False
         '
-        'HistoriqueDesRetoursToolStripMenuItem
+        'lMsHistoriqueEmprunt
         '
-        Me.HistoriqueDesRetoursToolStripMenuItem.Name = "HistoriqueDesRetoursToolStripMenuItem"
-        Me.HistoriqueDesRetoursToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
-        Me.HistoriqueDesRetoursToolStripMenuItem.Text = "Historique des retours"
+        Me.lMsHistoriqueEmprunt.AutoSize = True
+        Me.lMsHistoriqueEmprunt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lMsHistoriqueEmprunt.Enabled = False
+        Me.lMsHistoriqueEmprunt.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.0!)
+        Me.lMsHistoriqueEmprunt.Location = New System.Drawing.Point(217, 62)
+        Me.lMsHistoriqueEmprunt.Name = "lMsHistoriqueEmprunt"
+        Me.lMsHistoriqueEmprunt.Size = New System.Drawing.Size(178, 18)
+        Me.lMsHistoriqueEmprunt.TabIndex = 15
+        Me.lMsHistoriqueEmprunt.Text = "Historique des emprunts"
+        Me.lMsHistoriqueEmprunt.Visible = False
         '
-        'DossiersToolStripMenuItem
+        'lMsRetours
         '
-        Me.DossiersToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConsulterToolStripMenuItem})
-        Me.DossiersToolStripMenuItem.Name = "DossiersToolStripMenuItem"
-        Me.DossiersToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
-        Me.DossiersToolStripMenuItem.Text = "Dossiers"
+        Me.lMsRetours.AutoSize = True
+        Me.lMsRetours.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lMsRetours.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.0!)
+        Me.lMsRetours.Location = New System.Drawing.Point(168, 38)
+        Me.lMsRetours.Name = "lMsRetours"
+        Me.lMsRetours.Size = New System.Drawing.Size(63, 18)
+        Me.lMsRetours.TabIndex = 16
+        Me.lMsRetours.Text = "Retours"
         '
-        'ConsulterToolStripMenuItem
+        'lMsFaireRetour
         '
-        Me.ConsulterToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EmprunteurToolStripMenuItem})
-        Me.ConsulterToolStripMenuItem.Name = "ConsulterToolStripMenuItem"
-        Me.ConsulterToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
-        Me.ConsulterToolStripMenuItem.Text = "Consulter"
+        Me.lMsFaireRetour.AutoSize = True
+        Me.lMsFaireRetour.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lMsFaireRetour.Enabled = False
+        Me.lMsFaireRetour.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.0!)
+        Me.lMsFaireRetour.Location = New System.Drawing.Point(168, 62)
+        Me.lMsFaireRetour.Name = "lMsFaireRetour"
+        Me.lMsFaireRetour.Size = New System.Drawing.Size(109, 18)
+        Me.lMsFaireRetour.TabIndex = 17
+        Me.lMsFaireRetour.Text = "Faire un retour"
+        Me.lMsFaireRetour.Visible = False
         '
-        'EmprunteurToolStripMenuItem
+        'lMsHistoriqueRetours
         '
-        Me.EmprunteurToolStripMenuItem.Name = "EmprunteurToolStripMenuItem"
-        Me.EmprunteurToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
-        Me.EmprunteurToolStripMenuItem.Text = "Emprunteur"
+        Me.lMsHistoriqueRetours.AutoSize = True
+        Me.lMsHistoriqueRetours.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lMsHistoriqueRetours.Enabled = False
+        Me.lMsHistoriqueRetours.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.0!)
+        Me.lMsHistoriqueRetours.Location = New System.Drawing.Point(283, 62)
+        Me.lMsHistoriqueRetours.Name = "lMsHistoriqueRetours"
+        Me.lMsHistoriqueRetours.Size = New System.Drawing.Size(163, 18)
+        Me.lMsHistoriqueRetours.TabIndex = 18
+        Me.lMsHistoriqueRetours.Text = "Historique des retours"
+        Me.lMsHistoriqueRetours.Visible = False
         '
-        'OptionsToolStripMenuItem
+        'lMsDossiers
         '
-        Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
-        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
-        Me.OptionsToolStripMenuItem.Text = "Options"
+        Me.lMsDossiers.AutoSize = True
+        Me.lMsDossiers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lMsDossiers.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.0!)
+        Me.lMsDossiers.Location = New System.Drawing.Point(237, 38)
+        Me.lMsDossiers.Name = "lMsDossiers"
+        Me.lMsDossiers.Size = New System.Drawing.Size(70, 18)
+        Me.lMsDossiers.TabIndex = 19
+        Me.lMsDossiers.Text = "Dossiers"
+        '
+        'lMsConsulter
+        '
+        Me.lMsConsulter.AutoSize = True
+        Me.lMsConsulter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lMsConsulter.Enabled = False
+        Me.lMsConsulter.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.0!)
+        Me.lMsConsulter.Location = New System.Drawing.Point(237, 62)
+        Me.lMsConsulter.Name = "lMsConsulter"
+        Me.lMsConsulter.Size = New System.Drawing.Size(75, 18)
+        Me.lMsConsulter.TabIndex = 20
+        Me.lMsConsulter.Text = "Consulter"
+        Me.lMsConsulter.Visible = False
+        '
+        'lMsEmprunteur
+        '
+        Me.lMsEmprunteur.AutoSize = True
+        Me.lMsEmprunteur.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lMsEmprunteur.Enabled = False
+        Me.lMsEmprunteur.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.0!)
+        Me.lMsEmprunteur.Location = New System.Drawing.Point(318, 62)
+        Me.lMsEmprunteur.Name = "lMsEmprunteur"
+        Me.lMsEmprunteur.Size = New System.Drawing.Size(89, 18)
+        Me.lMsEmprunteur.TabIndex = 21
+        Me.lMsEmprunteur.Text = "Emprunteur"
+        Me.lMsEmprunteur.Visible = False
+        '
+        'lMsOptions
+        '
+        Me.lMsOptions.AutoSize = True
+        Me.lMsOptions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lMsOptions.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.0!)
+        Me.lMsOptions.Location = New System.Drawing.Point(313, 38)
+        Me.lMsOptions.Name = "lMsOptions"
+        Me.lMsOptions.Size = New System.Drawing.Size(63, 18)
+        Me.lMsOptions.TabIndex = 22
+        Me.lMsOptions.Text = "Options"
         '
         'Accueil
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.buttonHistRetours)
-        Me.Controls.Add(Me.buttonHistEmprunt)
-        Me.Controls.Add(Me.buttonFaireRetour)
-        Me.Controls.Add(Me.buttonFaireEmprunt)
-        Me.Controls.Add(Me.Label3)
+        Me.ClientSize = New System.Drawing.Size(799, 530)
+        Me.Controls.Add(Me.lMsOptions)
+        Me.Controls.Add(Me.lMsEmprunteur)
+        Me.Controls.Add(Me.lMsConsulter)
+        Me.Controls.Add(Me.lMsDossiers)
+        Me.Controls.Add(Me.lMsHistoriqueRetours)
+        Me.Controls.Add(Me.lMsFaireRetour)
+        Me.Controls.Add(Me.lMsRetours)
+        Me.Controls.Add(Me.lMsHistoriqueEmprunt)
+        Me.Controls.Add(Me.lMsFaireEmprunt)
+        Me.Controls.Add(Me.lMsEmprunts)
+        Me.Controls.Add(Me.lMsQuitter)
+        Me.Controls.Add(Me.lMsFichier)
+        Me.Controls.Add(Me.pHaut)
+        Me.Controls.Add(Me.pBas)
+        Me.Controls.Add(Me.bHistRetours)
+        Me.Controls.Add(Me.bHistEmprunt)
+        Me.Controls.Add(Me.bFaireRetour)
+        Me.Controls.Add(Me.bFaireEmprunt)
+        Me.Controls.Add(Me.lTitreRichTextBox)
         Me.Controls.Add(Me.RichTextBox1)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.MenuStrip1)
-        Me.MainMenuStrip = Me.MenuStrip1
+        Me.Controls.Add(Me.lNomUtilisateur)
+        Me.Controls.Add(Me.lDeconnection)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Accueil"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Accueil"
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
+        Me.pHaut.ResumeLayout(False)
+        Me.pHaut.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
+    Friend WithEvents lDeconnection As Label
+    Friend WithEvents lNomUtilisateur As Label
     Friend WithEvents RichTextBox1 As RichTextBox
-    Friend WithEvents Label3 As Label
-    Friend WithEvents buttonFaireEmprunt As Button
-    Friend WithEvents buttonFaireRetour As Button
-    Friend WithEvents buttonHistEmprunt As Button
-    Friend WithEvents buttonHistRetours As Button
-    Friend WithEvents MenuStrip1 As MenuStrip
-    Friend WithEvents FichierToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents QuitterToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents EmpruntsToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents FaireUnEmpruntToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents HistoriqueDesEmpruntsToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents RetoursToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents FaireUnRetourToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents HistoriqueDesRetoursToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents DossiersToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ConsulterToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents EmprunteurToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents OptionsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents lTitreRichTextBox As Label
+    Friend WithEvents bFaireEmprunt As Button
+    Friend WithEvents bFaireRetour As Button
+    Friend WithEvents bHistEmprunt As Button
+    Friend WithEvents bHistRetours As Button
+    Friend WithEvents pBas As Panel
+    Friend WithEvents pHaut As Panel
+    Friend WithEvents lQuitter As Label
+    Friend WithEvents lTitre As Label
+    Friend WithEvents lMsFichier As Label
+    Friend WithEvents lMsQuitter As Label
+    Friend WithEvents lMsEmprunts As Label
+    Friend WithEvents lMsFaireEmprunt As Label
+    Friend WithEvents lMsHistoriqueEmprunt As Label
+    Friend WithEvents lMsRetours As Label
+    Friend WithEvents lMsFaireRetour As Label
+    Friend WithEvents lMsHistoriqueRetours As Label
+    Friend WithEvents lMsDossiers As Label
+    Friend WithEvents lMsConsulter As Label
+    Friend WithEvents lMsEmprunteur As Label
+    Friend WithEvents lMsOptions As Label
 End Class

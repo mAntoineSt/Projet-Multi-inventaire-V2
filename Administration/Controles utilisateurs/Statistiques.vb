@@ -102,7 +102,6 @@ Public Class Statistiques
                 sw.WriteLine("Nombre de prêts effectuées : " & lEmprunteurNbrPretsEffectuees.Text)
                 sw.WriteLine("Nombre de prêts actifs : " & lEmprunteursNbrPretsActifs.Text)
                 sw.WriteLine("Nombre de retours effectuées : " & lEmprunteursNbrRetoursEffectuees.Text)
-                sw.WriteLine("Nombre de retours en attente : " & lEmprunteursNbrRetoursAttentes.Text)
 
             Case 3
                 'Partie Admins
@@ -127,6 +126,8 @@ Public Class Statistiques
                 sw.WriteLine("Nombre de conditions inscrites :" & lNbrConditions.Text)
                 sw.WriteLine("Nombre de responsabilités inscrites :" & lNbrResponsabilites.Text)
                 sw.WriteLine("Nombre de frais de retards accumulées :" & lNbrFraisRetards.Text)
+
+            Case 5
 
         End Select
         MessageBox.Show("Le fichier a été enregistré !", "Enregistrement effectué", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -185,7 +186,6 @@ Public Class Statistiques
                 sw.WriteLine("Nombre de prêts effectuées : " & lEmprunteurNbrPretsEffectuees.Text)
                 sw.WriteLine("Nombre de prêts actifs : " & lEmprunteursNbrPretsActifs.Text)
                 sw.WriteLine("Nombre de retours effectuées : " & lEmprunteursNbrRetoursEffectuees.Text)
-                sw.WriteLine("Nombre de retours en attente : " & lEmprunteursNbrRetoursAttentes.Text)
 
             Case 3
                 'Partie Admins
@@ -210,6 +210,9 @@ Public Class Statistiques
                 sw.WriteLine("Nombre de conditions inscrites :" & lNbrConditions.Text)
                 sw.WriteLine("Nombre de responsabilités inscrites :" & lNbrResponsabilites.Text)
                 sw.WriteLine("Nombre de frais de retards accumulées :" & lNbrFraisRetards.Text)
+
+            Case 5
+
 
         End Select
         MessageBox.Show("Le fichier a été enregistré !", "Enregistrement effectué", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -268,7 +271,6 @@ Public Class Statistiques
                 sw.WriteLine("Nombre de prêts effectuées : " & lEmprunteurNbrPretsEffectuees.Text)
                 sw.WriteLine("Nombre de prêts actifs : " & lEmprunteursNbrPretsActifs.Text)
                 sw.WriteLine("Nombre de retours effectuées : " & lEmprunteursNbrRetoursEffectuees.Text)
-                sw.WriteLine("Nombre de retours en attente : " & lEmprunteursNbrRetoursAttentes.Text)
 
             Case 3
                 'Partie Admins
@@ -293,6 +295,9 @@ Public Class Statistiques
                 sw.WriteLine("Nombre de conditions inscrites :" & lNbrConditions.Text)
                 sw.WriteLine("Nombre de responsabilités inscrites :" & lNbrResponsabilites.Text)
                 sw.WriteLine("Nombre de frais de retards accumulées :" & lNbrFraisRetards.Text)
+
+            Case 5
+
 
         End Select
         MessageBox.Show("Le fichier a été enregistré !", "Enregistrement effectué", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -861,7 +866,6 @@ Public Class Statistiques
                     con.Open()
                     reader = commande.ExecuteReader
                     reader.Read()
-                    lEmprunteursNbrRetoursAttentes.Text = reader(0)
                     reader.Close()
                     con.Close()
 
@@ -918,7 +922,6 @@ Public Class Statistiques
                     con.Open()
                     reader = commande.ExecuteReader
                     reader.Read()
-                    lEmprunteursNbrRetoursAttentes.Text = reader(0)
                     reader.Close()
                     con.Close()
                 ElseIf cbEmprunteurChoixAnnee.SelectedIndex = -1 AndAlso Not cbEmprunteurChoixMois.SelectedIndex = -1 Then
@@ -974,7 +977,6 @@ Public Class Statistiques
                     con.Open()
                     reader = commande.ExecuteReader
                     reader.Read()
-                    lEmprunteursNbrRetoursAttentes.Text = reader(0)
                     reader.Close()
                     con.Close()
                 Else
@@ -1030,7 +1032,6 @@ Public Class Statistiques
                     con.Open()
                     reader = commande.ExecuteReader
                     reader.Read()
-                    lEmprunteursNbrRetoursAttentes.Text = reader(0)
                     reader.Close()
                     con.Close()
                 End If
@@ -1352,4 +1353,23 @@ Public Class Statistiques
                 Return "666"
         End Select
     End Function
+
+    Private Sub bExporterTout_Click(sender As Object, e As EventArgs) Handles bExporterTout.Click
+        choixExportationTous.ShowDialog()
+    End Sub
+
+    Private Sub bSupprimerDonneesPeriode_Click(sender As Object, e As EventArgs) Handles bSupprimerDonneesPeriode.Click
+        Supression_Periode_Donnees.ShowDialog()
+    End Sub
+
+    Public Sub exportationTous(typeExportation As Integer)
+        Select Case typeExportation
+            Case 1
+                archivageCSV(5)
+            Case 2
+                archivageDOC(5)
+            Case 3
+                archivagePDF(5)
+        End Select
+    End Sub
 End Class

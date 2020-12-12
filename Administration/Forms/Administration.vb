@@ -5,11 +5,14 @@
     Dim ucGestionEmprunteurs As New Gestion_Emprunteurs
     Dim ucGestionPreteur As New Gestion_Preteurs
     Dim ucStatistiques As New Statistiques
+    Dim ucParametresSupplementaires As New Parametres_Supplementaires
+    Dim ucJournalActivite As New Journal_Activites
     Dim emplacement As Point
     Dim langue As Integer = 0
+    Dim variables_application As New Variables_Application()
 
     'Variables nécessaires
-    Dim styleVisuel As Integer = 1
+    Dim styleVisuel As Integer = 0
 
     'Variables utiles pour la Form
     Dim droits_administratif As Integer = 2
@@ -21,6 +24,8 @@
         pUserControls.Controls.Add(ucGestionEmprunteurs)
         pUserControls.Controls.Add(ucGestionPreteur)
         pUserControls.Controls.Add(ucStatistiques)
+        pUserControls.Controls.Add(ucParametresSupplementaires)
+        pUserControls.Controls.Add(ucJournalActivite)
         ucAccueilAdmin.BringToFront()
 
         If droits_administratif = 1 Then
@@ -92,6 +97,26 @@
             ucStatistiques.bGlobaleCSV.ForeColor = Color.Black
             ucStatistiques.bPreteursCSV.ForeColor = Color.Black
             ucStatistiques.pCategories.ForeColor = Color.Black
+
+            'Partie paramètres supplémentaires
+            ucParametresSupplementaires.lTitreHaut.ForeColor = Color.Black
+            ucParametresSupplementaires.lTitreInfosModifiables.ForeColor = Color.Black
+            ucParametresSupplementaires.lTitreChoixTypeStatut.ForeColor = Color.Black
+            ucParametresSupplementaires.lMontantFraisRetard.ForeColor = Color.Black
+            ucParametresSupplementaires.lNbrPretsMaxPersonne.ForeColor = Color.Black
+            ucParametresSupplementaires.lDelaisMinEntrePrets.ForeColor = Color.Black
+            ucParametresSupplementaires.lDelaisMinRetour.ForeColor = Color.Black
+            ucParametresSupplementaires.lNbrEquipementsMaxPret.ForeColor = Color.Black
+            ucParametresSupplementaires.lMessage.ForeColor = Color.Black
+            ucParametresSupplementaires.lTitreChoixTypeStatut.ForeColor = Color.Black
+            ucParametresSupplementaires.rbEmprunteurs.ForeColor = Color.Black
+            ucParametresSupplementaires.rbPreteurs.ForeColor = Color.Black
+            ucParametresSupplementaires.rbAdmins.ForeColor = Color.Black
+            ucParametresSupplementaires.bSauvegarderChoix.ForeColor = Color.Black
+            ucParametresSupplementaires.lTitreHaut.BackColor = ColorTranslator.FromHtml("#4d73a1")
+            ucParametresSupplementaires.pInfosModifiables.BackColor = ColorTranslator.FromHtml("#4d73a1")
+            ucParametresSupplementaires.pChoixCategorie.BackColor = ColorTranslator.FromHtml("#4d73a1")
+            ucParametresSupplementaires.bSauvegarderChoix.BackColor = ColorTranslator.FromHtml("#4d73a1")
         Else
             pHaut.BackColor = ColorTranslator.FromHtml("#252926")
             pBas.BackColor = ColorTranslator.FromHtml("#252926")
@@ -149,6 +174,26 @@
             ucStatistiques.bGlobaleCSV.ForeColor = Color.White
             ucStatistiques.bPreteursCSV.ForeColor = Color.White
             ucStatistiques.pCategories.ForeColor = Color.White
+
+            'Partie paramètres supplémentaires
+            ucParametresSupplementaires.lTitreHaut.ForeColor = Color.White
+            ucParametresSupplementaires.lTitreInfosModifiables.ForeColor = Color.White
+            ucParametresSupplementaires.lTitreChoixTypeStatut.ForeColor = Color.White
+            ucParametresSupplementaires.lMontantFraisRetard.ForeColor = Color.White
+            ucParametresSupplementaires.lNbrPretsMaxPersonne.ForeColor = Color.White
+            ucParametresSupplementaires.lDelaisMinEntrePrets.ForeColor = Color.White
+            ucParametresSupplementaires.lDelaisMinRetour.ForeColor = Color.White
+            ucParametresSupplementaires.lNbrEquipementsMaxPret.ForeColor = Color.White
+            ucParametresSupplementaires.lMessage.ForeColor = Color.White
+            ucParametresSupplementaires.lTitreChoixTypeStatut.ForeColor = Color.White
+            ucParametresSupplementaires.rbEmprunteurs.ForeColor = Color.White
+            ucParametresSupplementaires.rbPreteurs.ForeColor = Color.White
+            ucParametresSupplementaires.rbAdmins.ForeColor = Color.White
+            ucParametresSupplementaires.bSauvegarderChoix.ForeColor = Color.White
+            ucParametresSupplementaires.lTitreHaut.BackColor = ColorTranslator.FromHtml("#747d8c")
+            ucParametresSupplementaires.pInfosModifiables.BackColor = ColorTranslator.FromHtml("#747d8c")
+            ucParametresSupplementaires.pChoixCategorie.BackColor = ColorTranslator.FromHtml("#747d8c")
+            ucParametresSupplementaires.bSauvegarderChoix.BackColor = ColorTranslator.FromHtml("#747d8c")
         End If
 
         'Modifie la langue selon ce que l'utilisateur préfère
@@ -218,7 +263,6 @@
             ucStatistiques.lEmprunteurTitreNbrPretsEffectuees.Text = "Nombre de prêts effectuées :"
             ucStatistiques.lEmprunteursTitreNbrPretsActifs.Text = "Nombre de prêts actifs :"
             ucStatistiques.lEmprunteursTitreNbrRetoursEffectuees.Text = "Nombre de retours efectuées :"
-            ucStatistiques.lEmprunteursTitreNbrRetoursAttentes.Text = "Nombre de retours en attentes :"
             ucStatistiques.bEmprunteursCSV.Text = "Exporter en .XLSX"
             ucStatistiques.bEmprunteursDOC.Text = "Exporter en .DOCS"
             ucStatistiques.bEmprunteursPDF.Text = "Exporter en .PDF"
@@ -309,7 +353,6 @@
             ucStatistiques.lEmprunteurTitreNbrPretsEffectuees.Text = "Number of loans made:"
             ucStatistiques.lEmprunteursTitreNbrPretsActifs.Text = "Number of active loans:"
             ucStatistiques.lEmprunteursTitreNbrRetoursEffectuees.Text = "Number of returns made:"
-            ucStatistiques.lEmprunteursTitreNbrRetoursAttentes.Text = "Number of pending returns:"
             ucStatistiques.bEmprunteursCSV.Text = "Export to .XLSX"
             ucStatistiques.bEmprunteursDOC.Text = "Export to .DOCS"
             ucStatistiques.bEmprunteursPDF.Text = "Export to .PDF"
@@ -339,7 +382,6 @@
     End Sub
 
     'LES LABELS------------------------------------------------------------------------------------------------------
-
     Private Sub lQuitter_Click(sender As Object, e As EventArgs) Handles lQuitter.Click
         Me.Close()
     End Sub
@@ -388,5 +430,33 @@
         If e.Button = MouseButtons.Left Then
             Me.Location += e.Location - emplacement
         End If
+    End Sub
+
+    Private Sub lParametresSupplementaires_Click(sender As Object, e As EventArgs) Handles lParametresSupplementaires.Click
+        If droits_administratif <> 2 Then
+            MessageBox.Show("Vous n'avez pas accès à cette partie administrative.", "AVERTISSEMENT", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+        ucParametresSupplementaires.BringToFront()
+        ucParametresSupplementaires.refreshObjetVariablesApplications(variables_application)
+        ucParametresSupplementaires.refreshInfos()
+    End Sub
+
+    Private Sub lJournalActivites_Click(sender As Object, e As EventArgs) Handles lJournalActivites.Click
+        If droits_administratif <> 2 Then
+            MessageBox.Show("Vous n'avez pas accès à cette partie administrative.", "AVERTISSEMENT", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+        ucJournalActivite.BringToFront()
+    End Sub
+    Public Sub refreshObjetVariablesApplications(variables_application As Variables_Application)
+        Me.variables_application = New Variables_Application(variables_application.getFrais_Retards_Emprunteurs, variables_application.getNbr_prets_max_emprunteurs, variables_application.getDelais_entre_prets_emprunteurs, variables_application.getDelais_minimum_retour_emprunteurs, variables_application.getNbr_Max_Equipements_Prets_emprunteurs,
+                                                             variables_application.getFrais_Retards_Preteurs, variables_application.getNbr_prets_max_Preteurs, variables_application.getDelais_entre_prets_Preteurs, variables_application.getDelais_minimum_retour_Preteurs, variables_application.getNbr_Max_Equipements_Prets_Preteurs,
+                                                             variables_application.getFrais_Retards_Administrateurs, variables_application.getNbr_prets_max_Administrateurs, variables_application.getDelais_entre_prets_Administrateurs, variables_application.getDelais_minimum_retour_Administrateurs, variables_application.getNbr_Max_Equipements_Prets_Administrateurs,
+                                                             variables_application.getLangue, variables_application.getVisuel, variables_application.getStatut)
+    End Sub
+
+    Public Sub exportationTousStatistiques(typeExportation As Integer)
+        ucStatistiques.exportationTous(typeExportation)
     End Sub
 End Class

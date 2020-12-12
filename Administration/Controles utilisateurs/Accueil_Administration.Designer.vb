@@ -22,6 +22,7 @@ Partial Class Accueil_Administration
     'Ne la modifiez pas à l'aide de l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.lTitreRole = New System.Windows.Forms.Label()
         Me.lRole = New System.Windows.Forms.Label()
         Me.pAcces = New System.Windows.Forms.Panel()
@@ -35,6 +36,7 @@ Partial Class Accueil_Administration
         Me.lPasAccesGestionStats = New System.Windows.Forms.Label()
         Me.lPasAccesGestionAdmins = New System.Windows.Forms.Label()
         Me.pRole = New System.Windows.Forms.Panel()
+        Me.tpMessagesLabels = New System.Windows.Forms.ToolTip(Me.components)
         Me.pAcces.SuspendLayout()
         Me.pPasAcces.SuspendLayout()
         Me.pRole.SuspendLayout()
@@ -59,6 +61,7 @@ Partial Class Accueil_Administration
         Me.lRole.Size = New System.Drawing.Size(78, 28)
         Me.lRole.TabIndex = 2
         Me.lRole.Text = "ROLE"
+        Me.tpMessagesLabels.SetToolTip(Me.lRole, "C'est le rôle à laquelle votre compte est")
         '
         'pAcces
         '
@@ -122,6 +125,7 @@ Partial Class Accueil_Administration
         Me.lTitrePasAcces.Size = New System.Drawing.Size(302, 23)
         Me.lTitrePasAcces.TabIndex = 9
         Me.lTitrePasAcces.Text = "Ce que vous n'avez pas accès"
+        Me.tpMessagesLabels.SetToolTip(Me.lTitrePasAcces, "Vous n'avez pas accès à ces parties")
         '
         'lTitreAcces
         '
@@ -133,6 +137,7 @@ Partial Class Accueil_Administration
         Me.lTitreAcces.Size = New System.Drawing.Size(244, 23)
         Me.lTitreAcces.TabIndex = 8
         Me.lTitreAcces.Text = "Ce que vous avez accès"
+        Me.tpMessagesLabels.SetToolTip(Me.lTitreAcces, "Vous avez accès à ces parties")
         '
         'pPasAcces
         '
@@ -175,6 +180,10 @@ Partial Class Accueil_Administration
         Me.pRole.Size = New System.Drawing.Size(368, 85)
         Me.pRole.TabIndex = 12
         '
+        'tpMessagesLabels
+        '
+        Me.tpMessagesLabels.ToolTipTitle = "Cet énoncé veut dire que :"
+        '
         'Accueil_Administration
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -210,4 +219,5 @@ Partial Class Accueil_Administration
     Friend WithEvents lPasAccesGestionStats As Label
     Friend WithEvents lPasAccesGestionAdmins As Label
     Friend WithEvents pRole As Panel
+    Friend WithEvents tpMessagesLabels As ToolTip
 End Class

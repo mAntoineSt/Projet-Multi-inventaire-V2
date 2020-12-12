@@ -22,6 +22,7 @@ Partial Class Statistiques
     'Ne la modifiez pas à l'aide de l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.lEmprunteursTitreNbrEmpruntsActifs = New System.Windows.Forms.Label()
         Me.gbPartiePreteurs = New System.Windows.Forms.GroupBox()
         Me.lPreteursNbrRetoursAttentesAutorisation = New System.Windows.Forms.Label()
@@ -44,13 +45,11 @@ Partial Class Statistiques
         Me.cbPreteursChoixMois = New System.Windows.Forms.ComboBox()
         Me.lPreteursTitreChoixAnnee = New System.Windows.Forms.Label()
         Me.lPreteursTitreChoixMois = New System.Windows.Forms.Label()
-        Me.lEmprunteursNbrRetoursAttentes = New System.Windows.Forms.Label()
         Me.lEmprunteursNbrRetoursEffectuees = New System.Windows.Forms.Label()
         Me.lEmprunteursNbrPretsActifs = New System.Windows.Forms.Label()
         Me.lEmprunteurNbrPretsEffectuees = New System.Windows.Forms.Label()
         Me.lEmprunteursNbrEmpruntsActifs = New System.Windows.Forms.Label()
         Me.lEmprunteursNbrEmprunteurs = New System.Windows.Forms.Label()
-        Me.lEmprunteursTitreNbrRetoursAttentes = New System.Windows.Forms.Label()
         Me.lEmprunteurTitreEmprunteursSuspendues = New System.Windows.Forms.Label()
         Me.lEmprunteurNbrEmprunteursSuspendues = New System.Windows.Forms.Label()
         Me.lEmprunteursTitreNbrRetoursEffectuees = New System.Windows.Forms.Label()
@@ -117,6 +116,10 @@ Partial Class Statistiques
         Me.bPreteurs = New System.Windows.Forms.Button()
         Me.bEmprunteurs = New System.Windows.Forms.Button()
         Me.bPartieGlobale = New System.Windows.Forms.Button()
+        Me.tpMessagesLabels = New System.Windows.Forms.ToolTip(Me.components)
+        Me.tpMessagesBoutons = New System.Windows.Forms.ToolTip(Me.components)
+        Me.bSupprimerDonneesPeriode = New System.Windows.Forms.Button()
+        Me.bExporterTout = New System.Windows.Forms.Button()
         Me.gbPartiePreteurs.SuspendLayout()
         Me.pCategories.SuspendLayout()
         Me.gbPartieEmprunteurs.SuspendLayout()
@@ -133,6 +136,7 @@ Partial Class Statistiques
         Me.lEmprunteursTitreNbrEmpruntsActifs.Size = New System.Drawing.Size(254, 22)
         Me.lEmprunteursTitreNbrEmpruntsActifs.TabIndex = 21
         Me.lEmprunteursTitreNbrEmpruntsActifs.Text = "Nombre d'emprunteurs actifs : "
+        Me.tpMessagesLabels.SetToolTip(Me.lEmprunteursTitreNbrEmpruntsActifs, "Montre le nombre d'emprunteurs qui ne sont pas suspendues")
         '
         'gbPartiePreteurs
         '
@@ -159,7 +163,7 @@ Partial Class Statistiques
         Me.gbPartiePreteurs.ForeColor = System.Drawing.Color.White
         Me.gbPartiePreteurs.Location = New System.Drawing.Point(12, 10)
         Me.gbPartiePreteurs.Name = "gbPartiePreteurs"
-        Me.gbPartiePreteurs.Size = New System.Drawing.Size(697, 396)
+        Me.gbPartiePreteurs.Size = New System.Drawing.Size(697, 381)
         Me.gbPartiePreteurs.TabIndex = 5
         Me.gbPartiePreteurs.TabStop = False
         Me.gbPartiePreteurs.Text = "Partie prêteurs"
@@ -174,6 +178,7 @@ Partial Class Statistiques
         Me.lPreteursNbrRetoursAttentesAutorisation.Size = New System.Drawing.Size(18, 20)
         Me.lPreteursNbrRetoursAttentesAutorisation.TabIndex = 36
         Me.lPreteursNbrRetoursAttentesAutorisation.Text = "0"
+        Me.tpMessagesLabels.SetToolTip(Me.lPreteursNbrRetoursAttentesAutorisation, "Montre le nombre de prêts qui n'ont pas encore reçu d'autorisation de retours")
         '
         'lPreteursNbrRetoursAutorisees
         '
@@ -184,6 +189,7 @@ Partial Class Statistiques
         Me.lPreteursNbrRetoursAutorisees.Size = New System.Drawing.Size(18, 20)
         Me.lPreteursNbrRetoursAutorisees.TabIndex = 35
         Me.lPreteursNbrRetoursAutorisees.Text = "0"
+        Me.tpMessagesLabels.SetToolTip(Me.lPreteursNbrRetoursAutorisees, "Montre le nombre de retours qui ont été autorisées par les prêteurs")
         '
         'lPreteursNbrPretsAutorisees
         '
@@ -194,6 +200,7 @@ Partial Class Statistiques
         Me.lPreteursNbrPretsAutorisees.Size = New System.Drawing.Size(18, 20)
         Me.lPreteursNbrPretsAutorisees.TabIndex = 34
         Me.lPreteursNbrPretsAutorisees.Text = "0"
+        Me.tpMessagesLabels.SetToolTip(Me.lPreteursNbrPretsAutorisees, "Montre le nombre de prêts qui ont été autorisés par les prêteurs")
         '
         'lPreteursNbrPreteursSuspendues
         '
@@ -204,6 +211,7 @@ Partial Class Statistiques
         Me.lPreteursNbrPreteursSuspendues.Size = New System.Drawing.Size(18, 20)
         Me.lPreteursNbrPreteursSuspendues.TabIndex = 33
         Me.lPreteursNbrPreteursSuspendues.Text = "0"
+        Me.tpMessagesLabels.SetToolTip(Me.lPreteursNbrPreteursSuspendues, "Montre le nombre de prêteurs qui ont été suspendues")
         '
         'lPreteursNbrPreteursActifs
         '
@@ -214,6 +222,7 @@ Partial Class Statistiques
         Me.lPreteursNbrPreteursActifs.Size = New System.Drawing.Size(18, 20)
         Me.lPreteursNbrPreteursActifs.TabIndex = 32
         Me.lPreteursNbrPreteursActifs.Text = "0"
+        Me.tpMessagesLabels.SetToolTip(Me.lPreteursNbrPreteursActifs, "Montre le nombre de prêteurs qui ne sont pas suspendues")
         '
         'lPreteursNbrPreteurs
         '
@@ -224,6 +233,7 @@ Partial Class Statistiques
         Me.lPreteursNbrPreteurs.Size = New System.Drawing.Size(18, 20)
         Me.lPreteursNbrPreteurs.TabIndex = 31
         Me.lPreteursNbrPreteurs.Text = "0"
+        Me.tpMessagesLabels.SetToolTip(Me.lPreteursNbrPreteurs, "Montre le nombre de prêteurs")
         '
         'lPreteursTitreNbrRetoursAttentesAutorisation
         '
@@ -234,6 +244,7 @@ Partial Class Statistiques
         Me.lPreteursTitreNbrRetoursAttentesAutorisation.Size = New System.Drawing.Size(333, 20)
         Me.lPreteursTitreNbrRetoursAttentesAutorisation.TabIndex = 30
         Me.lPreteursTitreNbrRetoursAttentesAutorisation.Text = "Nombre de retours en attente d'autorisations :"
+        Me.tpMessagesLabels.SetToolTip(Me.lPreteursTitreNbrRetoursAttentesAutorisation, "Montre le nombre de prêts qui n'ont pas encore reçu d'autorisation de retours")
         '
         'lPreteursTitreNbrRetoursAutorisees
         '
@@ -244,6 +255,7 @@ Partial Class Statistiques
         Me.lPreteursTitreNbrRetoursAutorisees.Size = New System.Drawing.Size(218, 20)
         Me.lPreteursTitreNbrRetoursAutorisees.TabIndex = 29
         Me.lPreteursTitreNbrRetoursAutorisees.Text = "Nombre de retours autorisés :"
+        Me.tpMessagesLabels.SetToolTip(Me.lPreteursTitreNbrRetoursAutorisees, "Montre le nombre de retours qui ont été autorisées par les prêteurs")
         '
         'lPreteursTitreNbrPretsAutorisees
         '
@@ -254,6 +266,7 @@ Partial Class Statistiques
         Me.lPreteursTitreNbrPretsAutorisees.Size = New System.Drawing.Size(204, 20)
         Me.lPreteursTitreNbrPretsAutorisees.TabIndex = 28
         Me.lPreteursTitreNbrPretsAutorisees.Text = "Nombre de prêts autorisés :"
+        Me.tpMessagesLabels.SetToolTip(Me.lPreteursTitreNbrPretsAutorisees, "Montre le nombre de prêts qui ont été autorisés par les prêteurs")
         '
         'lPreteursTitreNbrPreteursSuspendues
         '
@@ -264,6 +277,7 @@ Partial Class Statistiques
         Me.lPreteursTitreNbrPreteursSuspendues.Size = New System.Drawing.Size(249, 20)
         Me.lPreteursTitreNbrPreteursSuspendues.TabIndex = 27
         Me.lPreteursTitreNbrPreteursSuspendues.Text = "Nombre de prêteurs suspendues :"
+        Me.tpMessagesLabels.SetToolTip(Me.lPreteursTitreNbrPreteursSuspendues, "Montre le nombre de prêteurs qui ont été suspendues")
         '
         'lPreteursTitreNbrPreteursActifs
         '
@@ -274,6 +288,7 @@ Partial Class Statistiques
         Me.lPreteursTitreNbrPreteursActifs.Size = New System.Drawing.Size(200, 20)
         Me.lPreteursTitreNbrPreteursActifs.TabIndex = 26
         Me.lPreteursTitreNbrPreteursActifs.Text = "Nombre de prêteurs actifs :"
+        Me.tpMessagesLabels.SetToolTip(Me.lPreteursTitreNbrPreteursActifs, "Montre le nombre de prêteurs qui ne sont pas suspendues")
         '
         'lPreteursTitreNbrPreteurs
         '
@@ -284,6 +299,7 @@ Partial Class Statistiques
         Me.lPreteursTitreNbrPreteurs.Size = New System.Drawing.Size(158, 20)
         Me.lPreteursTitreNbrPreteurs.TabIndex = 25
         Me.lPreteursTitreNbrPreteurs.Text = "Nombre de prêteurs :"
+        Me.tpMessagesLabels.SetToolTip(Me.lPreteursTitreNbrPreteurs, "Montre le nombre de prêteurs")
         '
         'bPreteursPDF
         '
@@ -293,6 +309,7 @@ Partial Class Statistiques
         Me.bPreteursPDF.Size = New System.Drawing.Size(164, 71)
         Me.bPreteursPDF.TabIndex = 22
         Me.bPreteursPDF.Text = "Exporter en .PDF"
+        Me.tpMessagesBoutons.SetToolTip(Me.bPreteursPDF, "Exporte toutes les données des infos au niveau des prêteurs en fichier PDF")
         Me.bPreteursPDF.UseVisualStyleBackColor = True
         '
         'bPreteursDOC
@@ -303,6 +320,7 @@ Partial Class Statistiques
         Me.bPreteursDOC.Size = New System.Drawing.Size(164, 71)
         Me.bPreteursDOC.TabIndex = 23
         Me.bPreteursDOC.Text = "Exporter en .DOC"
+        Me.tpMessagesBoutons.SetToolTip(Me.bPreteursDOC, "Exporte toutes les données des infos au niveau des prêteurs en fichier Word")
         Me.bPreteursDOC.UseVisualStyleBackColor = True
         '
         'bPreteursCSV
@@ -313,6 +331,7 @@ Partial Class Statistiques
         Me.bPreteursCSV.Size = New System.Drawing.Size(164, 71)
         Me.bPreteursCSV.TabIndex = 24
         Me.bPreteursCSV.Text = "Exporter en .CSV"
+        Me.tpMessagesBoutons.SetToolTip(Me.bPreteursCSV, "Exporte toutes les données des infos au niveau des prêteurs en fichier Excel")
         Me.bPreteursCSV.UseVisualStyleBackColor = True
         '
         'lPreteursTitre
@@ -359,16 +378,6 @@ Partial Class Statistiques
         Me.lPreteursTitreChoixMois.TabIndex = 17
         Me.lPreteursTitreChoixMois.Text = "Mois"
         '
-        'lEmprunteursNbrRetoursAttentes
-        '
-        Me.lEmprunteursNbrRetoursAttentes.AutoSize = True
-        Me.lEmprunteursNbrRetoursAttentes.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!)
-        Me.lEmprunteursNbrRetoursAttentes.Location = New System.Drawing.Point(288, 328)
-        Me.lEmprunteursNbrRetoursAttentes.Name = "lEmprunteursNbrRetoursAttentes"
-        Me.lEmprunteursNbrRetoursAttentes.Size = New System.Drawing.Size(20, 22)
-        Me.lEmprunteursNbrRetoursAttentes.TabIndex = 30
-        Me.lEmprunteursNbrRetoursAttentes.Text = "0"
-        '
         'lEmprunteursNbrRetoursEffectuees
         '
         Me.lEmprunteursNbrRetoursEffectuees.AutoSize = True
@@ -378,6 +387,7 @@ Partial Class Statistiques
         Me.lEmprunteursNbrRetoursEffectuees.Size = New System.Drawing.Size(20, 22)
         Me.lEmprunteursNbrRetoursEffectuees.TabIndex = 29
         Me.lEmprunteursNbrRetoursEffectuees.Text = "0"
+        Me.tpMessagesLabels.SetToolTip(Me.lEmprunteursNbrRetoursEffectuees, "Montre le nombre de retours effectuées")
         '
         'lEmprunteursNbrPretsActifs
         '
@@ -388,6 +398,7 @@ Partial Class Statistiques
         Me.lEmprunteursNbrPretsActifs.Size = New System.Drawing.Size(20, 22)
         Me.lEmprunteursNbrPretsActifs.TabIndex = 28
         Me.lEmprunteursNbrPretsActifs.Text = "0"
+        Me.tpMessagesLabels.SetToolTip(Me.lEmprunteursNbrPretsActifs, "Montre le nombre de prêts qui sont en attentes de retour")
         '
         'lEmprunteurNbrPretsEffectuees
         '
@@ -398,6 +409,7 @@ Partial Class Statistiques
         Me.lEmprunteurNbrPretsEffectuees.Size = New System.Drawing.Size(20, 22)
         Me.lEmprunteurNbrPretsEffectuees.TabIndex = 27
         Me.lEmprunteurNbrPretsEffectuees.Text = "0"
+        Me.tpMessagesLabels.SetToolTip(Me.lEmprunteurNbrPretsEffectuees, "Montre le nombre de prêts effectuées")
         '
         'lEmprunteursNbrEmpruntsActifs
         '
@@ -408,6 +420,7 @@ Partial Class Statistiques
         Me.lEmprunteursNbrEmpruntsActifs.Size = New System.Drawing.Size(20, 22)
         Me.lEmprunteursNbrEmpruntsActifs.TabIndex = 25
         Me.lEmprunteursNbrEmpruntsActifs.Text = "0"
+        Me.tpMessagesLabels.SetToolTip(Me.lEmprunteursNbrEmpruntsActifs, "Montre le nombre d'emprunteurs qui ne sont pas suspendues")
         '
         'lEmprunteursNbrEmprunteurs
         '
@@ -418,16 +431,7 @@ Partial Class Statistiques
         Me.lEmprunteursNbrEmprunteurs.Size = New System.Drawing.Size(20, 22)
         Me.lEmprunteursNbrEmprunteurs.TabIndex = 24
         Me.lEmprunteursNbrEmprunteurs.Text = "0"
-        '
-        'lEmprunteursTitreNbrRetoursAttentes
-        '
-        Me.lEmprunteursTitreNbrRetoursAttentes.AutoSize = True
-        Me.lEmprunteursTitreNbrRetoursAttentes.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!)
-        Me.lEmprunteursTitreNbrRetoursAttentes.Location = New System.Drawing.Point(28, 328)
-        Me.lEmprunteursTitreNbrRetoursAttentes.Name = "lEmprunteursTitreNbrRetoursAttentes"
-        Me.lEmprunteursTitreNbrRetoursAttentes.Size = New System.Drawing.Size(259, 22)
-        Me.lEmprunteursTitreNbrRetoursAttentes.TabIndex = 23
-        Me.lEmprunteursTitreNbrRetoursAttentes.Text = "Nombre de retours en attente : "
+        Me.tpMessagesLabels.SetToolTip(Me.lEmprunteursNbrEmprunteurs, "Montre le nombre d'emprunteurs")
         '
         'lEmprunteurTitreEmprunteursSuspendues
         '
@@ -438,6 +442,7 @@ Partial Class Statistiques
         Me.lEmprunteurTitreEmprunteursSuspendues.Size = New System.Drawing.Size(309, 22)
         Me.lEmprunteurTitreEmprunteursSuspendues.TabIndex = 22
         Me.lEmprunteurTitreEmprunteursSuspendues.Text = "Nombre d'emprunteurs suspendues : "
+        Me.tpMessagesLabels.SetToolTip(Me.lEmprunteurTitreEmprunteursSuspendues, "Montre le nombre d'emprunteurs qui ont été suspendues")
         '
         'lEmprunteurNbrEmprunteursSuspendues
         '
@@ -448,6 +453,7 @@ Partial Class Statistiques
         Me.lEmprunteurNbrEmprunteursSuspendues.Size = New System.Drawing.Size(20, 22)
         Me.lEmprunteurNbrEmprunteursSuspendues.TabIndex = 26
         Me.lEmprunteurNbrEmprunteursSuspendues.Text = "0"
+        Me.tpMessagesLabels.SetToolTip(Me.lEmprunteurNbrEmprunteursSuspendues, "Montre le nombre d'emprunteurs qui ont été suspendues")
         '
         'lEmprunteursTitreNbrRetoursEffectuees
         '
@@ -458,6 +464,7 @@ Partial Class Statistiques
         Me.lEmprunteursTitreNbrRetoursEffectuees.Size = New System.Drawing.Size(262, 22)
         Me.lEmprunteursTitreNbrRetoursEffectuees.TabIndex = 20
         Me.lEmprunteursTitreNbrRetoursEffectuees.Text = "Nombre de retours effectuées : "
+        Me.tpMessagesLabels.SetToolTip(Me.lEmprunteursTitreNbrRetoursEffectuees, "Montre le nombre de retours effectuées")
         '
         'pCategories
         '
@@ -467,19 +474,17 @@ Partial Class Statistiques
         Me.pCategories.Controls.Add(Me.gbPartieAdministrateur)
         Me.pCategories.Location = New System.Drawing.Point(268, 23)
         Me.pCategories.Name = "pCategories"
-        Me.pCategories.Size = New System.Drawing.Size(715, 427)
+        Me.pCategories.Size = New System.Drawing.Size(715, 401)
         Me.pCategories.TabIndex = 11
         '
         'gbPartieEmprunteurs
         '
-        Me.gbPartieEmprunteurs.Controls.Add(Me.lEmprunteursNbrRetoursAttentes)
         Me.gbPartieEmprunteurs.Controls.Add(Me.lEmprunteursNbrRetoursEffectuees)
         Me.gbPartieEmprunteurs.Controls.Add(Me.lEmprunteursNbrPretsActifs)
         Me.gbPartieEmprunteurs.Controls.Add(Me.lEmprunteurNbrPretsEffectuees)
         Me.gbPartieEmprunteurs.Controls.Add(Me.lEmprunteurNbrEmprunteursSuspendues)
         Me.gbPartieEmprunteurs.Controls.Add(Me.lEmprunteursNbrEmpruntsActifs)
         Me.gbPartieEmprunteurs.Controls.Add(Me.lEmprunteursNbrEmprunteurs)
-        Me.gbPartieEmprunteurs.Controls.Add(Me.lEmprunteursTitreNbrRetoursAttentes)
         Me.gbPartieEmprunteurs.Controls.Add(Me.lEmprunteurTitreEmprunteursSuspendues)
         Me.gbPartieEmprunteurs.Controls.Add(Me.lEmprunteursTitreNbrEmpruntsActifs)
         Me.gbPartieEmprunteurs.Controls.Add(Me.lEmprunteursTitreNbrRetoursEffectuees)
@@ -497,7 +502,7 @@ Partial Class Statistiques
         Me.gbPartieEmprunteurs.ForeColor = System.Drawing.Color.White
         Me.gbPartieEmprunteurs.Location = New System.Drawing.Point(12, 10)
         Me.gbPartieEmprunteurs.Name = "gbPartieEmprunteurs"
-        Me.gbPartieEmprunteurs.Size = New System.Drawing.Size(697, 396)
+        Me.gbPartieEmprunteurs.Size = New System.Drawing.Size(697, 381)
         Me.gbPartieEmprunteurs.TabIndex = 5
         Me.gbPartieEmprunteurs.TabStop = False
         Me.gbPartieEmprunteurs.Text = "Partie emprunteurs"
@@ -512,6 +517,7 @@ Partial Class Statistiques
         Me.lEmprunteursTitreNbrPretsActifs.Size = New System.Drawing.Size(205, 22)
         Me.lEmprunteursTitreNbrPretsActifs.TabIndex = 19
         Me.lEmprunteursTitreNbrPretsActifs.Text = "Nombre de prêts actifs : "
+        Me.tpMessagesLabels.SetToolTip(Me.lEmprunteursTitreNbrPretsActifs, "Montre le nombre de prêts qui sont en attentes de retour")
         '
         'lEmprunteurTitreNbrPretsEffectuees
         '
@@ -522,6 +528,7 @@ Partial Class Statistiques
         Me.lEmprunteurTitreNbrPretsEffectuees.Size = New System.Drawing.Size(246, 22)
         Me.lEmprunteurTitreNbrPretsEffectuees.TabIndex = 18
         Me.lEmprunteurTitreNbrPretsEffectuees.Text = "Nombre de prêts effectuées : "
+        Me.tpMessagesLabels.SetToolTip(Me.lEmprunteurTitreNbrPretsEffectuees, "Montre le nombre de prêts effectuées")
         '
         'lEmprunteursTitreNbrEmprunteurs
         '
@@ -532,6 +539,7 @@ Partial Class Statistiques
         Me.lEmprunteursTitreNbrEmprunteurs.Size = New System.Drawing.Size(207, 22)
         Me.lEmprunteursTitreNbrEmprunteurs.TabIndex = 17
         Me.lEmprunteursTitreNbrEmprunteurs.Text = "Nombre d'emprunteurs : "
+        Me.tpMessagesLabels.SetToolTip(Me.lEmprunteursTitreNbrEmprunteurs, "Montre le nombre d'emprunteurs")
         '
         'lTitrePartieEmprunteurs
         '
@@ -585,6 +593,7 @@ Partial Class Statistiques
         Me.bEmprunteursPDF.Size = New System.Drawing.Size(164, 71)
         Me.bEmprunteursPDF.TabIndex = 9
         Me.bEmprunteursPDF.Text = "Exporter en .PDF"
+        Me.tpMessagesBoutons.SetToolTip(Me.bEmprunteursPDF, "Exporte toutes les données des infos au niveau des emprunteurs en fichier PDF")
         Me.bEmprunteursPDF.UseVisualStyleBackColor = True
         '
         'bEmprunteursDOC
@@ -595,6 +604,7 @@ Partial Class Statistiques
         Me.bEmprunteursDOC.Size = New System.Drawing.Size(164, 71)
         Me.bEmprunteursDOC.TabIndex = 10
         Me.bEmprunteursDOC.Text = "Exporter en .DOC"
+        Me.tpMessagesBoutons.SetToolTip(Me.bEmprunteursDOC, "Exporte toutes les données des infos au niveau des emprunteurs en fichier Word")
         Me.bEmprunteursDOC.UseVisualStyleBackColor = True
         '
         'bEmprunteursCSV
@@ -605,6 +615,7 @@ Partial Class Statistiques
         Me.bEmprunteursCSV.Size = New System.Drawing.Size(164, 71)
         Me.bEmprunteursCSV.TabIndex = 11
         Me.bEmprunteursCSV.Text = "Exporter en .CSV"
+        Me.tpMessagesBoutons.SetToolTip(Me.bEmprunteursCSV, "Exporte toutes les données des infos au niveau des emprunteurs en fichier Excel")
         Me.bEmprunteursCSV.UseVisualStyleBackColor = True
         '
         'gbGlobale
@@ -642,7 +653,7 @@ Partial Class Statistiques
         Me.gbGlobale.ForeColor = System.Drawing.Color.White
         Me.gbGlobale.Location = New System.Drawing.Point(12, 10)
         Me.gbGlobale.Name = "gbGlobale"
-        Me.gbGlobale.Size = New System.Drawing.Size(697, 396)
+        Me.gbGlobale.Size = New System.Drawing.Size(697, 381)
         Me.gbGlobale.TabIndex = 4
         Me.gbGlobale.TabStop = False
         Me.gbGlobale.Text = "Partie globale"
@@ -655,6 +666,7 @@ Partial Class Statistiques
         Me.lNbrFraisRetards.Size = New System.Drawing.Size(13, 13)
         Me.lNbrFraisRetards.TabIndex = 29
         Me.lNbrFraisRetards.Text = "0"
+        Me.tpMessagesLabels.SetToolTip(Me.lNbrFraisRetards, "Montre le nombre de frais de retours accumulées")
         '
         'lTitreNbrFraisRetards
         '
@@ -664,6 +676,7 @@ Partial Class Statistiques
         Me.lTitreNbrFraisRetards.Size = New System.Drawing.Size(197, 13)
         Me.lTitreNbrFraisRetards.TabIndex = 28
         Me.lTitreNbrFraisRetards.Text = "Nombre de frais de retards accumulées :"
+        Me.tpMessagesLabels.SetToolTip(Me.lTitreNbrFraisRetards, "Montre le nombre de frais de retours accumulées")
         '
         'bGlobalePDF
         '
@@ -673,6 +686,8 @@ Partial Class Statistiques
         Me.bGlobalePDF.Size = New System.Drawing.Size(164, 71)
         Me.bGlobalePDF.TabIndex = 6
         Me.bGlobalePDF.Text = "Exporter en .PDF"
+        Me.tpMessagesBoutons.SetToolTip(Me.bGlobalePDF, "Exporte toutes les données des infos au niveau de la globalité de l'application e" &
+        "n fichier PDF")
         Me.bGlobalePDF.UseVisualStyleBackColor = True
         '
         'bGlobaleDOC
@@ -683,6 +698,8 @@ Partial Class Statistiques
         Me.bGlobaleDOC.Size = New System.Drawing.Size(164, 71)
         Me.bGlobaleDOC.TabIndex = 7
         Me.bGlobaleDOC.Text = "Exporter en .DOC"
+        Me.tpMessagesBoutons.SetToolTip(Me.bGlobaleDOC, "Exporte toutes les données des infos au niveau de la globalité de l'application e" &
+        "n fichier Word")
         Me.bGlobaleDOC.UseVisualStyleBackColor = True
         '
         'bGlobaleCSV
@@ -693,6 +710,8 @@ Partial Class Statistiques
         Me.bGlobaleCSV.Size = New System.Drawing.Size(164, 71)
         Me.bGlobaleCSV.TabIndex = 8
         Me.bGlobaleCSV.Text = "Exporter en .CSV"
+        Me.tpMessagesBoutons.SetToolTip(Me.bGlobaleCSV, "Exporte toutes les données des infos au niveau de la globalité de l'application e" &
+        "n fichier Excel")
         Me.bGlobaleCSV.UseVisualStyleBackColor = True
         '
         'lNbrResponsabilites
@@ -703,6 +722,7 @@ Partial Class Statistiques
         Me.lNbrResponsabilites.Size = New System.Drawing.Size(13, 13)
         Me.lNbrResponsabilites.TabIndex = 27
         Me.lNbrResponsabilites.Text = "0"
+        Me.tpMessagesLabels.SetToolTip(Me.lNbrResponsabilites, "Montre le nombre de responsabilitées inscrites dans l'application")
         '
         'lNbrConditions
         '
@@ -712,6 +732,7 @@ Partial Class Statistiques
         Me.lNbrConditions.Size = New System.Drawing.Size(13, 13)
         Me.lNbrConditions.TabIndex = 26
         Me.lNbrConditions.Text = "0"
+        Me.tpMessagesLabels.SetToolTip(Me.lNbrConditions, "Montre le nombre de conditions inscrites dans l'application")
         '
         'lNbrEquipements
         '
@@ -721,6 +742,7 @@ Partial Class Statistiques
         Me.lNbrEquipements.Size = New System.Drawing.Size(13, 13)
         Me.lNbrEquipements.TabIndex = 25
         Me.lNbrEquipements.Text = "0"
+        Me.tpMessagesLabels.SetToolTip(Me.lNbrEquipements, "Montre le nombre d'équipements inscrits dans l'application")
         '
         'lNbrAdministratifs
         '
@@ -730,6 +752,7 @@ Partial Class Statistiques
         Me.lNbrAdministratifs.Size = New System.Drawing.Size(13, 13)
         Me.lNbrAdministratifs.TabIndex = 23
         Me.lNbrAdministratifs.Text = "0"
+        Me.tpMessagesLabels.SetToolTip(Me.lNbrAdministratifs, "Montre le nombre d'administrateurs inscrits dans l'application")
         '
         'lNbrPreteurs
         '
@@ -739,6 +762,7 @@ Partial Class Statistiques
         Me.lNbrPreteurs.Size = New System.Drawing.Size(13, 13)
         Me.lNbrPreteurs.TabIndex = 22
         Me.lNbrPreteurs.Text = "0"
+        Me.tpMessagesLabels.SetToolTip(Me.lNbrPreteurs, "Montre le nombre de prêteurs inscrits dans l'application")
         '
         'lNbrEmprunteurs
         '
@@ -748,6 +772,7 @@ Partial Class Statistiques
         Me.lNbrEmprunteurs.Size = New System.Drawing.Size(13, 13)
         Me.lNbrEmprunteurs.TabIndex = 21
         Me.lNbrEmprunteurs.Text = "0"
+        Me.tpMessagesLabels.SetToolTip(Me.lNbrEmprunteurs, "Montre le nombre d'emprunteurs inscrits dans l'application")
         '
         'lNbrPersonneBD
         '
@@ -757,6 +782,7 @@ Partial Class Statistiques
         Me.lNbrPersonneBD.Size = New System.Drawing.Size(13, 13)
         Me.lNbrPersonneBD.TabIndex = 20
         Me.lNbrPersonneBD.Text = "0"
+        Me.tpMessagesLabels.SetToolTip(Me.lNbrPersonneBD, "Montre le nombre de personnes inscrites au total dans la base de donnée")
         '
         'lNbrRetours
         '
@@ -766,6 +792,7 @@ Partial Class Statistiques
         Me.lNbrRetours.Size = New System.Drawing.Size(13, 13)
         Me.lNbrRetours.TabIndex = 19
         Me.lNbrRetours.Text = "0"
+        Me.tpMessagesLabels.SetToolTip(Me.lNbrRetours, "Montre le nombre de retours effectuées")
         '
         'lNbrPrets
         '
@@ -775,6 +802,7 @@ Partial Class Statistiques
         Me.lNbrPrets.Size = New System.Drawing.Size(13, 13)
         Me.lNbrPrets.TabIndex = 18
         Me.lNbrPrets.Text = "0"
+        Me.tpMessagesLabels.SetToolTip(Me.lNbrPrets, "Montre le nombre de prêts total enregistré dans l'application")
         '
         'lNbrOuverturesApplis
         '
@@ -784,6 +812,7 @@ Partial Class Statistiques
         Me.lNbrOuverturesApplis.Size = New System.Drawing.Size(13, 13)
         Me.lNbrOuverturesApplis.TabIndex = 17
         Me.lNbrOuverturesApplis.Text = "0"
+        Me.tpMessagesLabels.SetToolTip(Me.lNbrOuverturesApplis, "Montre le nombre de connexions à l'application")
         '
         'lTitreNbrResponsabilites
         '
@@ -793,6 +822,7 @@ Partial Class Statistiques
         Me.lTitreNbrResponsabilites.Size = New System.Drawing.Size(178, 13)
         Me.lTitreNbrResponsabilites.TabIndex = 16
         Me.lTitreNbrResponsabilites.Text = "Nombre de responsabilités inscrites :"
+        Me.tpMessagesLabels.SetToolTip(Me.lTitreNbrResponsabilites, "Montre le nombre de responsabilitées inscrites dans l'application")
         '
         'lTitreNbrConditions
         '
@@ -802,6 +832,7 @@ Partial Class Statistiques
         Me.lTitreNbrConditions.Size = New System.Drawing.Size(157, 13)
         Me.lTitreNbrConditions.TabIndex = 15
         Me.lTitreNbrConditions.Text = "Nombre de conditions inscrites :"
+        Me.tpMessagesLabels.SetToolTip(Me.lTitreNbrConditions, "Montre le nombre de conditions inscrites dans l'application")
         '
         'lTitreNbrEquipements
         '
@@ -811,6 +842,7 @@ Partial Class Statistiques
         Me.lTitreNbrEquipements.Size = New System.Drawing.Size(151, 13)
         Me.lTitreNbrEquipements.TabIndex = 14
         Me.lTitreNbrEquipements.Text = "Nombre d'équipements inscrit :"
+        Me.tpMessagesLabels.SetToolTip(Me.lTitreNbrEquipements, "Montre le nombre d'équipements inscrits dans l'application")
         '
         'lTitreNbrAdministratifs
         '
@@ -820,6 +852,7 @@ Partial Class Statistiques
         Me.lTitreNbrAdministratifs.Size = New System.Drawing.Size(161, 13)
         Me.lTitreNbrAdministratifs.TabIndex = 12
         Me.lTitreNbrAdministratifs.Text = "Nombre d'administrateurs inscrit :"
+        Me.tpMessagesLabels.SetToolTip(Me.lTitreNbrAdministratifs, "Montre le nombre d'administrateurs inscrits dans l'application")
         '
         'lTitreNbrEmprunteurs
         '
@@ -829,6 +862,7 @@ Partial Class Statistiques
         Me.lTitreNbrEmprunteurs.Size = New System.Drawing.Size(149, 13)
         Me.lTitreNbrEmprunteurs.TabIndex = 11
         Me.lTitreNbrEmprunteurs.Text = "Nombre d'emprunteurs inscrit :"
+        Me.tpMessagesLabels.SetToolTip(Me.lTitreNbrEmprunteurs, "Montre le nombre d'emprunteurs inscrits dans l'application")
         '
         'lTitreNbrPreteurs
         '
@@ -838,6 +872,7 @@ Partial Class Statistiques
         Me.lTitreNbrPreteurs.Size = New System.Drawing.Size(136, 13)
         Me.lTitreNbrPreteurs.TabIndex = 10
         Me.lTitreNbrPreteurs.Text = "Nombre de prêteurs inscrit :"
+        Me.tpMessagesLabels.SetToolTip(Me.lTitreNbrPreteurs, "Montre le nombre de prêteurs inscrits dans l'application")
         '
         'lTitreNbrPersonneBD
         '
@@ -847,6 +882,7 @@ Partial Class Statistiques
         Me.lTitreNbrPersonneBD.Size = New System.Drawing.Size(280, 13)
         Me.lTitreNbrPersonneBD.TabIndex = 9
         Me.lTitreNbrPersonneBD.Text = "Nombre de personnes inscrites dans la base de données :"
+        Me.tpMessagesLabels.SetToolTip(Me.lTitreNbrPersonneBD, "Montre le nombre de personnes inscrites au total dans la base de donnée")
         '
         'lTitreNbrRetours
         '
@@ -856,6 +892,7 @@ Partial Class Statistiques
         Me.lTitreNbrRetours.Size = New System.Drawing.Size(153, 13)
         Me.lTitreNbrRetours.TabIndex = 8
         Me.lTitreNbrRetours.Text = "Nombre de retours effectuées :"
+        Me.tpMessagesLabels.SetToolTip(Me.lTitreNbrRetours, "Montre le nombre de retours effectuées")
         '
         'lTitreNbrPrets
         '
@@ -865,6 +902,7 @@ Partial Class Statistiques
         Me.lTitreNbrPrets.Size = New System.Drawing.Size(140, 13)
         Me.lTitreNbrPrets.TabIndex = 7
         Me.lTitreNbrPrets.Text = "Nombre de prêts enregistré :"
+        Me.tpMessagesLabels.SetToolTip(Me.lTitreNbrPrets, "Montre le nombre de prêts total enregistré dans l'application")
         '
         'lTitreNbrOuverturesApplis
         '
@@ -874,6 +912,7 @@ Partial Class Statistiques
         Me.lTitreNbrOuverturesApplis.Size = New System.Drawing.Size(184, 13)
         Me.lTitreNbrOuverturesApplis.TabIndex = 6
         Me.lTitreNbrOuverturesApplis.Text = "Nombre d'ouvertures de l'application :"
+        Me.tpMessagesLabels.SetToolTip(Me.lTitreNbrOuverturesApplis, "Montre le nombre de connexions à l'application" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10))
         '
         'lTitreGlobale
         '
@@ -938,7 +977,7 @@ Partial Class Statistiques
         Me.gbPartieAdministrateur.ForeColor = System.Drawing.Color.White
         Me.gbPartieAdministrateur.Location = New System.Drawing.Point(12, 10)
         Me.gbPartieAdministrateur.Name = "gbPartieAdministrateur"
-        Me.gbPartieAdministrateur.Size = New System.Drawing.Size(697, 396)
+        Me.gbPartieAdministrateur.Size = New System.Drawing.Size(697, 381)
         Me.gbPartieAdministrateur.TabIndex = 5
         Me.gbPartieAdministrateur.TabStop = False
         Me.gbPartieAdministrateur.Text = "Partie administrateurs"
@@ -953,6 +992,7 @@ Partial Class Statistiques
         Me.lAdminsNbrAdminsSuspendues.Size = New System.Drawing.Size(20, 24)
         Me.lAdminsNbrAdminsSuspendues.TabIndex = 38
         Me.lAdminsNbrAdminsSuspendues.Text = "0"
+        Me.tpMessagesLabels.SetToolTip(Me.lAdminsNbrAdminsSuspendues, "Montre le nombre d'administrateurs qui ont été suspendues dans l'application")
         '
         'lAdminsNbrAdminsActifs
         '
@@ -963,6 +1003,8 @@ Partial Class Statistiques
         Me.lAdminsNbrAdminsActifs.Size = New System.Drawing.Size(20, 24)
         Me.lAdminsNbrAdminsActifs.TabIndex = 37
         Me.lAdminsNbrAdminsActifs.Text = "0"
+        Me.tpMessagesLabels.SetToolTip(Me.lAdminsNbrAdminsActifs, "Montre le nombre d'administrateurs qui n'ont pas été suspendues dans l'applicatio" &
+        "n")
         '
         'lAdminsNombreAdmins
         '
@@ -973,6 +1015,7 @@ Partial Class Statistiques
         Me.lAdminsNombreAdmins.Size = New System.Drawing.Size(20, 24)
         Me.lAdminsNombreAdmins.TabIndex = 36
         Me.lAdminsNombreAdmins.Text = "0"
+        Me.tpMessagesLabels.SetToolTip(Me.lAdminsNombreAdmins, "Montre le nombre d'administrateurs dans l'application")
         '
         'lAdminsTitreNbrAdminsSuspendues
         '
@@ -983,6 +1026,7 @@ Partial Class Statistiques
         Me.lAdminsTitreNbrAdminsSuspendues.Size = New System.Drawing.Size(279, 24)
         Me.lAdminsTitreNbrAdminsSuspendues.TabIndex = 35
         Me.lAdminsTitreNbrAdminsSuspendues.Text = "Nombre d'admins suspendues :"
+        Me.tpMessagesLabels.SetToolTip(Me.lAdminsTitreNbrAdminsSuspendues, "Montre le nombre d'administrateurs qui ont été suspendues dans l'application" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10))
         '
         'lAdminsTitreNbrAdminsActifs
         '
@@ -993,6 +1037,8 @@ Partial Class Statistiques
         Me.lAdminsTitreNbrAdminsActifs.Size = New System.Drawing.Size(216, 24)
         Me.lAdminsTitreNbrAdminsActifs.TabIndex = 34
         Me.lAdminsTitreNbrAdminsActifs.Text = "Nombre d'admins actifs :"
+        Me.tpMessagesLabels.SetToolTip(Me.lAdminsTitreNbrAdminsActifs, "Montre le nombre d'administrateurs qui n'ont pas été suspendues dans l'applicatio" &
+        "n")
         '
         'lAdminsTitreNombreAdmins
         '
@@ -1003,6 +1049,7 @@ Partial Class Statistiques
         Me.lAdminsTitreNombreAdmins.Size = New System.Drawing.Size(170, 24)
         Me.lAdminsTitreNombreAdmins.TabIndex = 33
         Me.lAdminsTitreNombreAdmins.Text = "Nombre d'admins :"
+        Me.tpMessagesLabels.SetToolTip(Me.lAdminsTitreNombreAdmins, "Montre le nombre d'administrateurs dans l'application")
         '
         'bAdminsPDF
         '
@@ -1012,6 +1059,8 @@ Partial Class Statistiques
         Me.bAdminsPDF.Size = New System.Drawing.Size(164, 71)
         Me.bAdminsPDF.TabIndex = 30
         Me.bAdminsPDF.Text = "Exporter en .PDF"
+        Me.tpMessagesBoutons.SetToolTip(Me.bAdminsPDF, "Exporte toutes les données des infos au niveau des administrateurs en fichier PDF" &
+        "")
         Me.bAdminsPDF.UseVisualStyleBackColor = True
         '
         'bAdminsDOC
@@ -1022,6 +1071,8 @@ Partial Class Statistiques
         Me.bAdminsDOC.Size = New System.Drawing.Size(164, 71)
         Me.bAdminsDOC.TabIndex = 31
         Me.bAdminsDOC.Text = "Exporter en .DOC"
+        Me.tpMessagesBoutons.SetToolTip(Me.bAdminsDOC, "Exporte toutes les données des infos au niveau des administrateurs en fichier Wor" &
+        "d")
         Me.bAdminsDOC.UseVisualStyleBackColor = True
         '
         'bAdminsCSV
@@ -1032,6 +1083,8 @@ Partial Class Statistiques
         Me.bAdminsCSV.Size = New System.Drawing.Size(164, 71)
         Me.bAdminsCSV.TabIndex = 32
         Me.bAdminsCSV.Text = "Exporter en .CSV"
+        Me.tpMessagesBoutons.SetToolTip(Me.bAdminsCSV, "Exporte toutes les données des infos au niveau des administrateurs en fichier Exc" &
+        "el")
         Me.bAdminsCSV.UseVisualStyleBackColor = True
         '
         'lTitreAdministrateur
@@ -1087,6 +1140,7 @@ Partial Class Statistiques
         Me.bAdministrateurs.Size = New System.Drawing.Size(167, 66)
         Me.bAdministrateurs.TabIndex = 10
         Me.bAdministrateurs.Text = "Partie administrateurs"
+        Me.tpMessagesBoutons.SetToolTip(Me.bAdministrateurs, "Vous fait apparaître les statistiques des administrateurs du programme")
         Me.bAdministrateurs.UseVisualStyleBackColor = True
         '
         'bPreteurs
@@ -1098,6 +1152,7 @@ Partial Class Statistiques
         Me.bPreteurs.Size = New System.Drawing.Size(167, 66)
         Me.bPreteurs.TabIndex = 9
         Me.bPreteurs.Text = "Partie prêteurs"
+        Me.tpMessagesBoutons.SetToolTip(Me.bPreteurs, "Vous fait apparaître les statistiques des prêteurs du programme")
         Me.bPreteurs.UseVisualStyleBackColor = True
         '
         'bEmprunteurs
@@ -1110,6 +1165,7 @@ Partial Class Statistiques
         Me.bEmprunteurs.Size = New System.Drawing.Size(167, 66)
         Me.bEmprunteurs.TabIndex = 8
         Me.bEmprunteurs.Text = "Partie emprunteurs"
+        Me.tpMessagesBoutons.SetToolTip(Me.bEmprunteurs, "Vous fait apparaître les statistiques des emprunteurs du programme")
         Me.bEmprunteurs.UseVisualStyleBackColor = True
         '
         'bPartieGlobale
@@ -1121,12 +1177,43 @@ Partial Class Statistiques
         Me.bPartieGlobale.Size = New System.Drawing.Size(167, 66)
         Me.bPartieGlobale.TabIndex = 7
         Me.bPartieGlobale.Text = "Partie globale"
+        Me.tpMessagesBoutons.SetToolTip(Me.bPartieGlobale, "Vous fait apparaître les statistiques de la globalité du programme")
         Me.bPartieGlobale.UseVisualStyleBackColor = True
+        '
+        'tpMessagesLabels
+        '
+        Me.tpMessagesLabels.ToolTipTitle = "Voici ce que le critère fait :"
+        '
+        'tpMessagesBoutons
+        '
+        Me.tpMessagesBoutons.ToolTipTitle = "Voici ce que le bouton fait :"
+        '
+        'bSupprimerDonneesPeriode
+        '
+        Me.bSupprimerDonneesPeriode.Font = New System.Drawing.Font("Arial Rounded MT Bold", 8.25!)
+        Me.bSupprimerDonneesPeriode.Location = New System.Drawing.Point(644, 428)
+        Me.bSupprimerDonneesPeriode.Name = "bSupprimerDonneesPeriode"
+        Me.bSupprimerDonneesPeriode.Size = New System.Drawing.Size(167, 39)
+        Me.bSupprimerDonneesPeriode.TabIndex = 12
+        Me.bSupprimerDonneesPeriode.Text = "Supprimer toutes les données d'une période"
+        Me.bSupprimerDonneesPeriode.UseVisualStyleBackColor = True
+        '
+        'bExporterTout
+        '
+        Me.bExporterTout.Font = New System.Drawing.Font("Arial Rounded MT Bold", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bExporterTout.Location = New System.Drawing.Point(817, 428)
+        Me.bExporterTout.Name = "bExporterTout"
+        Me.bExporterTout.Size = New System.Drawing.Size(167, 39)
+        Me.bExporterTout.TabIndex = 13
+        Me.bExporterTout.Text = "Exporter tous les types de données"
+        Me.bExporterTout.UseVisualStyleBackColor = True
         '
         'Statistiques
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.bExporterTout)
+        Me.Controls.Add(Me.bSupprimerDonneesPeriode)
         Me.Controls.Add(Me.pCategories)
         Me.Controls.Add(Me.bAdministrateurs)
         Me.Controls.Add(Me.bPreteurs)
@@ -1169,13 +1256,11 @@ Partial Class Statistiques
     Friend WithEvents cbPreteursChoixMois As ComboBox
     Friend WithEvents lPreteursTitreChoixAnnee As Label
     Friend WithEvents lPreteursTitreChoixMois As Label
-    Friend WithEvents lEmprunteursNbrRetoursAttentes As Label
     Friend WithEvents lEmprunteursNbrRetoursEffectuees As Label
     Friend WithEvents lEmprunteursNbrPretsActifs As Label
     Friend WithEvents lEmprunteurNbrPretsEffectuees As Label
     Friend WithEvents lEmprunteursNbrEmpruntsActifs As Label
     Friend WithEvents lEmprunteursNbrEmprunteurs As Label
-    Friend WithEvents lEmprunteursTitreNbrRetoursAttentes As Label
     Friend WithEvents lEmprunteurTitreEmprunteursSuspendues As Label
     Friend WithEvents lEmprunteurNbrEmprunteursSuspendues As Label
     Friend WithEvents lEmprunteursTitreNbrRetoursEffectuees As Label
@@ -1242,4 +1327,8 @@ Partial Class Statistiques
     Friend WithEvents bPreteurs As Button
     Friend WithEvents bEmprunteurs As Button
     Friend WithEvents bPartieGlobale As Button
+    Friend WithEvents tpMessagesLabels As ToolTip
+    Friend WithEvents tpMessagesBoutons As ToolTip
+    Friend WithEvents bSupprimerDonneesPeriode As Button
+    Friend WithEvents bExporterTout As Button
 End Class

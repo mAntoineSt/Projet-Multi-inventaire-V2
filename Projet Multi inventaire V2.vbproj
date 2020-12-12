@@ -156,6 +156,18 @@
     <Compile Include="Administration\Controles utilisateurs\Gestion_Preteurs.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Administration\Controles utilisateurs\Journal_Activites.Designer.vb">
+      <DependentUpon>Journal_Activites.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Controles utilisateurs\Journal_Activites.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Administration\Controles utilisateurs\Parametres_Supplementaires.Designer.vb">
+      <DependentUpon>Parametres_Supplementaires.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Controles utilisateurs\Parametres_Supplementaires.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Administration\Controles utilisateurs\Statistiques.Designer.vb">
       <DependentUpon>Statistiques.vb</DependentUpon>
     </Compile>
@@ -174,8 +186,21 @@
     <Compile Include="Administration\Forms\Ajout_Modif_Admin.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Administration\Forms\ChoixExportationTous.Designer.vb">
+      <DependentUpon>ChoixExportationTous.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Forms\ChoixExportationTous.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\Forms\Supression_Periode_Donnees.Designer.vb">
+      <DependentUpon>Supression_Periode_Donnees.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Forms\Supression_Periode_Donnees.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Classes\ClassBD.vb" />
     <Compile Include="Classes\ConnectBD.vb" />
+    <Compile Include="Classes\Variables_Application.vb" />
     <Compile Include="Connexion\Forms\Connexion.Designer.vb">
       <DependentUpon>Connexion.vb</DependentUpon>
     </Compile>
@@ -309,6 +334,12 @@
     <EmbeddedResource Include="Administration\Controles utilisateurs\Gestion_Preteurs.resx">
       <DependentUpon>Gestion_Preteurs.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Administration\Controles utilisateurs\Journal_Activites.resx">
+      <DependentUpon>Journal_Activites.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administration\Controles utilisateurs\Parametres_Supplementaires.resx">
+      <DependentUpon>Parametres_Supplementaires.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administration\Controles utilisateurs\Statistiques.resx">
       <DependentUpon>Statistiques.vb</DependentUpon>
     </EmbeddedResource>
@@ -317,6 +348,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administration\Forms\Ajout_Modif_Admin.resx">
       <DependentUpon>Ajout_Modif_Admin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administration\Forms\ChoixExportationTous.resx">
+      <DependentUpon>ChoixExportationTous.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administration\Forms\Supression_Periode_Donnees.resx">
+      <DependentUpon>Supression_Periode_Donnees.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Connexion\Forms\Connexion.resx">
       <DependentUpon>Connexion.vb</DependentUpon>
@@ -348,8 +385,14 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Prêts\Forms\Prets.resx">
+      <DependentUpon>Prets.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Retours\Controles utilisateurs\RetourAjout.resx">
       <DependentUpon>RetourAjout.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Retours\Forms\Retours.resx">
+      <DependentUpon>Retours.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

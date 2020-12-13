@@ -16,6 +16,9 @@ Public Class ConditionsEmprunt
     Dim idCondEmprunt As Integer
     Dim idEquipement As Integer
 
+    Dim condRecherche As String
+    Dim validation As New Validation_Traitement()
+
     Public row As DataRow
 
 
@@ -193,7 +196,7 @@ Public Class ConditionsEmprunt
     Public Sub RechercheCondition()
 
         Dim reqLsbConditionRecherche As String = "SELECT * FROM `conditions`
-                                                  WHERE `description` LIKE '%" & txtCondEmp_RechCond.Text & "%' ;"
+                                                  WHERE `description` LIKE '%" & condRecherche & "%' ;"
 
         Dim cmd As New MySqlCommand(reqLsbConditionRecherche, connectionBD)
         Dim daCondEmprunt As MySqlDataAdapter = New MySqlDataAdapter(cmd)
@@ -208,6 +211,19 @@ Public Class ConditionsEmprunt
         Next
     End Sub
 
+
+    Public Function ValidationCondition() As Boolean
+        Dim rechValide As Boolean = False
+        If (validation.ValidStringSimple(txtCondEmp_RechCond.Text) = True) Then
+            condRecherche = txtCondEmp_RechCond.Text
+            rechValide = True
+        Else
+            txtCondEmp_RechCond.Text = "* Entrée non-valide."
+            txtCondEmp_RechCond.ForeColor = Color.Red
+            rechValide = False
+        End If
+        Return rechValide
+    End Function
 
     Public Sub MessageBox_Enregistrer(e As EventArgs)
         Dim resultat = MessageBox.Show("Voulez-vous ajouter cette condition à ce matériel?", "Prêt Équipement", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
@@ -256,6 +272,9 @@ Public Class ConditionsEmprunt
         txtCondEmp_Condition.Text = ""
     End Sub
 
+    Public Sub ViderChampsCondition()
+        txtCondEmp_Condition.Text = ""
+    End Sub
     Public Sub InactiverChamps()
         txtCondEmp_Materiel.Enabled = False
         txtCondEmp_Condition.Enabled = False
@@ -304,6 +323,7 @@ Public Class ConditionsEmprunt
     Private Sub BtnCondEmp_Ajout_Click(sender As Object, e As EventArgs) Handles btnCondEmp_Ajout.Click
         If btnCondEmp_Ajout.Enabled = True And String.Compare(btnCondEmp_Ajout.Text, "Ajouter") = 0 Then
             ActiverChamps()
+            ViderChampsCondition()
             btnCondEmp_Ajout.Text = "Enregistrer"
             btnCondEmp_Retrait.Enabled = False
         ElseIf btnCondEmp_Ajout.Enabled = True And String.Compare(btnCondEmp_Ajout.Text, "Enregistrer") = 0 Then
@@ -337,11 +357,14 @@ Public Class ConditionsEmprunt
     Private Sub BtnCondEmp_RechCond_Click(sender As Object, e As EventArgs) Handles btnCondEmp_RechCond.Click
         If btnCondEmp_RechCond.Enabled = True And String.Compare(btnCondEmp_RechCond.Text, "Recherche") = 0 Then
             lsvCondEmp_RechCond.Items.Clear()
-            RechercheCondition()
+            If (ValidationCondition() = True) Then
+                RechercheCondition()
+            End If
             btnCondEmp_RechCond.Text = "Renouveler"
         ElseIf btnCondEmp_RechCond.Enabled = True And String.Compare(btnCondEmp_RechCond.Text, "Renouveler") = 0 Then
             lsvCondEmp_RechCond.Items.Clear()
             RemplirLsvCondition()
+            txtCondEmp_RechCond.ForeColor = Color.Black
             txtCondEmp_RechCond.Text = ""
             btnCondEmp_RechCond.Text = "Recherche"
         End If

@@ -22,6 +22,15 @@ Public Class EtatMateriel
     Public row As DataRow
 
 
+    Dim validation As New Validation_Traitement()
+    Dim etatGen As String
+    Dim moteur As String
+    Dim cablage As String
+    Dim logiciel As String
+    Dim notes As String
+    Dim electro As Decimal
+    Dim eau As Decimal
+    Dim boitier As Decimal
 
     Public Sub EnrEtatMateriel()
         Dim cmdInsertEtatMateriel As New MySqlCommand(strRequete, connectionBD)
@@ -59,14 +68,14 @@ Public Class EtatMateriel
         cmdInsertEtatMateriel.Parameters.Add("@id_materiel", MySqlDbType.Int24).Value = idEquipement
         cmdInsertEtatMateriel.Parameters.Add("@date_inspection", MySqlDbType.Date).Value = dtpEtatMat_Date.Value
         cmdInsertEtatMateriel.Parameters.Add("@id_emprunt", MySqlDbType.Int24).Value = txtEtatMat_Emprunt.Text
-        cmdInsertEtatMateriel.Parameters.Add("@itemCout_EtatGeneral", MySqlDbType.String).Value = Replace(txtEtatMat_EtatGen.Text, ",", ".")
-        cmdInsertEtatMateriel.Parameters.Add("@itemCout_Boitier", MySqlDbType.String).Value = Replace(txtEtatMat_Boitier.Text, ",", ".")
-        cmdInsertEtatMateriel.Parameters.Add("@itemCout_Electronique", MySqlDbType.String).Value = Replace(txtEtatMat_Electro.Text, ",", ".")
-        cmdInsertEtatMateriel.Parameters.Add("@itemCout_Moteur", MySqlDbType.String).Value = Replace(txtEtatMat_Moteur.Text, ",", ".")
-        cmdInsertEtatMateriel.Parameters.Add("@itemCout_Cablage", MySqlDbType.String).Value = Replace(txtEtatMat_Cablage.Text, ",", ".")
-        cmdInsertEtatMateriel.Parameters.Add("@itemCout_Logiciel", MySqlDbType.String).Value = Replace(txtEtatMat_Logiciel.Text, ",", ".")
-        cmdInsertEtatMateriel.Parameters.Add("@itemCout_Eau", MySqlDbType.String).Value = Replace(txtEtatMat_Eau.Text, ",", ".")
-        cmdInsertEtatMateriel.Parameters.Add("@note", MySqlDbType.String).Value = rtxEtatMat_Notes.Text
+        cmdInsertEtatMateriel.Parameters.Add("@itemCout_EtatGeneral", MySqlDbType.String).Value = Replace(etatGen, ",", ".")
+        cmdInsertEtatMateriel.Parameters.Add("@itemCout_Boitier", MySqlDbType.String).Value = Replace(boitier, ",", ".")
+        cmdInsertEtatMateriel.Parameters.Add("@itemCout_Electronique", MySqlDbType.String).Value = Replace(electro, ",", ".")
+        cmdInsertEtatMateriel.Parameters.Add("@itemCout_Moteur", MySqlDbType.String).Value = Replace(moteur, ",", ".")
+        cmdInsertEtatMateriel.Parameters.Add("@itemCout_Cablage", MySqlDbType.String).Value = Replace(cablage, ",", ".")
+        cmdInsertEtatMateriel.Parameters.Add("@itemCout_Logiciel", MySqlDbType.String).Value = Replace(logiciel, ",", ".")
+        cmdInsertEtatMateriel.Parameters.Add("@itemCout_Eau", MySqlDbType.String).Value = Replace(eau, ",", ".")
+        cmdInsertEtatMateriel.Parameters.Add("@note", MySqlDbType.String).Value = notes
 
 
         cmdInsertEtatMateriel.CommandText = reqEtatMateriel
@@ -94,14 +103,14 @@ Public Class EtatMateriel
 
         cmdModifEtatMateriel.Parameters.Add("@date_inspection", MySqlDbType.Date).Value = dtpEtatMat_Date.Value
         cmdModifEtatMateriel.Parameters.Add("@id_emprunt", MySqlDbType.Int24).Value = txtEtatMat_Emprunt.Text
-        cmdModifEtatMateriel.Parameters.Add("@itemCout_EtatGeneral", MySqlDbType.String).Value = Replace(txtEtatMat_EtatGen.Text, ",", ".")
-        cmdModifEtatMateriel.Parameters.Add("@itemCout_Boitier", MySqlDbType.String).Value = Replace(txtEtatMat_Boitier.Text, ",", ".")
-        cmdModifEtatMateriel.Parameters.Add("@itemCout_Electronique", MySqlDbType.String).Value = Replace(txtEtatMat_Electro.Text, ",", ".")
-        cmdModifEtatMateriel.Parameters.Add("@itemCout_Moteur", MySqlDbType.String).Value = Replace(txtEtatMat_Moteur.Text, ",", ".")
-        cmdModifEtatMateriel.Parameters.Add("@itemCout_Cablage", MySqlDbType.String).Value = Replace(txtEtatMat_Cablage.Text, ",", ".")
-        cmdModifEtatMateriel.Parameters.Add("@itemCout_Logiciel", MySqlDbType.String).Value = Replace(txtEtatMat_Logiciel.Text, ",", ".")
-        cmdModifEtatMateriel.Parameters.Add("@itemCout_Eau", MySqlDbType.String).Value = Replace(txtEtatMat_Eau.Text, ",", ".")
-        cmdModifEtatMateriel.Parameters.Add("@note", MySqlDbType.String).Value = rtxEtatMat_Notes.Text
+        cmdModifEtatMateriel.Parameters.Add("@itemCout_EtatGeneral", MySqlDbType.String).Value = Replace(etatGen, ",", ".")
+        cmdModifEtatMateriel.Parameters.Add("@itemCout_Boitier", MySqlDbType.String).Value = Replace(boitier, ",", ".")
+        cmdModifEtatMateriel.Parameters.Add("@itemCout_Electronique", MySqlDbType.String).Value = Replace(electro, ",", ".")
+        cmdModifEtatMateriel.Parameters.Add("@itemCout_Moteur", MySqlDbType.String).Value = Replace(moteur, ",", ".")
+        cmdModifEtatMateriel.Parameters.Add("@itemCout_Cablage", MySqlDbType.String).Value = Replace(cablage, ",", ".")
+        cmdModifEtatMateriel.Parameters.Add("@itemCout_Logiciel", MySqlDbType.String).Value = Replace(logiciel, ",", ".")
+        cmdModifEtatMateriel.Parameters.Add("@itemCout_Eau", MySqlDbType.String).Value = Replace(eau, ",", ".")
+        cmdModifEtatMateriel.Parameters.Add("@note", MySqlDbType.String).Value = notes
 
 
         cmdModifEtatMateriel.CommandText = reqModifEtatMateriel
@@ -270,6 +279,127 @@ Public Class EtatMateriel
     End Sub
 
 
+    Public Function ValidationEtatMat() As Boolean
+        Dim validForm As Boolean = False
+
+        Dim validEtatGen As Boolean = False
+        Dim validMoteur As Boolean = False
+        Dim validCablage As Boolean = False
+        Dim validLogiciel As Boolean = False
+        Dim validNotes As Boolean = False
+        Dim validElectro As Boolean = False
+        Dim validEau As Boolean = False
+        Dim validBoitier As Boolean = False
+
+
+        If (validation.ValidNombreDecimal(txtEtatMat_EtatGen.Text) = True) Then
+            etatGen = txtEtatMat_EtatGen.Text
+            validEtatGen = True
+        Else
+            txtEtatMat_EtatGen.Text = "* Entrée non-valide."
+            txtEtatMat_EtatGen.ForeColor = Color.Red
+            validEtatGen = False
+        End If
+
+        If (validation.ValidNombreDecimal(txtEtatMat_Moteur.Text) = True) Then
+            moteur = txtEtatMat_Moteur.Text
+            validMoteur = True
+        Else
+            txtEtatMat_Moteur.Text = "* Entrée non-valide."
+            txtEtatMat_Moteur.ForeColor = Color.Red
+            validMoteur = False
+        End If
+
+        If (validation.ValidNombreDecimal(txtEtatMat_Cablage.Text) = True) Then
+            cablage = txtEtatMat_Cablage.Text
+            validCablage = True
+        Else
+            txtEtatMat_Cablage.Text = "* Entrée non-valide."
+            txtEtatMat_Cablage.ForeColor = Color.Red
+            validCablage = False
+        End If
+
+
+        If (validation.ValidNombreDecimal(txtEtatMat_Logiciel.Text) = True) Then
+            logiciel = txtEtatMat_Logiciel.Text
+            validLogiciel = True
+        Else
+            txtEtatMat_Logiciel.Text = "* Entrée non-valide."
+            txtEtatMat_Logiciel.ForeColor = Color.Red
+            validLogiciel = False
+        End If
+
+        If (validation.ValidNombreDecimal(txtEtatMat_Electro.Text) = True) Then
+            electro = txtEtatMat_Electro.Text
+            validElectro = True
+        Else
+            txtEtatMat_Electro.Text = "* Entrée non-valide."
+            txtEtatMat_Electro.ForeColor = Color.Red
+            validElectro = False
+        End If
+
+        If (validation.ValidNombreDecimal(txtEtatMat_Eau.Text) = True) Then
+            eau = txtEtatMat_Eau.Text
+            validEau = True
+        Else
+            txtEtatMat_Eau.Text = "* Entrée non-valide."
+            txtEtatMat_Eau.ForeColor = Color.Red
+            validEau = False
+        End If
+
+        If (validation.ValidNombreDecimal(txtEtatMat_Boitier.Text) = True) Then
+            boitier = txtEtatMat_Boitier.Text
+            validBoitier = True
+        Else
+            txtEtatMat_Boitier.Text = "* Entrée non-valide."
+            txtEtatMat_Boitier.ForeColor = Color.Red
+            validBoitier = False
+        End If
+
+        If (validation.ValidStringTousCaractere(rtxEtatMat_Notes.Text) = True) Then
+            notes = rtxEtatMat_Notes.Text
+            validNotes = True
+        Else
+            rtxEtatMat_Notes.Text = "* Entrée non-valide."
+            rtxEtatMat_Notes.ForeColor = Color.Red
+            validNotes = False
+        End If
+
+
+
+        If (validEtatGen = True And
+            validMoteur = True And
+            validCablage = True And
+            validLogiciel = True And
+            validNotes = True And
+            validElectro = True And
+            validEau = True And
+            validBoitier = True) Then
+
+            validForm = True
+        Else
+            validForm = False
+        End If
+        Return validForm
+    End Function
+
+
+    Public Sub reinitCouleur()
+        txtEtatMat_Materiel.ForeColor = Color.Black
+        dtpEtatMat_Date.ForeColor = Color.Black
+        txtEtatMat_Emprunt.ForeColor = Color.Black
+        txtEtatMat_EtatGen.ForeColor = Color.Black
+        txtEtatMat_Boitier.ForeColor = Color.Black
+        txtEtatMat_Electro.ForeColor = Color.Black
+        txtEtatMat_Moteur.ForeColor = Color.Black
+        txtEtatMat_Cablage.ForeColor = Color.Black
+        txtEtatMat_Logiciel.ForeColor = Color.Black
+        txtEtatMat_Eau.ForeColor = Color.Black
+        rtxEtatMat_Notes.ForeColor = Color.Black
+    End Sub
+
+
+
     Public Sub MessageBox_Enregistrer(e As EventArgs)
         Dim resultat = MessageBox.Show("Voulez-vous ajouter cette vérification?", "Prêt Équipement", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
         If (resultat = DialogResult.Yes) Then
@@ -321,7 +451,10 @@ Public Class EtatMateriel
             btnEtatMat_Ajout.Text = "Enregistrer"
             btnEtatMat_Modif.Enabled = False
         ElseIf btnEtatMat_Ajout.Enabled = True And String.Compare(btnEtatMat_Ajout.Text, "Enregistrer") = 0 Then
-            MessageBox_Enregistrer(e)
+            If (ValidationEtatMat() = True) Then
+                MessageBox_Enregistrer(e)
+            End If
+            reinitCouleur()
             InactiverChamps()
             ViderChamps()
             btnEtatMat_Ajout.Text = "Ajouter"
@@ -332,10 +465,14 @@ Public Class EtatMateriel
     Private Sub BtnEtatMat_Modif_Click(sender As Object, e As EventArgs) Handles btnEtatMat_Modif.Click
         If btnEtatMat_Modif.Enabled = True And String.Compare(btnEtatMat_Modif.Text, "Modifier") = 0 Then
             ActiverChamps()
+            ViderChamps()
             btnEtatMat_Modif.Text = "Enregistrer"
             btnEtatMat_Ajout.Enabled = False
         ElseIf btnEtatMat_Modif.Enabled = True And String.Compare(btnEtatMat_Modif.Text, "Enregistrer") = 0 Then
-            MessageBox_Modifier(e)
+            If (ValidationEtatMat() = True) Then
+                MessageBox_Modifier(e)
+            End If
+            reinitCouleur()
             InactiverChamps()
             ViderChamps()
             btnEtatMat_Modif.Text = "Modifier"

@@ -123,14 +123,15 @@ Public Class CreationModifCondition
         Dim valideTotal As Boolean = False
         Dim valide_1 As Boolean = False
         Dim valide_2 As Boolean = False
-        If validation.Validation_EntreeUtilisateur(txtCond_Description.Text) = True Then
+
+        If validation.ValidStringSimple(txtCond_Description.Text) = True Then
             Cond_Description = txtCond_Description.Text
             valide_1 = True
         Else
             txtCond_Description.Text = "Entrée invalide"
             txtCond_Description.ForeColor = Color.Red
         End If
-        If validation.Validation_EntreeUtilisateur(rtxCond_Notes.Text) = True Then
+        If validation.ValidStringTousCaractere(rtxCond_Notes.Text) = True Then
             Cond_Notes = rtxCond_Notes.Text
             valide_2 = True
         Else
@@ -146,6 +147,14 @@ Public Class CreationModifCondition
 
         Return valideTotal
     End Function
+
+
+    Public Sub reinitCouleur()
+        txtCond_Description.ForeColor = Color.Black
+        rtxCond_Notes.ForeColor = Color.Black
+    End Sub
+
+
 
     Public Sub MessageBox_Enregistrer(e As EventArgs)
 
@@ -211,9 +220,12 @@ Public Class CreationModifCondition
             btnCond_Ajout.Text = "Enregistrer"
             btnCond_Modif.Enabled = False
         ElseIf btnCond_Ajout.Enabled = True And String.Compare(btnCond_Ajout.Text, "Enregistrer") = 0 Then
-            MessageBox_Enregistrer(e)
+            If (ValidationEntree() = True) Then
+                MessageBox_Enregistrer(e)
+            End If
             InactiverChamps()
             ViderChamps()
+            reinitCouleur()
             btnCond_Ajout.Text = "Ajouter"
             btnCond_Modif.Enabled = True
         End If
@@ -225,9 +237,10 @@ Public Class CreationModifCondition
             btnCond_Modif.Text = "Enregistrer"
             btnCond_Ajout.Enabled = False
         ElseIf btnCond_Modif.Enabled = True And String.Compare(btnCond_Modif.Text, "Enregistrer") = 0 Then
-            MessageBox_Modifier(e)
+            If (ValidationEntree() = True) Then
+                MessageBox_Modifier(e)
+            End If
             InactiverChamps()
-            ViderChamps()
             btnCond_Modif.Text = "Modifier"
             btnCond_Ajout.Enabled = True
         End If

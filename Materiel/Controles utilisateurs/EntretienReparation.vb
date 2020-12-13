@@ -18,10 +18,15 @@ Public Class EntretienReparation
     Dim connectionBD As New MySqlConnection(bd.ConnectionString)
 
     Dim idEquipement As String
+    Dim idEntretien As String
     Dim dateEntRep As Nullable(Of Date)
     Public row As DataRow
 
 
+    Dim validation As New Validation_Traitement()
+    Dim element As String
+    Dim montant As String
+    Dim note As String
 
     Public Sub EnrEntretienReparation()
 
@@ -62,11 +67,11 @@ Public Class EntretienReparation
 
         cmdInsertEntRep.Parameters.Add("@materiel", MySqlDbType.Int24).Value = idEquipement
         cmdInsertEntRep.Parameters.Add("@date", MySqlDbType.Date).Value = dtpEntRep_Date.Value
-        cmdInsertEntRep.Parameters.Add("@element", MySqlDbType.String).Value = txtEntRep_Element.Text
-        cmdInsertEntRep.Parameters.Add("@montant", MySqlDbType.NewDecimal).Value = txtEntRep_Montant.Text
+        cmdInsertEntRep.Parameters.Add("@element", MySqlDbType.String).Value = element
+        cmdInsertEntRep.Parameters.Add("@montant", MySqlDbType.NewDecimal).Value = montant
         cmdInsertEntRep.Parameters.Add("@statut", MySqlDbType.String).Value = valStatut
         cmdInsertEntRep.Parameters.Add("@emprunt", MySqlDbType.Int24).Value = emprunt
-        cmdInsertEntRep.Parameters.Add("@note", MySqlDbType.String).Value = rtxEntRep_Note.Text
+        cmdInsertEntRep.Parameters.Add("@note", MySqlDbType.String).Value = note
 
         cmdInsertEntRep.CommandText = reqEntRep
         bd.Prepare_InsDelUpd(reqEntRep, cmdInsertEntRep, connectionBD)
@@ -103,15 +108,15 @@ Public Class EntretienReparation
                                      `statut` =  @statut,
                                      `emprunt` =  @emprunt,
                                      `note` =  @note
-                               WHERE `id_entretienReparation` = '@marque';"
+                               WHERE `id_entretienReparation` = " & idEntretien & " ;"
 
         cmdModifEntRep.Parameters.Add("@materiel", MySqlDbType.Int24).Value = idEquipement
         cmdModifEntRep.Parameters.Add("@date", MySqlDbType.Date).Value = dtpEntRep_Date.Value
-        cmdModifEntRep.Parameters.Add("@element", MySqlDbType.String).Value = txtEntRep_Element.Text
-        cmdModifEntRep.Parameters.Add("@montant", MySqlDbType.NewDecimal).Value = txtEntRep_Montant.Text
+        cmdModifEntRep.Parameters.Add("@element", MySqlDbType.String).Value = element
+        cmdModifEntRep.Parameters.Add("@montant", MySqlDbType.NewDecimal).Value = montant
         cmdModifEntRep.Parameters.Add("@statut", MySqlDbType.String).Value = valStatut
         cmdModifEntRep.Parameters.Add("@emprunt", MySqlDbType.Int24).Value = emprunt
-        cmdModifEntRep.Parameters.Add("@note", MySqlDbType.String).Value = rtxEntRep_Note.Text
+        cmdModifEntRep.Parameters.Add("@note", MySqlDbType.String).Value = note
 
 
         cmdModifEntRep.CommandText = reqModifEntRep
@@ -232,6 +237,59 @@ Public Class EntretienReparation
     End Sub
 
 
+    Public Function ValidationEntRep() As Boolean
+        Dim validElement As Boolean = False
+        Dim validMontant As Boolean = False
+        Dim validNote As Boolean = False
+        Dim validForm As Boolean = False
+
+        If (validation.ValidStringSimple(txtEntRep_Element.Text) = True) Then
+            element = txtEntRep_Element.Text
+            validElement = True
+        Else
+            txtEntRep_Element.Text = "* Entrée non-valide."
+            txtEntRep_Element.ForeColor = Color.Red
+            validElement = False
+        End If
+
+        If (validation.ValidNombreDouble(txtEntRep_Montant.Text) = True) Then
+            montant = txtEntRep_Montant.Text
+            validMontant = True
+        Else
+            txtEntRep_Montant.Text = "* Entrée non-valide."
+            txtEntRep_Montant.ForeColor = Color.Red
+            validMontant = False
+        End If
+
+        If (validation.ValidStringTousCaractere(rtxEntRep_Note.Text) = True) Then
+            note = rtxEntRep_Note.Text
+            validNote = True
+        Else
+            rtxEntRep_Note.Text = "* Entrée non-valide."
+            rtxEntRep_Note.ForeColor = Color.Red
+            validNote = False
+        End If
+
+        If (validElement = True And validMontant = True And validNote = True) Then
+            validForm = True
+        Else
+            validForm = False
+        End If
+
+        Return validForm
+
+    End Function
+
+    Public Sub reinitCouleur()
+        txtEntRep_Element.ForeColor = Color.Black
+        txtEntRep_Montant.ForeColor = Color.Black
+        rtxEntRep_Note.ForeColor = Color.Black
+    End Sub
+
+
+
+
+
     Public Sub MessageBox_Enregistrer(e As EventArgs)
         Dim resultat = MessageBox.Show("Voulez-vous ajouter cet entretien/réparation?", "Prêt Équipement", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
         If (resultat = DialogResult.Yes) Then
@@ -253,7 +311,6 @@ Public Class EntretienReparation
         Else
             idEquipement = 0
         End If
-
         RemplirChampFormulaire()
     End Sub
 
@@ -263,13 +320,19 @@ Public Class EntretienReparation
         Else
             dateEntRep = Nothing
         End If
-
         RemplirChampFormulaireHisto()
+    End Sub
+
+    Public Sub ObtenirIdEntretien()
+        If IsDBNull(dgvEntRep_ListeRepEnt.Rows(dgvEntRep_ListeRepEnt.CurrentCell.RowIndex).Cells(0).Value) = False Then
+            idEntretien = dgvEntRep_ListeRepEnt.Rows(dgvEntRep_ListeRepEnt.CurrentCell.RowIndex).Cells(0).Value
+        Else
+            idEntretien = 0
+        End If
     End Sub
 
 
     Public Sub ViderChamps()
-
         txtEntRep_Materiel.Text = ""
         dtpEntRep_Date.Value = Date.Today
         txtEntRep_Element.Text = ""
@@ -314,8 +377,11 @@ Public Class EntretienReparation
             btnEntRep_Modif.Text = "Enregistrer"
             btnEntRep_Ajout.Enabled = False
         ElseIf btnEntRep_Modif.Enabled = True And String.Compare(btnEntRep_Modif.Text, "Enregistrer") = 0 Then
-            MessageBox_Modifier(e)
+            If (ValidationEntRep() = True) Then
+                MessageBox_Modifier(e)
+            End If
             InactiverChamps()
+            reinitCouleur()
             btnEntRep_Modif.Text = "Modifier"
             btnEntRep_Ajout.Enabled = True
         End If
@@ -324,11 +390,16 @@ Public Class EntretienReparation
     Private Sub BtnEntRep_Ajout_Click(sender As Object, e As EventArgs) Handles btnEntRep_Ajout.Click
         If btnEntRep_Ajout.Enabled = True And String.Compare(btnEntRep_Ajout.Text, "Ajouter") = 0 Then
             ActiverChamps()
+            ViderChamps()
             btnEntRep_Ajout.Text = "Enregistrer"
             btnEntRep_Modif.Enabled = False
         ElseIf btnEntRep_Ajout.Enabled = True And String.Compare(btnEntRep_Ajout.Text, "Enregistrer") = 0 Then
-            MessageBox_Enregistrer(e)
+            If (ValidationEntRep() = True) Then
+                MessageBox_Enregistrer(e)
+            End If
+            reinitCouleur()
             InactiverChamps()
+            ViderChamps()
             btnEntRep_Ajout.Text = "Ajouter"
             btnEntRep_Modif.Enabled = True
         End If
@@ -350,6 +421,7 @@ Public Class EntretienReparation
 
     Private Sub dgvEntRep_ListeRepEnt_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvEntRep_ListeRepEnt.CellClick
         ObtenirDateEntRep()
+        ObtenirIdEntretien()
     End Sub
 End Class
 

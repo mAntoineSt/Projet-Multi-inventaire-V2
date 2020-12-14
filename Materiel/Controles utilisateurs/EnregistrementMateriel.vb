@@ -19,6 +19,26 @@ Public Class EnregistrementMateriel
     Dim urlImage As String
     Dim urlDestination As String
 
+    Dim validation As New Validation_Traitement()
+    Dim marque As String
+    Dim modele As String
+    Dim noSerie As String
+    Dim fabricant As String
+    Dim categorie As String
+    Dim date_fabrication As String
+    Dim date_enregistrement As String
+    Dim fournisseur As String
+    Dim date_acquisition As String
+    Dim cout_achat As String
+    Dim valeur_residuelle As String
+    Dim no_antivol As String
+    Dim info_complement As String
+
+
+
+
+
+
     Public Sub EnregistrerMateriel()
 
         TelechargerPhoto()
@@ -28,7 +48,7 @@ Public Class EnregistrementMateriel
         dateJour = Date.Today
 
 
-        reqAjoutMateriel = "INSERT INTO `equipements`(`marque`,
+        reqAjoutMateriel = "INSERT INTO `equipements`(  `marque`,
                                                         `modele`,
                                                         `noSerie`,
                                                         `fabricant`,
@@ -180,6 +200,9 @@ Public Class EnregistrementMateriel
         connectionBD.Close()
     End Sub
 
+
+
+
     Public Sub ObtenirIdEquipement()
 
         If IsDBNull(dgvEnrMat.Rows(dgvEnrMat.CurrentCell.RowIndex).Cells(0).Value) = False Then
@@ -274,11 +297,153 @@ Public Class EnregistrementMateriel
         btnEnrMat_Photo.Enabled = True
     End Sub
 
+    Public Function ValidationEtatMat() As Boolean
+        Dim validForm As Boolean = False
+
+        Dim validMarque As Boolean = False
+        Dim validModele As Boolean = False
+        Dim validNoSerie As Boolean = False
+        Dim validFabricant As Boolean = False
+        Dim validCategorie As Boolean = False
+        Dim validFournisseur As Boolean = False
+        Dim validCout_achat As Boolean = False
+        Dim validValeur_residuelle As Boolean = False
+        Dim validNo_antivol As Boolean = False
+        Dim validInfo_complement As Boolean = False
+
+
+        If (validation.ValidStringTousCaractere(txtEnrMat_Marque.Text) = True) Then
+            marque = txtEnrMat_Marque.Text
+            validMarque = True
+        Else
+            txtEnrMat_Marque.Text = "* Entrée non-valide."
+            txtEnrMat_Marque.ForeColor = Color.Red
+            validMarque = False
+        End If
+
+        If (validation.ValidStringTousCaractere(txtEnrMat_Modele.Text) = True) Then
+            modele = txtEnrMat_Modele.Text
+            validModele = True
+        Else
+            txtEnrMat_Modele.Text = "* Entrée non-valide."
+            txtEnrMat_Modele.ForeColor = Color.Red
+            validModele = False
+        End If
+
+        If (validation.ValidStringTousCaractere(txtEnrMat_NoSerie.Text) = True) Then
+            noSerie = txtEnrMat_NoSerie.Text
+            validNoSerie = True
+        Else
+            txtEnrMat_NoSerie.Text = "* Entrée non-valide."
+            txtEnrMat_NoSerie.ForeColor = Color.Red
+            validNoSerie = False
+        End If
+
+
+        If (validation.ValidStringTousCaractere(txtEnrMat_Fabricant.Text) = True) Then
+            fabricant = txtEnrMat_Fabricant.Text
+            validFabricant = True
+        Else
+            txtEnrMat_Fabricant.Text = "* Entrée non-valide."
+            txtEnrMat_Fabricant.ForeColor = Color.Red
+            validFabricant = False
+        End If
+
+        If (validation.ValidStringTousCaractere(cboEnrMat_Categorie.Text) = True) Then
+            categorie = cboEnrMat_Categorie.Text
+            validCategorie = True
+        Else
+            cboEnrMat_Categorie.Text = "* Entrée non-valide."
+            cboEnrMat_Categorie.ForeColor = Color.Red
+            validCategorie = False
+        End If
+
+        If (validation.ValidStringTousCaractere(txtEnrMat_Fournisseur.Text) = True) Then
+            fournisseur = txtEnrMat_Fournisseur.Text
+            validFournisseur = True
+        Else
+            txtEnrMat_Fournisseur.Text = "* Entrée non-valide."
+            txtEnrMat_Fournisseur.ForeColor = Color.Red
+            validFournisseur = False
+        End If
+
+        If (validation.ValidNombreDecimal(txtEnrMat_CoutAchat.Text) = True) Then
+            cout_achat = txtEnrMat_CoutAchat.Text
+            validCout_achat = True
+        Else
+            txtEnrMat_CoutAchat.Text = "* Entrée non-valide."
+            txtEnrMat_CoutAchat.ForeColor = Color.Red
+            validCout_achat = False
+        End If
+
+        If (validation.ValidNombreDecimal(txtEnrMat_Valeur.Text) = True) Then
+            valeur_residuelle = txtEnrMat_Valeur.Text
+            validValeur_residuelle = True
+        Else
+            txtEnrMat_Valeur.Text = "* Entrée non-valide."
+            txtEnrMat_Valeur.ForeColor = Color.Red
+            validValeur_residuelle = False
+        End If
+
+        If (validation.ValidStringTousCaractere_Null(txtEnrMat_NoAntivol.Text) = True) Then
+            no_antivol = txtEnrMat_NoAntivol.Text
+            validNo_antivol = True
+        Else
+            txtEnrMat_NoAntivol.Text = "* Entrée non-valide."
+            txtEnrMat_NoAntivol.ForeColor = Color.Red
+            validNo_antivol = False
+        End If
+
+        If (validation.ValidStringTousCaractere_Null(rtxEnrMat_Notes.Text) = True) Then
+            info_complement = rtxEnrMat_Notes.Text
+            validInfo_complement = True
+        Else
+            rtxEnrMat_Notes.Text = "* Entrée non-valide."
+            rtxEnrMat_Notes.ForeColor = Color.Red
+            validInfo_complement = False
+        End If
+
+
+        If (validMarque = True And
+            validModele = True And
+            validNoSerie = True And
+            validFabricant = True And
+            validCategorie = True And
+            validFournisseur = True And
+            validCout_achat = True And
+            validValeur_residuelle = True And
+            validNo_antivol = True And
+            validInfo_complement = True) Then
+
+            validForm = True
+        Else
+            validForm = False
+        End If
+
+
+        Return validForm
+    End Function
+
+    Public Sub reinitCouleur()
+        txtEnrMat_Marque.ForeColor = Color.Black
+        txtEnrMat_Modele.ForeColor = Color.Black
+        txtEnrMat_NoSerie.ForeColor = Color.Black
+        txtEnrMat_Fabricant.ForeColor = Color.Black
+        cboEnrMat_Categorie.ForeColor = Color.Black
+        txtEnrMat_Fournisseur.ForeColor = Color.Black
+        txtEnrMat_CoutAchat.ForeColor = Color.Black
+        txtEnrMat_Valeur.ForeColor = Color.Black
+        txtEnrMat_NoAntivol.ForeColor = Color.Black
+        rtxEnrMat_Notes.ForeColor = Color.Black
+    End Sub
 
     Public Sub MessageBox_Enregistrer(e As EventArgs)
         Dim resultat = MessageBox.Show("Voulez-vous inscrire ce nouveau matériel?", "Prêt Équipement", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
         If (resultat = DialogResult.Yes) Then
             EnregistrerMateriel()
+            InactiverChamps()
+            ViderChamps()
+            MsgBox("Ce matériel à été enregistrée avec succès", vbOKOnly + 64, "Prêt Équipement")
         End If
     End Sub
 
@@ -286,6 +451,9 @@ Public Class EnregistrementMateriel
         Dim resultat = MessageBox.Show("Voulez-vous vraiment modifier ce matériel?", "Prêt Équipement", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
         If (resultat = DialogResult.Yes) Then
             ModifMateriel()
+            InactiverChamps()
+            ViderChamps()
+            MsgBox("Ce matériel à été modifié avec succès", vbOKOnly + 64, "Prêt Équipement")
         End If
     End Sub
 
@@ -305,9 +473,11 @@ Public Class EnregistrementMateriel
             btnEnrMat_Ajout.Text = "Enregistrer"
             btnEnrMat_Modif.Enabled = False
         ElseIf btnEnrMat_Ajout.Enabled = True And String.Compare(btnEnrMat_Ajout.Text, "Enregistrer") = 0 Then
-            MessageBox_Enregistrer(e)
-            InactiverChamps()
-            ViderChamps()
+            If (ValidationEtatMat() = True) Then
+                MessageBox_Enregistrer(e)
+            End If
+
+            reinitCouleur()
             btnEnrMat_Ajout.Text = "Ajouter"
             btnEnrMat_Modif.Enabled = True
         End If
@@ -320,7 +490,9 @@ Public Class EnregistrementMateriel
             btnEnrMat_Modif.Text = "Enregistrer"
             btnEnrMat_Ajout.Enabled = False
         ElseIf btnEnrMat_Modif.Enabled = True And String.Compare(btnEnrMat_Modif.Text, "Enregistrer") = 0 Then
-            MessageBox_Modifier(e)
+            If (ValidationEtatMat() = True) Then
+                MessageBox_Modifier(e)
+            End If
             InactiverChamps()
             ViderChamps()
             btnEnrMat_Modif.Text = "Modifier"

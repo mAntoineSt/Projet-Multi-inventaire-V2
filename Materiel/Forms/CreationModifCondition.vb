@@ -124,7 +124,7 @@ Public Class CreationModifCondition
         Dim valide_1 As Boolean = False
         Dim valide_2 As Boolean = False
 
-        If validation.ValidStringSimple(txtCond_Description.Text) = True Then
+        If validation.ValidStringTousCaractere(txtCond_Description.Text) = True Then
             Cond_Description = txtCond_Description.Text
             valide_1 = True
         Else
@@ -162,6 +162,9 @@ Public Class CreationModifCondition
         If (resultat = DialogResult.Yes) Then
             If ValidationEntree() = True Then
                 EnrCondition()
+                ViderChamps()
+                InactiverChamps()
+                MsgBox("Cette condition à été enregistrée avec succès", vbOKOnly + 64, "Prêt Équipement")
             End If
         End If
     End Sub
@@ -170,6 +173,8 @@ Public Class CreationModifCondition
         Dim resultat = MessageBox.Show("Voulez-vous vraiment modifier cette condition?", "Prêt Équipement", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
         If (resultat = DialogResult.Yes) Then
             ModifCond()
+            InactiverChamps()
+            MsgBox("Cette condition à été modifiée avec succès", vbOKOnly + 64, "Prêt Équipement")
         End If
     End Sub
 
@@ -223,8 +228,6 @@ Public Class CreationModifCondition
             If (ValidationEntree() = True) Then
                 MessageBox_Enregistrer(e)
             End If
-            InactiverChamps()
-            ViderChamps()
             reinitCouleur()
             btnCond_Ajout.Text = "Ajouter"
             btnCond_Modif.Enabled = True
@@ -240,7 +243,7 @@ Public Class CreationModifCondition
             If (ValidationEntree() = True) Then
                 MessageBox_Modifier(e)
             End If
-            InactiverChamps()
+            reinitCouleur()
             btnCond_Modif.Text = "Modifier"
             btnCond_Ajout.Enabled = True
         End If

@@ -45,7 +45,6 @@ Public Class EntretienReparation
 
         If String.IsNullOrEmpty(txtEntRep_Emprunt.Text) Then
             emprunt = 0
-
         Else
             emprunt = CInt(txtEntRep_Emprunt.Text)
         End If
@@ -95,7 +94,6 @@ Public Class EntretienReparation
 
         If String.IsNullOrEmpty(txtEntRep_Emprunt.Text) Then
             emprunt = 0
-
         Else
             emprunt = CInt(txtEntRep_Emprunt.Text)
         End If
@@ -252,7 +250,7 @@ Public Class EntretienReparation
             validElement = False
         End If
 
-        If (validation.ValidNombreDouble(txtEntRep_Montant.Text) = True) Then
+        If (validation.ValidNombreDecimal(txtEntRep_Montant.Text) = True) Then
             montant = txtEntRep_Montant.Text
             validMontant = True
         Else
@@ -261,7 +259,7 @@ Public Class EntretienReparation
             validMontant = False
         End If
 
-        If (validation.ValidStringTousCaractere(rtxEntRep_Note.Text) = True) Then
+        If (validation.ValidStringTousCaractere_Null(rtxEntRep_Note.Text) = True) Then
             note = rtxEntRep_Note.Text
             validNote = True
         Else
@@ -294,6 +292,9 @@ Public Class EntretienReparation
         Dim resultat = MessageBox.Show("Voulez-vous ajouter cet entretien/réparation?", "Prêt Équipement", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
         If (resultat = DialogResult.Yes) Then
             EnrEntretienReparation()
+            InactiverChamps()
+            ViderChamps()
+            MsgBox("Cet entretien/réparation à été enregistré avec succès", vbOKOnly + 64, "Prêt Équipement")
         End If
     End Sub
 
@@ -301,6 +302,8 @@ Public Class EntretienReparation
         Dim resultat = MessageBox.Show("Voulez-vous vraiment modifier cet entretien/réparation?", "Prêt Équipement", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
         If (resultat = DialogResult.Yes) Then
             ModifEntRep()
+            InactiverChamps()
+            MsgBox("Cet entretien/réparation à été modifié avec succès", vbOKOnly + 64, "Prêt Équipement")
         End If
     End Sub
 
@@ -342,6 +345,14 @@ Public Class EntretienReparation
         rbtEntRep_Statut_Rep.Checked = False
         rbtEntRep_Statut_Ent.Checked = False
 
+    End Sub
+    Public Sub ViderChampsAvantAjout()
+        dtpEntRep_Date.Value = Date.Today
+        txtEntRep_Element.Text = ""
+        txtEntRep_Montant.Text = ""
+        txtEntRep_Emprunt.Text = ""
+        rtxEntRep_Note.Text = ""
+        rbtEntRep_Statut_Ent.Checked = True
     End Sub
 
     Public Sub InactiverChamps()
@@ -390,7 +401,7 @@ Public Class EntretienReparation
     Private Sub BtnEntRep_Ajout_Click(sender As Object, e As EventArgs) Handles btnEntRep_Ajout.Click
         If btnEntRep_Ajout.Enabled = True And String.Compare(btnEntRep_Ajout.Text, "Ajouter") = 0 Then
             ActiverChamps()
-            ViderChamps()
+            ViderChampsAvantAjout()
             btnEntRep_Ajout.Text = "Enregistrer"
             btnEntRep_Modif.Enabled = False
         ElseIf btnEntRep_Ajout.Enabled = True And String.Compare(btnEntRep_Ajout.Text, "Enregistrer") = 0 Then
@@ -398,8 +409,6 @@ Public Class EntretienReparation
                 MessageBox_Enregistrer(e)
             End If
             reinitCouleur()
-            InactiverChamps()
-            ViderChamps()
             btnEntRep_Ajout.Text = "Ajouter"
             btnEntRep_Modif.Enabled = True
         End If

@@ -229,6 +229,7 @@ Public Class ConditionsEmprunt
         Dim resultat = MessageBox.Show("Voulez-vous ajouter cette condition à ce matériel?", "Prêt Équipement", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
         If (resultat = DialogResult.Yes) Then
             EnrCondEmprunt()
+            MsgBox("Cette condition à été ajoutée avec succès à ce matériel", vbOKOnly + 64, "Prêt Équipement")
         End If
     End Sub
 
@@ -236,6 +237,7 @@ Public Class ConditionsEmprunt
         Dim resultat = MessageBox.Show("Voulez-vous vraiment retirer cette condition à ce matériel?", "Prêt Équipement", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
         If (resultat = DialogResult.Yes) Then
             RetirerCondEmprunt()
+            MsgBox("Cette condition à été retirée avec succès à ce matériel", vbOKOnly + 64, "Prêt Équipement")
         End If
     End Sub
 

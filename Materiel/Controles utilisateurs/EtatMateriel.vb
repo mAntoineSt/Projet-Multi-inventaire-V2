@@ -28,9 +28,9 @@ Public Class EtatMateriel
     Dim cablage As String
     Dim logiciel As String
     Dim notes As String
-    Dim electro As Decimal
-    Dim eau As Decimal
-    Dim boitier As Decimal
+    Dim electro As String
+    Dim eau As String
+    Dim boitier As String
 
     Public Sub EnrEtatMateriel()
         Dim cmdInsertEtatMateriel As New MySqlCommand(strRequete, connectionBD)
@@ -292,7 +292,7 @@ Public Class EtatMateriel
         Dim validBoitier As Boolean = False
 
 
-        If (validation.ValidNombreDecimal(txtEtatMat_EtatGen.Text) = True) Then
+        If (validation.ValidNombreDecimal_Null(txtEtatMat_EtatGen.Text) = True) Then
             etatGen = txtEtatMat_EtatGen.Text
             validEtatGen = True
         Else
@@ -301,7 +301,7 @@ Public Class EtatMateriel
             validEtatGen = False
         End If
 
-        If (validation.ValidNombreDecimal(txtEtatMat_Moteur.Text) = True) Then
+        If (validation.ValidNombreDecimal_Null(txtEtatMat_Moteur.Text) = True) Then
             moteur = txtEtatMat_Moteur.Text
             validMoteur = True
         Else
@@ -310,7 +310,7 @@ Public Class EtatMateriel
             validMoteur = False
         End If
 
-        If (validation.ValidNombreDecimal(txtEtatMat_Cablage.Text) = True) Then
+        If (validation.ValidNombreDecimal_Null(txtEtatMat_Cablage.Text) = True) Then
             cablage = txtEtatMat_Cablage.Text
             validCablage = True
         Else
@@ -320,7 +320,7 @@ Public Class EtatMateriel
         End If
 
 
-        If (validation.ValidNombreDecimal(txtEtatMat_Logiciel.Text) = True) Then
+        If (validation.ValidNombreDecimal_Null(txtEtatMat_Logiciel.Text) = True) Then
             logiciel = txtEtatMat_Logiciel.Text
             validLogiciel = True
         Else
@@ -329,7 +329,7 @@ Public Class EtatMateriel
             validLogiciel = False
         End If
 
-        If (validation.ValidNombreDecimal(txtEtatMat_Electro.Text) = True) Then
+        If (validation.ValidNombreDecimal_Null(txtEtatMat_Electro.Text) = True) Then
             electro = txtEtatMat_Electro.Text
             validElectro = True
         Else
@@ -338,7 +338,7 @@ Public Class EtatMateriel
             validElectro = False
         End If
 
-        If (validation.ValidNombreDecimal(txtEtatMat_Eau.Text) = True) Then
+        If (validation.ValidNombreDecimal_Null(txtEtatMat_Eau.Text) = True) Then
             eau = txtEtatMat_Eau.Text
             validEau = True
         Else
@@ -347,7 +347,7 @@ Public Class EtatMateriel
             validEau = False
         End If
 
-        If (validation.ValidNombreDecimal(txtEtatMat_Boitier.Text) = True) Then
+        If (validation.ValidNombreDecimal_Null(txtEtatMat_Boitier.Text) = True) Then
             boitier = txtEtatMat_Boitier.Text
             validBoitier = True
         Else
@@ -356,7 +356,7 @@ Public Class EtatMateriel
             validBoitier = False
         End If
 
-        If (validation.ValidStringTousCaractere(rtxEtatMat_Notes.Text) = True) Then
+        If (validation.ValidStringTousCaractere_Null(rtxEtatMat_Notes.Text) = True) Then
             notes = rtxEtatMat_Notes.Text
             validNotes = True
         Else
@@ -364,8 +364,6 @@ Public Class EtatMateriel
             rtxEtatMat_Notes.ForeColor = Color.Red
             validNotes = False
         End If
-
-
 
         If (validEtatGen = True And
             validMoteur = True And
@@ -380,6 +378,7 @@ Public Class EtatMateriel
         Else
             validForm = False
         End If
+
         Return validForm
     End Function
 
@@ -404,6 +403,9 @@ Public Class EtatMateriel
         Dim resultat = MessageBox.Show("Voulez-vous ajouter cette vérification?", "Prêt Équipement", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
         If (resultat = DialogResult.Yes) Then
             EnrEtatMateriel()
+            ViderChamps()
+            InactiverChamps()
+            MsgBox("Cette vérification à été enregistrée avec succès", vbOKOnly + 64, "Prêt Équipement")
         End If
     End Sub
 
@@ -411,6 +413,9 @@ Public Class EtatMateriel
         Dim resultat = MessageBox.Show("Voulez-vous vraiment modifier cette vérification?", "Prêt Équipement", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
         If (resultat = DialogResult.Yes) Then
             ModifEtatMateriel()
+            ViderChamps()
+            InactiverChamps()
+            MsgBox("Cette vérification à été modifiée avec succès", vbOKOnly + 64, "Prêt Équipement")
         End If
     End Sub
 
@@ -455,8 +460,6 @@ Public Class EtatMateriel
                 MessageBox_Enregistrer(e)
             End If
             reinitCouleur()
-            InactiverChamps()
-            ViderChamps()
             btnEtatMat_Ajout.Text = "Ajouter"
             btnEtatMat_Modif.Enabled = True
         End If
@@ -473,8 +476,6 @@ Public Class EtatMateriel
                 MessageBox_Modifier(e)
             End If
             reinitCouleur()
-            InactiverChamps()
-            ViderChamps()
             btnEtatMat_Modif.Text = "Modifier"
             btnEtatMat_Ajout.Enabled = True
         End If

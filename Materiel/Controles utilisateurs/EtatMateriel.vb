@@ -279,7 +279,7 @@ Public Class EtatMateriel
     End Sub
 
 
-    Public Function ValidationEtatMat() As Boolean
+    Public Function ValidationEtatMat(valeur) As Boolean
         Dim validForm As Boolean = False
 
         Dim validEtatGen As Boolean = False

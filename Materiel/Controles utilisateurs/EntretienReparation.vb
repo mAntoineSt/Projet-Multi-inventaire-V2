@@ -11,6 +11,8 @@ Public Class EntretienReparation
     Private bd As ConnectBd = New ConnectBd
     Dim dsEquipement As New DataSet
     Dim daEquipement As New MySqlDataAdapter
+    Dim dsPrets As New DataSet
+    Dim daPrets As New MySqlDataAdapter
     Dim dsEntRep As New DataSet
     Dim daEntRep As New MySqlDataAdapter
     Dim positEntRep As Integer
@@ -175,6 +177,62 @@ Public Class EntretienReparation
         dgvEntRep_ListeRepEnt.Columns(2).Width = 120
         dgvEntRep_ListeRepEnt.Columns(3).Width = 120
     End Sub
+
+    Public Sub RemplirDatagridview_Emprunts()
+
+        dsPrets.Tables.Clear()
+        Dim reqPret As String
+        Dim reqMateriel As String
+        Dim emprunteur As String
+
+        emprunteur = Replace(dgvEntRep_txtRechEmprunt.Text, " ", "")
+
+        Select Case dgvEntRep_cboRechEmprunt.Text
+
+            Case "Emprunteur"
+
+                reqMateriel = "SELECT er1.`id_entretienReparation` as idEntRep, ( SELECT distinct concat(marque, ' ', modele)
+    											   FROM `equipements` eq
+                                                   INNER JOIN `entretien_reparation` er2
+                                                   ON eq.id_equipement = er2.materiel
+                                                   WHERE er2.materiel = er1.materiel) as Materiel, 
+                                er1.`date` as Date, er1.statut as Type 
+                                FROM `entretien_reparation` er1
+                                    INNER JOIN `equipements` eq
+                                ON eq.id_equipement = er1.materiel
+                                INNER JOIN `prets` p
+                                ON p.id_equipement = eq.id_equipement
+                                WHERE p.id_equipement = (SELECT p2.id_equipement
+                                                        FROM prets p2
+                                                        INNER JOIN individus i
+                                                        ON p2.id_emprunteur = i.id_individu
+                                                        WHERE concat(i.prenom, i.nom) LIKE '" & emprunteur & "');"
+
+
+            Case "Date Emprunt"
+
+
+            Case "Date Retour"
+
+
+        End Select
+
+
+
+        daPrets = New MySqlDataAdapter(reqMateriel, bd.ConnectionString)
+        daPrets.Fill(dsPrets, "equipements")
+        dgvEntRep_ListeEmprunts.DataSource = dsPrets.Tables("equipements")
+
+
+        Dim columnHeaderStyle As New DataGridViewCellStyle
+        columnHeaderStyle.Font = New Font("Verdana", 10, FontStyle.Bold)
+        dgvEntRep_ListeEmprunts.ColumnHeadersDefaultCellStyle = columnHeaderStyle
+        dgvEntRep_ListeEmprunts.Columns(0).Width = 120
+        dgvEntRep_ListeEmprunts.Columns(1).Width = 120
+        dgvEntRep_ListeEmprunts.Columns(2).Width = 120
+        dgvEntRep_ListeEmprunts.Columns(0).Visible = False
+    End Sub
+
 
 
 
@@ -431,6 +489,14 @@ Public Class EntretienReparation
     Private Sub dgvEntRep_ListeRepEnt_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvEntRep_ListeRepEnt.CellClick
         ObtenirDateEntRep()
         ObtenirIdEntretien()
+    End Sub
+
+    Private Sub DgvEntRep_ListeEmprunts_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvEntRep_ListeEmprunts.CellContentClick
+
+    End Sub
+
+    Private Sub DgvEntRep_btnRechEmprunt_Click(sender As Object, e As EventArgs) Handles dgvEntRep_btnRechEmprunt.Click
+        RemplirDatagridview_Emprunts()
     End Sub
 End Class
 

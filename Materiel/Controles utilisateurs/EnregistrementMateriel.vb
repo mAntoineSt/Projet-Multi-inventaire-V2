@@ -79,19 +79,21 @@ Public Class EnregistrementMateriel
 
 
 
-        cmdInsertMateriel.Parameters.Add("@marque", MySqlDbType.String).Value = txtEnrMat_Marque.Text
-        cmdInsertMateriel.Parameters.Add("@modele", MySqlDbType.String).Value = txtEnrMat_Modele.Text
-        cmdInsertMateriel.Parameters.Add("@noSerie", MySqlDbType.String).Value = txtEnrMat_NoSerie.Text
-        cmdInsertMateriel.Parameters.Add("@fabricant", MySqlDbType.String).Value = txtEnrMat_Fabricant.Text
-        cmdInsertMateriel.Parameters.Add("@categorie", MySqlDbType.String).Value = cboEnrMat_Categorie.Text
-        cmdInsertMateriel.Parameters.Add("@date_fabrication", MySqlDbType.Date).Value = dtpEnrMat_DateFabrict.Value
+
+
+        cmdInsertMateriel.Parameters.Add("@marque", MySqlDbType.String).Value = marque
+        cmdInsertMateriel.Parameters.Add("@modele", MySqlDbType.String).Value = modele
+        cmdInsertMateriel.Parameters.Add("@noSerie", MySqlDbType.String).Value = noSerie
+        cmdInsertMateriel.Parameters.Add("@fabricant", MySqlDbType.String).Value = fabricant
+        cmdInsertMateriel.Parameters.Add("@categorie", MySqlDbType.String).Value = categorie
+        cmdInsertMateriel.Parameters.Add("@date_fabrication", MySqlDbType.Date).Value = date_fabrication
         cmdInsertMateriel.Parameters.Add("@date_enregistrement", MySqlDbType.Date).Value = dateJour
-        cmdInsertMateriel.Parameters.Add("@fournisseur", MySqlDbType.String).Value = txtEnrMat_Fournisseur.Text
-        cmdInsertMateriel.Parameters.Add("@date_acquisition", MySqlDbType.Date).Value = dtpEnrMat_DateAcquis.Value
-        cmdInsertMateriel.Parameters.Add("@cout_achat", MySqlDbType.String).Value = Replace(txtEnrMat_CoutAchat.Text, ",", ".") 'C'est valide comme façon de faire 
-        cmdInsertMateriel.Parameters.Add("@valeur_residuelle", MySqlDbType.String).Value = Replace(txtEnrMat_Valeur.Text, ",", ".") 'Plante pas.!!!!
-        cmdInsertMateriel.Parameters.Add("@no_antivol", MySqlDbType.String).Value = txtEnrMat_NoAntivol.Text
-        cmdInsertMateriel.Parameters.Add("@info_complement", MySqlDbType.String).Value = rtxEnrMat_Notes.Text
+        cmdInsertMateriel.Parameters.Add("@fournisseur", MySqlDbType.String).Value = fournisseur
+        cmdInsertMateriel.Parameters.Add("@date_acquisition", MySqlDbType.Date).Value = date_acquisition
+        cmdInsertMateriel.Parameters.Add("@cout_achat", MySqlDbType.String).Value = Replace(cout_achat, ",", ".") 'C'est valide comme façon de faire 
+        cmdInsertMateriel.Parameters.Add("@valeur_residuelle", MySqlDbType.String).Value = Replace(valeur_residuelle, ",", ".") 'Plante pas.!!!!
+        cmdInsertMateriel.Parameters.Add("@no_antivol", MySqlDbType.String).Value = no_antivol
+        cmdInsertMateriel.Parameters.Add("@info_complement", MySqlDbType.String).Value = info_complement
         cmdInsertMateriel.Parameters.Add("@url_photo", MySqlDbType.String).Value = urlDestination
 
 
@@ -126,19 +128,19 @@ Public Class EnregistrementMateriel
                                  `info_complement` = @info_complement                    
                            WHERE `id_equipement` = " & idEquipement & ";"
 
-        cmdModifMateriel.Parameters.Add("@marque", MySqlDbType.String).Value = txtEnrMat_Marque.Text
-        cmdModifMateriel.Parameters.Add("@modele", MySqlDbType.String).Value = txtEnrMat_Modele.Text
-        cmdModifMateriel.Parameters.Add("@noSerie", MySqlDbType.String).Value = txtEnrMat_NoSerie.Text
-        cmdModifMateriel.Parameters.Add("@fabricant", MySqlDbType.String).Value = txtEnrMat_Fabricant.Text
-        cmdModifMateriel.Parameters.Add("@categorie", MySqlDbType.String).Value = cboEnrMat_Categorie.Text
-        cmdModifMateriel.Parameters.Add("@date_fabrication", MySqlDbType.Date).Value = dtpEnrMat_DateFabrict.Value
+        cmdModifMateriel.Parameters.Add("@marque", MySqlDbType.String).Value = marque
+        cmdModifMateriel.Parameters.Add("@modele", MySqlDbType.String).Value = modele
+        cmdModifMateriel.Parameters.Add("@noSerie", MySqlDbType.String).Value = noSerie
+        cmdModifMateriel.Parameters.Add("@fabricant", MySqlDbType.String).Value = fabricant
+        cmdModifMateriel.Parameters.Add("@categorie", MySqlDbType.String).Value = categorie
+        cmdModifMateriel.Parameters.Add("@date_fabrication", MySqlDbType.Date).Value = date_fabrication
         cmdModifMateriel.Parameters.Add("@date_enregistrement", MySqlDbType.Date).Value = dateJour
-        cmdModifMateriel.Parameters.Add("@fournisseur", MySqlDbType.String).Value = txtEnrMat_Fournisseur.Text
-        cmdModifMateriel.Parameters.Add("@date_acquisition", MySqlDbType.Date).Value = dtpEnrMat_DateAcquis.Value
-        cmdModifMateriel.Parameters.Add("@cout_achat", MySqlDbType.String).Value = Replace(txtEnrMat_CoutAchat.Text, ",", ".")
-        cmdModifMateriel.Parameters.Add("@valeur_residuelle", MySqlDbType.String).Value = Replace(txtEnrMat_Valeur.Text, ",", ".")
-        cmdModifMateriel.Parameters.Add("@no_antivol", MySqlDbType.String).Value = txtEnrMat_NoAntivol.Text
-        cmdModifMateriel.Parameters.Add("@info_complement", MySqlDbType.String).Value = rtxEnrMat_Notes.Text
+        cmdModifMateriel.Parameters.Add("@fournisseur", MySqlDbType.String).Value = fournisseur
+        cmdModifMateriel.Parameters.Add("@date_acquisition", MySqlDbType.Date).Value = date_acquisition
+        cmdModifMateriel.Parameters.Add("@cout_achat", MySqlDbType.String).Value = Replace(cout_achat, ",", ".")
+        cmdModifMateriel.Parameters.Add("@valeur_residuelle", MySqlDbType.String).Value = Replace(valeur_residuelle, ",", ".")
+        cmdModifMateriel.Parameters.Add("@no_antivol", MySqlDbType.String).Value = no_antivol
+        cmdModifMateriel.Parameters.Add("@info_complement", MySqlDbType.String).Value = info_complement
 
         cmdModifMateriel.CommandText = reqModifMateriel
         bd.Prepare_InsDelUpd(reqModifMateriel, cmdModifMateriel, connectionBD)
@@ -170,6 +172,20 @@ Public Class EnregistrementMateriel
         dgvEnrMat.Columns(3).Width = 120
     End Sub
 
+    Public Sub RemplirCboCategorie()
+        Dim reqCategorie As String = "SELECT `categorie` FROM `equipements`;"
+        Dim da As New MySqlDataAdapter(reqCategorie, bd.ConnectionString)
+        Dim dt As New DataTable("artiste")
+
+        da.Fill(dt)
+        If dt.Rows.Count > 0 Then
+            cboEnrMat_Categorie.DataSource = dt
+            cboEnrMat_Categorie.DisplayMember = "categorie"
+        End If
+
+
+
+    End Sub
 
     Public Sub RemplirChampFormulaire()
         Dim readerMateriel As MySqlDataReader
@@ -464,6 +480,7 @@ Public Class EnregistrementMateriel
         btnEnrMat_Modif.Enabled = True
         btnEnrMat_Modif.Text = "Modifier"
         btnEnrMat_Ajout.Enabled = True
+        RemplirCboCategorie()
     End Sub
 
     Private Sub BtnEnrMat_Ajout_Click(sender As Object, e As EventArgs) Handles btnEnrMat_Ajout.Click
@@ -503,6 +520,7 @@ Public Class EnregistrementMateriel
     Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
         RemplirDatagridview_EnrMateriel()
         InactiverChamps()
+        RemplirCboCategorie()
     End Sub
 
     Private Sub dgvEnrMat_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvEnrMat.CellClick

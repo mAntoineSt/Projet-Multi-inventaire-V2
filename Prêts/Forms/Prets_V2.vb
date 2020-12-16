@@ -4,7 +4,7 @@ Public Class Prets_V2
     Dim id_emprunteur As String
     Dim id_preteur As String
     Dim id_equipement As String
-    Dim connexion As New MySqlConnection("database=projetmulti;datasource=localhost;port=3306;username=root;password=")
+    Dim connexion As New MySqlConnection("database=projetmulti;datasource=localhost;port=3308;username=root;password=''")
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dtpDateRetourPrevue.MinDate = DateTime.Now
         Dim mindate As New DateTime

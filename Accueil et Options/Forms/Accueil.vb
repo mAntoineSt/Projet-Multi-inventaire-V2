@@ -1,6 +1,6 @@
 ﻿Public Class Accueil
     Dim emplacement As Point
-    Dim styleVisuel As Integer = 1
+    Dim styleVisuel As Integer = 0
     Private Sub FaireUnEmpruntToolStripMenuItem_Click(sender As Object, e As EventArgs)
         'Dim emprunt As New PretAjout()
         'emprunt.Show()

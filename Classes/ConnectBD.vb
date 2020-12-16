@@ -15,7 +15,7 @@ Public Class ConnectBd
 
     'Constructeur par défault
     Sub New()
-        _ConnectionString = "Server=localhost; DataBase=pret_materiel; Uid=root; Pwd=root;Convert Zero Datetime=true; Allow Zero DateTime=true;"
+        _ConnectionString = "Server=localhost;DataBase=pret_materiel; Uid=root; Pwd='';Port=3308;"
     End Sub
 
 

@@ -34,10 +34,12 @@
             ucAccueilAdmin.lAccesStatistiques.Visible = False
             ucAccueilAdmin.lPasAccesGestionAdmins.Visible = True
             ucAccueilAdmin.lPasAccesGestionStats.Visible = True
+            ucAccueilAdmin.lPasAccesParametresSupp.Visible = True
         Else
             ucAccueilAdmin.lRole.Text = "Admin"
             ucAccueilAdmin.lPasAccesGestionAdmins.Visible = False
             ucAccueilAdmin.lPasAccesGestionStats.Visible = False
+            ucAccueilAdmin.lPasAccesParametresSupp.Visible = False
         End If
 
         If styleVisuel = 0 Then
@@ -70,10 +72,6 @@
             ucStatistiques.bEmprunteursDOC.BackColor = ColorTranslator.FromHtml("#d1d8e0")
             ucStatistiques.bGlobaleDOC.BackColor = ColorTranslator.FromHtml("#d1d8e0")
             ucStatistiques.bPreteursDOC.BackColor = ColorTranslator.FromHtml("#d1d8e0")
-            ucStatistiques.bAdminsPDF.BackColor = ColorTranslator.FromHtml("#d1d8e0")
-            ucStatistiques.bEmprunteursPDF.BackColor = ColorTranslator.FromHtml("#d1d8e0")
-            ucStatistiques.bGlobalePDF.BackColor = ColorTranslator.FromHtml("#d1d8e0")
-            ucStatistiques.bPreteursPDF.BackColor = ColorTranslator.FromHtml("#d1d8e0")
             ucStatistiques.bAdminsCSV.BackColor = ColorTranslator.FromHtml("#d1d8e0")
             ucStatistiques.bEmprunteursCSV.BackColor = ColorTranslator.FromHtml("#d1d8e0")
             ucStatistiques.bGlobaleCSV.BackColor = ColorTranslator.FromHtml("#d1d8e0")
@@ -88,10 +86,6 @@
             ucStatistiques.bEmprunteursDOC.ForeColor = Color.Black
             ucStatistiques.bGlobaleDOC.ForeColor = Color.Black
             ucStatistiques.bPreteursDOC.ForeColor = Color.Black
-            ucStatistiques.bAdminsPDF.ForeColor = Color.Black
-            ucStatistiques.bEmprunteursPDF.ForeColor = Color.Black
-            ucStatistiques.bGlobalePDF.ForeColor = Color.Black
-            ucStatistiques.bPreteursPDF.ForeColor = Color.Black
             ucStatistiques.bAdminsCSV.ForeColor = Color.Black
             ucStatistiques.bEmprunteursCSV.ForeColor = Color.Black
             ucStatistiques.bGlobaleCSV.ForeColor = Color.Black
@@ -147,10 +141,6 @@
             ucStatistiques.bEmprunteursDOC.BackColor = ColorTranslator.FromHtml("#3c403d")
             ucStatistiques.bGlobaleDOC.BackColor = ColorTranslator.FromHtml("#3c403d")
             ucStatistiques.bPreteursDOC.BackColor = ColorTranslator.FromHtml("#3c403d")
-            ucStatistiques.bAdminsPDF.BackColor = ColorTranslator.FromHtml("#3c403d")
-            ucStatistiques.bEmprunteursPDF.BackColor = ColorTranslator.FromHtml("#3c403d")
-            ucStatistiques.bGlobalePDF.BackColor = ColorTranslator.FromHtml("#3c403d")
-            ucStatistiques.bPreteursPDF.BackColor = ColorTranslator.FromHtml("#3c403d")
             ucStatistiques.bAdminsCSV.BackColor = ColorTranslator.FromHtml("#3c403d")
             ucStatistiques.bEmprunteursCSV.BackColor = ColorTranslator.FromHtml("#3c403d")
             ucStatistiques.bGlobaleCSV.BackColor = ColorTranslator.FromHtml("#3c403d")
@@ -165,10 +155,6 @@
             ucStatistiques.bEmprunteursDOC.ForeColor = Color.White
             ucStatistiques.bGlobaleDOC.ForeColor = Color.White
             ucStatistiques.bPreteursDOC.ForeColor = Color.White
-            ucStatistiques.bAdminsPDF.ForeColor = Color.White
-            ucStatistiques.bEmprunteursPDF.ForeColor = Color.White
-            ucStatistiques.bGlobalePDF.ForeColor = Color.White
-            ucStatistiques.bPreteursPDF.ForeColor = Color.White
             ucStatistiques.bAdminsCSV.ForeColor = Color.White
             ucStatistiques.bEmprunteursCSV.ForeColor = Color.White
             ucStatistiques.bGlobaleCSV.ForeColor = Color.White
@@ -253,7 +239,6 @@
             ucStatistiques.lTitreNbrFraisRetards.Text = "Nombre de frais de retards accumulées :"
             ucStatistiques.bGlobaleCSV.Text = "Exporter en .XLSX"
             ucStatistiques.bGlobaleDOC.Text = "Exporter en .DOCS"
-            ucStatistiques.bGlobalePDF.Text = "Exporter en .PDF"
             ucStatistiques.lTitrePartieEmprunteurs.Text = "Toutes les infos des emprunteurs de l'application"
             ucStatistiques.lEmprunteurTitreChoixMois.Text = "Mois"
             ucStatistiques.lEmprunteurTitreChoixAnnee.Text = "Année"
@@ -265,7 +250,6 @@
             ucStatistiques.lEmprunteursTitreNbrRetoursEffectuees.Text = "Nombre de retours efectuées :"
             ucStatistiques.bEmprunteursCSV.Text = "Exporter en .XLSX"
             ucStatistiques.bEmprunteursDOC.Text = "Exporter en .DOCS"
-            ucStatistiques.bEmprunteursPDF.Text = "Exporter en .PDF"
             ucStatistiques.lPreteursTitre.Text = "Toutes les infos des prêteurs de l'application"
             ucStatistiques.lPreteursTitreChoixMois.Text = "Mois"
             ucStatistiques.lPreteursTitreChoixAnnee.Text = "Année"
@@ -277,7 +261,6 @@
             ucStatistiques.lPreteursTitreNbrRetoursAttentesAutorisation.Text = "Nombre de retours en attente d'autorisations :"
             ucStatistiques.bPreteursCSV.Text = "Exporter en .XLSX"
             ucStatistiques.bPreteursDOC.Text = "Exporter en .DOCS"
-            ucStatistiques.bPreteursPDF.Text = "Exporter en .PDF"
             ucStatistiques.lTitreAdministrateur.Text = "Toutes les infos des administrateurs de l'application"
             ucStatistiques.lAdminsTitreChoixMois.Text = "Mois"
             ucStatistiques.lAdminsTitreChoixAnnee.Text = "Année"
@@ -286,7 +269,6 @@
             ucStatistiques.lAdminsTitreNbrAdminsSuspendues.Text = "Nombre d'admins suspendues :"
             ucStatistiques.bAdminsCSV.Text = "Exporter en .XLSX"
             ucStatistiques.bAdminsDOC.Text = "Exporter en .DOCS"
-            ucStatistiques.bAdminsPDF.Text = "Exporter en .PDF"
         Else
             lTitreHaut.Text = "Administrative menu"
             lAccueilAdministratif.Text = "Administrative reception"
@@ -343,7 +325,6 @@
             ucStatistiques.lTitreNbrFraisRetards.Text = "Number of accumulated late fees:"
             ucStatistiques.bGlobaleCSV.Text = "Export to .XLSX"
             ucStatistiques.bGlobaleDOC.Text = "Export to .DOCS"
-            ucStatistiques.bGlobalePDF.Text = "Export to .PDF"
             ucStatistiques.lTitrePartieEmprunteurs.Text = "All the information of borrowers in the application"
             ucStatistiques.lEmprunteurTitreChoixMois.Text = "Month"
             ucStatistiques.lEmprunteurTitreChoixAnnee.Text = "Year"
@@ -355,7 +336,6 @@
             ucStatistiques.lEmprunteursTitreNbrRetoursEffectuees.Text = "Number of returns made:"
             ucStatistiques.bEmprunteursCSV.Text = "Export to .XLSX"
             ucStatistiques.bEmprunteursDOC.Text = "Export to .DOCS"
-            ucStatistiques.bEmprunteursPDF.Text = "Export to .PDF"
             ucStatistiques.lPreteursTitre.Text = "All the information of the lenders of the application"
             ucStatistiques.lPreteursTitreChoixMois.Text = "Month"
             ucStatistiques.lPreteursTitreChoixAnnee.Text = "Year"
@@ -367,7 +347,6 @@
             ucStatistiques.lPreteursTitreNbrRetoursAttentesAutorisation.Text = "Number of returns pending authorization:"
             ucStatistiques.bPreteursCSV.Text = "Export to .XLSX"
             ucStatistiques.bPreteursDOC.Text = "Export to .DOCS"
-            ucStatistiques.bPreteursPDF.Text = "Export to .PDF"
             ucStatistiques.lTitreAdministrateur.Text = "All the information of the administrators of the application"
             ucStatistiques.lAdminsTitreChoixMois.Text = "Month"
             ucStatistiques.lAdminsTitreChoixAnnee.Text = "Year"
@@ -376,20 +355,22 @@
             ucStatistiques.lAdminsTitreNbrAdminsSuspendues.Text = "Number of suspended admins:"
             ucStatistiques.bAdminsCSV.Text = "Export to .XLSX"
             ucStatistiques.bAdminsDOC.Text = "Export to .DOCS"
-            ucStatistiques.bAdminsPDF.Text = "Export to .PDF"
         End If
 
     End Sub
 
     'LES LABELS------------------------------------------------------------------------------------------------------
+    'Sert à quitter l'application
     Private Sub lQuitter_Click(sender As Object, e As EventArgs) Handles lQuitter.Click
         Me.Close()
     End Sub
 
+    'Sert à ouvrir le menu d'accueil de la partie administration
     Private Sub lAccueilAdministratif_Click(sender As Object, e As EventArgs) Handles lAccueilAdministratif.Click
         ucAccueilAdmin.BringToFront()
     End Sub
 
+    'Sert à ouvrir le menu de la gestion des administrateurs de la partie administration
     Private Sub lGestionAdmins_Click(sender As Object, e As EventArgs) Handles lGestionAdmins.Click
         If droits_administratif <> 2 Then
             MessageBox.Show("Vous n'avez pas accès à cette partie administrative.", "AVERTISSEMENT", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -399,16 +380,19 @@
         ucGestionAdmin.refreshDataGridView()
     End Sub
 
+    'Sert à ouvrir le menu de la gestion des emprunteurs de la partie administration
     Private Sub lGestionEmpreuteurs_Click(sender As Object, e As EventArgs) Handles lGestionEmprunteurs.Click
         ucGestionEmprunteurs.BringToFront()
         ucGestionEmprunteurs.refreshDataGridView()
     End Sub
 
+    'Sert à ouvrir le menu de la gestion des prêteurs de la partie administration
     Private Sub lGestionPreteurs_Click(sender As Object, e As EventArgs) Handles lGestionPreteurs.Click
         ucGestionPreteur.BringToFront()
         ucGestionPreteur.refreshDataGridView()
     End Sub
 
+    'Sert à ouvrir le menu de la gestion des statistiques de la partie administration
     Private Sub lStatistiques_Click(sender As Object, e As EventArgs) Handles lStatistiques.Click
         If droits_administratif <> 2 Then
             MessageBox.Show("Vous n'avez pas accès à cette partie administrative.", "AVERTISSEMENT", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -417,21 +401,25 @@
         ucStatistiques.refreshInfos()
         ucStatistiques.refreshComboboxes()
         ucStatistiques.BringToFront()
-
     End Sub
 
+    'PARTIE DES PANELS-----------------------------------------------------------------------------------------------------------------
+
+    'Si on clique sur le menu du haut
     Private Sub pHaut_MouseDown(sender As Object, e As MouseEventArgs) Handles pHaut.MouseDown, lTitreHaut.MouseDown, lQuitter.MouseDown
         If e.Button = MouseButtons.Left Then
             emplacement = e.Location
         End If
     End Sub
 
+    'Pour faire déplacer le menu du haut
     Private Sub pHaut_MouseMove(sender As Object, e As MouseEventArgs) Handles pHaut.MouseMove, lTitreHaut.MouseMove, lQuitter.MouseMove
         If e.Button = MouseButtons.Left Then
             Me.Location += e.Location - emplacement
         End If
     End Sub
 
+    'Sert à ouvrir le menu des paramètres supplémentaires de la partie administration
     Private Sub lParametresSupplementaires_Click(sender As Object, e As EventArgs) Handles lParametresSupplementaires.Click
         If droits_administratif <> 2 Then
             MessageBox.Show("Vous n'avez pas accès à cette partie administrative.", "AVERTISSEMENT", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -442,13 +430,9 @@
         ucParametresSupplementaires.refreshInfos()
     End Sub
 
-    Private Sub lJournalActivites_Click(sender As Object, e As EventArgs) Handles lJournalActivites.Click
-        If droits_administratif <> 2 Then
-            MessageBox.Show("Vous n'avez pas accès à cette partie administrative.", "AVERTISSEMENT", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Return
-        End If
-        ucJournalActivite.BringToFront()
-    End Sub
+    'LES FONCTIONS--------------------------------------------------------------------------------------------------------
+
+    'Recharge les paramètres spéciaux de l'application
     Public Sub refreshObjetVariablesApplications(variables_application As Variables_Application)
         Me.variables_application = New Variables_Application(variables_application.getFrais_Retards_Emprunteurs, variables_application.getNbr_prets_max_emprunteurs, variables_application.getDelais_entre_prets_emprunteurs, variables_application.getDelais_minimum_retour_emprunteurs, variables_application.getNbr_Max_Equipements_Prets_emprunteurs,
                                                              variables_application.getFrais_Retards_Preteurs, variables_application.getNbr_prets_max_Preteurs, variables_application.getDelais_entre_prets_Preteurs, variables_application.getDelais_minimum_retour_Preteurs, variables_application.getNbr_Max_Equipements_Prets_Preteurs,

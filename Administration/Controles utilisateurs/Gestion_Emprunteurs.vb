@@ -108,4 +108,11 @@ Public Class Gestion_Emprunteurs
             Return
         End If
     End Sub
+
+    Private Sub bDroitsEmprunteurs_Click(sender As Object, e As EventArgs) Handles bDroitsEmprunteurs.Click
+        If MessageBox.Show("Voulez-vous vraiment enlever les droits à cet emprunteur?", "Droits à retirer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+            MessageBox.Show("Droits enlevées !", "Droits retirées à l'emprunteur", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            'Code pour enlever ou retirer ses droits
+        End If
+    End Sub
 End Class

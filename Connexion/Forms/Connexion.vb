@@ -9,7 +9,7 @@ Public Class Connexion
     Dim commande As New MySqlCommand
     Dim mdp As String
     Dim styleVisuel As Integer = 0
-    Dim langue As Integer = 1
+    Dim langue As Integer = 0
     Dim emplacement As Point
     Dim pressetMatricule As String
     Dim pressetMdp As String
@@ -119,7 +119,7 @@ Public Class Connexion
             con.Open()
             reader = commande.ExecuteReader
             While (reader.Read)
-                mdp = reader(8)
+                mdp = reader(7)
             End While
 
             'Vérifie si la base de donnée a retourné quelque chose.
@@ -149,7 +149,7 @@ Public Class Connexion
             End If
 
             'Appelle la fonction de la page d'accueil
-            Accueil.role(reader(5))
+            Accueil.role(reader(2))
 
             'Referme la connexion pour que cela ne cause pas de problèmes pour la prochaine demande de connexion à la bd
             con.Close()

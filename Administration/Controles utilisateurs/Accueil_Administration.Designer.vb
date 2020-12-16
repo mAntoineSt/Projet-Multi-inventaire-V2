@@ -37,6 +37,8 @@ Partial Class Accueil_Administration
         Me.lPasAccesGestionAdmins = New System.Windows.Forms.Label()
         Me.pRole = New System.Windows.Forms.Panel()
         Me.tpMessagesLabels = New System.Windows.Forms.ToolTip(Me.components)
+        Me.lPasAccesParametresSupp = New System.Windows.Forms.Label()
+        Me.lAccesParametresSupp = New System.Windows.Forms.Label()
         Me.pAcces.SuspendLayout()
         Me.pPasAcces.SuspendLayout()
         Me.pRole.SuspendLayout()
@@ -66,6 +68,7 @@ Partial Class Accueil_Administration
         'pAcces
         '
         Me.pAcces.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.pAcces.Controls.Add(Me.lAccesParametresSupp)
         Me.pAcces.Controls.Add(Me.lAccesStatistiques)
         Me.pAcces.Controls.Add(Me.lAccesGestionAdmins)
         Me.pAcces.Controls.Add(Me.lAccesGestionPreteurs)
@@ -142,6 +145,7 @@ Partial Class Accueil_Administration
         'pPasAcces
         '
         Me.pPasAcces.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.pPasAcces.Controls.Add(Me.lPasAccesParametresSupp)
         Me.pPasAcces.Controls.Add(Me.lPasAccesGestionStats)
         Me.pPasAcces.Controls.Add(Me.lPasAccesGestionAdmins)
         Me.pPasAcces.Cursor = System.Windows.Forms.Cursors.Arrow
@@ -184,6 +188,28 @@ Partial Class Accueil_Administration
         '
         Me.tpMessagesLabels.ToolTipTitle = "Cet énoncé veut dire que :"
         '
+        'lPasAccesParametresSupp
+        '
+        Me.lPasAccesParametresSupp.AutoSize = True
+        Me.lPasAccesParametresSupp.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.0!)
+        Me.lPasAccesParametresSupp.Location = New System.Drawing.Point(14, 89)
+        Me.lPasAccesParametresSupp.Name = "lPasAccesParametresSupp"
+        Me.lPasAccesParametresSupp.Size = New System.Drawing.Size(212, 16)
+        Me.lPasAccesParametresSupp.TabIndex = 6
+        Me.lPasAccesParametresSupp.Text = "• Paramètres supplémentaires"
+        Me.lPasAccesParametresSupp.Visible = False
+        '
+        'lAccesParametresSupp
+        '
+        Me.lAccesParametresSupp.AutoSize = True
+        Me.lAccesParametresSupp.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.0!)
+        Me.lAccesParametresSupp.Location = New System.Drawing.Point(14, 151)
+        Me.lAccesParametresSupp.Name = "lAccesParametresSupp"
+        Me.lAccesParametresSupp.Size = New System.Drawing.Size(212, 16)
+        Me.lAccesParametresSupp.TabIndex = 4
+        Me.lAccesParametresSupp.Text = "• Paramètres supplémentaires"
+        Me.lAccesParametresSupp.Visible = False
+        '
         'Accueil_Administration
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -220,4 +246,6 @@ Partial Class Accueil_Administration
     Friend WithEvents lPasAccesGestionAdmins As Label
     Friend WithEvents pRole As Panel
     Friend WithEvents tpMessagesLabels As ToolTip
+    Friend WithEvents lAccesParametresSupp As Label
+    Friend WithEvents lPasAccesParametresSupp As Label
 End Class

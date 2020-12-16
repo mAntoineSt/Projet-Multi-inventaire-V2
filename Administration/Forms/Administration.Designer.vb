@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Administration
     Inherits System.Windows.Forms.Form
 
     'Form remplace la méthode Dispose pour nettoyer la liste des composants.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Administration
     'REMARQUE : la procédure suivante est requise par le Concepteur Windows Form
     'Elle peut être modifiée à l'aide du Concepteur Windows Form.  
     'Ne la modifiez pas à l'aide de l'éditeur de code.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.pHaut = New System.Windows.Forms.Panel()
@@ -35,7 +35,6 @@ Partial Class Administration
         Me.pBas = New System.Windows.Forms.Panel()
         Me.tpMessageBoutons = New System.Windows.Forms.ToolTip(Me.components)
         Me.lParametresSupplementaires = New System.Windows.Forms.Label()
-        Me.lJournalActivites = New System.Windows.Forms.Label()
         Me.pHaut.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -83,7 +82,7 @@ Partial Class Administration
         Me.lStatistiques.BackColor = System.Drawing.Color.Black
         Me.lStatistiques.Font = New System.Drawing.Font("Arial Rounded MT Bold", 8.0!)
         Me.lStatistiques.ForeColor = System.Drawing.Color.White
-        Me.lStatistiques.Location = New System.Drawing.Point(620, 40)
+        Me.lStatistiques.Location = New System.Drawing.Point(680, 40)
         Me.lStatistiques.Name = "lStatistiques"
         Me.lStatistiques.Padding = New System.Windows.Forms.Padding(4)
         Me.lStatistiques.Size = New System.Drawing.Size(78, 20)
@@ -97,7 +96,7 @@ Partial Class Administration
         Me.lGestionPreteurs.BackColor = System.Drawing.Color.Black
         Me.lGestionPreteurs.Font = New System.Drawing.Font("Arial Rounded MT Bold", 8.0!)
         Me.lGestionPreteurs.ForeColor = System.Drawing.Color.White
-        Me.lGestionPreteurs.Location = New System.Drawing.Point(484, 40)
+        Me.lGestionPreteurs.Location = New System.Drawing.Point(544, 40)
         Me.lGestionPreteurs.Name = "lGestionPreteurs"
         Me.lGestionPreteurs.Padding = New System.Windows.Forms.Padding(4)
         Me.lGestionPreteurs.Size = New System.Drawing.Size(130, 20)
@@ -111,7 +110,7 @@ Partial Class Administration
         Me.lGestionEmprunteurs.BackColor = System.Drawing.Color.Black
         Me.lGestionEmprunteurs.Font = New System.Drawing.Font("Arial Rounded MT Bold", 8.0!)
         Me.lGestionEmprunteurs.ForeColor = System.Drawing.Color.White
-        Me.lGestionEmprunteurs.Location = New System.Drawing.Point(324, 40)
+        Me.lGestionEmprunteurs.Location = New System.Drawing.Point(384, 40)
         Me.lGestionEmprunteurs.Name = "lGestionEmprunteurs"
         Me.lGestionEmprunteurs.Padding = New System.Windows.Forms.Padding(4)
         Me.lGestionEmprunteurs.Size = New System.Drawing.Size(154, 20)
@@ -125,7 +124,7 @@ Partial Class Administration
         Me.lGestionAdmins.BackColor = System.Drawing.Color.Black
         Me.lGestionAdmins.Font = New System.Drawing.Font("Arial Rounded MT Bold", 8.0!)
         Me.lGestionAdmins.ForeColor = System.Drawing.Color.White
-        Me.lGestionAdmins.Location = New System.Drawing.Point(148, 40)
+        Me.lGestionAdmins.Location = New System.Drawing.Point(208, 40)
         Me.lGestionAdmins.Name = "lGestionAdmins"
         Me.lGestionAdmins.Padding = New System.Windows.Forms.Padding(4)
         Me.lGestionAdmins.Size = New System.Drawing.Size(170, 20)
@@ -139,7 +138,7 @@ Partial Class Administration
         Me.lAccueilAdministratif.BackColor = System.Drawing.Color.Black
         Me.lAccueilAdministratif.Font = New System.Drawing.Font("Arial Rounded MT Bold", 8.0!)
         Me.lAccueilAdministratif.ForeColor = System.Drawing.Color.White
-        Me.lAccueilAdministratif.Location = New System.Drawing.Point(14, 40)
+        Me.lAccueilAdministratif.Location = New System.Drawing.Point(74, 40)
         Me.lAccueilAdministratif.Name = "lAccueilAdministratif"
         Me.lAccueilAdministratif.Padding = New System.Windows.Forms.Padding(4)
         Me.lAccueilAdministratif.Size = New System.Drawing.Size(128, 20)
@@ -160,7 +159,7 @@ Partial Class Administration
         Me.lParametresSupplementaires.BackColor = System.Drawing.Color.Black
         Me.lParametresSupplementaires.Font = New System.Drawing.Font("Arial Rounded MT Bold", 8.0!)
         Me.lParametresSupplementaires.ForeColor = System.Drawing.Color.White
-        Me.lParametresSupplementaires.Location = New System.Drawing.Point(704, 40)
+        Me.lParametresSupplementaires.Location = New System.Drawing.Point(764, 40)
         Me.lParametresSupplementaires.Name = "lParametresSupplementaires"
         Me.lParametresSupplementaires.Padding = New System.Windows.Forms.Padding(4)
         Me.lParametresSupplementaires.Size = New System.Drawing.Size(174, 20)
@@ -168,26 +167,11 @@ Partial Class Administration
         Me.lParametresSupplementaires.Text = "Paramètres supplémentaires"
         Me.tpMessageBoutons.SetToolTip(Me.lParametresSupplementaires, "Fait revenir au menu des statistiques")
         '
-        'lJournalActivites
-        '
-        Me.lJournalActivites.AutoSize = True
-        Me.lJournalActivites.BackColor = System.Drawing.Color.Black
-        Me.lJournalActivites.Font = New System.Drawing.Font("Arial Rounded MT Bold", 8.0!)
-        Me.lJournalActivites.ForeColor = System.Drawing.Color.White
-        Me.lJournalActivites.Location = New System.Drawing.Point(884, 40)
-        Me.lJournalActivites.Name = "lJournalActivites"
-        Me.lJournalActivites.Padding = New System.Windows.Forms.Padding(4)
-        Me.lJournalActivites.Size = New System.Drawing.Size(115, 20)
-        Me.lJournalActivites.TabIndex = 18
-        Me.lJournalActivites.Text = "Journal d'activités"
-        Me.tpMessageBoutons.SetToolTip(Me.lJournalActivites, "Fait revenir au menu des statistiques")
-        '
         'Administration
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1013, 572)
-        Me.Controls.Add(Me.lJournalActivites)
         Me.Controls.Add(Me.lParametresSupplementaires)
         Me.Controls.Add(Me.pHaut)
         Me.Controls.Add(Me.pUserControls)
@@ -220,5 +204,4 @@ Partial Class Administration
     Friend WithEvents pBas As Panel
     Friend WithEvents tpMessageBoutons As ToolTip
     Friend WithEvents lParametresSupplementaires As Label
-    Friend WithEvents lJournalActivites As Label
 End Class

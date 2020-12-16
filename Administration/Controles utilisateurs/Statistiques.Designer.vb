@@ -37,7 +37,6 @@ Partial Class Statistiques
         Me.lPreteursTitreNbrPreteursSuspendues = New System.Windows.Forms.Label()
         Me.lPreteursTitreNbrPreteursActifs = New System.Windows.Forms.Label()
         Me.lPreteursTitreNbrPreteurs = New System.Windows.Forms.Label()
-        Me.bPreteursPDF = New System.Windows.Forms.Button()
         Me.bPreteursDOC = New System.Windows.Forms.Button()
         Me.bPreteursCSV = New System.Windows.Forms.Button()
         Me.lPreteursTitre = New System.Windows.Forms.Label()
@@ -63,13 +62,11 @@ Partial Class Statistiques
         Me.cbEmprunteurChoixMois = New System.Windows.Forms.ComboBox()
         Me.lEmprunteurTitreChoixAnnee = New System.Windows.Forms.Label()
         Me.lEmprunteurTitreChoixMois = New System.Windows.Forms.Label()
-        Me.bEmprunteursPDF = New System.Windows.Forms.Button()
         Me.bEmprunteursDOC = New System.Windows.Forms.Button()
         Me.bEmprunteursCSV = New System.Windows.Forms.Button()
         Me.gbGlobale = New System.Windows.Forms.GroupBox()
         Me.lNbrFraisRetards = New System.Windows.Forms.Label()
         Me.lTitreNbrFraisRetards = New System.Windows.Forms.Label()
-        Me.bGlobalePDF = New System.Windows.Forms.Button()
         Me.bGlobaleDOC = New System.Windows.Forms.Button()
         Me.bGlobaleCSV = New System.Windows.Forms.Button()
         Me.lNbrResponsabilites = New System.Windows.Forms.Label()
@@ -104,7 +101,6 @@ Partial Class Statistiques
         Me.lAdminsTitreNbrAdminsSuspendues = New System.Windows.Forms.Label()
         Me.lAdminsTitreNbrAdminsActifs = New System.Windows.Forms.Label()
         Me.lAdminsTitreNombreAdmins = New System.Windows.Forms.Label()
-        Me.bAdminsPDF = New System.Windows.Forms.Button()
         Me.bAdminsDOC = New System.Windows.Forms.Button()
         Me.bAdminsCSV = New System.Windows.Forms.Button()
         Me.lTitreAdministrateur = New System.Windows.Forms.Label()
@@ -152,7 +148,6 @@ Partial Class Statistiques
         Me.gbPartiePreteurs.Controls.Add(Me.lPreteursTitreNbrPreteursSuspendues)
         Me.gbPartiePreteurs.Controls.Add(Me.lPreteursTitreNbrPreteursActifs)
         Me.gbPartiePreteurs.Controls.Add(Me.lPreteursTitreNbrPreteurs)
-        Me.gbPartiePreteurs.Controls.Add(Me.bPreteursPDF)
         Me.gbPartiePreteurs.Controls.Add(Me.bPreteursDOC)
         Me.gbPartiePreteurs.Controls.Add(Me.bPreteursCSV)
         Me.gbPartiePreteurs.Controls.Add(Me.lPreteursTitre)
@@ -300,17 +295,6 @@ Partial Class Statistiques
         Me.lPreteursTitreNbrPreteurs.TabIndex = 25
         Me.lPreteursTitreNbrPreteurs.Text = "Nombre de prêteurs :"
         Me.tpMessagesLabels.SetToolTip(Me.lPreteursTitreNbrPreteurs, "Montre le nombre de prêteurs")
-        '
-        'bPreteursPDF
-        '
-        Me.bPreteursPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.bPreteursPDF.Location = New System.Drawing.Point(508, 276)
-        Me.bPreteursPDF.Name = "bPreteursPDF"
-        Me.bPreteursPDF.Size = New System.Drawing.Size(164, 71)
-        Me.bPreteursPDF.TabIndex = 22
-        Me.bPreteursPDF.Text = "Exporter en .PDF"
-        Me.tpMessagesBoutons.SetToolTip(Me.bPreteursPDF, "Exporte toutes les données des infos au niveau des prêteurs en fichier PDF")
-        Me.bPreteursPDF.UseVisualStyleBackColor = True
         '
         'bPreteursDOC
         '
@@ -496,7 +480,6 @@ Partial Class Statistiques
         Me.gbPartieEmprunteurs.Controls.Add(Me.cbEmprunteurChoixMois)
         Me.gbPartieEmprunteurs.Controls.Add(Me.lEmprunteurTitreChoixAnnee)
         Me.gbPartieEmprunteurs.Controls.Add(Me.lEmprunteurTitreChoixMois)
-        Me.gbPartieEmprunteurs.Controls.Add(Me.bEmprunteursPDF)
         Me.gbPartieEmprunteurs.Controls.Add(Me.bEmprunteursDOC)
         Me.gbPartieEmprunteurs.Controls.Add(Me.bEmprunteursCSV)
         Me.gbPartieEmprunteurs.ForeColor = System.Drawing.Color.White
@@ -585,17 +568,6 @@ Partial Class Statistiques
         Me.lEmprunteurTitreChoixMois.TabIndex = 12
         Me.lEmprunteurTitreChoixMois.Text = "Mois"
         '
-        'bEmprunteursPDF
-        '
-        Me.bEmprunteursPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.bEmprunteursPDF.Location = New System.Drawing.Point(508, 276)
-        Me.bEmprunteursPDF.Name = "bEmprunteursPDF"
-        Me.bEmprunteursPDF.Size = New System.Drawing.Size(164, 71)
-        Me.bEmprunteursPDF.TabIndex = 9
-        Me.bEmprunteursPDF.Text = "Exporter en .PDF"
-        Me.tpMessagesBoutons.SetToolTip(Me.bEmprunteursPDF, "Exporte toutes les données des infos au niveau des emprunteurs en fichier PDF")
-        Me.bEmprunteursPDF.UseVisualStyleBackColor = True
-        '
         'bEmprunteursDOC
         '
         Me.bEmprunteursDOC.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -622,7 +594,6 @@ Partial Class Statistiques
         '
         Me.gbGlobale.Controls.Add(Me.lNbrFraisRetards)
         Me.gbGlobale.Controls.Add(Me.lTitreNbrFraisRetards)
-        Me.gbGlobale.Controls.Add(Me.bGlobalePDF)
         Me.gbGlobale.Controls.Add(Me.bGlobaleDOC)
         Me.gbGlobale.Controls.Add(Me.bGlobaleCSV)
         Me.gbGlobale.Controls.Add(Me.lNbrResponsabilites)
@@ -677,18 +648,6 @@ Partial Class Statistiques
         Me.lTitreNbrFraisRetards.TabIndex = 28
         Me.lTitreNbrFraisRetards.Text = "Nombre de frais de retards accumulées :"
         Me.tpMessagesLabels.SetToolTip(Me.lTitreNbrFraisRetards, "Montre le nombre de frais de retours accumulées")
-        '
-        'bGlobalePDF
-        '
-        Me.bGlobalePDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.bGlobalePDF.Location = New System.Drawing.Point(508, 276)
-        Me.bGlobalePDF.Name = "bGlobalePDF"
-        Me.bGlobalePDF.Size = New System.Drawing.Size(164, 71)
-        Me.bGlobalePDF.TabIndex = 6
-        Me.bGlobalePDF.Text = "Exporter en .PDF"
-        Me.tpMessagesBoutons.SetToolTip(Me.bGlobalePDF, "Exporte toutes les données des infos au niveau de la globalité de l'application e" &
-        "n fichier PDF")
-        Me.bGlobalePDF.UseVisualStyleBackColor = True
         '
         'bGlobaleDOC
         '
@@ -966,7 +925,6 @@ Partial Class Statistiques
         Me.gbPartieAdministrateur.Controls.Add(Me.lAdminsTitreNbrAdminsSuspendues)
         Me.gbPartieAdministrateur.Controls.Add(Me.lAdminsTitreNbrAdminsActifs)
         Me.gbPartieAdministrateur.Controls.Add(Me.lAdminsTitreNombreAdmins)
-        Me.gbPartieAdministrateur.Controls.Add(Me.bAdminsPDF)
         Me.gbPartieAdministrateur.Controls.Add(Me.bAdminsDOC)
         Me.gbPartieAdministrateur.Controls.Add(Me.bAdminsCSV)
         Me.gbPartieAdministrateur.Controls.Add(Me.lTitreAdministrateur)
@@ -1050,18 +1008,6 @@ Partial Class Statistiques
         Me.lAdminsTitreNombreAdmins.TabIndex = 33
         Me.lAdminsTitreNombreAdmins.Text = "Nombre d'admins :"
         Me.tpMessagesLabels.SetToolTip(Me.lAdminsTitreNombreAdmins, "Montre le nombre d'administrateurs dans l'application")
-        '
-        'bAdminsPDF
-        '
-        Me.bAdminsPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.bAdminsPDF.Location = New System.Drawing.Point(508, 276)
-        Me.bAdminsPDF.Name = "bAdminsPDF"
-        Me.bAdminsPDF.Size = New System.Drawing.Size(164, 71)
-        Me.bAdminsPDF.TabIndex = 30
-        Me.bAdminsPDF.Text = "Exporter en .PDF"
-        Me.tpMessagesBoutons.SetToolTip(Me.bAdminsPDF, "Exporte toutes les données des infos au niveau des administrateurs en fichier PDF" &
-        "")
-        Me.bAdminsPDF.UseVisualStyleBackColor = True
         '
         'bAdminsDOC
         '
@@ -1248,7 +1194,6 @@ Partial Class Statistiques
     Friend WithEvents lPreteursTitreNbrPreteursSuspendues As Label
     Friend WithEvents lPreteursTitreNbrPreteursActifs As Label
     Friend WithEvents lPreteursTitreNbrPreteurs As Label
-    Friend WithEvents bPreteursPDF As Button
     Friend WithEvents bPreteursDOC As Button
     Friend WithEvents bPreteursCSV As Button
     Friend WithEvents lPreteursTitre As Label
@@ -1274,13 +1219,11 @@ Partial Class Statistiques
     Friend WithEvents cbEmprunteurChoixMois As ComboBox
     Friend WithEvents lEmprunteurTitreChoixAnnee As Label
     Friend WithEvents lEmprunteurTitreChoixMois As Label
-    Friend WithEvents bEmprunteursPDF As Button
     Friend WithEvents bEmprunteursDOC As Button
     Friend WithEvents bEmprunteursCSV As Button
     Friend WithEvents gbGlobale As GroupBox
     Friend WithEvents lNbrFraisRetards As Label
     Friend WithEvents lTitreNbrFraisRetards As Label
-    Friend WithEvents bGlobalePDF As Button
     Friend WithEvents bGlobaleDOC As Button
     Friend WithEvents bGlobaleCSV As Button
     Friend WithEvents lNbrResponsabilites As Label
@@ -1315,7 +1258,6 @@ Partial Class Statistiques
     Friend WithEvents lAdminsTitreNbrAdminsSuspendues As Label
     Friend WithEvents lAdminsTitreNbrAdminsActifs As Label
     Friend WithEvents lAdminsTitreNombreAdmins As Label
-    Friend WithEvents bAdminsPDF As Button
     Friend WithEvents bAdminsDOC As Button
     Friend WithEvents bAdminsCSV As Button
     Friend WithEvents lTitreAdministrateur As Label

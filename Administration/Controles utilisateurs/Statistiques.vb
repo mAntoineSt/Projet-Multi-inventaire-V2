@@ -219,91 +219,6 @@ Public Class Statistiques
         sw.Close()
     End Sub
 
-    'PARTIE PDF
-    Private Sub bPreteursPDF_Click(sender As Object, e As EventArgs) Handles bPreteursPDF.Click
-        archivagePDF(1)
-    End Sub
-
-    Private Sub bEmprunteursPDF_Click(sender As Object, e As EventArgs) Handles bEmprunteursPDF.Click
-        archivagePDF(2)
-    End Sub
-
-    Private Sub bAdminsPDF_Click(sender As Object, e As EventArgs) Handles bAdminsPDF.Click
-        archivagePDF(3)
-    End Sub
-
-    Private Sub bGlobalePDF_Click(sender As Object, e As EventArgs) Handles bGlobalePDF.Click
-        archivagePDF(4)
-    End Sub
-
-    Private Sub archivagePDF(typeInfo As Integer)
-        Dim sfd As New SaveFileDialog
-
-        sfd.Filter = "PDF|*.pdf"
-        sfd.DefaultExt = "pdf"
-        sfd.ShowDialog()
-
-        If String.IsNullOrWhiteSpace(sfd.FileName) Then
-            Return
-        End If
-
-        Dim sw As New StreamWriter(sfd.FileName)
-
-        Select Case typeInfo
-            Case 1
-                'Partie Prêteurs
-                sw.WriteLine("Résumé des statistiques des prêteurs")
-                sw.WriteLine("")
-                sw.WriteLine("Nombre de prêteurs;" & lPreteursNbrPreteurs.Text)
-                sw.WriteLine("Nombre de prêteurs actifs;" & lPreteursNbrPreteursActifs.Text)
-                sw.WriteLine("Nombre de prêteurs suspendues;" & lPreteursNbrPreteursSuspendues.Text)
-                sw.WriteLine("Nombre de prêts autorisés;" & lPreteursNbrPretsAutorisees.Text)
-                sw.WriteLine("Nombre de retours autorisés;" & lPreteursNbrRetoursAutorisees.Text)
-                sw.WriteLine("Nombre de retours en attente d'autorisations;" & lPreteursNbrRetoursAttentesAutorisation.Text)
-
-            Case 2
-                'Partie Emprunteurs
-                sw.WriteLine("Résumé des statistiques des emprunteurs")
-                sw.WriteLine("")
-                sw.WriteLine("Nombre d'emprunteurs : " & lEmprunteursNbrEmprunteurs.Text)
-                sw.WriteLine("Nombre d'emprunteurs actifs : " & lEmprunteursNbrEmpruntsActifs.Text)
-                sw.WriteLine("Nombre d'emprunteurs suspendues : " & lEmprunteurNbrEmprunteursSuspendues.Text)
-                sw.WriteLine("Nombre de prêts effectuées : " & lEmprunteurNbrPretsEffectuees.Text)
-                sw.WriteLine("Nombre de prêts actifs : " & lEmprunteursNbrPretsActifs.Text)
-                sw.WriteLine("Nombre de retours effectuées : " & lEmprunteursNbrRetoursEffectuees.Text)
-
-            Case 3
-                'Partie Admins
-                sw.WriteLine("Résumé des statistiques des administrateurs")
-                sw.WriteLine("")
-                sw.WriteLine("Nombre d'admins :" & lAdminsNombreAdmins.Text)
-                sw.WriteLine("Nombre d'admins actifs :" & lAdminsNbrAdminsActifs.Text)
-                sw.WriteLine("Nombre d'admins suspendues :" & lAdminsNbrAdminsSuspendues.Text)
-
-            Case 4
-                'Partie Globale
-                sw.WriteLine("Résumé des statistiques de la globalité du logiciel")
-                sw.WriteLine("")
-                sw.WriteLine("Nombre d'ouvertures de l'application :" & lNbrOuverturesApplis.Text)
-                sw.WriteLine("Nombre de prêts enregistré :" & lNbrPrets.Text)
-                sw.WriteLine("Nombre de retours effectuées :" & lNbrRetours.Text)
-                sw.WriteLine("Nombre de personnes inscrites dans la base de données :" & lNbrPersonneBD.Text)
-                sw.WriteLine("Nombre d'emprunteurs inscrit :" & lNbrEmprunteurs.Text)
-                sw.WriteLine("Nombre de prêteurs inscrit :" & lNbrPreteurs.Text)
-                sw.WriteLine("Nombre d'administrateurs inscrit :" & lNbrAdministratifs.Text)
-                sw.WriteLine("Nombre d'équipements inscrit :" & lNbrEquipements.Text)
-                sw.WriteLine("Nombre de conditions inscrites :" & lNbrConditions.Text)
-                sw.WriteLine("Nombre de responsabilités inscrites :" & lNbrResponsabilites.Text)
-                sw.WriteLine("Nombre de frais de retards accumulées :" & lNbrFraisRetards.Text)
-
-            Case 5
-
-
-        End Select
-        MessageBox.Show("Le fichier a été enregistré !", "Enregistrement effectué", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        sw.Close()
-    End Sub
-
     Public Sub refreshComboboxes()
         Try
             commande.Connection = con
@@ -1291,7 +1206,7 @@ Public Class Statistiques
             refreshInfos()
         End If
     End Sub
-
+    'Les fonctions----------------------------------------------------------------------------------
     Function translateMoisString(mois As Integer) As String
         Select Case mois
             Case "1"
@@ -1368,8 +1283,6 @@ Public Class Statistiques
                 archivageCSV(5)
             Case 2
                 archivageDOC(5)
-            Case 3
-                archivagePDF(5)
         End Select
     End Sub
 End Class

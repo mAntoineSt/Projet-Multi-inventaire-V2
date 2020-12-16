@@ -7,8 +7,7 @@
     End Sub
 
     Private Sub buttonFaireEmprunt_Click(sender As Object, e As EventArgs) Handles bFaireEmprunt.Click
-        'Dim emprunt As New PretAjout()
-        'emprunt.Show()
+        Prets_V2.ShowDialog()
     End Sub
 
     Private Sub HistoriqueDesEmpruntsToolStripMenuItem_Click(sender As Object, e As EventArgs)
@@ -26,8 +25,7 @@
     End Sub
 
     Private Sub buttonFaireRetour_Click(sender As Object, e As EventArgs) Handles bFaireRetour.Click
-        Dim retour As New RetourAjout()
-        retour.Show()
+        Retours_V2.ShowDialog()
     End Sub
 
     Private Sub HistoriqueDesRetoursToolStripMenuItem_Click(sender As Object, e As EventArgs)
@@ -52,7 +50,8 @@
 
     'FONCTIONS-------------------------------------------------------------------------------------------------------
     Public Sub role(role As String)
-        MessageBox.Show("Un " & role & " vient de se connecter")
+        MessageBox.Show("Bonjour " & role & " !")
+        lNomUtilisateur.Text = role
     End Sub
 
     Private Sub OptionsToolStripMenuItem_Click(sender As Object, e As EventArgs)
@@ -63,6 +62,7 @@
         changement_visuel()
     End Sub
 
+    'Sert à changer le style visuel de l'application
     Private Sub changement_visuel()
         If styleVisuel = 0 Then
             pHaut.BackColor = ColorTranslator.FromHtml("#4b6584")
@@ -226,7 +226,7 @@
     End Sub
 
     Private Sub lMsFaireEmprunt_Click(sender As Object, e As EventArgs) Handles lMsFaireEmprunt.Click
-        MessageBox.Show("Faire un emprunt")
+        Prets_V2.ShowDialog()
     End Sub
 
     Private Sub lMsHistoriqueEmprunt_Click(sender As Object, e As EventArgs) Handles lMsHistoriqueEmprunt.Click
@@ -234,7 +234,7 @@
     End Sub
 
     Private Sub lMsFaireRetour_Click(sender As Object, e As EventArgs) Handles lMsFaireRetour.Click
-        MessageBox.Show("Faire un retour")
+        Retours_V2.ShowDialog()
     End Sub
 
     Private Sub lMsHistoriqueRetours_Click(sender As Object, e As EventArgs) Handles lMsHistoriqueRetours.Click
@@ -253,5 +253,13 @@
     Private Sub lDeconnection_Click(sender As Object, e As EventArgs) Handles lDeconnection.Click
         Connexion.Show()
         Me.Close()
+    End Sub
+
+    Private Sub lMsAdministration_Click(sender As Object, e As EventArgs) Handles lMsAdministration.Click
+        Administration.ShowDialog()
+    End Sub
+
+    Private Sub lMsEquipements_Click(sender As Object, e As EventArgs) Handles lMsEquipements.Click
+        GestionMateriel.ShowDialog()
     End Sub
 End Class

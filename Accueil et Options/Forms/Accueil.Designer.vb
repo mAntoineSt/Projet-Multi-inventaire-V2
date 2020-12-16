@@ -46,6 +46,8 @@ Partial Class Accueil
         Me.lMsConsulter = New System.Windows.Forms.Label()
         Me.lMsEmprunteur = New System.Windows.Forms.Label()
         Me.lMsOptions = New System.Windows.Forms.Label()
+        Me.lMsAdministration = New System.Windows.Forms.Label()
+        Me.lMsEquipements = New System.Windows.Forms.Label()
         Me.pHaut.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -64,7 +66,7 @@ Partial Class Accueil
         '
         Me.lNomUtilisateur.AutoSize = True
         Me.lNomUtilisateur.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.0!)
-        Me.lNomUtilisateur.Location = New System.Drawing.Point(534, 117)
+        Me.lNomUtilisateur.Location = New System.Drawing.Point(551, 118)
         Me.lNomUtilisateur.Name = "lNomUtilisateur"
         Me.lNomUtilisateur.Size = New System.Drawing.Size(114, 16)
         Me.lNomUtilisateur.TabIndex = 1
@@ -312,11 +314,35 @@ Partial Class Accueil
         Me.lMsOptions.TabIndex = 22
         Me.lMsOptions.Text = "Options"
         '
+        'lMsAdministration
+        '
+        Me.lMsAdministration.AutoSize = True
+        Me.lMsAdministration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lMsAdministration.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.0!)
+        Me.lMsAdministration.Location = New System.Drawing.Point(486, 38)
+        Me.lMsAdministration.Name = "lMsAdministration"
+        Me.lMsAdministration.Size = New System.Drawing.Size(109, 18)
+        Me.lMsAdministration.TabIndex = 23
+        Me.lMsAdministration.Text = "Administration"
+        '
+        'lMsEquipements
+        '
+        Me.lMsEquipements.AutoSize = True
+        Me.lMsEquipements.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lMsEquipements.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.0!)
+        Me.lMsEquipements.Location = New System.Drawing.Point(382, 38)
+        Me.lMsEquipements.Name = "lMsEquipements"
+        Me.lMsEquipements.Size = New System.Drawing.Size(98, 18)
+        Me.lMsEquipements.TabIndex = 24
+        Me.lMsEquipements.Text = "Équipements"
+        '
         'Accueil
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(799, 530)
+        Me.Controls.Add(Me.lMsEquipements)
+        Me.Controls.Add(Me.lMsAdministration)
         Me.Controls.Add(Me.lMsOptions)
         Me.Controls.Add(Me.lMsEmprunteur)
         Me.Controls.Add(Me.lMsConsulter)
@@ -374,4 +400,6 @@ Partial Class Accueil
     Friend WithEvents lMsConsulter As Label
     Friend WithEvents lMsEmprunteur As Label
     Friend WithEvents lMsOptions As Label
+    Friend WithEvents lMsAdministration As Label
+    Friend WithEvents lMsEquipements As Label
 End Class

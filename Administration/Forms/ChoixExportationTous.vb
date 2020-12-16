@@ -12,11 +12,6 @@
         Me.Close()
     End Sub
 
-    Private Sub bPdf_Click(sender As Object, e As EventArgs) Handles bPdf.Click
-        Administration.exportationTousStatistiques(3)
-        Me.Close()
-    End Sub
-
     Private Sub choixExportationTous_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If visuel = 0 Then
             pHaut.BackColor = ColorTranslator.FromHtml("#4b6584")
@@ -25,10 +20,8 @@
             lTitre.ForeColor = Color.Black
             bCSV.ForeColor = Color.Black
             bDoc.ForeColor = Color.Black
-            bPdf.ForeColor = Color.Black
             bCSV.BackColor = ColorTranslator.FromHtml("#4d73a1")
             bDoc.BackColor = ColorTranslator.FromHtml("#4d73a1")
-            bPdf.BackColor = ColorTranslator.FromHtml("#4d73a1")
         Else
             pHaut.BackColor = ColorTranslator.FromHtml("#252926")
             pBas.BackColor = ColorTranslator.FromHtml("#252926")
@@ -36,10 +29,8 @@
             lTitre.ForeColor = Color.White
             bCSV.ForeColor = Color.White
             bDoc.ForeColor = Color.White
-            bPdf.ForeColor = Color.White
             bCSV.BackColor = ColorTranslator.FromHtml("#747d8c")
             bDoc.BackColor = ColorTranslator.FromHtml("#747d8c")
-            bPdf.BackColor = ColorTranslator.FromHtml("#747d8c")
         End If
     End Sub
 

@@ -108,7 +108,10 @@ Public Class Gestion_Preteurs
         End If
     End Sub
 
-    Private Sub Gestion_Preteurs_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+    Private Sub bDroitsPreteur_Click(sender As Object, e As EventArgs) Handles bDroitsPreteur.Click
+        If MessageBox.Show("Voulez-vous vraiment enlever les droits à ce prêteur?", "Droits à retirer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+            MessageBox.Show("Droits enlevées !", "Droits retirées au prêteur", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            'Code pour enlever ou retirer ses droits
+        End If
     End Sub
 End Class

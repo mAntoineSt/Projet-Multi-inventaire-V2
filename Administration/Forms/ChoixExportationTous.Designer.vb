@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class choixExportationTous
     Inherits System.Windows.Forms.Form
 
     'Form remplace la méthode Dispose pour nettoyer la liste des composants.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class choixExportationTous
     'REMARQUE : la procédure suivante est requise par le Concepteur Windows Form
     'Elle peut être modifiée à l'aide du Concepteur Windows Form.  
     'Ne la modifiez pas à l'aide de l'éditeur de code.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.bCSV = New System.Windows.Forms.Button()
@@ -31,14 +31,13 @@ Partial Class choixExportationTous
         Me.pBas = New System.Windows.Forms.Panel()
         Me.lTitre = New System.Windows.Forms.Label()
         Me.bDoc = New System.Windows.Forms.Button()
-        Me.bPdf = New System.Windows.Forms.Button()
         Me.pHaut.SuspendLayout()
         Me.SuspendLayout()
         '
         'bCSV
         '
         Me.bCSV.Font = New System.Drawing.Font("Arial Rounded MT Bold", 13.0!)
-        Me.bCSV.Location = New System.Drawing.Point(15, 119)
+        Me.bCSV.Location = New System.Drawing.Point(40, 119)
         Me.bCSV.Name = "bCSV"
         Me.bCSV.Size = New System.Drawing.Size(120, 52)
         Me.bCSV.TabIndex = 0
@@ -100,29 +99,18 @@ Partial Class choixExportationTous
         'bDoc
         '
         Me.bDoc.Font = New System.Drawing.Font("Arial Rounded MT Bold", 13.0!)
-        Me.bDoc.Location = New System.Drawing.Point(141, 119)
+        Me.bDoc.Location = New System.Drawing.Point(241, 119)
         Me.bDoc.Name = "bDoc"
         Me.bDoc.Size = New System.Drawing.Size(120, 52)
         Me.bDoc.TabIndex = 4
         Me.bDoc.Text = "En .DOC"
         Me.bDoc.UseVisualStyleBackColor = True
         '
-        'bPdf
-        '
-        Me.bPdf.Font = New System.Drawing.Font("Arial Rounded MT Bold", 13.0!)
-        Me.bPdf.Location = New System.Drawing.Point(266, 119)
-        Me.bPdf.Name = "bPdf"
-        Me.bPdf.Size = New System.Drawing.Size(120, 52)
-        Me.bPdf.TabIndex = 5
-        Me.bPdf.Text = "En .PDF"
-        Me.bPdf.UseVisualStyleBackColor = True
-        '
         'choixExportationTous
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(400, 220)
-        Me.Controls.Add(Me.bPdf)
         Me.Controls.Add(Me.bDoc)
         Me.Controls.Add(Me.lTitre)
         Me.Controls.Add(Me.pBas)
@@ -147,5 +135,4 @@ Partial Class choixExportationTous
     Friend WithEvents lQuitter As Label
     Friend WithEvents lTitre As Label
     Friend WithEvents bDoc As Button
-    Friend WithEvents bPdf As Button
 End Class

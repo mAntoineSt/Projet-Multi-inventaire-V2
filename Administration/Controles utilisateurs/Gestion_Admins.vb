@@ -110,4 +110,11 @@ Public Class Gestion_Admins
         End If
 
     End Sub
+
+    Private Sub bDroitsAdmins_Click(sender As Object, e As EventArgs) Handles bDroitsAdmins.Click
+        If MessageBox.Show("Voulez-vous vraiment enlever les droits à cet administrateur?", "Droits à retirer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+            MessageBox.Show("Droits enlevées !", "Droits retirées à l'administrateur", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            'Code pour enlever ou retirer ses droits
+        End If
+    End Sub
 End Class

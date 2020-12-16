@@ -313,7 +313,7 @@ Public Class EnregistrementMateriel
         btnEnrMat_Photo.Enabled = True
     End Sub
 
-    Public Function ValidationEtatMat() As Boolean
+    Public Function ValidationEnrgMateriel() As Boolean
         Dim validForm As Boolean = False
 
         Dim validMarque As Boolean = False
@@ -490,7 +490,7 @@ Public Class EnregistrementMateriel
             btnEnrMat_Ajout.Text = "Enregistrer"
             btnEnrMat_Modif.Enabled = False
         ElseIf btnEnrMat_Ajout.Enabled = True And String.Compare(btnEnrMat_Ajout.Text, "Enregistrer") = 0 Then
-            If (ValidationEtatMat() = True) Then
+            If (ValidationEnrgMateriel() = True) Then
                 MessageBox_Enregistrer(e)
             End If
 
@@ -507,7 +507,7 @@ Public Class EnregistrementMateriel
             btnEnrMat_Modif.Text = "Enregistrer"
             btnEnrMat_Ajout.Enabled = False
         ElseIf btnEnrMat_Modif.Enabled = True And String.Compare(btnEnrMat_Modif.Text, "Enregistrer") = 0 Then
-            If (ValidationEtatMat() = True) Then
+            If (ValidationEnrgMateriel() = True) Then
                 MessageBox_Modifier(e)
             End If
             InactiverChamps()

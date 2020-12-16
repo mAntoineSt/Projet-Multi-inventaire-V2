@@ -279,7 +279,7 @@ Public Class EtatMateriel
     End Sub
 
 
-    Public Function ValidationEtatMat(valeur) As Boolean
+    Public Function ValidationEtatMat() As Boolean
         Dim validForm As Boolean = False
 
         Dim validEtatGen As Boolean = False
@@ -356,7 +356,7 @@ Public Class EtatMateriel
             validBoitier = False
         End If
 
-        If (validation.ValidStringTousCaractere_Null(valeur) = True) Then
+        If (validation.ValidStringTousCaractere_Null(rtxEtatMat_Notes.Text) = True) Then
             notes = rtxEtatMat_Notes.Text
             validNotes = True
         Else
@@ -456,7 +456,7 @@ Public Class EtatMateriel
             btnEtatMat_Ajout.Text = "Enregistrer"
             btnEtatMat_Modif.Enabled = False
         ElseIf btnEtatMat_Ajout.Enabled = True And String.Compare(btnEtatMat_Ajout.Text, "Enregistrer") = 0 Then
-            If (ValidationEtatMat("weqwe") = True) Then
+            If (ValidationEtatMat() = True) Then
                 MessageBox_Enregistrer(e)
             End If
             reinitCouleur()
@@ -472,7 +472,7 @@ Public Class EtatMateriel
             btnEtatMat_Modif.Text = "Enregistrer"
             btnEtatMat_Ajout.Enabled = False
         ElseIf btnEtatMat_Modif.Enabled = True And String.Compare(btnEtatMat_Modif.Text, "Enregistrer") = 0 Then
-            If (ValidationEtatMat("qwee") = True) Then
+            If (ValidationEtatMat() = True) Then
                 MessageBox_Modifier(e)
             End If
             reinitCouleur()

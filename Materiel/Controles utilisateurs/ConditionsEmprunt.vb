@@ -38,6 +38,7 @@ Public Class ConditionsEmprunt
         If VerificationCondition_Existe(idEquipement, idCondEmprunt) = True Then
             MsgBox("Cette condition existe déjà pour cet appareil, impossible de l'ajouter à nouveau.", 48, "Erreur, Ajout de Condition")
         ElseIf VerificationCondition_Existe(idEquipement, idCondEmprunt) = False Then
+            MsgBox("qeweryt")
             cmdInsertCondEmprunt.CommandText = reqCondEmprunt
             bd.Prepare_InsDelUpd(reqCondEmprunt, cmdInsertCondEmprunt, connectionBD)
         End If
@@ -212,10 +213,10 @@ Public Class ConditionsEmprunt
     End Sub
 
 
-    Public Function ValidationCondition() As Boolean
+    Public Function ValidationCondition(rechCond As String) As Boolean
         Dim rechValide As Boolean = False
-        If (validation.ValidStringSimple(txtCondEmp_RechCond.Text) = True) Then
-            condRecherche = txtCondEmp_RechCond.Text
+        If (validation.ValidStringSimple(rechCond) = True) Then
+            condRecherche = rechCond
             rechValide = True
         Else
             txtCondEmp_RechCond.Text = "* Entrée non-valide."
@@ -359,7 +360,7 @@ Public Class ConditionsEmprunt
     Private Sub BtnCondEmp_RechCond_Click(sender As Object, e As EventArgs) Handles btnCondEmp_RechCond.Click
         If btnCondEmp_RechCond.Enabled = True And String.Compare(btnCondEmp_RechCond.Text, "Recherche") = 0 Then
             lsvCondEmp_RechCond.Items.Clear()
-            If (ValidationCondition() = True) Then
+            If (ValidationCondition(txtCondEmp_RechCond.Text) = True) Then
                 RechercheCondition()
             End If
             btnCondEmp_RechCond.Text = "Renouveler"

@@ -219,21 +219,48 @@ Public Class EtatMateriel
         If readerMateriel.HasRows Then
             readerMateriel.Read()
 
-            'BUG--> iF DBNull, ca plante, il faut s'assurer que les readers ne sont pas null;
-            txtEtatMat_Materiel.Text = readerMateriel("marqueModele")
-            dtpEtatMat_Date.Value = Convert.ToDateTime(readerMateriel("date_inspection"))
-            txtEtatMat_Emprunt.Text = readerMateriel("id_emprunt")
-            txtEtatMat_EtatGen.Text = readerMateriel("itemCout_EtatGeneral")
-            txtEtatMat_Boitier.Text = readerMateriel("itemCout_Boitier") 'BUG-->: 'La conversion du type 'DBNull' en type 'String' n'est pas valide.'
-            txtEtatMat_Electro.Text = readerMateriel("itemCout_Electronique")
-            txtEtatMat_Moteur.Text = readerMateriel("itemCout_Moteur")
-            txtEtatMat_Cablage.Text = readerMateriel("itemCout_Cablage")
-            txtEtatMat_Logiciel.Text = readerMateriel("itemCout_Logiciel")
-            txtEtatMat_Eau.Text = readerMateriel("itemCout_Eau")
-            rtxEtatMat_Notes.Text = readerMateriel("note")
+
+
+            If Not IsDBNull(readerMateriel("marqueModele")) Then
+                txtEtatMat_Materiel.Text = readerMateriel("marqueModele")
+            End If
+            If Not IsDBNull(readerMateriel("date_inspection")) Then
+                dtpEtatMat_Date.Value = Convert.ToDateTime(readerMateriel("date_inspection"))
+            End If
+            If Not IsDBNull(readerMateriel("id_emprunt")) Then
+                txtEtatMat_Emprunt.Text = readerMateriel("id_emprunt")
+            End If
+            If Not IsDBNull(readerMateriel("itemCout_EtatGeneral")) Then
+                txtEtatMat_EtatGen.Text = readerMateriel("itemCout_EtatGeneral")
+            End If
+            If Not IsDBNull(readerMateriel("itemCout_Boitier")) Then
+                txtEtatMat_Boitier.Text = readerMateriel("itemCout_Boitier")
+            End If
+            If Not IsDBNull(readerMateriel("itemCout_Electronique")) Then
+                txtEtatMat_Electro.Text = readerMateriel("itemCout_Electronique")
+            End If
+            If Not IsDBNull(readerMateriel("itemCout_Moteur")) Then
+                txtEtatMat_Moteur.Text = readerMateriel("itemCout_Moteur")
+            End If
+
+            If Not IsDBNull(readerMateriel("itemCout_Cablage")) Then
+                txtEtatMat_Cablage.Text = readerMateriel("itemCout_Cablage")
+            End If
+
+            If Not IsDBNull(readerMateriel("itemCout_Logiciel")) Then
+                txtEtatMat_Logiciel.Text = readerMateriel("itemCout_Logiciel")
+            End If
+
+            If Not IsDBNull(readerMateriel("itemCout_Eau")) Then
+                txtEtatMat_Eau.Text = readerMateriel("itemCout_Eau")
+            End If
+
+            If Not IsDBNull(readerMateriel("note")) Then
+                rtxEtatMat_Notes.Text = readerMateriel("note")
+            End If
 
         End If
-        connectionBD.Close()
+            connectionBD.Close()
     End Sub
 
     Public Sub ViderChamps()

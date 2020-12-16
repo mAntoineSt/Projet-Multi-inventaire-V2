@@ -32,12 +32,12 @@ Partial Class EntretienReparation
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.dgvEntRep_cboRechEmprunt = New System.Windows.Forms.ComboBox()
         Me.TableLayoutPanel6 = New System.Windows.Forms.TableLayoutPanel()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.dgvEntRep_txtRechEmprunt = New System.Windows.Forms.TextBox()
+        Me.dgvEntRep_btnRechEmprunt = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.dgvEntRep_ListeEmprunts = New System.Windows.Forms.DataGridView()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.btnEntRep_Modif = New System.Windows.Forms.Button()
         Me.btnEntRep_Ajout = New System.Windows.Forms.Button()
@@ -71,7 +71,7 @@ Partial Class EntretienReparation
         Me.TableLayoutPanel5.SuspendLayout()
         Me.TableLayoutPanel6.SuspendLayout()
         Me.Panel3.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvEntRep_ListeEmprunts, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel3.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -129,7 +129,7 @@ Partial Class EntretienReparation
         Me.TabPage2.Location = New System.Drawing.Point(4, 32)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(287, 478)
+        Me.TabPage2.Size = New System.Drawing.Size(361, 478)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Historique "
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -141,7 +141,7 @@ Partial Class EntretienReparation
         Me.dgvEntRep_ListeRepEnt.Location = New System.Drawing.Point(3, 3)
         Me.dgvEntRep_ListeRepEnt.Name = "dgvEntRep_ListeRepEnt"
         Me.dgvEntRep_ListeRepEnt.RowHeadersWidth = 10
-        Me.dgvEntRep_ListeRepEnt.Size = New System.Drawing.Size(281, 472)
+        Me.dgvEntRep_ListeRepEnt.Size = New System.Drawing.Size(355, 472)
         Me.dgvEntRep_ListeRepEnt.TabIndex = 5
         '
         'TabPage3
@@ -151,7 +151,7 @@ Partial Class EntretienReparation
         Me.TabPage3.Location = New System.Drawing.Point(4, 32)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(287, 478)
+        Me.TabPage3.Size = New System.Drawing.Size(361, 478)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Emprunts"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -168,7 +168,7 @@ Partial Class EntretienReparation
         Me.TableLayoutPanel4.RowCount = 2
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(281, 96)
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(355, 96)
         Me.TableLayoutPanel4.TabIndex = 1
         '
         'TableLayoutPanel5
@@ -177,13 +177,13 @@ Partial Class EntretienReparation
         Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.63636!))
         Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.36364!))
         Me.TableLayoutPanel5.Controls.Add(Me.Label8, 0, 0)
-        Me.TableLayoutPanel5.Controls.Add(Me.ComboBox1, 1, 0)
+        Me.TableLayoutPanel5.Controls.Add(Me.dgvEntRep_cboRechEmprunt, 1, 0)
         Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel5.Location = New System.Drawing.Point(3, 3)
         Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
         Me.TableLayoutPanel5.RowCount = 1
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel5.Size = New System.Drawing.Size(275, 42)
+        Me.TableLayoutPanel5.Size = New System.Drawing.Size(349, 42)
         Me.TableLayoutPanel5.TabIndex = 0
         '
         'Label8
@@ -192,70 +192,70 @@ Partial Class EntretienReparation
         Me.Label8.AutoSize = True
         Me.Label8.Location = New System.Drawing.Point(3, 11)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(113, 20)
+        Me.Label8.Size = New System.Drawing.Size(146, 20)
         Me.Label8.TabIndex = 0
         Me.Label8.Text = "Recherche Par:"
         '
-        'ComboBox1
+        'dgvEntRep_cboRechEmprunt
         '
-        Me.ComboBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Emprunteur", "Date Emprunt", "Date Retour"})
-        Me.ComboBox1.Location = New System.Drawing.Point(122, 10)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(150, 28)
-        Me.ComboBox1.TabIndex = 1
+        Me.dgvEntRep_cboRechEmprunt.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dgvEntRep_cboRechEmprunt.FormattingEnabled = True
+        Me.dgvEntRep_cboRechEmprunt.Items.AddRange(New Object() {"Emprunteur", "Date Emprunt", "Date Retour"})
+        Me.dgvEntRep_cboRechEmprunt.Location = New System.Drawing.Point(155, 7)
+        Me.dgvEntRep_cboRechEmprunt.Name = "dgvEntRep_cboRechEmprunt"
+        Me.dgvEntRep_cboRechEmprunt.Size = New System.Drawing.Size(191, 28)
+        Me.dgvEntRep_cboRechEmprunt.TabIndex = 1
         '
         'TableLayoutPanel6
         '
         Me.TableLayoutPanel6.ColumnCount = 2
         Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 79.27273!))
         Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.72727!))
-        Me.TableLayoutPanel6.Controls.Add(Me.TextBox1, 0, 0)
-        Me.TableLayoutPanel6.Controls.Add(Me.Button1, 1, 0)
+        Me.TableLayoutPanel6.Controls.Add(Me.dgvEntRep_txtRechEmprunt, 0, 0)
+        Me.TableLayoutPanel6.Controls.Add(Me.dgvEntRep_btnRechEmprunt, 1, 0)
         Me.TableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel6.Location = New System.Drawing.Point(3, 51)
         Me.TableLayoutPanel6.Name = "TableLayoutPanel6"
         Me.TableLayoutPanel6.RowCount = 1
         Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel6.Size = New System.Drawing.Size(275, 42)
+        Me.TableLayoutPanel6.Size = New System.Drawing.Size(349, 42)
         Me.TableLayoutPanel6.TabIndex = 1
         '
-        'TextBox1
+        'dgvEntRep_txtRechEmprunt
         '
-        Me.TextBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox1.Location = New System.Drawing.Point(3, 7)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(212, 27)
-        Me.TextBox1.TabIndex = 1
+        Me.dgvEntRep_txtRechEmprunt.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dgvEntRep_txtRechEmprunt.Location = New System.Drawing.Point(3, 7)
+        Me.dgvEntRep_txtRechEmprunt.Name = "dgvEntRep_txtRechEmprunt"
+        Me.dgvEntRep_txtRechEmprunt.Size = New System.Drawing.Size(270, 27)
+        Me.dgvEntRep_txtRechEmprunt.TabIndex = 1
         '
-        'Button1
+        'dgvEntRep_btnRechEmprunt
         '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.Location = New System.Drawing.Point(221, 4)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(51, 33)
-        Me.Button1.TabIndex = 2
-        Me.Button1.Text = "OK"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.dgvEntRep_btnRechEmprunt.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dgvEntRep_btnRechEmprunt.Location = New System.Drawing.Point(279, 4)
+        Me.dgvEntRep_btnRechEmprunt.Name = "dgvEntRep_btnRechEmprunt"
+        Me.dgvEntRep_btnRechEmprunt.Size = New System.Drawing.Size(67, 33)
+        Me.dgvEntRep_btnRechEmprunt.TabIndex = 2
+        Me.dgvEntRep_btnRechEmprunt.Text = "OK"
+        Me.dgvEntRep_btnRechEmprunt.UseVisualStyleBackColor = True
         '
         'Panel3
         '
-        Me.Panel3.Controls.Add(Me.DataGridView1)
+        Me.Panel3.Controls.Add(Me.dgvEntRep_ListeEmprunts)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel3.Location = New System.Drawing.Point(3, 102)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(281, 373)
+        Me.Panel3.Size = New System.Drawing.Size(355, 373)
         Me.Panel3.TabIndex = 0
         '
-        'DataGridView1
+        'dgvEntRep_ListeEmprunts
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(281, 373)
-        Me.DataGridView1.TabIndex = 0
+        Me.dgvEntRep_ListeEmprunts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvEntRep_ListeEmprunts.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgvEntRep_ListeEmprunts.Location = New System.Drawing.Point(0, 0)
+        Me.dgvEntRep_ListeEmprunts.Name = "dgvEntRep_ListeEmprunts"
+        Me.dgvEntRep_ListeEmprunts.Size = New System.Drawing.Size(355, 373)
+        Me.dgvEntRep_ListeEmprunts.TabIndex = 0
         '
         'TableLayoutPanel3
         '
@@ -356,7 +356,7 @@ Partial Class EntretienReparation
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(3, 11)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(156, 20)
+        Me.Label1.Size = New System.Drawing.Size(155, 20)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Matériel"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -368,7 +368,7 @@ Partial Class EntretienReparation
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(3, 53)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(156, 20)
+        Me.Label2.Size = New System.Drawing.Size(155, 20)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Date"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -380,7 +380,7 @@ Partial Class EntretienReparation
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(3, 95)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(156, 20)
+        Me.Label3.Size = New System.Drawing.Size(155, 20)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Élément"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -392,7 +392,7 @@ Partial Class EntretienReparation
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(3, 137)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(156, 20)
+        Me.Label4.Size = New System.Drawing.Size(155, 20)
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "Montant"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -404,7 +404,7 @@ Partial Class EntretienReparation
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(3, 179)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(156, 20)
+        Me.Label5.Size = New System.Drawing.Size(155, 20)
         Me.Label5.TabIndex = 4
         Me.Label5.Text = "Statut"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -416,7 +416,7 @@ Partial Class EntretienReparation
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(3, 221)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(156, 20)
+        Me.Label6.Size = New System.Drawing.Size(155, 20)
         Me.Label6.TabIndex = 5
         Me.Label6.Text = "Emprunt (optionnel)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -430,7 +430,7 @@ Partial Class EntretienReparation
         Me.Label7.Location = New System.Drawing.Point(3, 267)
         Me.Label7.Margin = New System.Windows.Forms.Padding(3, 15, 3, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(156, 20)
+        Me.Label7.Size = New System.Drawing.Size(155, 20)
         Me.Label7.TabIndex = 6
         Me.Label7.Text = "Notes"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -438,33 +438,33 @@ Partial Class EntretienReparation
         'txtEntRep_Materiel
         '
         Me.txtEntRep_Materiel.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtEntRep_Materiel.Location = New System.Drawing.Point(165, 8)
+        Me.txtEntRep_Materiel.Location = New System.Drawing.Point(164, 8)
         Me.txtEntRep_Materiel.Name = "txtEntRep_Materiel"
-        Me.txtEntRep_Materiel.Size = New System.Drawing.Size(314, 26)
+        Me.txtEntRep_Materiel.Size = New System.Drawing.Size(315, 26)
         Me.txtEntRep_Materiel.TabIndex = 7
         '
         'dtpEntRep_Date
         '
         Me.dtpEntRep_Date.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dtpEntRep_Date.Location = New System.Drawing.Point(165, 50)
+        Me.dtpEntRep_Date.Location = New System.Drawing.Point(164, 50)
         Me.dtpEntRep_Date.Name = "dtpEntRep_Date"
-        Me.dtpEntRep_Date.Size = New System.Drawing.Size(314, 26)
+        Me.dtpEntRep_Date.Size = New System.Drawing.Size(315, 26)
         Me.dtpEntRep_Date.TabIndex = 8
         '
         'txtEntRep_Element
         '
         Me.txtEntRep_Element.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtEntRep_Element.Location = New System.Drawing.Point(165, 92)
+        Me.txtEntRep_Element.Location = New System.Drawing.Point(164, 92)
         Me.txtEntRep_Element.Name = "txtEntRep_Element"
-        Me.txtEntRep_Element.Size = New System.Drawing.Size(314, 26)
+        Me.txtEntRep_Element.Size = New System.Drawing.Size(315, 26)
         Me.txtEntRep_Element.TabIndex = 9
         '
         'txtEntRep_Montant
         '
         Me.txtEntRep_Montant.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtEntRep_Montant.Location = New System.Drawing.Point(165, 134)
+        Me.txtEntRep_Montant.Location = New System.Drawing.Point(164, 134)
         Me.txtEntRep_Montant.Name = "txtEntRep_Montant"
-        Me.txtEntRep_Montant.Size = New System.Drawing.Size(314, 26)
+        Me.txtEntRep_Montant.Size = New System.Drawing.Size(315, 26)
         Me.txtEntRep_Montant.TabIndex = 10
         '
         'TableLayoutPanel2
@@ -475,11 +475,11 @@ Partial Class EntretienReparation
         Me.TableLayoutPanel2.Controls.Add(Me.rbtEntRep_Statut_Rep, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.rbtEntRep_Statut_Ent, 1, 0)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(165, 171)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(164, 171)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(314, 36)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(315, 36)
         Me.TableLayoutPanel2.TabIndex = 11
         '
         'rbtEntRep_Statut_Rep
@@ -502,7 +502,7 @@ Partial Class EntretienReparation
         Me.rbtEntRep_Statut_Ent.Location = New System.Drawing.Point(172, 6)
         Me.rbtEntRep_Statut_Ent.Margin = New System.Windows.Forms.Padding(15, 3, 3, 3)
         Me.rbtEntRep_Statut_Ent.Name = "rbtEntRep_Statut_Ent"
-        Me.rbtEntRep_Statut_Ent.Size = New System.Drawing.Size(139, 24)
+        Me.rbtEntRep_Statut_Ent.Size = New System.Drawing.Size(140, 24)
         Me.rbtEntRep_Statut_Ent.TabIndex = 1
         Me.rbtEntRep_Statut_Ent.TabStop = True
         Me.rbtEntRep_Statut_Ent.Text = "Entretien"
@@ -511,17 +511,17 @@ Partial Class EntretienReparation
         'txtEntRep_Emprunt
         '
         Me.txtEntRep_Emprunt.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtEntRep_Emprunt.Location = New System.Drawing.Point(165, 218)
+        Me.txtEntRep_Emprunt.Location = New System.Drawing.Point(164, 218)
         Me.txtEntRep_Emprunt.Name = "txtEntRep_Emprunt"
-        Me.txtEntRep_Emprunt.Size = New System.Drawing.Size(314, 26)
+        Me.txtEntRep_Emprunt.Size = New System.Drawing.Size(315, 26)
         Me.txtEntRep_Emprunt.TabIndex = 12
         '
         'rtxEntRep_Note
         '
         Me.rtxEntRep_Note.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.rtxEntRep_Note.Location = New System.Drawing.Point(165, 255)
+        Me.rtxEntRep_Note.Location = New System.Drawing.Point(164, 255)
         Me.rtxEntRep_Note.Name = "rtxEntRep_Note"
-        Me.rtxEntRep_Note.Size = New System.Drawing.Size(314, 134)
+        Me.rtxEntRep_Note.Size = New System.Drawing.Size(315, 134)
         Me.rtxEntRep_Note.TabIndex = 13
         Me.rtxEntRep_Note.Text = ""
         '
@@ -545,7 +545,7 @@ Partial Class EntretienReparation
         Me.TableLayoutPanel6.ResumeLayout(False)
         Me.TableLayoutPanel6.PerformLayout()
         Me.Panel3.ResumeLayout(False)
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvEntRep_ListeEmprunts, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel3.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.TableLayoutPanel1.ResumeLayout(False)
@@ -588,10 +588,10 @@ Partial Class EntretienReparation
     Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
     Friend WithEvents TableLayoutPanel5 As TableLayoutPanel
     Friend WithEvents Label8 As Label
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents dgvEntRep_cboRechEmprunt As ComboBox
+    Friend WithEvents dgvEntRep_txtRechEmprunt As TextBox
     Friend WithEvents Panel3 As Panel
     Friend WithEvents TableLayoutPanel6 As TableLayoutPanel
-    Friend WithEvents Button1 As Button
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents dgvEntRep_btnRechEmprunt As Button
+    Friend WithEvents dgvEntRep_ListeEmprunts As DataGridView
 End Class
